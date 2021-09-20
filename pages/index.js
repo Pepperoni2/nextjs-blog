@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Date from '../components/date'
 
 export default function Home(){
-  
+  return(
 <!DOCTYPE html>
 <html lang="en">
 <Head> 
@@ -82,5 +82,6 @@ export default function Home(){
         </footer>
     </div>
 </body>
+    )
 }
             
