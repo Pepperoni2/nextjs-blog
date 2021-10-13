@@ -1,84 +1,100 @@
-import Link from 'next/link'
 import Head from 'next/head'
+import Link from 'next/link'
+import favicon from '../public/favicon.ico'
 
-export default function Home(){
-  return(
-<>
-<Head> 
-  <title>Eventx</title>
-  <link rel="icon" href=
-</Head>
+export default function Home() {
+  return (
+    <>
+      <Head>
+        <title>Eventx</title>
+        <link rel="icon" type="image/x-icon" href={favicon.src} />
+      </Head>
 
-<body>
-    <div id="wrapper">
-
+      <div id="wrapper">
         <nav id="nav">
-        <div id="wrpnav">
+          <div id="wrpnav">
             <div id="wrph1">
-                <div id="wrplh">
-                    <div id="logo"></div>
-                    <h1><a href="#">Event-Manager</a></h1>
-                </div>
-                
-                <span class="h1aspan"></span>
-            </div>
-        
-            <div id="wrpbt">
-                
-               <div id="Popup">
-                <div id="flexPop">
-                <button class="bt" >Home</button>
-                <button class="bt" >Impressum</button>
-                <button class="bt" >Login</button>
-                 </div>
-               </div>  
-               
- 
-            </div>
-            
-        </div>
-       
-        
-        </nav>
-        
-        <main id="main">
-            <div id="mainbackgr"></div>
-            <div id="p-div">
-                
-                <p id="p1">
 
-                Vielseitige <i>Eventplannung!</i>
-                
-                </p>
-               
-                <button onclick="">Mehr erfahren</button>
+              <div id="wrplh">
+                <div id="logo"></div>
+                <Link href="#">
+                  <a>Event<b>X</b></a>
+                </Link>
+              </div>
             </div>
-           
+
+
+            <div id="wrpbt">
+
+              <div id="Popup">
+                <div id="flexPop">
+
+                  <button className="bt">Home</button>
+                  <Link href="#">
+                    <button className="bt" onClick="#">About</button>
+                  </Link>
+
+                  <Link href="/_Login/login">
+                    <button className="bt"><a>Login</a></button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </nav>
+
+        <main id="main">
+          <div id="mainbackgr"></div>
+          <div id="p-div">
+
+            <p className="p1">
+
+              Vielseitige <i>Eventplannung!</i>
+
+            </p>
+            <Link href="#">
+              <button id="btMehr">Mehr erfahren</button>
+            </Link>
+          </div>
+
         </main>
-        <p id="p2">
-            Einfach und sicher Veranstaltungen plannen und teilen!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est quis facere error unde, ipsa totam omnis, corrupti a tenetur aspernatur natus delectus, rem voluptatum odit? Aspernatur dignissimos facere ut voluptates.               
-        </p>
-        <footer id="footer">
-        <div id="wrpfooter">
-            <div id="logo1"></div>
-                <li>
-                    Copyright 2021
-                </li>
-                
-                <li>
-                    <a href="#">Impressum</a>
-                </li>
-                
-                    
-                
-            
-            
+
+        <div id="wrppic">
+
+          <div id="pic1">
+            <p className="SchB">
+              <i>Sicherheit!</i>
+            </p>
+          </div>
+          <div id="pic2">
+            <p className="SchB">
+              <i>Ereignisse entdecken!</i>
+            </p>
+          </div>
+          <div id="pic3">
+            <p className="SchB">
+              <i>Erleben Sie Spaß!</i>
+            </p>
+          </div>
         </div>
+        <footer id="footer">
+          <div id="wrpfooter">
+            <div id="logo1" ></div>
+            <li>
+              Copyright 2021
+            </li>
+
+            <li>
+              <Link href="#">
+                <a>About</a>
+              </Link>
+            </li>
+          </div>
         </footer>
-    </div>
-</body>
-</>
-    )
+      </div>
+    </>
+
+  )
 }
-            
