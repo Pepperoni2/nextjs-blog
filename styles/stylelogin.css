@@ -1,0 +1,377 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+    padding: 0;
+} 
+#wrapper{
+  
+background-color: red;
+
+overflow: hidden;
+width: 100%;
+ 
+
+}
+@keyframes fading {
+	0% {background: rgb(31, 30, 29);}
+	33% {background: #251E21;}
+	77% {background: #948e90;}
+  100% {background: rgb(31, 30, 29);}
+}
+#check{
+  z-index: 99;
+  position: absolute;
+  display: none;
+ 
+}
+#lbcheck{
+  z-index: 99;
+  position: fixed;
+  width:max-content;
+  text-align: center;
+  
+  top: 1%;
+  left: 97%;
+  transform: translate(-50%);
+transition: all ease-in-out 0.3s;
+  
+  border: solid 1px white;
+  
+
+ 
+
+}
+#lbcheck:hover{
+  
+  
+  border-radius: 10px;
+}
+#lbcheck:active{
+  top:2px;
+  
+}
+#check:checked ~ .nav #wrph1 {
+  transform: translateX(-20vw);
+  
+ }
+ #check:checked ~ .nav #wrpbt {
+  transform: translateX(-20vw);
+  
+ }
+
+#check:checked ~ .nav {
+ opacity: 0;
+ transform: translateX(-10vw);
+}
+
+
+.nav{
+  overflow: hidden;
+  width: 10%;
+  height: 100vh;
+  position: fixed;
+  min-width: 120px;
+  opacity: 1;
+  top: 0;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+ background-color: rgba(47, 47, 47, 0.5);
+ 
+}
+
+#wrpnav{
+  
+
+display: flex;
+height: 100%;
+width: 100%;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+
+}
+#wrph1{
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+  width: 100%;
+  transition: all ease-in-out 0.4s;
+
+  justify-content: center;
+ 
+  align-items: center;
+  position: relative;
+}
+#wrplh{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all ease-in-out 0.5s;
+  justify-content: center;
+  align-items: center;
+  
+  
+ 
+}
+#logo{
+
+background-image: url(/Main/Pics/logo_large.png);
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;
+transition: all ease-in-out 0.5s;
+width: 100%;
+height: 15vh;   
+min-width: 40px;
+max-width: 80px;
+
+
+
+
+}
+#logo a{
+  height: 100%;
+  width: 100%;
+  
+}
+#wrplh a{
+  text-decoration: none;
+  color: #E97231;
+  cursor: pointer;
+  font-size: 2em;
+  
+  text-align: center;
+  font-family: 'Almarai', sans-serif;
+  width: 100%;
+  
+
+  
+}
+#wrpbt{
+  display: flex;
+  align-items: center;
+  transition: all ease-in-out 0.4s;
+
+  width: 100%;
+  height: 20%;
+  justify-content: center;
+  
+}
+
+.bt{
+ 
+  margin: 15% 0;
+  border: solid 1px #E8DBC9;
+
+  background-color: #E8DBC9;
+  font-weight: bolder;
+  text-decoration: none;
+  padding: 2vh;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+.bt:hover{
+color:#E8DBC9;
+background-color: rgba(47,47,47, 0.8);
+
+}
+#Popup{
+
+  width: 100%;
+  
+  display: flex;
+  justify-content: center;
+ 
+  transition: all ease 0.3s;
+  
+}
+#flexPop{
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+label{
+  color: white;
+  padding: 1%;
+  
+}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 70%;
+    background-color: transparent;
+    max-width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: none;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 15px;
+    transition: all 0.2s ease-in-out;
+    color: #E8DBC9;
+  }
+  input[type=text]:focus{
+    border-radius: 0px;
+    background-color: rgba(47,47,47, 0.3);
+  }
+  input[type=password]:focus{
+    border-radius: 0px;
+    background-color: rgba(47,47,47, 0.3);
+  }
+  input[type=text]::placeholder,input[type=password]::placeholder{
+    color: #E8DBC9;
+  }
+
+  .psw{
+    color: #E8DBC9;
+    
+    width: 100%;
+    
+    text-align: center;
+  }
+  .psw a{
+    color: #04AA6D;
+    
+    text-decoration: none;
+  }
+  .psw a:nth-child(2){
+    color: #E97231;
+    padding: .5%;
+    margin-left: 1%;
+    
+   
+    text-decoration: underline;
+  }
+  /* Set a style for all buttons */
+  #submit{
+    background-color: #E97231;
+    color: white;
+    
+
+    padding: 14px 20px;
+    margin: 8px 0;
+    width: 50%;
+    border: solid 1px #E8DBC9;
+    cursor: pointer;
+    transition: ease-in-out all 0.2s;
+    position: relative;
+    z-index: -1;
+    border-radius: 10px;
+  }
+  
+  #submit:hover{
+    
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+ 
+ 
+  .content-box:hover .nav{
+    background-color: red;
+  }
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    border-radius: 20px;
+  }
+  .container h1{
+    color: white;
+    
+
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    
+    z-index:2;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 700px;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    
+    animation: fading 25s infinite;
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+   
+  }
+  
+  /* Modal Content/Box */
+  .content-box {
+    background-color: rgba(0,0,0,0.4);
+    height: 60vh;
+    position: relative;
+    border: 1px solid #888;
+    width: 40%;
+    flex-direction: row;
+    display: flex;
+    border-radius: 20px;
+    
+
+  }
+  .content-box:nth-child(2){
+    transform: translateY(100vh);
+    display: none;
+
+  }
+  #img{
+    /*
+    background-image:url(/Main/Pics/pic3.jpg);
+    */
+    opacity: 0.2;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: 1;
+    border-radius: 20px;
+    
+  }
+  label:nth-child(6){/*Rember me*/
+    
+    box-sizing:content-box;
+    width:max-content;
+
+  }
+  input[type=checkbox]{
+    width:max-content;
+    width: 20px;
+    float: left;
+    
+  }
+  #remember1{
+    background-color: rgba(47,47,47, 0.3);
+    width: max-content;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    
+  }
+  #remember1:hover{
+    background-color: rgba(47,47,47, 0.6);
+  }
+  
+  @media only screen and (max-width: 690px){
+
+    
+
+  }
+  
