@@ -38,12 +38,14 @@ function Nav(props) {
     window.scrollBy(0, 300);
   }
 */
+
+
   return (
     <nav id="nav">
       <div id="wrpnav">
         <div id="wrph1">
           <div id="wrplh">
-            <div id="logo"></div>
+            <div id="logo" onClick={""}></div>
             <Link href="/">EventX</Link>
           </div>
         </div>
