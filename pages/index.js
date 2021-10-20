@@ -1,25 +1,34 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import favicon from '../public/favicon.ico'
+import { signIn, signOut, useSession } from 'next-auth/client'
 
 export default function Home() {
+  const [session, loading] = useSession();
   return (
-    <>
+    <div id="wrapper">
       <Head>
         <title>Eventx</title>
         <link rel="icon" type="image/x-icon" href={favicon.src} />
       </Head>
-
-      <div id="wrapper">
+      
         <nav id="nav">
           <div id="wrpnav">
             <div id="wrph1">
 
               <div id="wrplh">
                 <div id="logo"></div>
-                <Link href="#">
-                  <a>Event<b>X</b></a>
-                </Link>
+                {!session && (
+                  <>
+                    <Link href="/pages/signin">EventX</Link>
+                  </>
+                )}
+                {session && (
+                  <>
+                    <Link href="/pages/signin">EventX</Link>
+                    <br/>Angemeldet als{session.user.email}
+                  </>
+                )}
               </div>
             </div>
 
@@ -30,11 +39,11 @@ export default function Home() {
                 <div id="flexPop">
 
                   <button className="bt">Home</button>
-                  <Link href="#">
+                  <Link href="/">
                     <button className="bt" onClick="#">About</button>
                   </Link>
 
-                  <Link href="/_Login/login">
+                  <Link href="/signin">
                     <button className="bt"><a>Login</a></button>
                   </Link>
                 </div>
@@ -94,7 +103,5 @@ export default function Home() {
           </div>
         </footer>
       </div>
-    </>
-
-  )
+  );
 }
