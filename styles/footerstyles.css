@@ -1,0 +1,36 @@
+#footer{
+    height: 20vh;
+    width: 100%;
+    
+    background-color: #251E21;
+    transform: translateY(20vh);
+    }
+    #wrpfooter{
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        list-style: none;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        
+    }
+    #wrpfooter li{
+        margin: 15px;
+       
+    }
+    
+    #wrpfooter li a{
+        text-decoration: none;
+    }
+    #wrpfooter #logo1{
+    background-image: url(../Pics/logo_large.png);
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: contain;
+     
+     width: 50px;
+     height: 100%;
+     margin: 15px;
+    }

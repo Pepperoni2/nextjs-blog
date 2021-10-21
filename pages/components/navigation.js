@@ -1,5 +1,6 @@
 import Link from "next/dist/client/link";
 
+
 function Nav(props) {
 /*
     const mq = typeof window.matchMedia( "(max-width: 690px)" );
@@ -45,9 +46,9 @@ function Nav(props) {
       <div id="wrpnav">
         <div id="wrph1">
           <div id="wrplh">
-            <Link href="/"><div id="logo" onClick={""}></div></Link>
+            <Link href="/"><div id="logo"></div></Link>
             
-            <Link href="/">EventX</Link>
+            <Link href="/"><a>EventX</a></Link>
           </div>
         </div>
 

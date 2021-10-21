@@ -1,2 +1,2 @@
-const withImages = require('next-videos');
-module.exports=withImages()
+const withVideos = require('next-videos');
+module.exports=withVideos()
