@@ -1,16 +1,18 @@
-import Head from 'next/head'
+
 import React from 'react'
 import Link from 'next/link'
-import favicon from '../public/favicon.ico'
+
 import { signIn, signOut, useSession } from 'next-auth/client'
 //Front-end has added this:
 //import ReactPlayer from 'react-player'
 import Nav from './components/navigation'
 import Footer from './components/footer'
+import Header1 from './components/head'
 import { useState }from "react"
 import { Player } from 'video-react'
 import video from '/nextjs-blog/Vids/Concert_1630.mp4'
 import { FixedSizeList as List } from 'react-window';
+import Header from './components/head'
 //import {window} from 'window'
 
 
@@ -22,10 +24,7 @@ export default function Home() {
 */
   return (
     <div id="wrapper">
-      <Head>
-        <title>Eventx</title>
-        <link rel="icon" type="image/x-icon" href={favicon.src} />
-      </Head>
+     <Header1/>
       
         <Nav/>
         
