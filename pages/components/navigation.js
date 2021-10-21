@@ -45,7 +45,8 @@ function Nav(props) {
       <div id="wrpnav">
         <div id="wrph1">
           <div id="wrplh">
-            <div id="logo" onClick={""}></div>
+            <Link href="/"><div id="logo" onClick={""}></div></Link>
+            
             <Link href="/">EventX</Link>
           </div>
         </div>

@@ -18,7 +18,7 @@ import { FixedSizeList as List } from 'react-window';
 export default function Home() {
   const [session, loading] = useSession();
 /*
-  
+   
 */
   return (
     <div id="wrapper">
@@ -32,8 +32,8 @@ export default function Home() {
 
         <main id="main">
           <div id="mainbackgr"></div>
-          
-          <video autoPlay muted loop src={video} />
+          <video autoPlay muted loop src={video}/>
+        
           <div id="p-div">
 
             <p className="p1">
