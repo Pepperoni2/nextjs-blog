@@ -11,7 +11,7 @@ import Header1 from './components/head'
 import { useState }from "react"
 import { Player } from 'video-react'
 import video from '/nextjs-blog/Vids/Concert_1630.mp4'
-import { FixedSizeList as List } from 'react-window';
+import { FixedSizeList as List } from 'react-window'
 import Header from './components/head'
 //import {window} from 'window'
 

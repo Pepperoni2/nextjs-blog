@@ -4,13 +4,13 @@ import Link from 'next/link'
 import favicon from '../public/favicon.ico'
 
 export default function Login(params) {
+
+  
     return (
 
 <div id="wrapper">
   
 
-  
-  
   <nav class="nav">
     <div id="wrpnav">
         <div id="wrph1">
