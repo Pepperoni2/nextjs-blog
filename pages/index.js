@@ -1,61 +1,38 @@
-import Head from 'next/head'
+
+import React from 'react'
 import Link from 'next/link'
-import favicon from '../public/favicon.ico'
+
 import { signIn, signOut, useSession } from 'next-auth/client'
+//Front-end has added this:
+//import ReactPlayer from 'react-player'
+import Nav from './components/navigation'
+import Footer from './components/footer'
+import Header1 from './components/head'
+import { useState }from "react"
+import { Player } from 'video-react'
+import video from '/Vids/Concert_1630.mp4'
+import { FixedSizeList as List } from 'react-window'
+import Header from './components/head'
+//import {window} from 'window'
+
+
 
 export default function Home() {
   const [session, loading] = useSession();
+/*
+   
+*/
   return (
     <div id="wrapper">
-      <Head>
-        <title>Eventx</title>
-        <link rel="icon" type="image/x-icon" href={favicon.src} />
-      </Head>
+     <Header1/>
       
-        <nav id="nav">
-          <div id="wrpnav">
-            <div id="wrph1">
-
-              <div id="wrplh">
-                <div id="logo"></div>
-                {!session && (
-                  <>
-                    <Link href="/pages/signin">EventX</Link>
-                  </>
-                )}
-                {session && (
-                  <>
-                    <Link href="/pages/signin">EventX</Link>
-                    <br/>Angemeldet als{session.user.email}
-                  </>
-                )}
-              </div>
-            </div>
-
-
-            <div id="wrpbt">
-
-              <div id="Popup">
-                <div id="flexPop">
-
-                  <button className="bt">Home</button>
-                  <Link href="/">
-                    <button className="bt" onClick="#">About</button>
-                  </Link>
-
-                  <Link href="/signin">
-                    <button className="bt"><a>Login</a></button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </nav>
+        <Nav/>
+        
 
         <main id="main">
           <div id="mainbackgr"></div>
+          <video autoPlay muted loop src={video}/>
+        
           <div id="p-div">
 
             <p className="p1">
@@ -88,20 +65,8 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <footer id="footer">
-          <div id="wrpfooter">
-            <div id="logo1" ></div>
-            <li>
-              Copyright 2021
-            </li>
-
-            <li>
-              <Link href="#">
-                <a>About</a>
-              </Link>
-            </li>
-          </div>
-        </footer>
+        <Footer/>
+        
       </div>
   );
 }
