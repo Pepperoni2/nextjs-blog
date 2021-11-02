@@ -5,14 +5,14 @@ import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/client'
 //Front-end has added this:
 //import ReactPlayer from 'react-player'
-import Nav from './components/navigation'
-import Footer from './components/footer'
-import Header1 from './components/head'
+import Nav from '/components/navigation'
+import Footer from '/components/footer'
+import Header1 from '/components/head'
 import { useState }from "react"
 import { Player } from 'video-react'
 import video from '/Vids/Concert_1630.mp4'
 import { FixedSizeList as List } from 'react-window'
-import Header from './components/head'
+import Header from '/components/head'
 //import {window} from 'window'
 
 
