@@ -3,6 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 
 import { signIn, signOut, useSession } from 'next-auth/client'
+import { connectToDatabase } from '../util/mongodb'
 //Front-end has added this:
 //import ReactPlayer from 'react-player'
 import Nav from '/components/navigation'
@@ -17,8 +18,9 @@ import Header from '/components/head'
 
 
 
-export default function Home() {
-  const [session, loading] = useSession();
+export default function Home({properties}) {
+  const [session, loading] = useSession()
+  console.log(properties);
 /*
    
 */
@@ -27,23 +29,36 @@ export default function Home() {
      <Header1/>
       
         <Nav/>
-        
 
         <main id="main">
           <div id="mainbackgr"></div>
           <video autoPlay muted loop src={video}/>
-        
+        {!session && (
           <div id="p-div">
 
             <p className="p1">
 
-              Vielseitige <i>Eventplannung!</i>
+            Vielseitige <i>Eventplannung!</i>
 
             </p>
             <Link href="#">
-              <button id="btMehr">Mehr erfahren</button>
+            <button id="btMehr">Mehr erfahren</button>
             </Link>
           </div>
+        )}
+
+        {session &&(
+          <div id="p-div">
+
+            <p className="p1">
+
+            Signed in as <i></i>
+
+            </p>
+            
+          </div>
+        )}
+          
 
         </main>
 
@@ -69,4 +84,25 @@ export default function Home() {
         
       </div>
   );
+}
+
+export async function getServerSideProps(context){
+  const { db } = await connectToDatabase()
+
+  const data = await db.collection('users').find({}).limit(20).toArray();
+
+  const properties = JSON.parse(JSON.stringify(data));
+
+  const filtered = properties.map(property => {
+    return{
+      _id: property._id,
+      name: property.name,
+      email: property.email
+    }
+  })
+
+  return{
+    props: {properties: filtered},
+  }
+
 }

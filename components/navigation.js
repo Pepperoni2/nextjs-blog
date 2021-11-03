@@ -1,12 +1,12 @@
 import Link from "next/dist/client/link";
 import { signIn, signOut, useSession} from 'next-auth/client'
 
-function Nav(props) {
+export default function Nav(props) {
   /*
       const mq = typeof window.matchMedia( "(max-width: 690px)" );
   
     var prevScrollpos = window.pageYOffset;
-    
+
     window.onscroll = function() {scrollFunction()};
     
     function scrollFunction() {
@@ -41,14 +41,19 @@ function Nav(props) {
   */
 
   const [session, loading] = useSession()
+  
   return (
     <nav id="nav">
       <div id="wrpnav">
         <div id="wrph1">
           <div id="wrplh">
             <Link href="/"><div id="logo"></div></Link>
-
-            <Link href="/"><a>EventX</a></Link>
+            {!loading && !session && (
+              <Link href="/"><a>EventX</a></Link>
+            )}
+            {session && (
+              <Link href="/"><a>Signed in as {session ? `${session.user.name}` : ''}</a></Link>
+            )}
           </div>
         </div>
 
@@ -61,7 +66,7 @@ function Nav(props) {
                   About
                 </button>
               </Link>
-              
+
               {!loading && !session && (
                 <Link href='/api/auth/signin'>
                   <button className="bt">
@@ -96,7 +101,6 @@ function Nav(props) {
   );
 }
 
-export default Nav;
 
 /* -------------- DELETED CODE ------------
 
