@@ -61,8 +61,7 @@ function Nav(props) {
                   About
                 </button>
               </Link>
-
-
+              
               {!loading && !session && (
                 <Link href='/api/auth/signin'>
                   <button className="bt">
