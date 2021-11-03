@@ -2,7 +2,7 @@ import Head from 'next/head'
 import React from 'react'
 import Link from 'next/link'
 import favicon from '../public/favicon.ico'
-import NavLogin from '../components/navigation-login'
+import NavLogin from '../components/header-login'
 import Header1 from '/components/head'
 
 
@@ -40,7 +40,7 @@ export default function Login(params) {
         <button id="submit" type="submit">Login</button>
   
        
-        <label id="remember1" for="remember"> Remember me  <input type="checkbox" id="remember" name="remember" /></label>
+        <label id="remember1" for="remember"> Remember me<input type="checkbox" id="remember" name="remember" /></label>
         
   
       </div>

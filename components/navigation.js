@@ -2,6 +2,7 @@ import Link from "next/dist/client/link";
 import { signIn, signOut, useSession } from "next-auth/client";
 
 function Nav(props) {
+  /*
   const mq = typeof window.matchMedia("(max-width: 690px)");
 
   var prevScrollpos = window.pageYOffset;
@@ -45,7 +46,7 @@ function Nav(props) {
   function scrollWin() {
     window.scrollBy(0, 300);
   }
-
+  */
   const [session, loading] = useSession();
   return (
     <nav id="nav">
@@ -63,20 +64,20 @@ function Nav(props) {
         </div>
 
         <div id="wrpbt">
-          <div id="Popup-login">
-            <div id="flexPop-login">
+          <div id="Popup">
+            <div id="flexPop">
               <Link href="/">
-                <button className="bt-login">
+                <button className="bt">
                   <a>Home</a>
                 </button>
               </Link>
               <Link href="/">
-                <button className="bt-login">
+                <button className="bt">
                   <a>About</a>
                 </button>
               </Link>
               <Link href="/login">
-                <button className="bt-login">
+                <button className="bt">
                   <a>Login</a>
                 </button>
               </Link>
