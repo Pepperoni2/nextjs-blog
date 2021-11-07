@@ -52,7 +52,7 @@ export default function Home({properties}) {
 
             <p className="p1">
 
-            Signed in as <i></i>
+            Signed in as <i>{session ? `${session.user.name}` : ''}</i>
 
             </p>
             
