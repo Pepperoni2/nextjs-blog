@@ -1,25 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+
 $color-primary: hsl(212, 100%, 48%);
 $logo: url(/Pics/logo_large.png);
+
 .main {
-  background: lighten($color: #000000, $amount: 80%);
+  background-color: seagreen;
   width: 20vw;
   position: fixed;
   height: 100vh;
-  max-width: 250px;
+  overflow: hidden;
+  max-width: 180px;
   min-width: 150px;
-
-  .divlogo {
+  .divl {
     width: 100%;
     height: 20%;
-    background-color: $color-primary;
-    background-image: url(D:/nextjs-blog/Pics/logo_large.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    
-    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+
+    .divlogo {
+      width: 90%;
+      height: 90%;
+
+      background-image: url(D:/nextjs-blog/Pics/logo_large.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      z-index: 2;
+    }
   }
+
   .divbutton {
     width: 100%;
     height: 55%;
@@ -28,7 +40,7 @@ $logo: url(/Pics/logo_large.png);
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-
+    font-family: "Raleway", sans-serif;
     .bt {
       width: 100%;
       height: 15%;
@@ -36,22 +48,95 @@ $logo: url(/Pics/logo_large.png);
       cursor: pointer;
 
       .link {
-          
         .materialicons {
-            width: 100%;
-            height: 20px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
+          display: inline-block;
+          position: absolute;
+          transform: translateX(-100%);
+          width: 20px;
+          height: 20px;
+          color: rgba(233, 114, 49, 0.8);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
           background-image: url(D:/nextjs-blog/Pics/baseline_settings_black_24dp.png);
         }
       }
     }
   }
-
   .divuser {
     width: 100%;
     height: 25%;
     background-color: darkblue;
+    position: relative;
+
+    .singoutuser {
+      height: 40%;
+      width: 100%;
+      background-color: darkcyan;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .button {
+        width: 90%;
+        border: none;
+        height: 90%;
+      }
+    }
+
+    .logouser {
+      height: 60%;
+      width: 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: darkgoldenrod;
+
+      .logo {
+        background-color: sienna;
+        width: 60px;
+        height: 60px;
+        border-radius: 80px;
+        cursor: pointer;
+      }
+    }
+
+    .divuser {
+      height: 60%;
+      width: 55%;
+      background-color: seagreen;
+      position: absolute;
+      top: 40%;
+      right: 0;
+
+      .userhelp {
+        background-color: sienna;
+        width: 80%;
+        height: 100%;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .username {
+          
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .userarrow {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: white;
+          width: 20%;
+          position: absolute;
+          right: 0;
+          height: 100%;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
