@@ -5,8 +5,8 @@ import Notify from './Notify'
 function Layout({children}){
     return(
         <div className="container">
-            <Navigation/>
-            <Notify/>
+            <Navigation />
+            <Notify />
             {children}
         </div>
     )
