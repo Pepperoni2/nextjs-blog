@@ -1,16 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
 
-$color-primary: hsl(212, 100%, 48%);
+$color-first: #e97231;
+$color-second: #292627;
+$color-third: #251e21;
+$color-fourth: #e8dbc9;
+
 $logo: url(/Pics/logo_large.png);
 
 .main {
-  background-color: seagreen;
+  background-color: $color-second;
   width: 20vw;
   position: fixed;
   height: 100vh;
+  left: 0;
   overflow: hidden;
   max-width: 180px;
   min-width: 150px;
+ 
+
   .divl {
     width: 100%;
     height: 20%;
@@ -24,6 +31,7 @@ $logo: url(/Pics/logo_large.png);
       height: 90%;
 
       background-image: url(D:/nextjs-blog/Pics/logo_large.png);
+
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -34,39 +42,337 @@ $logo: url(/Pics/logo_large.png);
 
   .divbutton {
     width: 100%;
-    height: 55%;
-    background-color: red;
+    height: 55.5%;
+    background-color: lighten($color: $color-second, $amount: 10);
     display: flex;
-    align-items: center;
+    position: relative;
     justify-content: space-evenly;
     flex-direction: column;
     font-family: "Raleway", sans-serif;
-    .bt {
+
+    .bt1 {
+      
       width: 100%;
-      height: 15%;
+      font: inherit;
+      height: 74px;
       border: none;
+
       cursor: pointer;
 
-      .link {
-        .materialicons {
-          display: inline-block;
-          position: absolute;
-          transform: translateX(-100%);
-          width: 20px;
-          height: 20px;
-          color: rgba(233, 114, 49, 0.8);
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-image: url(D:/nextjs-blog/Pics/baseline_settings_black_24dp.png);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .link1 {
+        background-color: $color-third;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        height: 100%;
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        width: 100%;
+        transition: all 0.15s ease-in-out;
+
+        .icon1 {
+          margin-top: 5px;
+          margin-right: 5px;
+          transition: all 0.2s ease-in-out;
         }
       }
     }
+    .link1::after {
+      position: absolute;
+      transition: 0.3s ease-in;
+      content: "";
+      width: 0;
+      left: 50%;
+      bottom: 0;
+      height: 3px;
+      background: #e8dbc9;
+      opacity: 0.8;
+    }
+    .link1:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .bt1:hover .link1 {
+      opacity: 1;
+      width: 100%;
+
+      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+
+      //box-shadow: #E8DBC9 0px 0px 10px 5px;
+    }
+    .bt1:hover .icon1 {
+      color: #e8dbc9;
+
+      
+    }
+
+    .bt2 {
+      width: 100%;
+     
+      height: 74px;
+      border: none;
+      font: inherit;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .link2 {
+        background-color: $color-third;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        height: 100%;
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        width: 100%;
+        transition: all 0.15s ease-in-out;
+
+        .icon2 {
+          margin-top: 5px;
+          margin-right: 5px;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+    }
+    .link2::after {
+      position: absolute;
+      transition: 0.3s ease-in;
+      content: "";
+      width: 0;
+      left: 50%;
+      bottom: 0;
+      height: 3px;
+      background: #e8dbc9;
+      opacity: 0.8;
+    }
+    .link2:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .bt2:hover .link2 {
+      opacity: 1;
+      width: 100%;
+
+      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+
+      //box-shadow: #E8DBC9 0px 0px 10px 5px;
+    }
+    .bt2:hover .icon2 {
+      color: #e8dbc9;
+
+      text-shadow: 1px 1px 1px #ccc;
+    }
+
+    .bt3 {
+      width: 100%;
+      
+      height: 74px;
+      border: none;
+      font: inherit;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .link3 {
+        background-color: $color-third;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        height: 100%;
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        width: 100%;
+        transition: all 0.15s ease-in-out;
+
+        .icon3 {
+          margin-top: 5px;
+          margin-right: 5px;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+    }
+    .link3::after {
+      position: absolute;
+      transition: 0.3s ease-in;
+      content: "";
+      width: 0;
+      left: 50%;
+      bottom: 0;
+      height: 3px;
+      background: #e8dbc9;
+      opacity: 0.8;
+    }
+    .link3:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .bt3:hover .link3 {
+      opacity: 1;
+      width: 100%;
+
+      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+
+      //box-shadow: #E8DBC9 0px 0px 10px 5px;
+    }
+    .bt3:hover .icon3 {
+      color: #e8dbc9;
+
+      text-shadow: 1px 1px 1px #ccc;
+    }
+    .bt4 {
+      width: 100%;
+      
+      height: 74px;
+      border: none;
+      font: inherit;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .link4 {
+        background-color: $color-third;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        height: 100%;
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        width: 100%;
+        transition: all 0.15s ease-in-out;
+
+        .icon4 {
+          margin-top: 5px;
+          margin-right: 5px;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+    }
+    .link4::after {
+      position: absolute;
+      transition: 0.3s ease-in;
+      content: "";
+      width: 0;
+      left: 50%;
+      bottom: 0;
+      height: 3px;
+      background: #e8dbc9;
+      opacity: 0.8;
+    }
+    .link4:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .bt4:hover .link4 {
+      opacity: 1;
+      width: 100%;
+
+      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+
+      //box-shadow: #E8DBC9 0px 0px 10px 5px;
+    }
+    .bt4:hover .icon4 {
+      color: #e8dbc9;
+
+      text-shadow: 1px 1px 1px #ccc;
+    }
+    .bt5 {
+      width: 100%;
+      font: inherit;
+      
+      height: 74px;
+      border: none;
+
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .link5 {
+        background-color: $color-third;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        height: 100%;
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        width: 100%;
+        transition: all 0.15s ease-in-out;
+
+        .icon5 {
+          margin-top: 5px;
+          margin-right: 5px;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+    }
+    .link5::after {
+      position: absolute;
+      transition: 0.3s ease-in;
+      content: "";
+      width: 0;
+      left: 50%;
+      bottom: 0;
+      height: 3px;
+      background: #e8dbc9;
+      opacity: 0.8;
+    }
+    .link5:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .bt5:hover .link5 {
+      opacity: 1;
+      width: 100%;
+
+      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+
+      //box-shadow: #E8DBC9 0px 0px 10px 5px;
+    }
+    .bt5:hover .icon5 {
+      color: #e8dbc9;
+
+      
+    }
+    .bt5:hover .icon5 {
+      transform: translateX(-20px) rotate(360deg);
+    }
   }
+
   .divuser {
     width: 100%;
     height: 25%;
-    background-color: darkblue;
+    background-color: #e97231;
     position: relative;
 
     .singoutuser {
@@ -76,11 +382,67 @@ $logo: url(/Pics/logo_large.png);
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
 
-      .button {
-        width: 90%;
+      .button1 {
+        width: 100%;
+      z-index: 2;
+        height: 100%;
+        background-color: $color-fourth;
+        position: relative;
+        transition: all ease-in-out 0.3s;
         border: none;
-        height: 90%;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: none;
+
+        .link6{
+          text-align: center;
+          transition: 0.3s all ease-in-out;
+          background-color: darken($color: $color-third, $amount: 40);
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        height: 100%;
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+       
+        width: 100%;
+        
+          .icon6{
+            margin-right: 5px;
+          }
+        }
+
+      }
+      
+      .button1:hover .link6{
+        color: $color-third;
+        background-color: #e8dbc9;
+      }
+      .button1:hover .icon6{
+        color: $color-fourth;
+        
+      }
+
+      .button1::after {
+        position: absolute;
+        transition: 0.3s ease-in-out;
+        content: "";
+        width: 100%;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 0;
+        background: #251e21;
+        opacity: 0.2;
+      }
+      .button1:hover::after {
+        height: 100%;
+        bottom: 0;
       }
     }
 
@@ -90,7 +452,7 @@ $logo: url(/Pics/logo_large.png);
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: darkgoldenrod;
+      background-color: #e8dbc9;
 
       .logo {
         background-color: sienna;
@@ -113,13 +475,12 @@ $logo: url(/Pics/logo_large.png);
         background-color: sienna;
         width: 80%;
         height: 100%;
-        
+
         display: flex;
         justify-content: center;
         align-items: center;
 
         .username {
-          
           display: flex;
           justify-content: center;
           align-items: center;

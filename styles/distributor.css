@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+
+#wrapperdistributer {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#292627;
+  flex-wrap: wrap;
+  
+ 
+}
+#box{
+  width: 90%;
+  background-color: #e97231;
+  opacity: 0.5;
+  height: 35%;
+  position: absolute;
+}
+.boxes0 {
+  display: block;
+  background: #e8dbc9;
+  border: none;
+  padding: 2%;
+  width: 200px;
+  max-height: 200px;
+  cursor: pointer;
+  margin: 5%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.boxes0 h1{
+  color: black;
+  transition: 200ms all ease-in-out;
+}
+.boxes0:hover h1{
+  color: white;
+  transform: translateY(1px);
+  text-shadow: black 0 0px 10px;
+}
+.boxes0:hover #icon0{
+  opacity: 0.8;
+
+}
+.boxes1 {
+  display: block;
+  background: #e8dbc9;
+  border: none;
+  padding: 2%;
+  width: 200px;
+  max-height: 200px;
+  cursor: pointer;
+  margin: 5%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.boxes1 h1{
+  color: black;
+  transition: 200ms all ease-in-out;
+}
+.boxes1:hover h1{
+  color: white;
+  transform: translateY(1px);
+  text-shadow: black 0 0px 10px;
+}
+.boxes1:hover #icon1{
+  opacity: 0.8;
+
+}
+#icon0 {
+position: absolute;
+left: 0;
+top: 0;
+width: 100%;
+max-width: 200px;
+height: 100%;
+background-color: black;
+
+opacity: 0.1;
+}
+
+
+
+#icon1 {
+position: absolute;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: black;
+opacity: 0.1;
+}

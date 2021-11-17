@@ -2,6 +2,16 @@ import { Fragment } from "react";
 import Link from "next/dist/client/link";
 import styles from "../styles/modules/navigation-after.module.scss";
 
+import { IoHomeSharp } from "@react-icons/all-files/io5/IoHomeSharp";
+import { GiAbstract027 } from "@react-icons/all-files/gi/GiAbstract027";
+import { MdFavorite } from "@react-icons/all-files/md/MdFavorite";
+import { IoNotificationsSharp } from "@react-icons/all-files/io5/IoNotificationsSharp";
+
+import { FaSignOutAlt } from "@react-icons/all-files/fa/FaSignOutAlt";
+
+
+
+
 export default function NavigationLeft(params) {
   return (
     <Fragment>
@@ -17,29 +27,52 @@ export default function NavigationLeft(params) {
         </Link>
         <div className={styles.divbutton}>
           <Link href="/">
-            <button className={styles.bt}>
-              <a className={styles.link}>EventX</a>
+            <button className={styles.bt1}>
+              <a className={styles.link1}>
+                <h2>
+                  <IoHomeSharp className={styles.icon1} />
+                </h2>
+                EventX
+              </a>
             </button>
           </Link>
           <Link href="/">
-            <button className={styles.bt}>
-              <a className={styles.link}>Notifications</a>
+            <button className={styles.bt2}>
+              <a className={styles.link2}>
+                <h2>
+                  <IoNotificationsSharp className={styles.icon2} />
+                </h2>
+                Notifications
+              </a>
             </button>
           </Link>
           <Link href="/">
-            <button className={styles.bt}>
-              <a className={styles.link}>Favourites</a>
+            <button className={styles.bt3}>
+              <a className={styles.link3}>
+                <h2>
+                  <MdFavorite className={styles.icon3} />
+                </h2>
+                Favourites
+              </a>
             </button>
           </Link>
           <Link href="/">
-            <button className={styles.bt}>
-              <a className={styles.link}>Unknown</a>
+            <button className={styles.bt4}>
+              <a className={styles.link4}>
+                <h2>
+                  <GiAbstract027 className={styles.icon4} />
+                </h2>
+                Unknown
+              </a>
             </button>
           </Link>
           <Link href="/">
-            <button className={styles.bt}>
-              <a className={styles.link}>
-                <span className={styles.materialicons}></span>Settings
+            <button className={styles.bt5}>
+              <a className={styles.link5}>
+                <h2>
+                  <GiAbstract027 className={styles.icon5} />
+                </h2>{" "}
+                Settings
               </a>
             </button>
           </Link>
@@ -47,9 +80,9 @@ export default function NavigationLeft(params) {
         <div className={styles.divuser}>
           <div className={styles.singoutuser}>
             <Link href="/">
-              <button className={styles.button}>
-                <a className={styles.link}>
-                  <span className={styles.materialicons}></span>Sign out
+              <button className={styles.button1}>
+                <a className={styles.link6}>
+                <FaSignOutAlt className={styles.icon6}/>Sign out
                 </a>
               </button>
             </Link>
