@@ -1,8 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import Link from "next/link";
-import favicon from "D:/nextjs-blog/public/favicon.ico";
-import NavLogin from "D:/nextjs-blog/components/header-login.js";
+import NavLogin from '../../../components/header-login'
 import Header1 from "/components/head";
 import { GiAries } from "@react-icons/all-files/gi/GiAries";
 import { GiAzulFlake } from "@react-icons/all-files/gi/GiAzulFlake";
