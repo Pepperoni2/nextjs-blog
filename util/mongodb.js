@@ -20,6 +20,7 @@ if (!dbName) {
 
 export async function connectToDatabase() {
   if (cachedClient && cachedDb) {
+    console.log("Connected")
     return { client: cachedClient, db: cachedDb }
   }
 

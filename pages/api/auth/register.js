@@ -1,9 +1,9 @@
-import { connectToDatabase } from "../../../util/mongodb";
+import connectDB from '../../../util/connectDB'
 import Users from '../../../models/userModels'
 import valid from '../../../util/valid'
 import bcrypt from 'bcrypt'
 
-connectToDatabase()
+connectDB()
 
 export default async (req, res) => {
     switch(req.method){
@@ -21,8 +21,8 @@ const register = async (req, res) => {
         const errMsg = valid(name, email, password, cf_password)
         if(errMsg) return res.status(400).json({err: errMsg})
 
-        const user = await Users.findOne({ email })
-        if(user) return res.status(400).json({err: 'This email already exists.'})
+        const users = await Users.findOne({ email })
+        if(users) return res.status(400).json({err: 'This email already exists.'})
 
         const passwordHash = await bcrypt.hash(password, 12)
 

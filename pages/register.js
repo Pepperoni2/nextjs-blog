@@ -8,30 +8,25 @@ import {postData} from '../util/fetchData'
 const Register = () => {
     const initialState = { name: '', email: '', password: '', cf_password: '' }
     const [userData, setUserData] = useState(initialState)
-    const {name, email, password, cf_password} = userData
-
-    const [state, dispatch] = useContext(DataContext)
+    const { name, email, password, cf_password } = userData
 
     const handleChangeInput = e => {
-        const {name, value} = e.target
-        setUserData({...userData, [name]:value})
-        dispatch({ type: 'NOTIFY', payload: {} })
+      const {name, value} = e.target
+      setUserData({...userData, [name]:value})
+      
     }
 
     const handleSubmit = async e => {
-        e.preventDefault()
-        const errMsg = valid(name, email, password, cf_password)
+      e.preventDefault()
+      console.log(userData)
+      const errMsg = valid(name, email, password, cf_password)
+      if(errMsg) console.log(errMsg)
 
-        if(errMsg) return dispatch({ type: 'NOTIFY', payload: {error: errMsg} })
+      const res = await postData('auth/register', userData)
 
-        dispatch({ type: 'NOTIFY', payload: {loading: true} })
-
-        const res = await postData('auth/register', userData)
-        if(res.err) return dispatch({ type: 'NOTIFY', payload: {error: errMsg} })
-
-        return dispatch({ type: 'NOTIFY', payload: {success: res.msg} })
-      
+      console.log(res)
     }
+    
     return (
       <div>
         <Head>
@@ -43,7 +38,7 @@ const Register = () => {
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input type="text" className="form-control" id="name"
-            name="name" value={name} onChange={handleChangeInput}/>
+            name="name" value={name} onChange={handleChangeInput} />
           </div>
 
           <div className="form-group">
