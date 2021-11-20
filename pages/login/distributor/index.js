@@ -13,10 +13,12 @@ export default function Distributor(params) {
   return (
     <div id="wrapperdistributer">
       <Header1 />
-      <div id="box"></div>
+      <h1 id="titledistributor">Choose</h1>
+      <div id="box">
+     
       <Link href="/login/distributor/o-register">
         <button className="boxes0">
-          <a>
+          <a className="link0">
             <GiAries id="icon0" />
             <h1>Organizer</h1>
           </a>
@@ -26,12 +28,13 @@ export default function Distributor(params) {
         href="/login/distributor/p-register"
       >
         <button className="boxes1">
-          <a>
+          <a className="link1">
             <GiAzulFlake id="icon1" />
             <h1>Participator</h1>
           </a>
         </button>
       </Link>
+      </div>
     </div>
   );
 }

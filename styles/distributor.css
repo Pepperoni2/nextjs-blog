@@ -8,94 +8,176 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:#292627;
+  background-color: #292627;
+  flex-direction: column;
+}
+#box {
+  width: 100%;
+  height: 50%;
+  background-color: #e97231;
+  opacity: 1;
+  display: flex;
+  position: relative;
+  justify-content: space-evenly;
+  align-items: center;
   flex-wrap: wrap;
   
- 
+  
 }
-#box{
-  width: 90%;
-  background-color: #e97231;
-  opacity: 0.5;
-  height: 35%;
-  position: absolute;
+#titledistributor{
+  
 }
 .boxes0 {
   display: block;
   background: #e8dbc9;
   border: none;
   padding: 2%;
-  width: 200px;
-  max-height: 200px;
-  cursor: pointer;
-  margin: 5%;
+  width: 400px;
+  max-height: 300px;
+  height: 50%;
+  transition: all 0.2s ease;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.link0 {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #433f40;
+  transition: all ease 0.3s;
+  position: relative;
+}
+.boxes0 h1 {
+  color: #e97231;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #120f10;
+  position: absolute;
+  right:0;
+  top:0;
+  width: 49.5%;
+  transition: 200ms all ease-in-out;
   
 }
-.boxes0 h1{
-  color: black;
-  transition: 200ms all ease-in-out;
+.boxes0:hover{
+background-color: #433f40;
 }
-.boxes0:hover h1{
-  color: white;
-  transform: translateY(1px);
-  text-shadow: black 0 0px 10px;
+.link0:hover h1  {
+  
+  background-color: #1c1a1a;
+  text-shadow: #e97231 0 0px 20px;
+  background-color: 
+  #d0c5b4;
 }
-.boxes0:hover #icon0{
-  opacity: 0.8;
+.link0:hover #icon0{
+  background-color: 
+  #d0c5b4;
+}
+#icon0:hover  {
+  color: darkblue;
+  
+ 
+}
+#icon0 {
+  transition: 0.2s all ease-in-out;
+ 
+  width: 50%;
+  max-width: 200px;
+  height: 100%;
+  
+  position: absolute;
+  left:0;
+  top:0;
+  background-color: #120f10;
+  animation: rotate infinite  ease-in-out 0.9s;
+  opacity: 1;
+}
+@keyframes rotat {
+  0%{
 
+  }
+  50%{
+    background-color: #e8dbc9;
+  }
+  100%{
+    background-color: #120f10;
+  }
 }
 .boxes1 {
   display: block;
   background: #e8dbc9;
   border: none;
   padding: 2%;
-  width: 200px;
-  max-height: 200px;
-  cursor: pointer;
-  margin: 5%;
+  width: 400px;
+  max-height: 300px;
+  height: 50%;
+  transition: all 0.2s ease;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.link1 {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #433f40;
+  transition: all ease 0.3s;
+  position: relative;
+}
+.boxes1 h1 {
+  color: #e97231;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #292627;
+  position: absolute;
+  right:0;
+  top:0;
+  width: 49.5%;
+  transition: 200ms all ease-in-out;
   
 }
-.boxes1 h1{
-  color: black;
-  transition: 200ms all ease-in-out;
+.boxes1:hover{
+background-color: #433f40;
 }
-.boxes1:hover h1{
-  color: white;
-  transform: translateY(1px);
-  text-shadow: black 0 0px 10px;
+.link1:hover h1 {
+  background-color: #1c1a1a;
+  text-shadow: #e97231 0 0px 20px;
+  background-color: 
+  #d0c5b4;
 }
-.boxes1:hover #icon1{
-  opacity: 0.8;
-
+.link1:hover #icon1{
+  color: darkblue;
+  background-color: 
+  #d0c5b4;
 }
-#icon0 {
-position: absolute;
-left: 0;
-top: 0;
-width: 100%;
-max-width: 200px;
-height: 100%;
-background-color: black;
-
-opacity: 0.1;
+#icon1:hover  {
+  
+ 
 }
-
-
-
 #icon1 {
-position: absolute;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-background-color: black;
-opacity: 0.1;
+  transition: 0.2s all ease-in-out;
+ 
+  width: 50%;
+  max-width: 200px;
+  height: 100%;
+  
+  position: absolute;
+  left:0;
+  top:0;
+  background-color: #120f10;
+
+  opacity: 1;
 }
