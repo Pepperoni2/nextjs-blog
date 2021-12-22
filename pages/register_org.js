@@ -1,13 +1,16 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import valid from '../util/valid'
-import { useState } from 'react'
+import {useContext, useState } from 'react'
 import {postData} from '../util/fetchData'
+import { DataContext } from '../store/GlobalState'
 
 const Register = () => {
     const initialState = { name: '', email: '', password: '', cf_password: '' }
     const [orgData, setUserData] = useState(initialState)
     const { name, email, password, cf_password } = orgData
+
+    const [state, dispatch] = useContext(DataContext)
 
     const handleChangeInput = e => {
       const {name, value} = e.target
@@ -19,11 +22,17 @@ const Register = () => {
       e.preventDefault()
       console.log(orgData)
       const errMsg = valid(name, email, password, cf_password)
-      if(errMsg) console.log(errMsg)
+      if(errMsg) return dispatch({type: 'NOTIFY', payload: {error: errMsg} })          //console.log(errMsg)
+
+      dispatch({ type: 'NOTIFY', payload: {loading: true} })
 
       const res = await postData('auth/register_org', orgData)
 
-      console.log(res)
+      if(res.err) return dispatch({type: 'NOTIFY', payload: {success: res.err} })
+
+      return dispatch({ type: 'NOTIFY', payload: {success: res.msg} })
+
+      
     }
     
     return (

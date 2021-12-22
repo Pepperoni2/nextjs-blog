@@ -1,11 +1,11 @@
 import React from "react";
-import Navigation from './navigation-login'
-import Notify from './Notify'
-
-function Layout({children}){
+import NavBar from "./navigation-login";
+import Notify from "./Notify";
+// Pfusch nur zum Testen da
+function Layout({children}) {
     return(
         <div className="container">
-            <Navigation />
+            <NavBar/>
             <Notify />
             {children}
         </div>

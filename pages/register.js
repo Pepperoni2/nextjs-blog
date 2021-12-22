@@ -5,10 +5,13 @@ import { useState, useContext } from 'react'
 import { DataContext } from '../store/GlobalState'
 import {postData} from '../util/fetchData'
 
+
 const Register = () => {
     const initialState = { name: '', email: '', password: '', cf_password: '' }
     const [userData, setUserData] = useState(initialState)
     const { name, email, password, cf_password } = userData
+
+    const [state, dispatch] = useContext(DataContext)
 
     const handleChangeInput = e => {
       const {name, value} = e.target
@@ -18,21 +21,26 @@ const Register = () => {
 
     const handleSubmit = async e => {
       e.preventDefault()
-      console.log(userData)
       const errMsg = valid(name, email, password, cf_password)
-      if(errMsg) console.log(errMsg)
+      if(errMsg) return dispatch({type: 'NOTIFY', payload: {error: errMsg} })          //console.log(errMsg)
+
+      dispatch({ type: 'NOTIFY', payload: {loading: true} })
 
       const res = await postData('auth/register', userData)
 
-      console.log(res)
+      if(res.err) return dispatch({type: 'NOTIFY', payload: {success: res.err} })
+
+      return dispatch({ type: 'NOTIFY', payload: {success: res.msg} })
+       
     }
     
     return (
+      
       <div>
         <Head>
           <title>Register Page</title>
         </Head>
-
+        
         <form className="mx-auto my-4" style={{maxWidth: '500px'}} onSubmit={handleSubmit}>
 
           <div className="form-group">
@@ -67,6 +75,7 @@ const Register = () => {
           </p>
         </form>
       </div>
+      
     )
 }
   export default Register

@@ -41,7 +41,7 @@ export default function Nav(props) {
   */
 
   const [session, loading] = useSession()
-  
+  // " /api/auth/signin" - path for google login
   return (
     <nav id="nav">
       <div id="wrpnav">
@@ -68,7 +68,7 @@ export default function Nav(props) {
               </Link>
 
               {!loading && !session && (
-                <Link href='/api/auth/signin'>
+                <Link href='/login'>        
                   <button className="bt">
                     <a
                       onClick={e => {
