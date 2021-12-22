@@ -2,10 +2,18 @@ import '../styles/styles.css'
 import '../styles/navstyles.css'
 import '../styles/footerstyles.css'
 import '../styles/stylelogin.css'
-import "../styles/distributor.css";
+import "../styles/distributor.css"
+import { DataProvider } from '../store/GlobalState'
+import Layout from '../components/ToastLayout'
 
 
 
 export default function App({ Component, pageProps }) {
-    return <Component {...pageProps} />
-  }
+  return (
+    <DataProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </DataProvider>
+  )
+}
