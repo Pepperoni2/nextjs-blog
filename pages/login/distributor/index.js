@@ -1,67 +1,62 @@
 import Head from "next/head";
-import React from "react";
+
 import Link from "next/link";
 import NavLogin from "../../../components/header-login";
 import Header1 from "/components/head";
 import { GiAries } from "@react-icons/all-files/gi/GiAries";
 import { GiAzulFlake } from "@react-icons/all-files/gi/GiAzulFlake";
+import { motion } from "framer-motion"
+import { get } from "jquery";
+import React, { useState, useEffect } from 'react';
+
 
 export default function Distributor(params) {
   const style = { color: "white", fontSize: "1.5em" };
-  function ToggleDrop() {
-    document.getElementById("Drop").classList.toggle("show");
-  }
-  window.onload = function(){  
-  let test = document.getElementById("Drop");
-
-  document.getElementById("Drop").addEventListener("mouseover", function( event ) {
-    alert("mouse over test!");
-    console.log("hi");}
-    
-    , false);
-  }
   
-  // if(document.getElementById("togh1").style.className.hovered === true)
-  // {
-  //   document.getElementById("").style.transform="translateY(250%)";
-  // }
-  /*
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('#togh1')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-    
-  } 
-  */
+  
+  
+  React.useEffect(() => {
+    const drop = document.getElementsByClassName("dropdown-content");
+  });
   return (
+    <motion.div initial="hidden" animate="visible" variants={{
+      hidden: {
+        scale:.8,
+        opacity:0
+      },
+      visible: {
+        scale:1,
+        opacity:1,
+        transition: {
+          delay:.2
+        },
+      }
+
+    }}>
     <div id="wrapperdistributer">
       <Header1 />
       <h1 id="titledistributor">Choose</h1>
       <div id="box">
-        {/* <Link href="/login/distributor/o-register"> */}
-          <button className="boxes0">
+        <Link href="/login/distributor/o-register">
+          <motion.button className="boxes0"  onHoverStart={() => drop.style.color="blue"}>
             <a className="link0">
               <GiAries id="icon0" />
-              <h1 onClick={ToggleDrop} id="togh1">
+              <h1 id="togh1">
                 Organizer
               </h1>
-              <div className="dropdown-content" id="Drop">
+              
+             
+             
+            </a>
+            <div className="dropdown-content" id="Drop">
                 <p>
                   As an <i>Organizer</i> you have the ability to create and to
                   organize your own events or parties.
                 </p>
               </div>
-            </a>
-          </button>
-       {/* </Link> */}
+          </motion.button>
+          
+       </Link>
         <Link href="/login/distributor/p-register">
           <button className="boxes1">
             <a className="link1">
@@ -72,5 +67,6 @@ export default function Distributor(params) {
         </Link>
       </div>
     </div>
+    </motion.div>
   );
 }
