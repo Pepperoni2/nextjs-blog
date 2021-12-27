@@ -5,6 +5,7 @@ export default function Participator() {
     <div id="wrapper">
       <NavigationLeft />
       <div id="test"></div>
+      
     </div>
   );
 }

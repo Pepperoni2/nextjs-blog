@@ -20,17 +20,18 @@ $logo: url(/Pics/logo_large.png);
 
   .divl {
     width: 100%;
-    height: 20%;
+    height: 18%;
+    min-height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 
     .divlogo {
-      width: 90%;
-      height: 90%;
-
-      background-image: url(D:/nextjs-blog/Pics/logo_large.png);
+      width: 80%;
+      height: 80%;
+      min-height: 50px;
+      background-image: url('/_next/static/media/logo_large.3f4aa90a.png');
 
       background-position: center;
       background-repeat: no-repeat;
@@ -42,11 +43,11 @@ $logo: url(/Pics/logo_large.png);
 
   .divbutton {
     width: 100%;
-    height: 55.5%;
+    height:55.5%;
     background-color: lighten($color: $color-second, $amount: 10);
     display: flex;
     position: relative;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-direction: column;
     font-family: "Raleway", sans-serif;
 
@@ -54,7 +55,7 @@ $logo: url(/Pics/logo_large.png);
       
       width: 100%;
       font: inherit;
-      height: 74px;
+      height: 19.8%;
       border: none;
 
       cursor: pointer;
@@ -104,7 +105,7 @@ $logo: url(/Pics/logo_large.png);
       opacity: 1;
       width: 100%;
 
-      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+      background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
@@ -117,7 +118,7 @@ $logo: url(/Pics/logo_large.png);
     .bt2 {
       width: 100%;
      
-      height: 74px;
+      height: 19.8%;
       border: none;
       font: inherit;
       cursor: pointer;
@@ -167,7 +168,7 @@ $logo: url(/Pics/logo_large.png);
       opacity: 1;
       width: 100%;
 
-      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+      background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
@@ -180,7 +181,7 @@ $logo: url(/Pics/logo_large.png);
     .bt3 {
       width: 100%;
       
-      height: 74px;
+      height: 19.8%;
       border: none;
       font: inherit;
       cursor: pointer;
@@ -230,7 +231,7 @@ $logo: url(/Pics/logo_large.png);
       opacity: 1;
       width: 100%;
 
-      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+      background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
@@ -242,7 +243,7 @@ $logo: url(/Pics/logo_large.png);
     .bt4 {
       width: 100%;
       
-      height: 74px;
+      height: 19.8%;
       border: none;
       font: inherit;
       cursor: pointer;
@@ -292,7 +293,7 @@ $logo: url(/Pics/logo_large.png);
       opacity: 1;
       width: 100%;
 
-      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+      background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
@@ -305,7 +306,7 @@ $logo: url(/Pics/logo_large.png);
       width: 100%;
       font: inherit;
       
-      height: 74px;
+      height: 19.8%;
       border: none;
 
       cursor: pointer;
@@ -355,7 +356,7 @@ $logo: url(/Pics/logo_large.png);
       opacity: 1;
       width: 100%;
 
-      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+      background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
@@ -365,7 +366,7 @@ $logo: url(/Pics/logo_large.png);
       
     }
     .bt5:hover .icon5 {
-      transform: translateX(-20px) rotate(360deg);
+      // transform: translateX(-20px) rotate(360deg);
     }
   }
 

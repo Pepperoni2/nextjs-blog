@@ -7,7 +7,7 @@ import {postData} from '../../../util/fetchData'
 //import NavLogin from '../../../components/header-login'
 //import Header1 from '/components/head'
 
-const Register = () => {
+const RegisterP = () => {
     // Functions for Registration DO NOT TOUCH
     // ----------------------------------------------------
     const initialState = { name: '', email: '', password: '', cf_password: '' }
@@ -81,4 +81,4 @@ const Register = () => {
       
     )
 }
-  export default Register
+  export default RegisterP

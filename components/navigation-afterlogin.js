@@ -9,10 +9,14 @@ import { IoNotificationsSharp } from "@react-icons/all-files/io5/IoNotifications
 
 import { FaSignOutAlt } from "@react-icons/all-files/fa/FaSignOutAlt";
 
-
-
-
 export default function NavigationLeft(params) {
+  
+  function Open() {
+    
+    document.getElementsById("userhelp").style.width = "50%";
+
+  }
+
   return (
     <Fragment>
       <link
@@ -82,7 +86,8 @@ export default function NavigationLeft(params) {
             <Link href="/">
               <button className={styles.button1}>
                 <a className={styles.link6}>
-                <FaSignOutAlt className={styles.icon6}/>Sign out
+                  <FaSignOutAlt className={styles.icon6} />
+                  Sign out
                 </a>
               </button>
             </Link>
@@ -91,10 +96,12 @@ export default function NavigationLeft(params) {
             <img className={styles.logo}></img>
           </div>
           <div className={styles.divuser}>
-            <div className={styles.userhelp}>
+            <div className={styles.userhelp} id="userhelp">
               <span className={styles.username}>[User]</span>
 
-              <div className={styles.userarrow}>&gt;</div>
+              <div className={styles.userarrow} onClick={Open()}>
+                &gt;
+              </div>
             </div>
           </div>
         </div>
