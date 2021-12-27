@@ -38,7 +38,7 @@ export default function Distributor(params) {
       <h1 id="titledistributor">Choose</h1>
       <div id="box">
         <Link href="/login/distributor/o-register">
-          <motion.button className="boxes0"  onHoverStart={() => drop.style.color="blue"}>
+          <motion.button className="boxes0"  >
             <a className="link0">
               <GiAries id="icon0" />
               <h1 id="togh1">
