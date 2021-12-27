@@ -1,8 +1,8 @@
 import Link from "next/dist/client/link";
 import { signIn, signOut, useSession } from "next-auth/client";
 
-function Nav(props) {
-  /*
+export const Scroll = async () => {
+  
   const mq = typeof window.matchMedia("(max-width: 690px)");
 
   var prevScrollpos = window.pageYOffset;
@@ -43,11 +43,14 @@ function Nav(props) {
         "rgba(47,47,47, 0.5)";
     }
   }
-  function scrollWin() {
-    window.scrollBy(0, 300);
-  }
-  */
+  
+  
+};
+
+function Nav(props) {
+  
   const [session, loading] = useSession();
+  Scroll();
   return (
     <nav id="nav">
       <div id="wrpnav">
@@ -93,6 +96,8 @@ function Nav(props) {
 }
 
 export default Nav;
+
+
 
 /* -------------- DELETED CODE ------------
 
