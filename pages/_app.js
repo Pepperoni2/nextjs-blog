@@ -1,7 +1,7 @@
 
 import '../styles/styles.css'
 import '../styles/navstyles.css'
-import '../styles/footerstyles.css'
+
 import '../styles/stylelogin.css'
 import "../styles/distributor.css"
 import { DataProvider } from '../store/GlobalState'
