@@ -1,9 +1,10 @@
 import Link from "next/dist/client/link";
+import styles from "../styles/modules/footerstyles.module.scss";
 function Footer() {
     return(
-    <footer id="footer">
-    <div id="wrpfooter">
-      <div id="logo1" ></div>
+    <footer className={styles.footer}>
+    <div className={styles.wrpfooter}>
+      <div className={styles.logo1} ></div>
       <li>
         Copyright 2021
       </li>

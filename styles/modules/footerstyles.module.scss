@@ -1,11 +1,11 @@
-#footer{
+.footer{
     height: 20vh;
     width: 100%;
     
     background-color: #251E21;
-    transform: translateY(20vh);
+    
     }
-    #wrpfooter{
+    .wrpfooter{
         display: flex;
         flex-direction: row;
         text-decoration: none;
@@ -16,16 +16,16 @@
         width: 100%;
         
     }
-    #wrpfooter li{
+    .wrpfooter li{
         margin: 15px;
        
     }
     
-    #wrpfooter li a{
+    .wrpfooter li a{
         text-decoration: none;
     }
-    #wrpfooter #logo1{
-    background-image: url(../Pics/logo_large.png);
+    .wrpfooter .logo1{
+    background-image: url('/_next/static/media/logo_large.3f4aa90a.png');
      background-position: center;
      background-repeat: no-repeat;
      background-size: contain;

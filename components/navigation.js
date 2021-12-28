@@ -13,8 +13,8 @@ export const Scroll = async () => {
 
   function scrollFunction() {
     if (
-      document.body.scrollTop > 150 ||
-      document.documentElement.scrollTop > 150
+      document.body.scrollTop > 50 ||
+      document.documentElement.scrollTop > 50
     ) {
       document.getElementById("nav").style.height = "15vh";
       document.getElementById("nav").style.backgroundColor =
@@ -26,8 +26,8 @@ export const Scroll = async () => {
     }
 
     if (
-      document.body.scrollTop > 150 ||
-      document.documentElement.scrollTop > 150
+      document.body.scrollTop > 50 ||
+      document.documentElement.scrollTop > 50
     ) {
       document.getElementById("wrapper").style.backgroundColor =
         "rgba(47,47,47, 0.5)";
