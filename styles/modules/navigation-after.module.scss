@@ -11,6 +11,7 @@ $logo: url(/Pics/logo_large.png);
   background-color: $color-second;
   width: 20vw;
   position: fixed;
+
   height: 100vh;
   left: 0;
   overflow: hidden;
@@ -112,7 +113,7 @@ $logo: url(/Pics/logo_large.png);
     .bt1:hover .icon1 {
       color: #e8dbc9;
 
-      
+     
     }
 
     .bt2 {
@@ -381,6 +382,7 @@ $logo: url(/Pics/logo_large.png);
       width: 100%;
       background-color: darkcyan;
       display: flex;
+      
       justify-content: center;
       align-items: center;
       cursor: pointer;
@@ -404,6 +406,7 @@ $logo: url(/Pics/logo_large.png);
           background-color: darken($color: $color-third, $amount: 40);
         align-items: center;
         justify-content: center;
+        
         display: flex;
         height: 100%;
         position: relative;
@@ -446,10 +449,15 @@ $logo: url(/Pics/logo_large.png);
         bottom: 0;
       }
     }
-
+    .help1{
+      width: 100%;
+      height: 67%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
     .logouser {
-      height: 60%;
-      width: 45%;
+      height: 100%;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -465,40 +473,41 @@ $logo: url(/Pics/logo_large.png);
     }
 
     .divuser {
-      height: 60%;
-      width: 55%;
+      height: 100%;
+      width: 100%;
       background-color: seagreen;
-      position: absolute;
-      top: 40%;
-      right: 0;
-
+     
       .userhelp {
         background-color: sienna;
-        width: 80%;
+        width: 100%;
         height: 100%;
-
         display: flex;
         justify-content: center;
         align-items: center;
+       
 
         .username {
           display: flex;
-          justify-content: center;
           align-items: center;
+          justify-content: center;
+          
         }
 
-        .userarrow {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: white;
-          width: 20%;
-          position: absolute;
-          right: 0;
-          height: 100%;
-          cursor: pointer;
-        }
+        // .userarrow {
+        //   display: flex;
+        //   justify-content: center;
+        //   align-items: center;
+        //   background-color: white;
+        //   width: 20%;
+        //   position: relative;
+          
+        //   height: 100%;
+        //   cursor: pointer;
+        // }
       }
     }
   }
+
+  }
+
 }

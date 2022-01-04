@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+
+
 #wrapper-login {
   background-color: red;
 
@@ -6,13 +9,13 @@
 }
 #wrplh-login {
   width: 100%;
-  height: 100%;
+  
   display: flex;
   flex-direction: row;
   transition: all ease-in-out 0.5s;
   justify-content: center;
   align-items: center;
-
+  min-height: 50px;
   height: 10vh;
 }
 
@@ -25,6 +28,7 @@
   transition: all ease-in-out 0.5s;
   width: 12.5%;
   height: 80px;
+  min-height: 50px;
 }
 #logo-login a {
   height: 100%;
@@ -47,7 +51,7 @@
   height: 60vh;
   position: relative;
   border: 1px solid #888;
-  min-height: 400px;
+  min-height: 500px;
   min-width: 450px;
   width: 30%;
   flex-direction: row;
@@ -62,7 +66,7 @@ label {
 .text-div {
   width: 70%;
   max-width: 300px;
-
+  font-family: "Raleway", sans-serif;
   position: relative;
   display: flex;
   justify-content: center;
@@ -90,7 +94,7 @@ input[type="password"] {
   max-width: 300px;
   padding: 12px 20px;
   margin: 9px 0;
-
+  font-family: "Raleway", sans-serif;
   border: none;
 
   box-sizing: border-box;
@@ -115,12 +119,14 @@ input[type="password"]:hover {
 }
 input[type="email"]::placeholder {
   font-weight: 600;
+  font-family: "Raleway", sans-serif;
   color: black;
 }
 
 input[type="password"]::placeholder {
-  font-weight: 600;
+  
   color: black;
+  font-family: "Raleway", sans-serif;
 }
 input[type="email"]:focus input[type="email"]::placeholder {
   color: #e8dbc9;
@@ -302,8 +308,8 @@ max-height: 15%;
   margin: 2%;
 }
 @media only screen and (max-width: 690px) {
-  #nav-login {
+  .content-box{
     width: 100%;
-    transform: translateX(0);
+    height: 100%;
   }
 }

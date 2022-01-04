@@ -6,16 +6,16 @@ import { IoHomeSharp } from "@react-icons/all-files/io5/IoHomeSharp";
 import { GiAbstract027 } from "@react-icons/all-files/gi/GiAbstract027";
 import { MdFavorite } from "@react-icons/all-files/md/MdFavorite";
 import { IoNotificationsSharp } from "@react-icons/all-files/io5/IoNotificationsSharp";
-
 import { FaSignOutAlt } from "@react-icons/all-files/fa/FaSignOutAlt";
 
+// async function Open(){
+    
+//   document.getElementById("userhelp").style.width="50px";
+
+// }
 export default function NavigationLeft(params) {
   
-  function Open() {
-    
-    document.getElementsById("userhelp").style.width = "50%";
-
-  }
+ 
 
   return (
     <Fragment>
@@ -92,6 +92,7 @@ export default function NavigationLeft(params) {
               </button>
             </Link>
           </div>
+          <div className={styles.help1}>
           <div className={styles.logouser}>
             <img className={styles.logo}></img>
           </div>
@@ -99,10 +100,11 @@ export default function NavigationLeft(params) {
             <div className={styles.userhelp} id="userhelp">
               <span className={styles.username}>[User]</span>
 
-              <div className={styles.userarrow} onClick={Open()}>
+              {/* <div className={styles.userarrow}>
                 &gt;
-              </div>
+              </div> */}
             </div>
+          </div>
           </div>
         </div>
       </div>

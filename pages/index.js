@@ -56,7 +56,9 @@ export default function Home() {
           </p>
         </div>
       </div>
+      <div id="footer1">
       <Footer />
+      </div>
     </div>
   );
 }
