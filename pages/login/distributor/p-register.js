@@ -51,17 +51,18 @@ const RegisterP = () => {
         FOG({
           el: vantaRef.current,
           THREE,
-          mouseControls: true,
-          touchControls: true,
+          mouseControls: false,
+          touchControls: false,
           gyroControls: false,
           minHeight: 200.0,
           minWidth: 200.0,
-          highlightColor: 0xe97231,
+          highlightColor: 0x292627,
           midtoneColor: 0xe8dbc9,
-          lowlightColor: 0x292627,
-          baseColor: 0x9b8175,
-          speed: 2,
-          zoom: 2.0,
+          lowlightColor: 0xe8dbc9,
+          baseColor: 0xe97231,
+          blurFactor: 0.6,
+          speed: 0.7,
+          zoom: 2,
         })
       );
     }
@@ -152,9 +153,9 @@ const RegisterP = () => {
         </button>
 
         <p className={styles.line}>
-          Already have an account?{" "}
+          Already have an account?
           <Link href="/login">
-            <a style={{ color: "crimson" }}>Login Now</a>
+            <a style={{ color: "0xe8dbc9" }}>Login Now</a>
           </Link>
         </p>
       </form>

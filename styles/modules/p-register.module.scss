@@ -16,14 +16,17 @@ $color-fourth: #e8dbc9;
   .header {
     width: 30%;
     min-width: 450px;
+    min-height: 50px;
+    transform: translateY(-30px);
+    transition: transform ease-in-out 0.5s;
+    height: 10vh;
     display: flex;
     flex-direction: row;
-    transition: all ease-in-out 0.5s;
+    
     justify-content: center;
     align-items: center;
-    min-height: 50px;
-    height: 10vh;
-    background-color: $color-second;
+    margin-bottom: 0px;
+    background-color: darken($color: rgba(0,0,0,0.8), $amount: 80);
     font-family: "Raleway", sans-serif;
 
     .logo {
@@ -56,6 +59,8 @@ $color-fourth: #e8dbc9;
   }
 
   .register {
+    transform: translateY(-30px);
+    transition: transform ease-in-out 0.5s;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,6 +70,7 @@ $color-fourth: #e8dbc9;
     height: 50vh;
     min-height: 450px;
     min-width: 450px;
+    padding-top: 20px;
 
     .formgroup {
       width: 100%;
@@ -76,16 +82,18 @@ $color-fourth: #e8dbc9;
       flex-direction: column;
 
       .label {
-        color: black;
+        color: #e8dbc9;
         padding: 1%;
+        font-size: 1.13em
       }
 
       .formcontrol {
         width: 100%;
-        background-color: rgba(232, 219, 201, 0.7);
+        background-color: rgba(223, 220, 215, 0.7);
+        font-size: 1.05em;
         max-width: 300px;
         padding: 12px 20px;
-        margin: 9px 0;
+        margin: 6px 0;
         font-family: "Raleway", sans-serif;
         border: none;
 
@@ -99,10 +107,10 @@ $color-fourth: #e8dbc9;
         width: 100%;
         transform: scale(0);
         transform-origin: center;
-        height: 1px;
+        height: 2px;
         position: absolute;
-        background-color: rgba(232, 219, 201, 0.7);
-        bottom: 10%;
+        background-color: rgba(223, 220, 215, 0.7);
+        bottom: 6.5%;
         transition: 0.35s ease-in-out;
       }
       .formcontrol:focus ~ .textspan {
@@ -122,7 +130,8 @@ $color-fourth: #e8dbc9;
 
       padding: 14px 20px;
       margin: 8px 0;
-      width: 50%;
+      width: 100%;
+      max-width: 250px;
       border: none;
       cursor: pointer;
       transition: ease-in-out all 0.1s;
@@ -134,13 +143,23 @@ $color-fourth: #e8dbc9;
       opacity: 0.8;
     }
     .line {
-
+        margin-top: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 10%;
+        height: 100%;
         background-color: transparent;
+        color: #e8dbc9;
+        background-color: darken($color: rgba(0,0,0,0.3), $amount: 80)
+        
+    }
+    .line a{
+        margin-left: 15px;
+        font-style: italic;
+    }
+    .line a:hover{
+        opacity: 0.6;
     }
   }
 
