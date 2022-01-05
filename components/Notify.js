@@ -5,7 +5,7 @@ import Toast from './Toast'
 
 
 const Notify = () => {
-    const [state, dispatch] = useContext(DataContext)
+    const {state, dispatch} = useContext(DataContext)
     const { notify } = state
 
     return (

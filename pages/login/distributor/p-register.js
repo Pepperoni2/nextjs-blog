@@ -20,7 +20,7 @@ const RegisterP = () => {
   const [userData, setUserData] = useState(initialState);
   const { name, email, password, cf_password } = userData;
 
-  const [state, dispatch] = useContext(DataContext);
+  const {state, dispatch} = useContext(DataContext);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
