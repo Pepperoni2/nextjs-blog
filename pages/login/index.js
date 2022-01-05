@@ -12,21 +12,32 @@ import Cookie from "js-cookie";
 const SignIn = () => {
   const initialState = { email: "", password: "" };
   const [userData, setUserData] = useState(initialState);
+  const {state, dispatch} = useContext(DataContext);
   const { email, password } = userData;
 
-  const handleChangeInput = (e) => {
+  const handleChangeInput = e => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    console.log(userData);
+
+    //---- Loading-Screen appears----
+    dispatch({ type: 'NOTIFY', payload: {loading: true} }) 
 
     const res = await postData("auth/login", userData);
-    console.log(res);
+    // --- Display error messagebox ----
+    if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err} })
+    // --- Success messageBox
+    dispatch({ type: 'NOTIFY', payload: {success: res.msg} })
+    dispatch({ type: 'AUTH', payload: {
+      token: res.access_token,
+      user: res.user
+    }})
 
-    Cookie.set("refreshtoken", res.refresh_token, {
+    // Cookie settings
+    Cookie.set('refreshtoken', res.refresh_token, {
       path: "api/auth/accessToken",
       expires: 7, // expires after one week
     });
@@ -46,7 +57,7 @@ const SignIn = () => {
                 type="email"
                 id="uname"
                 placeholder="Enter Email"
-                defaultValue={email}
+                value={email}
                 onChange={handleChangeInput}
                 name="email"
               />
@@ -78,7 +89,7 @@ const SignIn = () => {
             </button>
 
             <label id="remember1" for="remember">
-              
+              {" "}
               Remember me
               <input type="checkbox" id="remember" name="remember" />
             </label>

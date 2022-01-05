@@ -1,8 +1,8 @@
 const baseUrl = process.env.BASE_Url
 
 export const getData = async (url, token) => {
-    const res = await fetch(`http://localhost:3000/api/${url}`, {
-        method:'GET',
+    const res = await fetch(`/api/${url}`, {
+        method: 'GET',
         headers:{
             'Authorization': token
         }
