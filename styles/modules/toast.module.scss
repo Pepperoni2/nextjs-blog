@@ -1,3 +1,5 @@
+$width:50px;
+
 .container {
   background-color: transparent;
   width: 100%;
@@ -15,7 +17,8 @@
   justify-content: center;
   align-items: center;
   background-color: white;
-  width: fit-content + 55px;
+  width: fit-content;
+  min-width: 200px;
   padding: 0 8px;
   height: 100px;
   z-index: 100;
@@ -35,7 +38,7 @@
     top: 0;
     margin-top: 10px;
     margin-right: 10px;
-    width: 50px;
+    width: $width;
     height: 30px;
     outline: none;
     border: none;
