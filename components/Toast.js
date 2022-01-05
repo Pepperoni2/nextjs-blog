@@ -12,7 +12,7 @@ const Toast = ({ msg, handleShow, titleColor }) => {
         style={{ outline: "none" }}
         onClick={handleShow}
       >
-        Close
+        X
       </button>
 
       <div className={styles.message}>{msg.msg}</div>

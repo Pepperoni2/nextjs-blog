@@ -85,7 +85,7 @@ const RegisterP = () => {
             <a>EventX</a>
           </Link>
           <Link href="/login/distributor/p-register">
-            <a>Register</a>
+            <a>Register Participator</a>
           </Link>
         </div>
       </div>

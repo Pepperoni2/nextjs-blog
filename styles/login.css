@@ -276,7 +276,7 @@ input[type=text], input[type=password] {
     border-radius: 20px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-    
+    z-index: -1;
   }
   #remember1:hover{
     background-color: rgba(47,47,47, 0.6);

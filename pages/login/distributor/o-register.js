@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import valid from "../../../util/valid";
-import styles from "../../../styles/modules/p-register.module.scss";
+import styles from "../../../styles/modules/o-register.module.scss";
 import Footer from "../../../components/footer.js";
 import { useState, useContext } from "react";
 import { DataContext } from "../../../store/GlobalState";
@@ -13,14 +13,14 @@ import * as THREE from "three";
 //import NavLogin from '../../../components/header-login'
 //import Header1 from '/components/head'
 
-const RegisterP = () => {
+const RegisterO = () => {
   // Functions for Registration DO NOT TOUCH
   // ----------------------------------------------------
   const initialState = { name: "", email: "", password: "", cf_password: "" };
   const [userData, setUserData] = useState(initialState);
   const { name, email, password, cf_password } = userData;
 
-  const {state, dispatch} = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -81,53 +81,89 @@ const RegisterP = () => {
           <div className={styles.logo}></div>
         </Link>
         <div className={styles.a1}>
-          <Link href="/">
+          <Link href="/login/distributor/o-register">
             <a>EventX</a>
           </Link>
-          <Link href="/">
-            <a>Register</a>
+          <Link href="/login/distributor/o-register">
+            <a>Register Organizer</a>
           </Link>
         </div>
       </div>
       <form className={styles.register} onSubmit={handleSubmit}>
+        <div className={styles.mainform}>
+          <div className={styles.formgroup} style={{width: "175px"} }>
+            <label className={styles.label} htmlFor="name">
+              First name*
+            </label>
+            <input
+              type="text"
+              className={styles.formcontrol}
+              id="name"
+              name="name"
+              value={name}
+              onChange={handleChangeInput}
+            />
+            <span className={styles.textspan}></span>
+          </div>
+          <div className={styles.space}></div>
+          {/* Nachnahme ändern */}
+          <div className={styles.formgroup} style={{width: "175px"} }>
+            <label className={styles.label} htmlFor="name">
+              Last name*
+            </label>
+            <input
+              type="text"
+              className={styles.formcontrol}
+              id="nachname"
+              name="name"
+              value={name}
+              onChange={handleChangeInput}
+            />
+            <span className={styles.textspan}></span>
+          </div>
+        </div>
+        <div className={styles.mainform}>
+          <div className={styles.formgroup}>
+            <label className={styles.label} htmlFor="exampleInputEmail1">
+              Email*
+            </label>
+            <input
+              type="email"
+              className={styles.formcontrol}
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              name="email"
+              value={email}
+              onChange={handleChangeInput}
+            />
+            <span className={styles.textspan}></span>
+          </div>
+
+          <div className={styles.space}></div>
+
+          <div className={styles.formgroup}>
+            <label className={styles.label} htmlFor="exampleInputEmail1">
+              Phonenumber
+            </label>
+            <input
+              type="email"
+              className={styles.formcontrol}
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              name="email"
+              value={email}
+              onChange={handleChangeInput}
+            />
+            <span className={styles.textspan}></span>
+          </div>
+        </div>
+        <div className={styles.mainform}>
         <div className={styles.formgroup}>
-          <label className={styles.label} htmlFor="name">
-            Name
+          <label className={styles.label} htmlFor="exampleInputPassword1">
+            Address
           </label>
           <input
             type="text"
-            className={styles.formcontrol}
-            id="name"
-            name="name"
-            value={name}
-            onChange={handleChangeInput}
-          />
-          <span className={styles.textspan}></span>
-        </div>
-
-        <div className={styles.formgroup}>
-          <label className={styles.label} htmlFor="exampleInputEmail1">
-            Email address
-          </label>
-          <input
-            type="email"
-            className={styles.formcontrol}
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            name="email"
-            value={email}
-            onChange={handleChangeInput}
-          />
-          <span className={styles.textspan}></span>
-          {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
-        </div>
-
-        <div className={styles.formgroup}>
-          <label className={styles.label} htmlFor="exampleInputPassword1">
-            Password
-          </label>
-          <input
-            type="password"
             className={styles.formcontrol}
             id="exampleInputPassword1"
             name="password"
@@ -136,22 +172,54 @@ const RegisterP = () => {
           />
           <span className={styles.textspan}></span>
         </div>
-
-        <div className={styles.formgroup}>
-          <label className={styles.label} htmlFor="exampleInputPassword2">
-            Confirm Password
+        <div className={styles.space} ></div>
+        <div className={styles.formgroup} >
+          <label className={styles.label} htmlFor="exampleInputPassword1">
+            District/Region
           </label>
           <input
-            type="password"
+            type="text"
             className={styles.formcontrol}
-            id="exampleInputPassword2"
-            name="cf_password"
-            value={cf_password}
+            id="exampleInputPassword1"
+            name="password"
+            value={password}
             onChange={handleChangeInput}
           />
           <span className={styles.textspan}></span>
         </div>
-
+        
+        </div>
+        <div className={styles.mainform}>
+          <div className={styles.formgroup}>
+            <label className={styles.label} htmlFor="exampleInputPassword1">
+              Password*
+            </label>
+            <input
+              type="password"
+              className={styles.formcontrol}
+              id="exampleInputPassword1"
+              name="password"
+              value={password}
+              onChange={handleChangeInput}
+            />
+            <span className={styles.textspan}></span>
+          </div>
+          <div className={styles.space}></div>
+          <div className={styles.formgroup}>
+            <label className={styles.label} htmlFor="exampleInputPassword2">
+              Confirm Password*
+            </label>
+            <input
+              type="password"
+              className={styles.formcontrol}
+              id="exampleInputPassword2"
+              name="cf_password"
+              value={cf_password}
+              onChange={handleChangeInput}
+            />
+            <span className={styles.textspan}></span>
+          </div>
+        </div>
         <button type="submit" className={styles.submit}>
           Register
         </button>
@@ -163,10 +231,11 @@ const RegisterP = () => {
           </Link>
         </p>
       </form>
+
       <div className={styles.footer1}>
         <Footer />
       </div>
     </div>
   );
 };
-export default RegisterP;
+export default RegisterO;

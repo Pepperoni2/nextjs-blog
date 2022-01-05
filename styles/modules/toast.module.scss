@@ -33,20 +33,24 @@ $width:50px;
   }
 
   .button {
+    
     position: absolute;
     right: 0;
     top: 0;
-    margin-top: 10px;
-    margin-right: 10px;
-    width: $width;
-    height: 30px;
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 30px;
+    height: 20px;
     outline: none;
     border: none;
-    transition: ease-in-out all 0.1s;
+    transition: ease-in-out all 0.15s;
     box-shadow: 0 0 2px 0 black;
+    background-color: #C36937;
+    color: #292627;
     &:hover{
-      transform: translateY(2px);
-      opacity: 0.8;
+      box-shadow: 0 0 4px 0 black;
+      color: #e8dbc9;
+      
     }
   }
 
