@@ -1,71 +1,24 @@
 import React from "react";
 import Link from "next/link";
-
+import { useEffect, useState } from "react";
 import { signIn, signOut, useSession } from "next-auth/client";
 //Front-end has added this:
 //import ReactPlayer from 'react-player'
 import Nav from "/components/navigation";
 import Footer from "/components/footer";
 import Header1 from "/components/head";
-import { useState } from "react";
+
 import { Player } from "video-react";
 import video from "/Vids/Concert_1630.mp4";
 import { FixedSizeList as List } from "react-window";
 import Header from "/components/head";
 //import {window} from 'window'
 
-export const Scroll = async () => {
-  
-  const mq = typeof window.matchMedia("(max-width: 690px)");
-
-  var prevScrollpos = window.pageYOffset;
-
-  window.onscroll = function () {
-    scrollFunction();
-  };
-
-  function scrollFunction() {
-    if (
-      document.body.scrollTop > 50 ||
-      document.documentElement.scrollTop > 50
-    ) {
-      document.getElementById("nav").style.height = "15vh";
-      document.getElementById("nav").style.backgroundColor =
-        "rgba(47,47,47, 0.5)";
-    } else {
-      document.getElementById("nav").style.height = "20vh";
-      document.getElementById("nav").style.backgroundColor =
-        "rgba(47,47,47, 1)";
-    }
-
-    if (
-      document.body.scrollTop > 50 ||
-      document.documentElement.scrollTop > 50
-    ) {
-      document.getElementById("wrapper").style.backgroundColor =
-        "rgba(47,47,47, 0.5)";
-    }
-    if (
-      document.body.scrollTop > 400 ||
-      document.documentElement.scrollTop > 400
-    ) {
-      document.getElementById("wrppic").style.backgroundColor =
-        "rgba(233, 114, 49, 1)";
-    } else {
-      document.getElementById("wrppic").style.backgroundColor =
-        "rgba(47,47,47, 0.5)";
-    }
-  }
-  
-}; 
-
-Scroll();
 
 export default function Home() {
   const [session, loading] = useSession();
-  
-  
 
+ 
 
   return (
     <div id="wrapper">
@@ -105,7 +58,7 @@ export default function Home() {
         </div>
       </div>
       <div id="footer1">
-      <Footer />
+        <Footer />
       </div>
     </div>
   );

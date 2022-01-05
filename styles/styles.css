@@ -6,7 +6,7 @@
     
     font-family: 'Raleway', sans-serif;
 
-    color: #E97231;
+    /* color: #E97231; */
     
 }
 body{
@@ -52,7 +52,7 @@ display: flex;
 justify-content: center;
 align-items:center;
 flex-direction: column;
-
+color: #E8DBC9;
 background-color: rgb(0,0,0); /* Fallback color */
 background-color: rgba(0,0,0, 0.7); /* Black w/opacity/see-through */
 font-size: larger;
@@ -281,7 +281,7 @@ background-color: #E8DBC9;
 
 
 } 
-#p1{
+.p1{
     color: #E8DBC9;
     background-color: rgba(0,0,0, 0.8);
     padding: 20px;
@@ -289,6 +289,9 @@ background-color: #E8DBC9;
     transition: all 0.3s ease-in-out;
    
     
+}
+.p1 i{
+    color: #E97231;
 }
 
 #test{
