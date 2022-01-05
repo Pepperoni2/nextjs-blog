@@ -475,7 +475,7 @@ $logo: url(/Pics/logo_large.png);
       height: 100%;
       width: 100%;
       background-color: seagreen;
-      color: $color-third;
+      
      
       .userhelp {
         background-color: sienna;
@@ -490,7 +490,7 @@ $logo: url(/Pics/logo_large.png);
           display: flex;
           align-items: center;
           justify-content: center;
-          
+          color: $color-third;
         }
 
         // .userarrow {
