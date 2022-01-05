@@ -29,9 +29,10 @@ export default function App({ Component, pageProps, router }) {
   return (
     <DataProvider>
       <Layout>
-        <Component {...pageProps} />
       </Layout>
-    </DataProvider>
+    
+        <Component {...pageProps} />
+        </DataProvider>
   )
 }
 

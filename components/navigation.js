@@ -2,47 +2,43 @@ import Link from "next/dist/client/link";
 import { signIn, signOut, useSession } from "next-auth/client";
 
 export const Scroll = async () => {
-  
-  const mq = typeof window.matchMedia("(max-width: 690px)");
 
-  var prevScrollpos = window.pageYOffset;
+//   window.onscroll = function () {
+//     scrollFunction();
+//   };
 
-  window.onscroll = function () {
-    scrollFunction();
-  };
+//   function scrollFunction() {
+//     if (
+//       document.body.scrollTop > 50 ||
+//       document.documentElement.scrollTop > 50
+//     ) {
+//       document.getElementById("nav").style.height = "15vh";
+//       document.getElementById("nav").style.backgroundColor =
+//         "rgba(47,47,47, 0.5)";
+//     } else {
+//       document.getElementById("nav").style.height = "20vh";
+//       document.getElementById("nav").style.backgroundColor =
+//         "rgba(47,47,47, 1)";
+//     }
 
-  function scrollFunction() {
-    if (
-      document.body.scrollTop > 50 ||
-      document.documentElement.scrollTop > 50
-    ) {
-      document.getElementById("nav").style.height = "15vh";
-      document.getElementById("nav").style.backgroundColor =
-        "rgba(47,47,47, 0.5)";
-    } else {
-      document.getElementById("nav").style.height = "20vh";
-      document.getElementById("nav").style.backgroundColor =
-        "rgba(47,47,47, 1)";
-    }
-
-    if (
-      document.body.scrollTop > 50 ||
-      document.documentElement.scrollTop > 50
-    ) {
-      document.getElementById("wrapper").style.backgroundColor =
-        "rgba(47,47,47, 0.5)";
-    }
-    if (
-      document.body.scrollTop > 400 ||
-      document.documentElement.scrollTop > 400
-    ) {
-      document.getElementById("wrppic").style.backgroundColor =
-        "rgba(233, 114, 49, 1)";
-    } else {
-      document.getElementById("wrppic").style.backgroundColor =
-        "rgba(47,47,47, 0.5)";
-    }
-  }
+//     if (
+//       document.body.scrollTop > 50 ||
+//       document.documentElement.scrollTop > 50
+//     ) {
+//       document.getElementById("wrapper").style.backgroundColor =
+//         "rgba(47,47,47, 0.5)";
+//     }
+//     if (
+//       document.body.scrollTop > 400 ||
+//       document.documentElement.scrollTop > 400
+//     ) {
+//       document.getElementById("wrppic").style.backgroundColor =
+//         "rgba(233, 114, 49, 1)";
+//     } else {
+//       document.getElementById("wrppic").style.backgroundColor =
+//         "rgba(47,47,47, 0.5)";
+//     }
+//   }
   
   
 };
