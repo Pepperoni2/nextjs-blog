@@ -106,6 +106,7 @@ $color-fourth: #e8dbc9;
       
       &:nth-child(4){
         text-decoration: underline;
+        color: #e97231;
       }
       
       .space{
@@ -201,6 +202,7 @@ $color-fourth: #e8dbc9;
     .line a {
       margin-left: 15px;
       font-style: italic;
+      color: #e97231;
     }
     .line a:hover {
       opacity: 0.6;
