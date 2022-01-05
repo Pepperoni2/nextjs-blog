@@ -9,6 +9,7 @@ import { FaSignOutAlt } from "@react-icons/all-files/fa/FaSignOutAlt";
 import { useContext } from 'react'
 import { DataContext } from '../store/GlobalState'
 import { useRouter } from 'next/router'
+import Cookies from "js-cookie";
 
 // async function Open(){
 
@@ -20,6 +21,13 @@ export default function NavigationLeft() {
   const router = useRouter()
   const { state, dispatch } = useContext(DataContext)
   const { auth } = state
+
+  const logout = () =>{
+      Cookies.remove('refreshtoken', {path: 'api/auth/accessToken'})
+      localStorage.removeItem('firstLogin')
+      dispatch({ type: 'AUTH', payload: {} })
+      dispatch({ type: 'NOTIFY', payload: {success: 'Logged out!'} })
+  }
 
   const loggedRouter = () => {
     return (
@@ -89,7 +97,7 @@ export default function NavigationLeft() {
           <div className={styles.divuser}>
             <div className={styles.singoutuser}>
               <Link href="/">
-                <button className={styles.button1}>
+                <button className={styles.button1} onClick={logout}>
                   <a className={styles.link6}>
                     <FaSignOutAlt className={styles.icon6} />
                     Sign out

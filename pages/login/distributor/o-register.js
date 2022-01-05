@@ -16,15 +16,15 @@ import * as THREE from "three";
 const RegisterO = () => {
   // Functions for Registration DO NOT TOUCH
   // ----------------------------------------------------
-  const initialState = { name: "", email: "", password: "", cf_password: "" };
-  const [userData, setUserData] = useState(initialState);
-  const { name, email, password, cf_password } = userData;
+  const initialState = { name: "", email: "", password: "", cf_password: "", location: "", phone: "", address: "" };
+  const [orgData, setOrgData] = useState(initialState);
+  const { name, email, password, cf_password, location, phone, address} = orgData;
 
   const { state, dispatch } = useContext(DataContext);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
+    setOrgData({ ...orgData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
@@ -34,7 +34,7 @@ const RegisterO = () => {
 
     dispatch({ type: "NOTIFY", payload: { loading: true } });
 
-    const res = await postData("auth/register", userData);
+    const res = await postData("auth/register_org", orgData);
 
     if (res.err)
       return dispatch({ type: "NOTIFY", payload: { success: res.err } });
@@ -91,30 +91,15 @@ const RegisterO = () => {
       </div>
       <form className={styles.register} onSubmit={handleSubmit}>
         <div className={styles.mainform}>
+          
           <div className={styles.formgroup} style={{width: "175px"} }>
             <label className={styles.label} htmlFor="name">
-              First name*
+              Organizer/Organization Name*
             </label>
             <input
               type="text"
               className={styles.formcontrol}
               id="name"
-              name="name"
-              value={name}
-              onChange={handleChangeInput}
-            />
-            <span className={styles.textspan}></span>
-          </div>
-          <div className={styles.space}></div>
-          {/* Nachnahme ändern */}
-          <div className={styles.formgroup} style={{width: "175px"} }>
-            <label className={styles.label} htmlFor="name">
-              Last name*
-            </label>
-            <input
-              type="text"
-              className={styles.formcontrol}
-              id="nachname"
               name="name"
               value={name}
               onChange={handleChangeInput}
@@ -142,16 +127,16 @@ const RegisterO = () => {
           <div className={styles.space}></div>
 
           <div className={styles.formgroup}>
-            <label className={styles.label} htmlFor="exampleInputEmail1">
+            <label className={styles.label} htmlFor="tel_num">
               Phonenumber
             </label>
             <input
-              type="email"
+              type="tel"
               className={styles.formcontrol}
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              name="email"
-              value={email}
+              id="tel_num"
+              aria-describedby="telHelp"
+              name="phone"
+              value={phone}
               onChange={handleChangeInput}
             />
             <span className={styles.textspan}></span>
@@ -159,30 +144,30 @@ const RegisterO = () => {
         </div>
         <div className={styles.mainform}>
         <div className={styles.formgroup}>
-          <label className={styles.label} htmlFor="exampleInputPassword1">
+          <label className={styles.label} htmlFor="address">
             Address
           </label>
           <input
             type="text"
             className={styles.formcontrol}
-            id="exampleInputPassword1"
-            name="password"
-            value={password}
+            id="address"
+            name="address"
+            value={address}
             onChange={handleChangeInput}
           />
           <span className={styles.textspan}></span>
         </div>
         <div className={styles.space} ></div>
         <div className={styles.formgroup} >
-          <label className={styles.label} htmlFor="exampleInputPassword1">
+          <label className={styles.label} htmlFor="location">
             District/Region
           </label>
           <input
             type="text"
             className={styles.formcontrol}
-            id="exampleInputPassword1"
-            name="password"
-            value={password}
+            id="location"
+            name="location"
+            value={location}
             onChange={handleChangeInput}
           />
           <span className={styles.textspan}></span>

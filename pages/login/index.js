@@ -4,21 +4,25 @@ import Link from "next/link";
 import NavLogin from "../../components/header-login";
 import Header1 from "../../components/head";
 import { postData } from "../../util/fetchData";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import valid from "../../util/valid";
 import { DataContext } from "../../store/GlobalState";
 import Cookie from "js-cookie";
+import { useRouter } from "next/router";
 
 const SignIn = () => {
   const initialState = { email: "", password: "" };
   const [userData, setUserData] = useState(initialState);
   const {state, dispatch} = useContext(DataContext);
   const { email, password } = userData;
+  const { auth } = state;
 
   const handleChangeInput = e => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
+  
+  const router = useRouter()
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -43,6 +47,10 @@ const SignIn = () => {
     });
     localStorage.setItem("firstLogin", true);
   };
+
+  useEffect(() => {
+    if(Object.keys(auth).length !== 0) router.push("/participator")
+  }, [auth])
 
   return (
     <div id="wrapper-login">
