@@ -108,15 +108,15 @@ const RegisterO = () => {
           <div className={styles.space}></div>
           {/* Nachnahme ändern */}
           <div className={styles.formgroup} style={{width: "175px"} }>
-            <label className={styles.label} htmlFor="name">
+            <label className={styles.label} htmlFor="nachname">
               Last name*
             </label>
             <input
               type="text"
               className={styles.formcontrol}
               id="nachname"
-              name="name"
-              value={name}
+              name="nachname"
+            //   value={"nachname"}
               onChange={handleChangeInput}
             />
             <span className={styles.textspan}></span>
@@ -142,16 +142,16 @@ const RegisterO = () => {
           <div className={styles.space}></div>
 
           <div className={styles.formgroup}>
-            <label className={styles.label} htmlFor="exampleInputEmail1">
-              Phonenumber
+            <label className={styles.label} htmlFor="phonenumber">
+              Phone number
             </label>
             <input
-              type="email"
+              type="phonenumber"
               className={styles.formcontrol}
               id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              name="email"
-              value={email}
+              aria-describedby="phonenumber"
+              name="phonenumber"
+            //   value={phonenumber}
               onChange={handleChangeInput}
             />
             <span className={styles.textspan}></span>
@@ -159,30 +159,30 @@ const RegisterO = () => {
         </div>
         <div className={styles.mainform}>
         <div className={styles.formgroup}>
-          <label className={styles.label} htmlFor="exampleInputPassword1">
+          <label className={styles.label} htmlFor="address">
             Address
           </label>
           <input
             type="text"
             className={styles.formcontrol}
-            id="exampleInputPassword1"
-            name="password"
-            value={password}
+            id="address"
+            name="address"
+            // value={address}
             onChange={handleChangeInput}
           />
           <span className={styles.textspan}></span>
         </div>
         <div className={styles.space} ></div>
         <div className={styles.formgroup} >
-          <label className={styles.label} htmlFor="exampleInputPassword1">
+          <label className={styles.label} htmlFor="disreg">
             District/Region
           </label>
           <input
             type="text"
             className={styles.formcontrol}
-            id="exampleInputPassword1"
-            name="password"
-            value={password}
+            id="disreg"
+            name="disreg"
+            // value={disreg}
             onChange={handleChangeInput}
           />
           <span className={styles.textspan}></span>

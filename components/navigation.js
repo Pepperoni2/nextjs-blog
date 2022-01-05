@@ -1,54 +1,45 @@
 import Link from "next/dist/client/link";
 import { signIn, signOut, useSession } from "next-auth/client";
 
-export const Scroll = async () => {
-
-//   window.onscroll = function () {
-//     scrollFunction();
-//   };
-
-//   function scrollFunction() {
-//     if (
-//       document.body.scrollTop > 50 ||
-//       document.documentElement.scrollTop > 50
-//     ) {
-//       document.getElementById("nav").style.height = "15vh";
-//       document.getElementById("nav").style.backgroundColor =
-//         "rgba(47,47,47, 0.5)";
-//     } else {
-//       document.getElementById("nav").style.height = "20vh";
-//       document.getElementById("nav").style.backgroundColor =
-//         "rgba(47,47,47, 1)";
-//     }
-
-//     if (
-//       document.body.scrollTop > 50 ||
-//       document.documentElement.scrollTop > 50
-//     ) {
-//       document.getElementById("wrapper").style.backgroundColor =
-//         "rgba(47,47,47, 0.5)";
-//     }
-//     if (
-//       document.body.scrollTop > 400 ||
-//       document.documentElement.scrollTop > 400
-//     ) {
-//       document.getElementById("wrppic").style.backgroundColor =
-//         "rgba(233, 114, 49, 1)";
-//     } else {
-//       document.getElementById("wrppic").style.backgroundColor =
-//         "rgba(47,47,47, 0.5)";
-//     }
-//   }
-  
-  
-};
+import { useEffect, useState } from "react";
 
 function Nav(props) {
-  
-  const [session, loading] = useSession();
-  Scroll();
+  const [clientWindowHeight, setClientWindowHeight] = useState("");
+
+  const [backgroundTransparacy, setBackgroundTransparacy] = useState(0);
+  const [height, setHeight] = useState(30);
+  const [boxShadow, setBoxShadow] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
+  const handleScroll = () => {
+    setClientWindowHeight(window.scrollY);
+  };
+
+  useEffect(() => {
+    let backgroundTransparacyVar = clientWindowHeight / 200;
+
+    if (backgroundTransparacyVar < 1) {
+      let heightVar = 200 - backgroundTransparacyVar * 30;
+      let boxShadowVar = backgroundTransparacyVar * 0.4;
+      setBackgroundTransparacy(backgroundTransparacyVar);
+      setHeight(heightVar);
+      setBoxShadow(boxShadowVar);
+    } 
+  }, [clientWindowHeight]);
+
   return (
-    <nav id="nav">
+    <nav
+      id="nav"
+      style={{
+        background: `rgba(37, 30, 33, ${backgroundTransparacy})`,
+        height: `${height}px`,
+        boxShadow: `rgb(0 0 0 / ${boxShadow}) 0px 0px 20px 6px`,
+      }}
+    >
       <div id="wrpnav">
         <div id="wrph1">
           <div id="wrplh">
@@ -66,7 +57,12 @@ function Nav(props) {
           <div id="Popup">
             <div id="flexPop">
               <Link href="/">
-                <button className="bt">
+                <button
+                  className="bt"
+                  style={{
+                    background: `rgb(229, 112, 49, ${backgroundTransparacy})`,
+                  }}
+                >
                   <a>Home</a>
                 </button>
               </Link>
@@ -84,16 +80,11 @@ function Nav(props) {
           </div>
         </div>
       </div>
-      
     </nav>
-
-
   );
 }
 
 export default Nav;
-
-
 
 /* -------------- DELETED CODE ------------
 

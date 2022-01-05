@@ -1,5 +1,7 @@
+import styles from "../styles/modules/toast.module.scss";
+
 const Loading = () => {
-    return <h2 style={{color: 0xe8dbc9}}>Loading....</h2>
+    return <h2 className={styles.loading}>Loading....</h2>
 }
 
 export default Loading
