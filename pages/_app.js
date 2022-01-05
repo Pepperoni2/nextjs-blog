@@ -30,8 +30,8 @@ export default function App({ Component, pageProps, router }) {
     <DataProvider>
       <Layout>
       </Layout>
-    
         <Component {...pageProps} />
+        
         </DataProvider>
   )
 }

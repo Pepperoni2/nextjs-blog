@@ -3,7 +3,7 @@ import styles from "../styles/modules/toast.module.scss";
 const Toast = ({ msg, handleShow, titleColor }) => {
   return (
     <div className={styles.toast} >
-      <strong className={styles.title} style={{color: titleColor }}>{msg.title}</strong>
+      <strong className={styles.title} style={{color: titleColor}}>{msg.title}</strong>
 
       <button
         type="button"

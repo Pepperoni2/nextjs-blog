@@ -81,10 +81,10 @@ const RegisterP = () => {
           <div className={styles.logo}></div>
         </Link>
         <div className={styles.a1}>
-          <Link href="/">
+          <Link href="/login/distributor/p-register">
             <a>EventX</a>
           </Link>
-          <Link href="/">
+          <Link href="/login/distributor/p-register">
             <a>Register</a>
           </Link>
         </div>
