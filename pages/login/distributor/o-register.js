@@ -3,11 +3,10 @@ import Link from "next/link";
 import valid from "../../../util/valid";
 import styles from "../../../styles/modules/o-register.module.scss";
 import Footer from "../../../components/footer.js";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { DataContext } from "../../../store/GlobalState";
 import { postData } from "../../../util/fetchData";
-
-import { useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 import FOG from "vanta/dist/vanta.fog.min";
 import * as THREE from "three";
 //import NavLogin from '../../../components/header-login'
@@ -21,6 +20,9 @@ const RegisterO = () => {
   const { name, email, password, cf_password, location, phone, address} = orgData;
 
   const { state, dispatch } = useContext(DataContext);
+  const { auth } = state;
+
+  const router = useRouter()
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -38,14 +40,15 @@ const RegisterO = () => {
 
     if (res.err)
       return dispatch({ type: "NOTIFY", payload: { success: res.err } });
+    
+    return dispatch({ type: "NOTIFY", payload: { success: res.msg } }); 
 
-    return dispatch({ type: "NOTIFY", payload: { success: res.msg } });
   };
   // --------------------------------------------
-
   const [vantaEffect, setVantaEffect] = useState(0);
   const vantaRef = useRef(null);
   useEffect(() => {
+    if(Object.keys(auth).length !== 0) router.push("/participator")
     if (!vantaEffect) {
       setVantaEffect(
         FOG({
@@ -69,7 +72,7 @@ const RegisterO = () => {
     async () => {
       if (vantaEffect) vantaEffect.destory();
     };
-  }, [vantaEffect]);
+  }, [vantaEffect], [auth]);
 
   return (
     <div className={styles.wrapperregister} ref={vantaRef}>
