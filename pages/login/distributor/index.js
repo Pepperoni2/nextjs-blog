@@ -8,6 +8,7 @@ import { GiAzulFlake } from "@react-icons/all-files/gi/GiAzulFlake";
 import { motion } from "framer-motion"
 import { get } from "jquery";
 import React, { useState, useEffect } from 'react';
+import Loading from "../../../components/Loading";
 
 
 export default function Distributor(params) {
@@ -19,6 +20,7 @@ export default function Distributor(params) {
     const drop = document.getElementsByClassName("dropdown-content");
   });
   return (
+    
     <motion.div initial="hidden" animate="visible" variants={{
       hidden: {
         scale:.8,
@@ -34,6 +36,7 @@ export default function Distributor(params) {
 
     }}>
     <div id="wrapperdistributer">
+    
       <Header1 />
       <h1 id="titledistributor">Choose</h1>
       <div id="box">
