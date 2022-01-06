@@ -111,11 +111,11 @@ $color-fourth: #e8dbc9;
       
       .space{
         
-        width: 10%;
+        width: 5%;
         
       }
       .formgroup {
-        max-width: 300px;
+        max-width: 350px;
         
         font-family: "Raleway", sans-serif;
         position: relative;
@@ -123,7 +123,10 @@ $color-fourth: #e8dbc9;
         justify-content: center;
         flex-direction: column;
         
-
+        &:nth-child(1){
+        // width: 100%;
+        // background-color: #e97231;
+        }
         .label {
           color: #e8dbc9;
           padding: 1%;

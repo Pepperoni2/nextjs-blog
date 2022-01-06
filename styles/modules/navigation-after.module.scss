@@ -11,7 +11,7 @@ $logo: url(/Pics/logo_large.png);
   background-color: $color-second;
   width: 20vw;
   position: fixed;
-
+  
   height: 100vh;
   left: 0;
   overflow: hidden;
@@ -51,14 +51,14 @@ $logo: url(/Pics/logo_large.png);
     justify-content: space-around;
     flex-direction: column;
     font-family: "Raleway", sans-serif;
-
+    
     .bt1 {
       
       width: 100%;
       font: inherit;
       height: 19.8%;
       border: none;
-
+      color: #e97231;
       cursor: pointer;
 
       display: flex;
@@ -111,14 +111,14 @@ $logo: url(/Pics/logo_large.png);
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt1:hover .icon1 {
-      color: #e8dbc9;
+      
 
      
     }
 
     .bt2 {
       width: 100%;
-     
+      color: #e97231;
       height: 19.8%;
       border: none;
       font: inherit;
@@ -174,14 +174,14 @@ $logo: url(/Pics/logo_large.png);
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt2:hover .icon2 {
-      color: #e8dbc9;
+      
 
       text-shadow: 1px 1px 1px #ccc;
     }
 
     .bt3 {
       width: 100%;
-      
+      color: #e97231;
       height: 19.8%;
       border: none;
       font: inherit;
@@ -237,13 +237,13 @@ $logo: url(/Pics/logo_large.png);
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt3:hover .icon3 {
-      color: #e8dbc9;
+      
 
       text-shadow: 1px 1px 1px #ccc;
     }
     .bt4 {
       width: 100%;
-      
+      color: #e97231;
       height: 19.8%;
       border: none;
       font: inherit;
@@ -293,20 +293,20 @@ $logo: url(/Pics/logo_large.png);
     .bt4:hover .link4 {
       opacity: 1;
       width: 100%;
-
+      
       background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt4:hover .icon4 {
-      color: #e8dbc9;
+      
 
       text-shadow: 1px 1px 1px #ccc;
     }
     .bt5 {
       width: 100%;
       font: inherit;
-      
+      color: #e97231;
       height: 19.8%;
       border: none;
 
@@ -356,13 +356,13 @@ $logo: url(/Pics/logo_large.png);
     .bt5:hover .link5 {
       opacity: 1;
       width: 100%;
-
+      
       background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt5:hover .icon5 {
-      color: #e8dbc9;
+      
 
       
     }
@@ -406,7 +406,7 @@ $logo: url(/Pics/logo_large.png);
           background-color: darken($color: $color-third, $amount: 40);
         align-items: center;
         justify-content: center;
-        
+        color: $color-fourth;
         display: flex;
         height: 100%;
         position: relative;
@@ -418,6 +418,7 @@ $logo: url(/Pics/logo_large.png);
         
           .icon6{
             margin-right: 5px;
+            transition: all ease-in-out 0.3s;
           }
         }
 
@@ -428,7 +429,7 @@ $logo: url(/Pics/logo_large.png);
         background-color: #e8dbc9;
       }
       .button1:hover .icon6{
-        color: $color-fourth;
+        color: $color-third;
         
       }
 
@@ -455,6 +456,7 @@ $logo: url(/Pics/logo_large.png);
       display: flex;
       flex-direction: column;
       position: relative;
+      
     .logouser {
       height: 100%;
       width: 100%;
@@ -484,13 +486,15 @@ $logo: url(/Pics/logo_large.png);
         display: flex;
         justify-content: center;
         align-items: center;
-       
+        
 
         .username {
           display: flex;
           align-items: center;
           justify-content: center;
           color: $color-third;
+          font-size: 1.1em;
+          
         }
 
         // .userarrow {
