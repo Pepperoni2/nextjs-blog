@@ -10,6 +10,12 @@ import { DataContext } from "../../store/GlobalState";
 import Cookie from "js-cookie";
 import { useRouter } from "next/router";
 
+import styles from "../../styles/modules/p-register.module.scss";
+import Footer from "../../components/footer.js";
+import {useRef } from "react";
+import FOG from "vanta/dist/vanta.fog.min";
+import * as THREE from "three";
+
 const SignIn = () => {
   const initialState = { email: "", password: "" };
   const [userData, setUserData] = useState(initialState);
@@ -52,9 +58,40 @@ const SignIn = () => {
     if(Object.keys(auth).length !== 0) router.push("/participator")
   }, [auth])
 
+//------------------------------
+
+const [vantaEffect, setVantaEffect] = useState(0);
+  const vantaRef = useRef(null);
+  useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(
+        FOG({
+          el: vantaRef.current,
+          THREE,
+          mouseControls: false,
+          touchControls: false,
+          gyroControls: false,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          highlightColor: 0x292627,
+          midtoneColor: 0xe8dbc9,
+          lowlightColor: 0xe8dbc9,
+          baseColor: 0xe97231,
+          blurFactor: 0.6,
+          speed: 0.7,
+          zoom: 2,
+        })
+      );
+    }
+    async () => {
+      if (vantaEffect) vantaEffect.destory();
+    };
+  }, [vantaEffect]);
+
+
   return (
     <div id="wrapper-login">
-      <div className="modal">
+      <div className="modal" ref={vantaRef}>
         <form className="content-box" onSubmit={handleSubmit}>
           <div className="container">
             <NavLogin />
@@ -102,9 +139,15 @@ const SignIn = () => {
               <input type="checkbox" id="remember" name="remember" />
             </label>
           </div>
+          
         </form>
+        
       </div>
+      <div className="footer2">
+    <Footer />
+  </div>
     </div>
+    
   );
 };
 

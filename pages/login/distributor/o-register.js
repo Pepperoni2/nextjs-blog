@@ -92,7 +92,7 @@ const RegisterO = () => {
       <form className={styles.register} onSubmit={handleSubmit}>
         <div className={styles.mainform}>
           
-          <div className={styles.formgroup}>
+          <div className={styles.formgroup} style={{width: "300px", alignItems: "center"}}>
             <label className={styles.label} htmlFor="name">
               Organizer/Organization Name*
             </label>

@@ -7,7 +7,7 @@ body {
 }
 #wrapper-login{
   
-background-color: red;
+
 
 overflow: hidden;
 width: 100%;
@@ -281,6 +281,8 @@ input[type=text], input[type=password] {
   #remember1:hover{
     background-color: rgba(47,47,47, 0.6);
   }
+
+  
   
   @media only screen and (max-width: 690px){
     .model{

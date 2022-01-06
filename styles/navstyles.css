@@ -28,7 +28,7 @@ width: 100%;
     position: relative;
 }
 #h1{
-    margin-left: 2%;
+    
 }
 #wrplh{
     width: 100%;
@@ -54,10 +54,13 @@ width: 100%;
  background-size: contain;
  cursor: pointer;
  transition: all ease-in-out 0.5s;
- width: 20%;
- height: 15vh;   
- min-width: 40px;
- max-width: 200px;
+ width: 100%;
+ height: 70%; 
+ 
+ min-width: fit-content;
+ max-width: 140px;
+ min-height: fit-content;
+ 
  
  
 
@@ -104,18 +107,28 @@ width: 100%;
     /* background-color: rgba(37, 30, 33,0.5); */
     color: #E8DBC9;
 }
+.bt:nth-child(3){
+    /* background-color: rgba(37, 30, 33,0.5); */
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 2px 0 white;
+}
 .bt{
     position: relative;
-    display: inline-block;
-    width: auto; height: auto;
+    
+    
     background-color: transparent;
     font-family: 'Raleway', sans-serif;
     border: none;
     cursor: pointer;
     margin:0px 5%;
-    padding: 2vh 3vh 2vh 3vh;
+    
     transition:ease-in-out 0.2s all;
     color: #E97231;
+    min-height: 50px;
+    min-width: 90px;
+    font-size: 0.9em;
+    width: 100%;
+    height: 100%;
     
 }
 .bt:hover{

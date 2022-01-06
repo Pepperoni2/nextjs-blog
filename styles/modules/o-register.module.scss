@@ -14,10 +14,10 @@ $color-fourth: #e8dbc9;
   flex-direction: column;
 
   .header {
-    width: 60%;
+    width: 70%;
     min-width: 450px;
     min-height: 75px;
-    max-width: 700px;
+    max-width: 800px;
     transition: transform ease-in-out 0.5s;
     height: 13vh;
     display: flex;
@@ -87,8 +87,8 @@ $color-fourth: #e8dbc9;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     flex-direction: column;
-    width: 60%;
-    max-width: 700px;
+    width: 70%;
+    max-width: 800px;
     height: 55vh;
     min-height: 450px;
     min-width: 450px;
@@ -104,10 +104,10 @@ $color-fourth: #e8dbc9;
       padding: 1%;
       background-color: rgba(0, 0, 0, 0.3);
       
-      &:nth-child(4){
-        text-decoration: underline;
-        color: #e97231;
-      }
+      // &:nth-child(4){
+      //   text-decoration: underline;
+      //   color: #e97231;
+      // }
       
       .space{
         
@@ -116,22 +116,26 @@ $color-fourth: #e8dbc9;
       }
       .formgroup {
         max-width: 350px;
-        
+        min-width: 270px;
         font-family: "Raleway", sans-serif;
         position: relative;
         display: flex;
         justify-content: center;
+        
         flex-direction: column;
         
-        &:nth-child(1){
-        // width: 100%;
-        // background-color: #e97231;
-        }
+       
         .label {
           color: #e8dbc9;
           padding: 1%;
           font-size: 1.13em;
          
+          // &:first-child(1){
+
+          //   text-align: left;
+          //   text-decoration: underline;
+          // }
+
         }
 
         .formcontrol {

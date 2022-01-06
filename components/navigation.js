@@ -59,9 +59,10 @@ function Nav(props) {
               <Link href="/">
                 <button
                   className="bt"
-                  style={{
-                    background: `rgb(229, 112, 49, ${backgroundTransparacy})`,
-                  }}
+                  // TODO lol
+                  //style={{
+                  //   background: `rgb(229, 112, 49, ${backgroundTransparacy})`,
+                  // }}
                 >
                   <a>Home</a>
                 </button>
