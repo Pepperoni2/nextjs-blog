@@ -129,12 +129,13 @@ export default function NavigationLeft() {
               </Link>
             </div>
             <div className={styles.help1}>
-              <div className={styles.logouser} onClick={switchModal}>
+              <div className={styles.logouser} >
               
                 <img
                   className={styles.logo}
                   src={auth.user.avatar}
                   alt={auth.user.avatar}
+                  onClick={switchModal}
                 />
               </div>
               <div className={styles.divuser}>

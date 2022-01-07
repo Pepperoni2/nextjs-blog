@@ -32,7 +32,7 @@ export default function Participator(props) {
         events.length === 0 || Object.keys(auth).length === 0
         ? <h2>keine Events</h2>
         : events.map(event => (
-          <EventItem key={event._id} event={event}/>
+          <EventItem key={event._id} event={event} index={index}/>
         ))
       }
       </div>
