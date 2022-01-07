@@ -9,7 +9,7 @@ import Layout from '../components/ToastLayout'
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
-export default function App({ Component, pageProps, router }) {
+export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     const threeScript = document.createElement("script");
@@ -28,11 +28,9 @@ export default function App({ Component, pageProps, router }) {
 
   return (
     <DataProvider>
-      <Layout>
-      </Layout>
-        <Component {...pageProps} />
-        
-        </DataProvider>
+      <Layout/>
+        <Component {...pageProps} /> 
+    </DataProvider>
   )
 }
 

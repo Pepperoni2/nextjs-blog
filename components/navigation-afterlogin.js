@@ -6,7 +6,7 @@ import { GiAbstract027 } from "@react-icons/all-files/gi/GiAbstract027";
 import { MdFavorite } from "@react-icons/all-files/md/MdFavorite";
 import { IoNotificationsSharp } from "@react-icons/all-files/io5/IoNotificationsSharp";
 import { FaSignOutAlt } from "@react-icons/all-files/fa/FaSignOutAlt";
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import { DataContext } from '../store/GlobalState'
 import { useRouter } from 'next/router'
 import Cookies from "js-cookie";
@@ -21,6 +21,15 @@ export default function NavigationLeft() {
   const router = useRouter()
   const { state, dispatch } = useContext(DataContext)
   const { auth } = state
+
+  const isActive = (r) => {
+    if(r === router.pathname){
+        return " active"
+    }
+    else{
+      return ""
+    }
+  }
 
   const logout = () =>{
       Cookies.remove('refreshtoken', {path: 'api/auth/accessToken'})
@@ -37,15 +46,15 @@ export default function NavigationLeft() {
           rel="stylesheet"
         />
         <div className={styles.main}>
-          <Link href="/participator">
+          <Link href="/">
             <div className={styles.divl}>
               <div className={styles.divlogo}></div>
             </div>
           </Link>
           <div className={styles.divbutton}>
-            <Link href="/">
+            <Link href="/participator">
               <button className={styles.bt1}>
-                <a className={styles.link1}>
+                <a className={styles.link1 + isActive('/')}>
                   <h2>
                     <IoHomeSharp className={styles.icon1} />
                   </h2>
@@ -53,9 +62,9 @@ export default function NavigationLeft() {
                 </a>
               </button>
             </Link>
-            <Link href="/">
+            <Link href="/participator">
               <button className={styles.bt2}>
-                <a className={styles.link2}>
+                <a className={styles.link2 + isActive('/notifications')}>
                   <h2>
                     <IoNotificationsSharp className={styles.icon2} />
                   </h2>
@@ -63,9 +72,9 @@ export default function NavigationLeft() {
                 </a>
               </button>
             </Link>
-            <Link href="/">
+            <Link href="/participator">
               <button className={styles.bt3}>
-                <a className={styles.link3}>
+                <a className={styles.link3 + isActive('/')}>
                   <h2>
                     <MdFavorite className={styles.icon3} />
                   </h2>
@@ -75,7 +84,7 @@ export default function NavigationLeft() {
             </Link>
             <Link href="/">
               <button className={styles.bt4}>
-                <a className={styles.link4}>
+                <a className={styles.link4 + isActive('/')}>
                   <h2>
                     <GiAbstract027 className={styles.icon4} />
                   </h2>
@@ -83,9 +92,9 @@ export default function NavigationLeft() {
                 </a>
               </button>
             </Link>
-            <Link href="/">
+            <Link href="/profile">
               <button className={styles.bt5}>
-                <a className={styles.link5}>
+                <a className={styles.link5 + isActive('/profile')}>
                   <h2>
                     <GiAbstract027 className={styles.icon5} />
                   </h2>{" "}
@@ -98,7 +107,7 @@ export default function NavigationLeft() {
             <div className={styles.singoutuser}>
               <Link href="/">
                 <button className={styles.button1} onClick={logout}>
-                  <a className={styles.link6}>
+                  <a className={styles.link6 + isActive('/')}>
                     <FaSignOutAlt className={styles.icon6} />
                     Sign out
                   </a>

@@ -11,13 +11,14 @@ import { useRouter } from "next/router";
 export default function Participator(props) {
   const [events, setEvents] = useState(props.events)
   const { state } = useContext(DataContext)
+  const { auth } = state
   return (
 
     <div className={styles.wrapper}>
       <NavigationLeft />
       <div id="test">
       {
-        events.length === 0 
+        events.length === 0 || Object.keys(auth).length === 0
         ? <h2>keine Events</h2>
         : events.map(event => (
           <EventItem key={event._id} event={event} />
