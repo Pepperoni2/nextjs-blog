@@ -5,7 +5,7 @@ import { getData } from '../util/fetchData'
 export const DataContext = createContext()
 
 export const DataProvider = ({children}) => {
-    const initialState = { notify: {}, auth: {} }
+    const initialState = { notify: {}, auth: {}, users:[] }
     const [state, dispatch] = useReducer(reducers, initialState)
 
     useEffect(() => {
@@ -13,7 +13,7 @@ export const DataProvider = ({children}) => {
         if(firstLogin){
             getData('auth/accessToken').then(res => {
                 if(res.err) return localStorage.removeItem("firstLogin")
-
+                    
                 dispatch({
                     type: "AUTH",
                     payload:{
