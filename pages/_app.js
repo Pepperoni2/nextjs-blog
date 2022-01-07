@@ -26,9 +26,13 @@ export default function App({ Component, pageProps }) {
     };
   }, []);
 
+
+  
+
   return (
     <DataProvider>
       <Layout/>
+      <div id="portal"></div>
         <Component {...pageProps} /> 
     </DataProvider>
   )

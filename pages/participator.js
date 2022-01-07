@@ -8,16 +8,25 @@ import { useContext } from "react";
 import EventItem from '../components/event/EventItem'
 import { useRouter } from "next/router";
 import styles from "../styles/modules/afterlogin/main_after.module.scss"
+import PopUp from "../components/event/popup_after";
+
+
 
 
 export default function Participator(props) {
   const [events, setEvents] = useState(props.events)
   const { state } = useContext(DataContext)
   const { auth } = state
+
+  
+ 
+
   return (
 
     <div className={styles.wrapper}>
+      
       <NavigationLeft />
+      
       <div className={styles.container}>
       {
         events.length === 0 || Object.keys(auth).length === 0

@@ -9,7 +9,9 @@ const EventItem = ({ event }) => {
         return(
             <>
             <Link href={`event/${event._id}`}>
-                <a className={styles.link}>View</a>
+                {/* <a className={styles.link}> */}
+                    Find out more
+                    {/* </a> */}
             </Link>
             </>
         )
@@ -32,6 +34,7 @@ const EventItem = ({ event }) => {
                     <div className={styles.divlink}>
                         {userLink()}
                     </div>
+                
                 </div>
         </div>
         // ----- 
