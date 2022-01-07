@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Link from "next/dist/client/link";
-import styles from "../styles/modules/navigation-after.module.scss";
+import styles from "../styles/modules/afterlogin/navigation_after.module.scss";
 import { IoHomeSharp } from "@react-icons/all-files/io5/IoHomeSharp";
 import { GiAbstract027 } from "@react-icons/all-files/gi/GiAbstract027";
 import { MdFavorite } from "@react-icons/all-files/md/MdFavorite";

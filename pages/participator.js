@@ -1,12 +1,14 @@
-import NavigationLeft from "../components/navigation-afterlogin";
+import NavigationLeft from "../components/navigation_after";
 import { useSession } from "next-auth/client";
-import styles from "../styles/modules/afterloginpage.module.scss";
+
 import { getData } from '../util/fetchData'
 import { useState } from "react";
 import { DataContext } from '../store/GlobalState'
 import { useContext } from "react";
 import EventItem from '../components/event/EventItem'
 import { useRouter } from "next/router";
+import styles from "../styles/modules/afterlogin/main_after.module.scss"
+
 
 export default function Participator(props) {
   const [events, setEvents] = useState(props.events)
@@ -15,12 +17,12 @@ export default function Participator(props) {
 
     <div className={styles.wrapper}>
       <NavigationLeft />
-      <div id="test">
+      <div className={styles.container}>
       {
         events.length === 0 
         ? <h2>keine Events</h2>
         : events.map(event => (
-          <EventItem key={event._id} event={event} />
+          <EventItem key={event._id} event={event}/>
         ))
       }
       </div>
