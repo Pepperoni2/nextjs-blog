@@ -1,17 +1,17 @@
 import Head from "next/head"
 import { useState, useContext, useEffect } from "react"
-import { DataContext } from "../store/GlobalState"
+import { DataContext } from "../../store/GlobalState"
 import { useRouter } from "next/router"
-import { patchData } from '../util/fetchData'
-import valid from '../util/valid'
-import { ImageUpload } from "../util/imageUpload"
-import NavigationLeft from "../components/navigation_after"
-import styles from "../styles/modules/afterlogin/settings.module.scss"
+import { patchData } from '../../util/fetchData'
+import valid from '../../util/valid'
+import { ImageUpload } from "../../util/imageUpload"
+import NavigationLeft from "../../components/navigation_after"
+import styles from "../styles/modules/afterlogin/profile.module.scss"
 
 // Profile page stylen, navigation sollte am besten gleich bleiben
 // Style es wie du es willst 
 
-const Settings = () => {
+const Profile = () => {
     const initialState = {
         avatar: '',
         name: '',
@@ -167,4 +167,4 @@ const Settings = () => {
     )
 }
 
-export default Settings
+export default Profile
