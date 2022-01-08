@@ -1,5 +1,26 @@
 $width:50px;
 
+@mixin button {
+  cursor: pointer;
+   
+   
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 30px;
+    height: 20px;
+    outline: none;
+    border: none;
+    transition: ease-in-out all 0.15s;
+    box-shadow: 0 0 2px 0 black;
+    background-color: #C36937;
+    color: #292627;
+    &:hover{
+      box-shadow: 0 0 4px 0 black;
+      color: #e8dbc9;
+      
+    }
+}
+
 .container {
   background-color: transparent;
   width: 100%;
@@ -24,7 +45,7 @@ $width:50px;
   z-index: 100;
   position: fixed;
   top: 20px;
-  box-shadow: 0px 0px 0px 1px lighten($color: rgba(0, 0, 0, 0.8), $amount: 50);
+  box-shadow: 0px 0px 4px 1px black;
   .title {
     font-size: 1.3em;
     

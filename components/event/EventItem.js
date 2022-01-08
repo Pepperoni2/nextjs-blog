@@ -1,5 +1,6 @@
+import styles from "../../styles/modules/afterlogin/eventitems_after.module.scss";
 import Link from "next/link"
-
+import Image from "next/image";
 const EventItem = ({ event }) => {
 
     // ----- The Buttons under the desc ----
@@ -8,26 +9,32 @@ const EventItem = ({ event }) => {
         return(
             <>
             <Link href={`event/${event._id}`}>
-                <a>View</a>
+                {/* <a className={styles.link}> */}
+                    Find out more
+                    {/* </a> */}
             </Link>
             </>
         )
     }
     // --------------------------------------
     console.log(event)
+
+    
+
     return (
         // ----- Event Cards --------
         // ------ feel free to style ------
-        <div className="card" style={{marginLeft: '300px', color: 'black'}}>
-            <img className="card-img-top" src={event.images[0].url} alt={event.images[0].url}/>
-                <div className="card-body">
-                    <h5 title={event.title}>{event.title}</h5>
-                    <p title={event.description}>
+        <div className={styles.card}>
+            <img className={styles.cardimgtop} src={event.images[0].url} alt={event.images[0].url}/>
+                <div className={styles.cardbody}>
+                    <h5 title={event.title} className={styles.cardtitle}>{event.title}</h5>
+                    <p title={event.description} className={styles.carddescription}>
                         {event.description}
                     </p>
-                    <div>
+                    <div className={styles.divlink}>
                         {userLink()}
                     </div>
+                
                 </div>
         </div>
         // ----- 
