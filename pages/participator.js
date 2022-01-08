@@ -1,5 +1,4 @@
-import NavigationLeft from "../components/navigation-afterlogin";
-import { useSession } from "next-auth/client";
+import NavigationLeft from "../components/navigation-afterlogin";;
 import styles from "../styles/modules/afterloginpage.module.scss";
 import { getData } from '../util/fetchData'
 import { useState } from "react";
@@ -19,7 +18,7 @@ export default function Participator(props) {
       <div id="test">
       {
         events.length === 0 || Object.keys(auth).length === 0
-        ? <h2>keine Events</h2>
+        ? <div></div>
         : events.map(event => (
           <EventItem key={event._id} event={event} />
         ))

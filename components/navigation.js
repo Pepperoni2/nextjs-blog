@@ -1,7 +1,6 @@
 import Link from "next/dist/client/link";
-import { signIn, signOut, useSession } from "next-auth/client";
-
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { DataContext } from "../store/GlobalState";
 
 function Nav(props) {
   const [clientWindowHeight, setClientWindowHeight] = useState("");
@@ -9,6 +8,9 @@ function Nav(props) {
   const [backgroundTransparacy, setBackgroundTransparacy] = useState(0);
   const [height, setHeight] = useState(30);
   const [boxShadow, setBoxShadow] = useState(0);
+
+  const { state } = useContext(DataContext)
+  const { auth } = state
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -28,7 +30,7 @@ function Nav(props) {
       setBackgroundTransparacy(backgroundTransparacyVar);
       setHeight(heightVar);
       setBoxShadow(boxShadowVar);
-    } 
+    }
   }, [clientWindowHeight]);
 
   return (
@@ -59,10 +61,10 @@ function Nav(props) {
               <Link href="/">
                 <button
                   className="bt"
-                  // TODO lol
-                  //style={{
-                  //   background: `rgb(229, 112, 49, ${backgroundTransparacy})`,
-                  // }}
+                // TODO lol
+                //style={{
+                //   background: `rgb(229, 112, 49, ${backgroundTransparacy})`,
+                // }}
                 >
                   <a>Home</a>
                 </button>
@@ -72,11 +74,24 @@ function Nav(props) {
                   <a>About</a>
                 </button>
               </Link>
-              <Link href="/login">
-                <button className="bt">
-                  <a>Login</a>
-                </button>
-              </Link>
+
+
+              {
+                Object.keys(auth).length === 0 ?
+                  <Link href="/login">
+                    <button className="bt">
+                      <a>Login</a>
+                    </button>
+                  </Link>
+                  :
+                  <Link href="/participator">
+                    <button className="bt">
+                      <a>User</a>
+                    </button>
+                  </Link>
+              }
+
+
             </div>
           </div>
         </div>

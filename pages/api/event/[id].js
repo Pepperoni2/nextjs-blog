@@ -1,6 +1,7 @@
 import connectDB from '../../../util/connectDB'
 import Events from '../../../models/eventModel'
 
+
 connectDB()
 
 export default async (req, res) => {
@@ -12,6 +13,7 @@ export default async (req, res) => {
 }
 
 const getEvents = async (req, res) => {
+
     try{
         const { id } = req.query;
 
@@ -23,4 +25,5 @@ const getEvents = async (req, res) => {
     catch (err){
         return res.status(500).json({err: err.message})
     }
+    
 }

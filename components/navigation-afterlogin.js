@@ -6,7 +6,7 @@ import { GiAbstract027 } from "@react-icons/all-files/gi/GiAbstract027";
 import { MdFavorite } from "@react-icons/all-files/md/MdFavorite";
 import { IoNotificationsSharp } from "@react-icons/all-files/io5/IoNotificationsSharp";
 import { FaSignOutAlt } from "@react-icons/all-files/fa/FaSignOutAlt";
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { DataContext } from '../store/GlobalState'
 import { useRouter } from 'next/router'
 import Cookies from "js-cookie";
@@ -37,6 +37,10 @@ export default function NavigationLeft() {
       dispatch({ type: 'AUTH', payload: {} })
       dispatch({ type: 'NOTIFY', payload: {success: 'Logged out!'} })
   }
+
+  useEffect(() =>{
+    if(Object.keys(auth).length === 0) router.push("/")
+  },[auth])
 
   const loggedRouter = () => {
     return (
@@ -137,14 +141,15 @@ export default function NavigationLeft() {
     <Fragment>
       {
         Object.keys(auth).length === 0
-          ?
-          <div>
+        ?
+        <div></div>
+/*           <div>
             <h1>Zugriff nicht erlaubt!</h1>
             <h2 style={{ color: 'black' }}>Melden Sie sich an</h2>
             <Link href="/login">
               <button>Anmelden</button>
             </Link>
-          </div>
+          </div> */
           : loggedRouter()
       }
     </Fragment>
