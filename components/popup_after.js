@@ -1,8 +1,8 @@
-import styles from "../../styles/modules//afterlogin/popup_after.module.scss";
+import styles from "../styles/modules/afterlogin/popup_after.module.scss";
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import ReactDOM from "react-dom";
-import { DataContext } from "../../store/GlobalState";
+import { DataContext } from "../store/GlobalState";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { FaSignOutAlt } from "@react-icons/all-files/fa/FaSignOutAlt";

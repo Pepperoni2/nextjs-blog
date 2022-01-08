@@ -10,12 +10,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { DataContext } from '../store/GlobalState'
 import { useRouter } from 'next/router'
 import Cookies from "js-cookie";
-import PopUp from "./event/popup_after";
+import PopUp from "./popup_after";
 
 export default function NavigationLeft() {
   const router = useRouter();
   const { state, dispatch } = useContext(DataContext);
-  const { auth } = state;
+  const { auth, entered } = state;
 
   //--------------------
   const [isOpen, setIsOpen] = useState(false);
@@ -107,7 +107,7 @@ export default function NavigationLeft() {
                   <h2>
                     <GiAbstract027 className={styles.icon4} />
                   </h2>
-                  Unknown
+                  Your events
                 </a>
               </button>
             </Link>

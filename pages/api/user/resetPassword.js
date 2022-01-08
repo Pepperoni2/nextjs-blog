@@ -20,7 +20,7 @@ const resetPassword = async (req, res) => {
         const { password } = req.body
         const passwordHash = await bcrypt.hash(password, 12)
 
-        if(result.role === 'user') await Users.findOneAndUpdate({_id: result.id}, {password: passwordHash})
+        if(result.role === 'participator') await Users.findOneAndUpdate({_id: result.id}, {password: passwordHash})
         else if(result.role === 'organizer') await Organizers.findOneAndUpdate({_id: result.id}, {password: passwordHash})
 
         res.json({msg: "Update Success!"})
