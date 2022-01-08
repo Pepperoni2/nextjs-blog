@@ -42,6 +42,11 @@ export default function PopUp({open, onClose}) {
           <li style={{textTransform: "uppercase"}}>
           {auth.user.role}
           </li>
+          <li style={{ width:"100%", height: 30}}>
+            <Link href={"/settings/profile"} >
+            <p className={styles.settings}>User Settings</p>
+            </Link>
+          </li>
           </ul>
           <div className={styles.singoutuser1}>
               <Link href="/">

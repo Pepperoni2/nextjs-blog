@@ -6,7 +6,7 @@ import { patchData } from '../../util/fetchData'
 import valid from '../../util/valid'
 import { ImageUpload } from "../../util/imageUpload"
 import NavigationLeft from "../../components/navigation_after"
-import styles from "../styles/modules/afterlogin/profile.module.scss"
+import styles from "../../styles/modules/afterlogin/profile.module.scss"
 
 // Profile page stylen, navigation sollte am besten gleich bleiben
 // Style es wie du es willst 
@@ -108,7 +108,7 @@ const Profile = () => {
             <section>
                 <div className={styles.griddi}>
                     <h3>
-                        {auth.user.role === 'user' ? 'User Profile' : auth.user.role === 'organizer' ? 'Organizer Profile' : 'Admin Profile'}
+                        {auth.user.role === 'user' ? 'Participator Profile + {auth.user.name}' : auth.user.role === 'organizer' ? 'Organizer Profile' : 'Admin Profile'}
                     </h3>
                 </div>
                 <div style={{ width: "150px", height: "150px", overflow: "hidden", position: "relative", margin: "15px auto", border: "1px solid" }}>
