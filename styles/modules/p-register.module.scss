@@ -1,5 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
 
+@mixin coolbt {
+  .bt {
+    background-color: #e97231;
+    color: white;
+    font-size: larger;
+
+    padding: 14px 20px;
+    margin: 8px 0;
+    width: 100%;
+    max-width: 250px;
+    border: none;
+    cursor: pointer;
+    transition: ease-in-out all 0.1s;
+    position: relative;
+    z-index: -1;
+    &:hover {
+      transform: translateY(2px);
+      opacity: 0.8;
+    }
+  }
+}
+
+@mixin inputsEffekt {
+  .textspan {
+    width: 100%;
+    transform: scale(0);
+    transform-origin: center;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(223, 220, 215, 0.7);
+    bottom: 6.5%;
+    transition: 0.35s ease-in-out;
+  }
+  .inputs:focus ~ .textspan {
+    transform: scale(1);
+  }
+  .inputs:focus {
+    box-shadow: 0 0 10px 1px #e8dbc927;
+    outline: none;
+    background-color: rgba(232, 219, 201, 0.4);
+  }
+}
+
 $color-first: #e97231;
 $color-second: #292627;
 $color-third: #251e21;
@@ -101,11 +144,12 @@ $color-fourth: #e8dbc9;
       display: flex;
       justify-content: center;
       flex-direction: column;
-      &:nth-child(3),&:nth-child(4){
+      &:nth-child(3),
+      &:nth-child(4) {
         text-decoration: underline;
         color: #e97231;
       }
-      
+
       .label {
         color: #e8dbc9;
         padding: 1%;

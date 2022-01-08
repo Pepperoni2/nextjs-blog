@@ -44,6 +44,7 @@ export default function NavigationLeft() {
     }
   };
 
+  
   const logout = () => {
     Cookies.remove("refreshtoken", { path: "api/auth/accessToken" });
     localStorage.removeItem("firstLogin");
@@ -133,7 +134,7 @@ export default function NavigationLeft() {
               </Link>
             </div>
             <div className={styles.help1}>
-              <div className={styles.logouser} >
+              <div className={styles.logouser} onClick={switchModal}>
               
                 <img
                   className={styles.logo}

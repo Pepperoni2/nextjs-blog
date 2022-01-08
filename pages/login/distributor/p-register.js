@@ -81,12 +81,10 @@ const RegisterP = () => {
           <div className={styles.logo}></div>
         </Link>
         <div className={styles.a1}>
-          <Link href="/login/distributor/p-register">
-            <a>EventX</a>
-          </Link>
-          <Link href="/login/distributor/p-register">
-            <a>Register Participator</a>
-          </Link>
+            <a href="/login/distributor/p-register">EventX</a>
+          
+            <a href="/login/distributor/p-register">Register Participator</a>
+          
         </div>
       </div>
       <form className={styles.register} onSubmit={handleSubmit}>

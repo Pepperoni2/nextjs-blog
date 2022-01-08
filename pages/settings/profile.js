@@ -107,59 +107,52 @@ const Profile = () => {
            < NavigationLeft></NavigationLeft>
             <section>
                 <div className={styles.griddi}>
-                    <h3>
-                        {auth.user.role === 'user' ? 'Participator Profile + {auth.user.name}' : auth.user.role === 'organizer' ? 'Organizer Profile' : 'Admin Profile'}
+                    <h3 className={styles.title}>
+                        {auth.user.role === 'user' ? 'Participator Profile {auth.user.name}' : auth.user.role === 'organizer' ? 'Organizer Profile' : 'Admin Profile'}
                     </h3>
-                </div>
-                <div style={{ width: "150px", height: "150px", overflow: "hidden", position: "relative", margin: "15px auto", border: "1px solid" }}>
+                
+                <div className={styles.propic} style={{  }}>
                     <img src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar} alt="avatar" style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }} />
-                    <span style={{
-                        position: "absolute", bottom: "0", left: "0", width: "100%", height: "50%", background: "#fff8",
-                        textAlign: "center", transition: "0.3 ease-in-out"
-                    }}>
+                    <span className={styles.changepic}>
                         <i></i>
                         <p>Change</p>
-                        <input type="file" name="file" id="file_up" style={{
-                            position: "absolute",
-                            top: "0",
-                            left: "0",
-                            width: "100%",
-                            height: "100%",
-                            opacity: "0",
-                            cursor: "pointer",
-
-                        }} accept="image/*" onChange={changeAvatar} />
+                        <input className={styles.btchangepic} type="file" name="file" id="file_up"  
+                        accept="image/*" onChange={changeAvatar} />
                     </span>
                 </div>
 
-                <div>
-                    <label style={{ color: "black" }} htmlFor="name">Name</label>
-                    <input type="text" name="name" value={name}
+                <div className={styles.divinput}>
+                    <label className={styles.label} htmlFor="name">Name</label>
+                    <input className={styles.inputs} type="text" name="name" value={name}
                         placeholder="Your name" onChange={handleChange} />
+                        <span className={styles.textspan}></span>
                 </div>
 
-                <div>
-                    <label style={{ color: "black" }} htmlFor="email">Email</label>
-                    <input type="email" name="email" defaultValue={auth.user.email} disabled={true} placeholder="Your email" />
+                <div className={styles.divinput}>
+                    <label className={styles.label} htmlFor="email">Email</label>
+                    <input className={styles.inputs} type="email" name="email" defaultValue={auth.user.email} disabled={true} placeholder="Your email" />
+                    <span className={styles.textspan}></span>
                 </div>
 
-                <div>
-                    <label style={{ color: "black" }} htmlFor="password">New Password</label>
-                    <input type="password" name="password" value={password}
+                <div className={styles.divinput}>
+                    <label className={styles.label} htmlFor="password">New Password</label>
+                    <input className={styles.inputs} type="password" name="password" value={password}
                         placeholder="Your new password" onChange={handleChange} />
+                        <span className={styles.textspan}></span>
                 </div>
 
-                <div>
-                    <label style={{ color: "black" }} htmlFor="cf_password">Confirm New Password</label>
-                    <input type="password" name="cf_password" value={cf_password}
+                <div className={styles.divinput}>
+                    <label className={styles.label} htmlFor="cf_password">Confirm New Password</label>
+                    <input className={styles.inputs} type="password" name="cf_password" value={cf_password}
                         placeholder="Your new password" onChange={handleChange} />
+                        <span className={styles.textspan}></span>
                 </div>
 
-                <button disabled={notify.loading} onClick={handleUpdateProfile}>
+                <button disabled={notify.loading} onClick={handleUpdateProfile} className={styles.bt}>
                     Update
                 </button>
 
-
+                </div>
             </section>
 
 
