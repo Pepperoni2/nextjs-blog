@@ -21,19 +21,26 @@ $val: 100%;
     margin-left: 180px;
     width: auto;
     height: 100%;
-
+    position: relative;
     .griddi {
+        height: 700px;
+        width: 100%;
+        background-color: white;
       display: grid;
-      grid-template-columns: auto auto auto;
-
-      grid-column-gap: 10px;
-      grid-row-gap: 10px;
+      justify-content: space-around;
+      grid-template-columns: auto auto auto auto;
+      grid-template-rows: Title Picture Text Text Text Text Button;
+      gap: 10px;
       .title {
         grid-area: Title;
         grid-column-start: 1;
         grid-column-end: 4;
+
+        width: 100%;
+        height: 40px;
+        
       }
-      .propic {
+      .propic{
         grid-area: Picture;
 
         width: 150px;
@@ -42,6 +49,7 @@ $val: 100%;
         position: relative;
         margin: 15px auto;
         border: 1px solid;
+        
 
         .changepic {
           position: absolute;
@@ -63,8 +71,11 @@ $val: 100%;
           }
         }
       }
+        
+      
       .divinput {
         grid-area: Text;
+        
         width: 100%;
         max-width: 300px;
         font-family: "Raleway", sans-serif;
@@ -80,7 +91,7 @@ $val: 100%;
         }
 
         .inputs {
-            grid-area: Button;
+        grid-area: Button;
           width: 100%;
           background-color: rgba(223, 220, 215, 0.7);
           font-size: 1.05em;
