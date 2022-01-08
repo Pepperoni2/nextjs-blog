@@ -39,7 +39,7 @@ export default function PopUp({open, onClose}) {
           <li>
             {auth.user.name}
           </li>
-          <li style={{textTransform: "uppercase"}}>
+          <li style={{textTransform: "uppercase", textDecoration: "underline"}}>
           {auth.user.role}
           </li>
           <li style={{ width:"100%", height: 30}}>
