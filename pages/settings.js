@@ -5,7 +5,8 @@ import { useRouter } from "next/router"
 import { patchData } from '../util/fetchData'
 import valid from '../util/valid'
 import { ImageUpload } from "../util/imageUpload"
-import NavigationLeft from "../components/navigation-afterlogin"
+import NavigationLeft from "../components/navigation_after"
+import styles from "../styles/modules/afterlogin/settings.module.scss"
 
 // Profile page stylen, navigation sollte am besten gleich bleiben
 // Style es wie du es willst 
@@ -98,7 +99,7 @@ const Settings = () => {
     if (!auth.user) return null;
 
     return (
-        <div >
+        <div className={styles.wrapper}>
             <NavigationLeft />
             <Head>
                 <title>Profile</title>
