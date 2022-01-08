@@ -1,8 +1,8 @@
-import NavigationLeft from "../components/navigation-afterlogin";
-import styles from "../styles/modules/afterloginpage.module.scss";
+import NavigationLeft from "../components/navigation_after";
+import styles from "../styles/modules/afterlogin/main_after.module.scss";
 import { getData } from '../util/fetchData'
-import { DataContext, useState } from '../store/GlobalState'
-import { useContext } from "react";
+import { DataContext } from '../store/GlobalState'
+import { useContext, useState } from "react";
 import EventItem from '../components/event/EventItem'
 import { useRouter } from "next/router";
 
