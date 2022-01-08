@@ -19,7 +19,7 @@ export default function Participator(props) {
   const { auth } = state
 
   
- 
+  
 
   return (
 
