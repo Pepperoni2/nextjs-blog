@@ -10,6 +10,7 @@ export default function Participator(props) {
   const [events, setEvents] = useState(props.events)
   const { state } = useContext(DataContext)
   const { auth } = state
+  
   return (
 
     <div className={styles.wrapper}>
@@ -19,7 +20,7 @@ export default function Participator(props) {
         events.length === 0 || Object.keys(auth).length === 0
         ? <div></div>
         : events.map(event => (
-          <EventItem key={event._id} event={event} />
+          <EventItem key={event._id} event={event}/>
         ))
       }
       </div>
