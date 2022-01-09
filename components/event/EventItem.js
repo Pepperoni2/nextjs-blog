@@ -1,9 +1,11 @@
 import styles from "../../styles/modules/afterlogin/eventitems_after.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import { useContext } from "react";
+import { useContext,useState, useEffect } from "react";
 import { DataContext } from "../../store/GlobalState";
 import { addToEnteredEvents } from "../../store/Actions";
+
+
 const EventItem = ({ event }) => {
     const {state, dispatch} = useContext(DataContext)
     const { enteredEvent } = state
@@ -24,18 +26,25 @@ const EventItem = ({ event }) => {
             </>
         )
     }
-    // --------------------------------------
+    
     console.log(event)
-
-
+// --------------------------------------
+useEffect
+  
+    // if (!Array.isArray(event) || length <= 0) {
+    //   return null;
+    // }
 
   return (
     // ----- Event Cards --------
     // ------ feel free to style ------
+ 
+
     <div className={styles.card}>
+    
       <img
         className={styles.cardimgtop}
-        src={event.images[0].url}
+        src={event.images[1].url}
         alt={event.images[0].url}
       />
       <div className={styles.cardbody}>
@@ -48,6 +57,7 @@ const EventItem = ({ event }) => {
         <div className={styles.divlink}>{userLink()}</div>
       </div>
     </div>
+    
     // -----
   );
 };

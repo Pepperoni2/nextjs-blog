@@ -3,12 +3,54 @@
     height: 120vh;
     color: #e97231;
     background-color: rgba(233, 114, 49, 0.8);
-    overflow: hidden;
-
     .container{
+        width: auto;
+        margin-left: 180px;
+        height: 100%;
+        background-color: rgba(64, 224, 208, 0.233);
+       
+    
+    .slider {
         width: 100%;
         height: 100%;
-        background-color: turquoise;
+       
+        .rightarr {
+          position: absolute;
+          top: 50%;
+          right: 32px;
+          font-size: 3rem;
+          color: #000;
+          z-index: 10;
+          cursor: pointer;
+          user-select: none;
+          
+        }
         
+        .leftarr {
+          position: absolute;
+          top: 50%;
+          left: 32px;
+          font-size: 3rem;
+          color: #000;
+          z-index: 10;
+          cursor: pointer;
+          user-select: none;
+        }
+        
+        .slide {
+          opacity: 0;
+          transition-duration: 1s ease;
+        }
+        
+        .slide:active {
+          opacity: 1;
+          transition-duration: 1s;
+          transform: scale(1.08);
+        }
+      }
+      
     }
+      
+      
+    
 }
