@@ -22,6 +22,7 @@ const SignIn = () => {
   const {state, dispatch} = useContext(DataContext);
   const { email, password } = userData;
   const { auth } = state;
+  const router = useRouter()
 
   const handleChangeInput = e => {
     const { name, value } = e.target;
@@ -55,7 +56,12 @@ const SignIn = () => {
   };
 
   useEffect(() => {
-    if(Object.keys(auth).length !== 0) router.push("/participator")
+    if(Object.keys(auth).length !== 0) {
+      if(auth.user.role === 'participator') router.push("/participator")
+      else{
+        router.push("/organizer")
+      }
+    }
   }, [auth])
 
 //------------------------------
