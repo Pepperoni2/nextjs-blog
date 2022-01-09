@@ -14,7 +14,7 @@ export default function Participator(props) {
   const { auth } = state
 
   const [current, setCurrent] = useState(0);
-  // const length = props.result.length;
+  const length = events.length;
   console.log(length)
   const nextSlide = () => {
       setCurrent(current === length - 1 ? 0 : current + 1);
@@ -34,14 +34,11 @@ export default function Participator(props) {
       <section className={styles.slider}> 
       <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
       <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
-      
-      
 
-        <h1>Lol</h1>
       {
         events.length === 0 || Object.keys(auth).length === 0
         ? <div></div>
-        : events.map(event => (
+        : events.map((event) => (
           <EventItem key={event._id} event={event}/>
           
         ))

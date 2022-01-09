@@ -29,7 +29,6 @@ const SignIn = () => {
     setUserData({ ...userData, [name]: value });
   };
   
-  const router = useRouter()
 
   const handleSubmit = async e => {
     e.preventDefault();

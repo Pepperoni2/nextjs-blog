@@ -17,6 +17,7 @@ const getEvents = async (req, res) => {
         res.json({
             status: 'success',
             result: events.length,
+            // index: events.
             events
         })
     }

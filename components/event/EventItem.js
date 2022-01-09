@@ -44,7 +44,7 @@ useEffect
     
       <img
         className={styles.cardimgtop}
-        src={event.images[1].url}
+        src={event.images[0].url}
         alt={event.images[0].url}
       />
       <div className={styles.cardbody}>
