@@ -3,10 +3,11 @@ import { getData } from '../../util/fetchData'
 import { useState, useContext, useEffect } from "react"
 import { DataContext } from "../../store/GlobalState"
 import { useRouter } from "next/router"
+import { addToEnteredEvents } from "../../store/Actions";
 const DetailEvent = (props) => {
     const [event] = useState(props.event)
-    const { state } = useContext(DataContext)
-    const { auth } = state
+    const { state, dispatch } = useContext(DataContext)
+    const { auth, enteredEvent } = state
     const router = useRouter()
     useEffect(() => {
         if (Object.keys(auth).length === 0) router.push("/login")
@@ -45,9 +46,11 @@ const DetailEvent = (props) => {
                         {event.content}
                         {event.content}
                     </div>
-
-                    <button>Teilnehmen</button>
                 </div>
+                <button onClick={() => dispatch(addToEnteredEvents(event, enteredEvent))}
+                    disabled={event.openslots === 0 ? true : false}>
+                    Enter
+                </button>
             </div>
         )
     }
@@ -56,7 +59,7 @@ const DetailEvent = (props) => {
         <>
             {
                 Object.keys(auth).length === 0 ? <div></div>
-                : loggedRouter()
+                    : loggedRouter()
             }
         </>
 

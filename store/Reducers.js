@@ -15,7 +15,7 @@ const reducers = (state, action) => {
         case ACTIONS.ADD_EVENT:
             return {
                 ...state,
-                entered: action.payload
+                enteredEvent: action.payload
             };
         default:
             return state;

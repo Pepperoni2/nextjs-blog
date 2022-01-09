@@ -1,21 +1,33 @@
 import styles from "../../styles/modules/afterlogin/eventitems_after.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+import { useContext } from "react";
+import { DataContext } from "../../store/GlobalState";
+import { addToEnteredEvents } from "../../store/Actions";
 const EventItem = ({ event }) => {
-  // ----- The Buttons under the desc ----
-  const userLink = () => {
-    return (
-      <>
-        <Link href={`event/${event._id}`}>
-          {/* <a className={styles.link}> */}
-          Find out more
-          {/* </a> */}
-        </Link>
-      </>
-    );
-  };
-  // --------------------------------------
-  console.log(event);
+    const {state, dispatch} = useContext(DataContext)
+    const { enteredEvent } = state
+    // ----- The Buttons under the desc ----
+    const userLink = () => {
+        
+        return(
+            <>
+            <Link href={`event/${event._id}`}>
+                {/* <a className={styles.link}> */}
+                    Find out more
+                    {/* </a> */}
+            </Link>
+            <button onClick={() => dispatch(addToEnteredEvents(event, enteredEvent))}
+            disabled={event.openslots === 0 ? true : false}>
+                Enter
+            </button>
+            </>
+        )
+    }
+    // --------------------------------------
+    console.log(event)
+
+
 
   return (
     // ----- Event Cards --------

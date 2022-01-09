@@ -101,7 +101,7 @@ export default function NavigationLeft() {
                 </a>
               </button>
             </Link>
-            <Link href="/">
+            <Link href="/yourEvents">
               <button className={styles.bt4}>
                 <a className={styles.link4 + isActive("/")}>
                   <h2>

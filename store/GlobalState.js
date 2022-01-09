@@ -5,8 +5,9 @@ import { getData } from '../util/fetchData'
 export const DataContext = createContext()
 
 export const DataProvider = ({children}) => {
-    const initialState = { notify: {}, auth: {}, users:[], entered: [] }
+    const initialState = { notify: {}, auth: {}, users:[], enteredEvent: [] }
     const [state, dispatch] = useReducer(reducers, initialState)
+    const { enteredEvent } = state
 
     useEffect(() => {
         const firstLogin = localStorage.getItem("firstLogin");
@@ -24,6 +25,15 @@ export const DataProvider = ({children}) => {
             })
         }
     },[])
+
+    useEffect(() =>{
+        const __next__event01__participator =JSON.parse(localStorage.getItem('__next__event01__participator'))
+        if(__next__event01__participator) dispatch({type: 'ADD_EVENT', payload: __next__event01__participator})
+    },[])
+
+    useEffect(() =>{
+        localStorage.setItem('__next__event01__participator', JSON.stringify(enteredEvent))
+    },[enteredEvent])
 
     return(
         <DataContext.Provider value={{state, dispatch}}>
