@@ -1,8 +1,12 @@
 import styles from "../../styles/modules/afterlogin/eventitems_after.module.scss";
 import Link from "next/link"
 import Image from "next/image";
+import { useContext } from "react";
+import { DataContext } from "../../store/GlobalState";
+import { addToEnteredEvents } from "../../store/Actions";
 const EventItem = ({ event }) => {
-
+    const {state, dispatch} = useContext(DataContext)
+    const { enteredEvent } = state
     // ----- The Buttons under the desc ----
     const userLink = () => {
         
@@ -13,6 +17,10 @@ const EventItem = ({ event }) => {
                     Find out more
                     {/* </a> */}
             </Link>
+            <button onClick={() => dispatch(addToEnteredEvents(event, enteredEvent))}
+            disabled={event.openslots === 0 ? true : false}>
+                Enter
+            </button>
             </>
         )
     }
