@@ -128,6 +128,7 @@ const Profile = () => {
 
       <section>
         <div className={styles.griddi}>
+          <div className={styles.itemtit}>
           <h3 className={styles.title}>
             {auth.user.role === "participator"
               ? "Participator Profile"
@@ -135,7 +136,8 @@ const Profile = () => {
               ? "Organizer Profile"
               : "Admin Profile"}
           </h3>
-
+          </div>
+    <div className={styles.itempic}>
           <div className={styles.propic} style={{}}>
             <img
               src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar}
@@ -159,6 +161,7 @@ const Profile = () => {
                 onChange={changeAvatar}
               />
             </span>
+          </div>
           </div>
           <div className={styles.item1}>
             <div className={styles.divinput}>
