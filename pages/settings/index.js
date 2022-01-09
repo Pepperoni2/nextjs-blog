@@ -30,7 +30,7 @@ const Settings = () => {
             <Head>
                 <title>Settings</title>
             </Head>
-           < NavigationLeft></NavigationLeft>
+           
             <section>
             <Link href="/settings/profile">
               <button className={styles.btpro} >
