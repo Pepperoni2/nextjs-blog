@@ -48,19 +48,20 @@ $color-second: #292627;
 $color-third: #251e21;
 $color-fourth: #e8dbc9;
 .wrapperregister {
+  
   width: 100%;
   height: 100vh;
   overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: baseline;
+  align-items:center;
   flex-direction: column;
 
   .header {
     width: 30%;
     min-width: 450px;
     min-height: 75px;
-
+    margin-top: 20px;
     transition: transform ease-in-out 0.5s;
     height: 13vh;
     display: flex;
