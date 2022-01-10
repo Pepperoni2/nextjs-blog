@@ -2,6 +2,7 @@ import React from "react";
 import NavBarLogin from "./navigation-login";
 import NavBarUserPage from "./navigation-afterlogin";
 import Notify from "./Notify";
+import Modal from "./Modal"
 // Pfusch nur zum Testen da
 // Diese Komponente ist dafür zuständig, wieso das CSS slightly off ist
 function Layout({children}) {
@@ -10,6 +11,7 @@ function Layout({children}) {
             <NavBarLogin/>
             <Notify />
             <NavBarUserPage />
+            <Modal />
             {children}
         </div>
     )

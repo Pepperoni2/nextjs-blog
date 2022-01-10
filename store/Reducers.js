@@ -17,6 +17,11 @@ const reducers = (state, action) => {
                 ...state,
                 enteredEvent: action.payload
             };
+        case ACTIONS.EXIT_EVENT:
+            return {
+                ...state,
+                exit: action.payload
+            };
         default:
             return state;
     }
