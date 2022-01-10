@@ -73,7 +73,7 @@ export default function NavigationLeft() {
                   <h2>
                     <IoHomeSharp className={styles.icon1} />
                   </h2>
-                  EventX
+                  Events
                 </a>
               </button>
             </Link>

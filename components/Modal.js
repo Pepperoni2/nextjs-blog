@@ -1,27 +1,45 @@
-const Modal = () => {
-    return(
-        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog" role="document">
-            <div className="modal-content">
-            <div className="modal-header">
-                <h5 className="modal-title text-capitalize" id="exampleModalLabel">
-                    {/* modal.length !== 0 && modal[0].title */}
-                </h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
+import { useContext } from "react";
+import ReactDOM from "react-dom";
+import { DataContext } from "../store/GlobalState";
+import { ExitEvent } from "../store/Actions";
+
+const Modal = ({ open, onClose }) => {
+    const {state, dispatch} = useContext(DataContext)
+    const { exit } = state
+
+    const handleSubmit = () => {
+        dispatch(ExitEvent(exit.data, exit.id, 'ADD_EVENT'))
+        dispatch({type: 'EXIT_EVENT', payload: {} })
+    }
+
+    if (!open) return null
+
+    return ReactDOM.createPortal(
+        <>
+            <div>
+                <div>
+                    <div>
+                        <div onClick={onClose}>
+                            <h5>
+                                {exit.title}
+                            </h5>
+                            <button type="button">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div>
+                            Do you want to dismiss this event?
+                        </div>
+                        <div>
+                            <button type="button" onClick={handleSubmit}>Yes</button>
+                            <button type="button" onClick={onClose}>Cancel</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="modal-body">
-                Do you want to dismiss this event?
-            </div>
-            <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={handleSubmit}>Yes</button>
-                <button type="button" className="btn btn-primary" data-dismiss="modal">Cancel</button>
-            </div>
-            </div>
-        </div>
-    </div>
-    )
+        </>,
+        document.getElementById('portal')
+    );
 }
 
 export default Modal

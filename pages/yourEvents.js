@@ -7,6 +7,7 @@ const yourEvents = () => {
     const { state, dispatch } = useContext(DataContext)
     const { enteredEvent } = state
 
+
     if( enteredEvent.length === 0 ) return <img src="/noEvents.png" alt="No Events :("/>
     return (
         <div>

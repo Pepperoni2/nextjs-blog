@@ -18,6 +18,6 @@ export const addToEnteredEvents = (event, enteredEvent) => {
 }
 
 export const ExitEvent = (data, id, type) => {
-    const newData = data.filter(event => event._id !== id)
+    const newData = data.filter(enteredEvent => enteredEvent._id !== id)
     return ({ type, payload: newData })
 }
