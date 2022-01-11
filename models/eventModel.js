@@ -39,6 +39,9 @@ const eventSchema = new mongoose.Schema({
         type: String,
         default: ""
     },
+    participants: {
+        type: Array,
+    },
     checked: {
         type: Boolean,
         default: false

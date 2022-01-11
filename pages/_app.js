@@ -1,6 +1,7 @@
 // ----------- Styling ----------------
 import '../styles/styles.css'
 import '../styles/navstyles.css'
+/* import 'bootstrap/dist/css/bootstrap.css'  */
 import '../styles/stylelogin.css'
 import "../styles/distributor.css"
 //-------------------------------------

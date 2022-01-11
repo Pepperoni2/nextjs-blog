@@ -7,17 +7,19 @@ $color-fourth: #e8dbc9;
 .wrapperregister {
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  min-width: 55px;
+  // overflow: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: baseline;
   align-items: center;
   flex-direction: column;
 
   .header {
-    width: 70%;
+    margin-top: 10px;
+    width: 100%;
     min-width: 450px;
     min-height: 75px;
-    max-width: 800px;
+    max-width: 650px;
     transition: transform ease-in-out 0.5s;
     height: 13vh;
     display: flex;
@@ -83,13 +85,15 @@ $color-fourth: #e8dbc9;
   .register {
     transition: transform ease-in-out 0.5s;
     display: flex;
-    
+    position: relative;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     flex-direction: column;
-    width: 70%;
-    max-width: 800px;
-    height: 55vh;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 650px;
+    height: 100%;
+    max-height: 100%;
     min-height: 450px;
     min-width: 450px;
     padding-top: 20px;
@@ -98,16 +102,21 @@ $color-fourth: #e8dbc9;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: row;
-      width: 90%;
-      height: 100%;
-      padding: 1%;
+      width: 100%;
+      
+      height: fit-content;
+      padding-top: 1%;
+      padding-bottom:1%;
+      
+      
+      margin: 1px 0;
       background-color: rgba(0, 0, 0, 0.3);
       
-      // &:nth-child(4){
-      //   text-decoration: underline;
-      //   color: #e97231;
-      // }
+      
+      &:nth-child(2),&:nth-child(3),&:nth-child(4){
+       
+        
+      }
       
       .space{
         
@@ -180,29 +189,32 @@ $color-fourth: #e8dbc9;
       color: white;
       font-size: larger;
 
-      padding: 14px 20px;
-      margin: 8px 0;
+      
+      height: 100%;
       width: 100%;
       max-width: 250px;
       border: none;
       cursor: pointer;
       transition: ease-in-out all 0.1s;
       position: relative;
-      z-index: -1;
+      z-index: 1;
     }
     .submit:hover {
       transform: translateY(2px);
       opacity: 0.8;
     }
     .line {
+      overflow: hidden;
+      position: static;
       
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
-      height: 100%;
-      max-height: 50px;
-      min-height: 30px;
+      height: 5vh;
+      flex-wrap: nowrap;
+      
+      min-height: 40px;
       color: #e8dbc9;
       background-color: darken($color: rgba(0, 0, 0, 0.3), $amount: 80);
     }
@@ -217,10 +229,97 @@ $color-fourth: #e8dbc9;
   }
 
   .footer1 {
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    
     width: 100%;
-    height: 10%;
+    height: 100%;
+    max-height: 10vh;
+    bottom: 0;
     overflow: hidden;
+    z-index: 1;
+    
+  }
+.wallpaper{
+  overflow: hidden;
+  position: fixed;
+  
+  
+  width: 100%;
+  min-height: 1000px;
+  min-width: 1000px;
+  height: 100%;
+  bottom: 0;
+  z-index: -1;
+}
+
+.btdiv{
+  
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 50px;
+  background-color: transparent;
+  display: flex;
+    justify-content: center;
+  align-items: center;
+  z-index: 1;
+ 
   }
 }
+  @media only screen and (max-width: 900px){
+    
+    .wrapperregister{
+      overflow: hidden;
+      
+    }
+    .mainform{
+     flex-wrap: wrap;
+     
+      &:nth-child(1){
+        width: 100%;
+      }
+      &:nth-child(2),&:nth-child(3){
+        
+        
+        width:100%;
+        
+        
+        
+      }
+      &:nth-child(4){
+        width: 100%;
+
+      }
+    }
+   
+    
+    .label{
+      display: block;
+    }
+    .space{
+     display: none;
+    }
+
+  }
+  @media only screen and (max-width: 538px){
+
+    .wrapperregister{
+      height: 123vh;
+      overflow: hidden;
+    }
+    .register{
+      flex-wrap: wrap;
+      flex-direction: column;
+     
+      
+    }
+    .wallpaper{
+     height: 100%;
+     
+    }
+    .line{
+      
+    }
+
+  }
+

@@ -57,8 +57,8 @@ const RegisterO = () => {
           mouseControls: false,
           touchControls: false,
           gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
+          minHeight:50.0,
+          minWidth:50.0,
           highlightColor: 0x292627,
           midtoneColor: 0xe8dbc9,
           lowlightColor: 0xe8dbc9,
@@ -75,7 +75,8 @@ const RegisterO = () => {
   }, [vantaEffect], [auth]);
 
   return (
-    <div className={styles.wrapperregister} ref={vantaRef}>
+    <div className={styles.wrapperregister} >
+      <div className={styles.wallpaper} ref={vantaRef}></div>
       <Head>
         <title>Register Page</title>
       </Head>
@@ -206,10 +207,11 @@ const RegisterO = () => {
             <span className={styles.textspan}></span>
           </div>
         </div>
+        <div className={styles.btdiv}>
         <button type="submit" className={styles.submit}>
           Register
         </button>
-
+        </div>
         <p className={styles.line}>
           Already have an account?
           <Link href="/login">
