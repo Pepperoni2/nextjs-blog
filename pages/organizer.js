@@ -1,4 +1,4 @@
-import NavigationLeft from "../components/navigation_after";
+import NavigationLeftO from "../components/navigationO_after";
 import styles from "../styles/modules/afterlogin/main_after.module.scss";
 import { getData } from '../util/fetchData'
 import { DataContext } from '../store/GlobalState'
@@ -24,8 +24,8 @@ export default function Organizer(props) {
   return (
 
     <div className={styles.wrapper}>
-      <NavigationLeft />
-      <div id="test">
+      <NavigationLeftO />
+      {/* <div id="test">
       {
         events.length === 0 || Object.keys(auth).length === 0
         ? <div></div>
@@ -33,7 +33,7 @@ export default function Organizer(props) {
           <EventItem key={event._id} event={event}/>
         ))
       }
-      </div>
+      </div> */}
     </div>
     
     

@@ -5,13 +5,13 @@ import { useRouter } from "next/router"
 import { patchData } from '../../util/fetchData'
 import valid from '../../util/valid'
 import { ImageUpload } from "../../util/imageUpload"
-import NavigationLeft from "../../components/navigation_after"
+import NavigationLeftO from "../../components/navigationO_after"
 import styles from "../../styles/modules/afterlogin/settings.module.scss"
 import Link from "next/link"
 // Profile page stylen, navigation sollte am besten gleich bleiben
 // Style es wie du es willst 
 
-const Settings = () => {
+const SettingsO = () => {
     const router = useRouter();
     const { state, dispatch } = useContext(DataContext);
     const { auth } = state;
@@ -26,13 +26,13 @@ const Settings = () => {
 
     return (
         <div className={styles.wrapper}>
-            <NavigationLeft />
+            <NavigationLeftO />
             <Head>
                 <title>Settings</title>
             </Head>
            
             <section>
-            <Link href="/settings/profile">
+            <Link href="/settingsO/profile">
               <button className={styles.btpro} >
                 <a className={styles.linkpro + isActive("/")}>
                   Profile-Settings
@@ -45,4 +45,4 @@ const Settings = () => {
     )
 }
 
-export default Settings
+export default SettingsO

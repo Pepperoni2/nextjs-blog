@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { patchData } from "../../util/fetchData";
 import valid from "../../util/valid";
 import { ImageUpload } from "../../util/imageUpload";
-import NavigationLeft from "../../components/navigation_after";
+import NavigationLeftO from "../../components/navigationO_after";
 import styles from "../../styles/modules/afterlogin/profile.module.scss";
 
 // Profile page stylen, navigation sollte am besten gleich bleiben
@@ -120,7 +120,7 @@ const Profile = () => {
 
   return (
     <div className={styles.wrapper}>
-      <NavigationLeft />
+      <NavigationLeftO />
 
       <Head>
         <title>Profile</title>
