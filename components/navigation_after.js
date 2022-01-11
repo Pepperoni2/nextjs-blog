@@ -52,10 +52,6 @@ export default function NavigationLeft() {
     dispatch({ type: "NOTIFY", payload: { success: "Logged out!" } });
   };
 
-  useEffect(() =>{
-    if(Object.keys(auth).length === 0) router.push("/")
-  },[auth])
-
   const loggedRouter = () => {
     return (
       <Fragment>
@@ -77,7 +73,7 @@ export default function NavigationLeft() {
                   <h2>
                     <IoHomeSharp className={styles.icon1} />
                   </h2>
-                  EventX
+                  Events
                 </a>
               </button>
             </Link>

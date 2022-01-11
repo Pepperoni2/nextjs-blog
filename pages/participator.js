@@ -2,12 +2,11 @@ import NavigationLeft from "../components/navigation_after";
 import styles from "../styles/modules/afterlogin/main_after.module.scss";
 import { getData } from "../util/fetchData";
 import { DataContext } from "../store/GlobalState";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import EventItem from "../components/event/EventItem";
 import { useRouter } from "next/router";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import { slideLogicc } from "./slideLogic";
-
 
 
 
@@ -17,7 +16,16 @@ export default function Participator(props) {
   const [events, setEvents] = useState(props.events);
   const { state } = useContext(DataContext);
   const { auth } = state;
+  const router = useRouter()
 
+  useEffect(() =>{
+    if(Object.keys(auth).length !== 0) {
+      if(auth.user.role === 'participator'){
+        router.push("/participator")
+      }
+      else if(auth.user.role === 'organizer') router.push("/organizer")
+    }
+  },[auth])
 
   const [current, setCurrent] = useState(0);
   const length = events.length;
