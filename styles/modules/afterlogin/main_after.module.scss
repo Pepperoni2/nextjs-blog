@@ -3,20 +3,21 @@
     height: 120vh;
     color: #e97231;
     background-color: rgba(233, 114, 49, 0.8);
+  }
     .container{
         width: auto;
         margin-left: 180px;
         height: 100%;
         background-color: rgba(64, 224, 208, 0.233);
        position: relative;
-    
+    }
     .slider {
         width: 100%;
         height: 500px;
         position: relative;
         background-color: #e97231;
         overflow: hidden;
-
+      }
         .rightarr {
           position: absolute;
           top: 50%;
@@ -41,7 +42,7 @@
 
           
         }
-        
+
         .tracker{
           display: flex;
           flex-direction: row;
@@ -50,10 +51,9 @@
           transition: transform 250ms ease-in-out;
         }
        
-      }
-      
-    }
       
       
     
-}
+      
+      
+    

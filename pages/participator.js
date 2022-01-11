@@ -13,7 +13,7 @@ import { slideLogicc } from "./slideLogic";
 
 export default function Participator(props) {
   
-  // slideLogicc();
+  slideLogicc();
   const [events, setEvents] = useState(props.events);
   const { state } = useContext(DataContext);
   const { auth } = state;
@@ -37,10 +37,10 @@ export default function Participator(props) {
       <div className={styles.container}>
         <section className={styles.slider}>
           <FaArrowAltCircleLeft
-            className={styles.leftarr}
+            className="leftarr"
             onClick={prevSlide}
           />
-          <div className={styles.tracker} >
+          <div className="tracker" >
             {events.length === 0 || Object.keys(auth).length === 0 ? (
               <div></div>
             ) : (
@@ -48,7 +48,7 @@ export default function Participator(props) {
             )}
           </div>
           <FaArrowAltCircleRight
-            className={styles.rightarr}
+            className="rightarr"
             onClick={nextSlide}
           />
         </section>
