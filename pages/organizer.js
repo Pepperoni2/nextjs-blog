@@ -32,8 +32,8 @@ export default function Organizer(props) {
 // || Object.keys(auth).length === 0
 export async function getServerSideProps() {
   const res = await getData('event')
-  console.log(res)
-  // server-side-rendering, console.log() will not be displayed in the browser
+/*   console.log(res)
+ */  // server-side-rendering, console.log() will not be displayed in the browser
   return {
     props: {
       events: res.events,

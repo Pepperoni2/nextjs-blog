@@ -1,13 +1,15 @@
-
+// ----------- Styling ----------------
 import '../styles/styles.css'
 import '../styles/navstyles.css'
-
 import '../styles/stylelogin.css'
 import "../styles/distributor.css"
+//-------------------------------------
+//---- Backend & Animation imports-----
 import { DataProvider } from '../store/GlobalState'
 import Layout from '../components/ToastLayout'
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+//-------------------------------------
 
 export default function App({ Component, pageProps }) {
 

@@ -61,7 +61,6 @@ export default function Participator(props) {
 export async function getServerSideProps() {
   const res = await getData("event");
   
-  console.log(res);
   // server-side-rendering, console.log() will not be displayed in the browser
   return {
     props: {

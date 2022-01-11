@@ -66,12 +66,12 @@ function Nav(props) {
                 //   background: `rgb(229, 112, 49, ${backgroundTransparacy})`,
                 // }}
                 >
-                  <a>Home</a>
+                  <a>About</a>
                 </button>
               </Link>
-              <Link href="/">
+              <Link href="/login/distributor">
                 <button className="bt">
-                  <a>About</a>
+                  <a>Register</a>
                 </button>
               </Link>
 
@@ -86,7 +86,7 @@ function Nav(props) {
                   :
                   <Link href="/participator">
                     <button className="bt">
-                      <a>User</a>
+                      <a>Home</a>
                     </button>
                   </Link>
               }
