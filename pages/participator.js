@@ -5,14 +5,12 @@ import { DataContext } from "../store/GlobalState";
 import { useContext, useState, useEffect } from "react";
 import EventItem from "../components/event/EventItem";
 import { useRouter } from "next/router";
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft, FaSlideshare } from "react-icons/fa";
 import { slideLogicc } from "./slideLogic";
 
 
 
 export default function Participator(props) {
-  
-  // slideLogicc();
   const [events, setEvents] = useState(props.events);
   const { state } = useContext(DataContext);
   const { auth } = state;
@@ -27,16 +25,12 @@ export default function Participator(props) {
     }
   },[auth])
 
-  const [current, setCurrent] = useState(0);
-  const length = events.length;
-  console.log(length);
-  const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
-  };
+  slideLogicc();
+  
+  
+  
+  
 
-  const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
-  };
 
   return (
     
@@ -46,7 +40,7 @@ export default function Participator(props) {
         <section className={styles.slider}>
           <FaArrowAltCircleLeft
             className="leftarr"
-            onClick={prevSlide}
+            // onClick={prevSlide}
           />
           <div className="tracker" >
             {events.length === 0 || Object.keys(auth).length === 0 ? (
@@ -57,7 +51,7 @@ export default function Participator(props) {
           </div>
           <FaArrowAltCircleRight
             className="rightarr"
-            onClick={nextSlide}
+            // onClick={nextSlide}
           />
         </section>
       </div>
