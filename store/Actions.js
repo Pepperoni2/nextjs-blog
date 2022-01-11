@@ -13,7 +13,6 @@ export const addToEnteredEvents = (event, enteredEvent) => {
     })
 
     if (!enter) return ({ type: 'NOTIFY', payload: { error: 'You have already entered this event.' } })
-
     return ({ type: 'ADD_EVENT', payload: [...enteredEvent, { ...event, closedSlots: 1 }] })
 }
 

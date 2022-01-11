@@ -9,7 +9,14 @@ import { addToEnteredEvents } from "../../store/Actions";
 const EventItem = ({ event }) => {
     const {state, dispatch} = useContext(DataContext)
     const { enteredEvent } = state
-    // ----- The Buttons under the desc ----
+/*     dispatch({type: 'NOTIFY', payload: {success: 'You have successfully entered "'+ event.title + '"'}})
+ */    // ----- The Buttons under the desc ----
+    const enter = () => {
+      const ent = dispatch(addToEnteredEvents(event, enteredEvent))
+      if(!ent) dispatch({type: 'NOTIFY', payload: {success: 'You have successfully entered "'+ event.title + '"'}})
+      ent === false
+    } 
+
     const userLink = () => {
         
         return(
@@ -19,15 +26,15 @@ const EventItem = ({ event }) => {
                     Find out more
                     {/* </a> */}
             </Link>
-            <button onClick={() => dispatch(addToEnteredEvents(event, enteredEvent))}
+            <button onClick={enter}
             disabled={event.openslots === 0 ? true : false}>
                 Enter
             </button>
             </>
         )
     }
-    
-    console.log(event)
+/*     
+    console.log(event) */
 // --------------------------------------
 useEffect
   

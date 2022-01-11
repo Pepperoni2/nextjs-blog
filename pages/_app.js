@@ -14,6 +14,14 @@ import Loading from "../components/Loading";
 import { useRouter } from "next/router";
 //-------------------------------------
 
+// ----- Performance report & metrics ---------
+export function reportWebVitals(metric) {
+  if(metric.label === 'web-vital'){
+    console.log(metric)
+  }
+}
+//
+
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);

@@ -26,11 +26,6 @@ export default function Participator(props) {
   },[auth])
 
   slideLogicc();
-  
-  
-  
-  
-
 
   return (
     
