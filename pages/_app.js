@@ -1,18 +1,33 @@
 // ----------- Styling ----------------
-import '../styles/styles.css'
-import '../styles/navstyles.css'
+import "../styles/styles.css";
+import "../styles/navstyles.css";
 /* import 'bootstrap/dist/css/bootstrap.css'  */
-import '../styles/stylelogin.css'
-import "../styles/distributor.css"
+import "../styles/stylelogin.css";
+import "../styles/distributor.css";
 //-------------------------------------
 //---- Backend & Animation imports-----
-import { DataProvider } from '../store/GlobalState'
-import Layout from '../components/ToastLayout'
+import { DataProvider } from "../store/GlobalState";
+import Layout from "../components/ToastLayout";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Loading from "../components/Loading";
+import { useRouter } from "next/router";
 //-------------------------------------
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const handleStart = (url) => {
+      url !== router.pathname ? setLoading(true) : setLoading(false);
+    };
+    const handleComplete = (url) => setLoading(false);
+
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
+  }, [router]);
 
   useEffect(() => {
     const threeScript = document.createElement("script");
@@ -29,15 +44,12 @@ export default function App({ Component, pageProps }) {
     };
   }, []);
 
-
-  
-
   return (
     <DataProvider>
-      <Layout/>
+      <Loading loading={loading} />
+      <Layout />
       <div id="portal"></div>
-        <Component {...pageProps} /> 
+      <Component {...pageProps} />
     </DataProvider>
-  )
+  );
 }
-
