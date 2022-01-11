@@ -12,7 +12,7 @@ import { slideLogicc } from "./slideLogic";
 
 export default function Participator(props) {
   
-  slideLogicc();
+  // slideLogicc();
   const [events, setEvents] = useState(props.events);
   const { state } = useContext(DataContext);
   const { auth } = state;
