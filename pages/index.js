@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import Nav from "/components/navigation";
 import Footer from "/components/footer";
 import Header1 from "/components/head";
-import { Player } from "video-react";
+/* import { Player } from "video-react"; */
 import video from "/Vids/Concert_1630.mp4";
-import { FixedSizeList as List } from "react-window";
+/* import { FixedSizeList as List } from "react-window"; */
 import Header from "/components/head";
 //import {window} from 'window'
 
