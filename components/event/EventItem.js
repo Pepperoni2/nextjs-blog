@@ -47,7 +47,7 @@ useEffect
     // ------ feel free to style ------
  
 
-    <div className={styles.card}>
+    <div className="card">
     
       <img
         className={styles.cardimgtop}

@@ -18,38 +18,42 @@
         background-color: #e97231;
         overflow: hidden;
       }
-        .rightarr {
-          position: absolute;
-          top: 50%;
-          right: 32px;
-          font-size: 3rem;
-          color: #000;
-          z-index: 10;
-          cursor: pointer;
-          user-select: none;
+
+      // .tracker{
           
-        }
+      //   height: 100%;
+      //   width: 100%;
+      //   position: relative;
+      //   transition: transform 250ms ease-in-out;
+      // }
+      //   .rightarr {
+      //     position: absolute;
+      //     top: 50%;
+      //     right: 32px;
+      //     font-size: 3rem;
+      //     color: #000;
+      //     z-index: 10;
+      //     cursor: pointer;
+      //     user-select: none;
+          
+      //   }
         
-        .leftarr {
-          position: absolute;
-          top: 50%;
-          left: 32px;
-          font-size: 3rem;
-          color: #000;
-          z-index: 10;
-          cursor: pointer;
-          user-select: none;
+      //   .leftarr {
+      //     position: absolute;
+      //     top: 50%;
+      //     left: 32px;
+      //     font-size: 3rem;
+      //     color: #000;
+      //     z-index: 10;
+      //     cursor: pointer;
+      //     user-select: none;
 
           
-        }
+      //   }
 
-        .tracker{
-          display: flex;
-          flex-direction: row;
-          height: 100%;
-          position: relative;
-          transition: transform 250ms ease-in-out;
-        }
+        
+
+        
        
       
       
