@@ -47,7 +47,7 @@ export default function Participator(props) {
   });
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
     
       const track = document.querySelector(".tracker");
       const slides = Array.from(track.children);
@@ -76,7 +76,7 @@ export default function Participator(props) {
 
 
     }, 500);
-    // return () => clearInterval(interval);
+     return () => clearInterval(interval);
   }, []);
 
   const moveToSlide = async (track, currentSlide, targetSlide) => {
