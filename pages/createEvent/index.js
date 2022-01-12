@@ -1,7 +1,11 @@
 import Head from "next/head";
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../../store/GlobalState";
+<<<<<<< HEAD
 import NavigationLeft from "../../components/navigationO_after";
+=======
+
+>>>>>>> 38502084fb1550ca777eb1287155a33395f9ba84
 import styles from "../../styles/modules/afterlogin/profile.module.scss";
 import { set } from "date-fns";
 import { Link } from "react-router-dom";
