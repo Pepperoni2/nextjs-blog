@@ -4,30 +4,36 @@ $color-first: #e97231;
 $color-second: #292627;
 $color-third: #251e21;
 $color-fourth: #e8dbc9;
+$borderradius: 10px;
+$margin: 1px;
 .wrapperregister {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  overflow: hidden;
   min-width: 55px;
   // overflow: hidden;
   display: flex;
-  justify-content: baseline;
-  align-items: center;
-  flex-direction: column;
+  
+  justify-content: center;
+  
+  
 
   .header {
-    margin-top: 10px;
+    
     width: 100%;
-    min-width: 450px;
-    min-height: 75px;
+   
+    min-height: 100px;
+    max-height: 100px;
     max-width: 650px;
     transition: transform ease-in-out 0.5s;
-    height: 13vh;
+    margin-top: 10%;
+    height: 100%;
     display: flex;
     flex-direction: row;
-
+    border-radius: $borderradius;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0px;
+    margin-bottom: $margin;
     background-color: darken($color: rgba(0, 0, 0, 0.8), $amount: 80);
     font-family: "Raleway", sans-serif;
 
@@ -41,9 +47,9 @@ $color-fourth: #e8dbc9;
       width: 12.5%;
       height: 100%;
 
-      min-height: 50px;
-      max-height: 90%;
-      max-height: 80px;
+      min-height: 80px;
+      
+     
     }
     .a1 {
       display: flex;
@@ -85,37 +91,43 @@ $color-fourth: #e8dbc9;
   .register {
     transition: transform ease-in-out 0.5s;
     display: flex;
-    position: relative;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    justify-content: center;
+    
+    // background-color: rgba(0, 0, 0, 0.5);
     flex-direction: column;
-    flex-wrap: wrap;
+    
     width: 100%;
     max-width: 650px;
     height: 100%;
-    max-height: 100%;
-    min-height: 450px;
+    
+    
     min-width: 450px;
-    padding-top: 20px;
+    
+    
+    
     
     .mainform {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
-      
+      flex-grow: 1;
+    flex-wrap: wrap;
       height: fit-content;
       padding-top: 1%;
       padding-bottom:1%;
       
       
-      margin: 1px 0;
-      background-color: rgba(0, 0, 0, 0.3);
+      margin: $margin 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: $borderradius;
       
       
-      &:nth-child(2),&:nth-child(3),&:nth-child(4){
-       
-        
+      &:nth-child(1){
+       width: 300px;
+       align-items: center;
+       background-color: violet;
       }
       
       .space{
@@ -156,31 +168,35 @@ $color-fourth: #e8dbc9;
           margin: 6px 0;
           font-family: "Raleway", sans-serif;
           border: none;
-
-          box-sizing: border-box;
-
+          border-radius: $borderradius;
+          box-sizing:border-box;
+        
           transition: all 0.2s ease-in-out;
           color: black;
         }
 
         .textspan {
-          width: 100%;
+          width: 95%;
+          
           transform: scale(0);
           transform-origin: center;
           height: 2px;
           position: absolute;
-          background-color: rgba(223, 220, 215, 0.7);
-          bottom: 6.5%;
+          background-color: #292627;
+          bottom: 10%;
+          left: 2.5%;
           transition: 0.35s ease-in-out;
         }
         .formcontrol:focus ~ .textspan {
           transform: scale(1);
+          
         }
         .formcontrol:focus {
           box-shadow: 0 0 10px 1px #e8dbc927;
           outline: none;
-          background-color: rgba(232, 219, 201, 0.4);
+          background-color: rgba(255, 255, 255, 0.8);
         }
+       
       }
     }
 
@@ -188,10 +204,12 @@ $color-fourth: #e8dbc9;
       background-color: #e97231;
       color: white;
       font-size: larger;
-
+      border-radius: $borderradius;
       
       height: 100%;
       width: 100%;
+      
+      max-height: 50px;
       max-width: 250px;
       border: none;
       cursor: pointer;
@@ -204,19 +222,21 @@ $color-fourth: #e8dbc9;
       opacity: 0.8;
     }
     .line {
-      overflow: hidden;
-      position: static;
       
+      position: static;
+      border-radius: $borderradius;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
       height: 5vh;
+      margin-top:$margin;
       flex-wrap: nowrap;
-      
+      max-height: 50px;
       min-height: 40px;
+     margin-bottom: 110px;
       color: #e8dbc9;
-      background-color: darken($color: rgba(0, 0, 0, 0.3), $amount: 80);
+      background-color: rgba(0, 0, 0, 0.8);
     }
     .line a {
       margin-left: 15px;
@@ -230,12 +250,13 @@ $color-fourth: #e8dbc9;
 
   .footer1 {
     position: fixed;
-    
-    width: 100%;
-    height: 100%;
-    max-height: 10vh;
-    bottom: 0;
     overflow: hidden;
+    width: 100%;
+    height: 100px;
+    
+    left: 0;
+    bottom: 0;
+    min-height: 80px;
     z-index: 1;
     
   }
@@ -245,81 +266,43 @@ $color-fourth: #e8dbc9;
   
   
   width: 100%;
-  min-height: 1000px;
-  min-width: 1000px;
+
   height: 100%;
   bottom: 0;
   z-index: -1;
 }
 
 .btdiv{
-  
+  margin: $margin 0;
   width: 100%;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  
   height: 50px;
-  background-color: transparent;
+  min-height: 70px;
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
     justify-content: center;
   align-items: center;
   z-index: 1;
- 
+ border-radius: $borderradius;
   }
 }
+@media only screen and (max-height: 700px){
+  .footer1{
+    display: block;
+  }
+  .header{
+    margin-top: 0;
+  }
+}
+
   @media only screen and (max-width: 900px){
     
-    .wrapperregister{
-      overflow: hidden;
-      
-    }
-    .mainform{
-     flex-wrap: wrap;
-     
-      &:nth-child(1){
-        width: 100%;
-      }
-      &:nth-child(2),&:nth-child(3){
-        
-        
-        width:100%;
-        
-        
-        
-      }
-      &:nth-child(4){
-        width: 100%;
-
-      }
-    }
-   
-    
-    .label{
-      display: block;
+    .header{
+      margin-top: 0;
     }
     .space{
      display: none;
     }
 
   }
-  @media only screen and (max-width: 538px){
-
-    .wrapperregister{
-      height: 123vh;
-      overflow: hidden;
-    }
-    .register{
-      flex-wrap: wrap;
-      flex-direction: column;
-     
-      
-    }
-    .wallpaper{
-     height: 100%;
-     
-    }
-    .line{
-      
-    }
-
-  }
-
+  

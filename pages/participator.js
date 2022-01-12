@@ -1,4 +1,4 @@
-import NavigationLeft from "../components/navigation_after";
+import NavigationLeftP from "../components/navigationP_after";
 import styles from "../styles/modules/afterlogin/main_after.module.scss";
 import { getData } from "../util/fetchData";
 import { DataContext } from "../store/GlobalState";
@@ -30,7 +30,7 @@ export default function Participator(props) {
   return (
     
     <div className={styles.wrapper}>
-      <NavigationLeft />
+      <NavigationLeftP />
       <div className={styles.container}>
         <section className={styles.slider}>
           <FaArrowAltCircleLeft

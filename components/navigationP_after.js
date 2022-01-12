@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 import Cookies from "js-cookie";
 import PopUp from "./popup_after";
 
-export default function NavigationLeft() {
+export default function NavigationLeftP() {
   const router = useRouter();
   const { state, dispatch } = useContext(DataContext);
   const { auth, entered } = state;
@@ -20,12 +20,6 @@ export default function NavigationLeft() {
   //--------------------
   const [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => {
-    setIsOpen(true);
-  };
-  const closeModal = () => {
-    setIsOpen(false);
-  };
 
   const switchModal = ()=>{
 
@@ -60,7 +54,7 @@ export default function NavigationLeft() {
           rel="stylesheet"
         />
         <div className={styles.main}>
-        <PopUp open={isOpen} onClose={closeModal}></PopUp>
+        <PopUp open={isOpen} onClose={switchModal}></PopUp>
           <Link href="/">
             <div className={styles.divl}>
               <div className={styles.divlogo}></div>
@@ -107,7 +101,7 @@ export default function NavigationLeft() {
                 </a>
               </button>
             </Link>
-            <Link href="/settings">
+            <Link href="/settingsP">
               <button className={styles.bt5}>
                 <a className={styles.link5 + isActive("/settings")}>
                   <h2>

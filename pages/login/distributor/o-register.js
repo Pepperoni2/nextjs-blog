@@ -80,6 +80,8 @@ const RegisterO = () => {
       <Head>
         <title>Register Page</title>
       </Head>
+     
+      <form className={styles.register} onSubmit={handleSubmit}>
       <div className={styles.header}>
         <Link href="/">
           <div className={styles.logo}></div>
@@ -91,10 +93,9 @@ const RegisterO = () => {
          
         </div>
       </div>
-      <form className={styles.register} onSubmit={handleSubmit}>
         <div className={styles.mainform}>
           
-          <div className={styles.formgroup} style={{width: "300px", alignItems: "center"}}>
+          <div className={styles.formgroup} >
             <label className={styles.label} htmlFor="name">
               Organizer/Organization Name*
             </label>
@@ -218,11 +219,12 @@ const RegisterO = () => {
             <a style={{ color: "0xe8dbc9" }}>Login Now</a>
           </Link>
         </p>
-      </form>
-
-      <div className={styles.footer1}>
+        <div className={styles.footer1}>
         <Footer />
       </div>
+      </form>
+     
+      
     </div>
   );
 };
