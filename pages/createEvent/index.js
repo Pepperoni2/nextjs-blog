@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useContext, useState } from "react";
 import { DataContext } from "../../store/GlobalState";
-import NavigationLeft from "../../components/navigation_after";
+
 import styles from "../../styles/modules/afterlogin/profile.module.scss";
 
 const OrgsEvent = () => {
@@ -10,7 +10,7 @@ const OrgsEvent = () => {
 
     return (
         <div>
-            <NavigationLeft />
+            
             <Head>
                 <title>Create Portal</title>
             </Head>

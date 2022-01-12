@@ -23,20 +23,24 @@ export default function Organizer(props) {
     }
   },[auth])
 
-  slideLogicc();
+  
 
   return (
     
     <div className={styles.wrapper}>
       <NavigationLeftO />
-      <div id="test">
-      {
-        events.length === 0 || Object.keys(auth).length === 0
-        ? <div></div>
-        : events.map(event => (
-          <EventItem key={event._id} event={event}/>
-        ))
-      }
+      <div className={styles.container}>
+        <section className={styles.slider}>
+          <FaArrowAltCircleLeft className="leftarr" onClick={"prevBt"} />
+          <FaArrowAltCircleRight className="rightarr" onClick={"nextBt"} />
+          <div className="tracker">
+            {events.length === 0 || Object.keys(auth).length === 0 ? (
+              <div></div>
+            ) : (
+              events.map((event) => <EventItem key={event._id} event={event} />)
+            )}
+          </div>
+        </section>
       </div>
     </div>
   );

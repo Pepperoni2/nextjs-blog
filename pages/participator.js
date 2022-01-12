@@ -11,6 +11,7 @@ import {
   FaSlideshare,
 } from "react-icons/fa";
 import { slideLogicc } from "./slideLogic";
+import { hoursToSeconds, set } from "date-fns";
 
 export default function Participator(props) {
   const [events, setEvents] = useState(props.events);
@@ -30,7 +31,7 @@ export default function Participator(props) {
     const track = document.querySelector(".tracker");
     const slides = Array.from(track.children);
     slides[0].classList.add("current-slide");
-    console.log(track.querySelector(".current-slide"));
+    console.log(slides);
 
     const slideWith = slides[0].getBoundingClientRect().width;
 
@@ -38,41 +39,67 @@ export default function Participator(props) {
       slide.style.left = slideWith * index + "px";
     };
     slides.forEach(setSliderPosition);
-
-   
   });
 
-  
-  const moveToSlide = (track, currentSlide, targetSlide) => {
-    track.style.transform = "translateX(-" + targetSlide.style.left + ")";
-    currentSlide.classList.remove("current-slide");
-    targetSlide.classList.add("current-slide");
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const track = document.querySelector(".tracker");
+    const nextButton = document.querySelector(".rightarr");
+    const prevButton = document.querySelector(".leftarr");
+
+    if (track.querySelector(".current-slide").nextElementSibling === null) {
+      nextButton.classList.add("is-hidden");
+      nextButton.classList.remove("is-visible");
+      prevButton.classList.remove("is-hidden");
+      prevButton.classList.add("is-visible");
+    }
+
+    if (track.querySelector(".current-slide").previousElementSibling === null) {
+      prevButton.classList.add("is-hidden");
+      prevButton.classList.remove("is-visible");
+      nextButton.classList.remove("is-hidden");
+      nextButton.classList.add("is-visible");
+    }
+    }, 500);
+    return () => clearInterval(interval);
+    
+  }, []);
+
+  const moveToSlide = async (track, currentSlide, targetSlide) => {
+    const nextButton = document.querySelector(".rightarr");
+    const prevButton = document.querySelector(".leftarr");
+    if (targetSlide == null) {
+      
+    } else {
+      prevButton.classList.remove("is-hidden");
+      prevButton.classList.add("is-visible");
+      nextButton.classList.remove("is-hidden");
+      nextButton.classList.add("is-visible");
+      track.style.transform = "translateX(-" + targetSlide.style.left + ")";
+      currentSlide.classList.remove("current-slide");
+      targetSlide.classList.add("current-slide");
+    }
   };
 
-  function nextBt(){
+  function nextBt() {
     const track = document.querySelector(".tracker");
-    const nextButton = document.querySelector(".rightarr");
-    
-      const currentSlide = track.querySelector(".current-slide");
-      console.log(track.querySelector(".current-slide"));
-      const nextSlide = currentSlide.nextElementSibling;
 
-      moveToSlide(track, currentSlide, nextSlide);
-   
+    const currentSlide = track.querySelector(".current-slide");
+    console.log(track.querySelector(".current-slide"));
+    const nextSlide = currentSlide.nextElementSibling;
+
+    moveToSlide(track, currentSlide, nextSlide);
   }
 
-  function prevBt(){
+  function prevBt() {
     const track = document.querySelector(".tracker");
-    const prevButton = document.querySelector(".leftarr");
-  
-      const currentSlide = track.querySelector(".current-slide");
 
-      const prevSlide = currentSlide.previousElementSibling;
+    const currentSlide = track.querySelector(".current-slide");
 
-      moveToSlide(track, currentSlide, prevSlide);
-  
+    const prevSlide = currentSlide.previousElementSibling;
+
+    moveToSlide(track, currentSlide, prevSlide);
   }
-  
 
   return (
     <div className={styles.wrapper}>
@@ -80,18 +107,14 @@ export default function Participator(props) {
       <div className={styles.container}>
         <section className={styles.slider}>
           <FaArrowAltCircleLeft className="leftarr" onClick={prevBt} />
-          <div className="tracker">
+          <FaArrowAltCircleRight className="rightarr" onClick={nextBt} />
+          <div className="tracker" >
             {events.length === 0 || Object.keys(auth).length === 0 ? (
               <div></div>
             ) : (
               events.map((event) => <EventItem key={event._id} event={event} />)
             )}
           </div>
-          <FaArrowAltCircleRight
-            className="rightarr"
-            onClick={nextBt}
-            // onClick={nextSlide}
-          />
         </section>
       </div>
     </div>

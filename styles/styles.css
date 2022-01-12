@@ -346,7 +346,14 @@ background-color: #E8DBC9;
           user-select: none;
 
 }
-  
+.is-hidden{
+    transition: transform 0.2s ease-in-out;
+    transform: scale(0);
+}
+.is-visible{
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1);
+}
 
 @media only screen and (max-width: 690px){
 
