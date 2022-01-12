@@ -25,11 +25,15 @@ export default function Participator(props) {
         router.push("/participator");
       } else if (auth.user.role === "organizer") router.push("/organizer");
     }
+    else{
+      router.push("/")
+    }
   }, [auth]);
 
   
 
   useEffect(() => {
+    if(Object.keys(auth).length !== 0){
     const track = document.querySelector(".tracker");
     const slides = Array.from(track.children);
     slides[0].classList.add("current-slide");
@@ -42,11 +46,12 @@ export default function Participator(props) {
       slide.style.left = slideWith * index + "px";
     };
     slides.forEach(setSliderPosition);
+    }
   });
 
   useEffect(() => {
     const interval = setInterval(() => {
-    
+      if(Object.keys(auth).length !== 0){
       const track = document.querySelector(".tracker");
       const slides = Array.from(track.children);
       const nextButton = document.querySelector(".rightarr");
@@ -70,7 +75,7 @@ export default function Participator(props) {
         nextButton.classList.add("is-visible");
       }
 
-     
+    }
 
 
     }, 500);
@@ -131,21 +136,27 @@ export default function Participator(props) {
   }
 
   return (
+    
     <div className={styles.wrapper}>
-      <NavigationLeftP />
-      <div className={styles.container}>
-        <section className={styles.slider}>
-          <FaArrowAltCircleLeft className="leftarr" onClick={prevBt} />
-          <FaArrowAltCircleRight className="rightarr" onClick={nextBt} />
-          <div className="tracker">
-            {events.length === 0 || Object.keys(auth).length === 0 ? (
-              <div></div>
-            ) : (
-              events.map((event) => <EventItem key={event._id} event={event} />)
-            )}
-          </div>
-        </section>
-      </div>
+      { Object.keys(auth).length !== 0 ?
+        <>
+        <NavigationLeftP />
+        <div className={styles.container}>
+          <section className={styles.slider}>
+            <FaArrowAltCircleLeft className="leftarr" onClick={prevBt} />
+            <FaArrowAltCircleRight className="rightarr" onClick={nextBt} />
+            <div className="tracker"> 
+              {events.length === 0 || Object.keys(auth).length === 0 ? (
+                <div></div>
+              ) : (
+                events.map((event) => <EventItem key={event._id} event={event} />)
+              )}
+            </div>
+          </section>
+        </div>
+        </> : <div></div>
+      }
+      
     </div>
   );
 }

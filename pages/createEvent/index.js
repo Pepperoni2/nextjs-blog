@@ -1,11 +1,7 @@
 import Head from "next/head";
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../../store/GlobalState";
-<<<<<<< HEAD
 import NavigationLeft from "../../components/navigationO_after";
-=======
-
->>>>>>> 38502084fb1550ca777eb1287155a33395f9ba84
 import styles from "../../styles/modules/afterlogin/profile.module.scss";
 import { set } from "date-fns";
 import { Link } from "react-router-dom";
@@ -46,8 +42,7 @@ const OrgsEvent = () => {
             if (openslots <= 0) return dispatch({ type: "NOTIFY", payload: { error: "The amount of openslots can't be zero or negative" } }); 
             
             return dispatch({ type: "NOTIFY", payload: { success: "Event erstellt!" } });
-
-              
+                  
         }
         else {
             return dispatch({ type: "NOTIFY", payload: { error: "Please fill out all the event fields!" } })

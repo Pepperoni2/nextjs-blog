@@ -27,6 +27,8 @@ export default function Organizer(props) {
   },[auth])
 
   
+
+  
     const settings = {
       className: "center",
       centerMode: true,
