@@ -7,6 +7,9 @@ import EventItem from '../components/event/EventItem'
 import { useRouter } from "next/router";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft, FaSlideshare } from "react-icons/fa";
 import { slideLogicc } from "./slideLogic";
+import React, { Component } from "react";
+import CenterMode from "./Slider";
+
 
 export default function Organizer(props) {
   const router = useRouter()
@@ -24,15 +27,22 @@ export default function Organizer(props) {
   },[auth])
 
   
+    const settings = {
+      className: "center",
+      centerMode: true,
+      infinite: true,
+      centerPadding: "60px",
+      slidesToShow: 3,
+      speed: 500
+    };
 
   return (
     
     <div className={styles.wrapper}>
       <NavigationLeftO />
       <div className={styles.container}>
-        <section className={styles.slider}>
-          <FaArrowAltCircleLeft className="leftarr" onClick={"prevBt"} />
-          <FaArrowAltCircleRight className="rightarr" onClick={"nextBt"} />
+       
+      <CenterMode>
           <div className="tracker">
             {events.length === 0 || Object.keys(auth).length === 0 ? (
               <div></div>
@@ -40,7 +50,7 @@ export default function Organizer(props) {
               events.map((event) => <EventItem key={event._id} event={event} />)
             )}
           </div>
-        </section>
+          </CenterMode>
       </div>
     </div>
   );

@@ -38,9 +38,7 @@ export default function Participator(props) {
     const slideWith = slides[0].getBoundingClientRect().width;
 
     const setSliderPosition = (slide, index) => {
-      if (track.querySelector(".current-slide")==index) {
-        track.querySelector(".current-slide").style.dis
-      }
+  
       slide.style.left = slideWith * index + "px";
     };
     slides.forEach(setSliderPosition);
@@ -98,22 +96,38 @@ export default function Participator(props) {
 
   function nextBt() {
     const track = document.querySelector(".tracker");
-
+    const slides = Array.from(track.children);
     const currentSlide = track.querySelector(".current-slide");
     console.log(track.querySelector(".current-slide"));
     const nextSlide = currentSlide.nextElementSibling;
 
     moveToSlide(track, currentSlide, nextSlide);
+
+    const slideWith = slides[0].getBoundingClientRect().width;
+
+    const setSliderPosition = (slide, index) => {
+  
+      slide.style.left = slideWith * index + "px";
+    };
+    slides.forEach(setSliderPosition);
   }
 
   function prevBt() {
     const track = document.querySelector(".tracker");
-
+    const slides = Array.from(track.children);
     const currentSlide = track.querySelector(".current-slide");
 
     const prevSlide = currentSlide.previousElementSibling;
 
     moveToSlide(track, currentSlide, prevSlide);
+
+    const slideWith = slides[0].getBoundingClientRect().width;
+
+    const setSliderPosition = (slide, index) => {
+  
+      slide.style.left = slideWith * index + "px";
+    };
+    slides.forEach(setSliderPosition);
   }
 
   return (
