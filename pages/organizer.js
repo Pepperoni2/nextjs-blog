@@ -5,6 +5,8 @@ import { DataContext } from '../store/GlobalState'
 import { useContext, useState, useEffect } from "react";
 import EventItem from '../components/event/EventItem'
 import { useRouter } from "next/router";
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft, FaSlideshare } from "react-icons/fa";
+import { slideLogicc } from "./slideLogic";
 
 export default function Organizer(props) {
   const router = useRouter()
@@ -21,22 +23,33 @@ export default function Organizer(props) {
     }
   },[auth])
 
-  return (
+  slideLogicc();
 
+  return (
+    
     <div className={styles.wrapper}>
       <NavigationLeft />
-      <div id="test">
-      {
-        events.length === 0 || Object.keys(auth).length === 0
-        ? <div></div>
-        : events.map(event => (
-          <EventItem key={event._id} event={event}/>
-        ))
-      }
+      <div className={styles.container}>
+        <section className={styles.slider}>
+          <FaArrowAltCircleLeft
+            className="leftarr"
+            // onClick={prevSlide}
+          />
+          <div className="tracker" >
+            {events.length === 0 || Object.keys(auth).length === 0 ? (
+              <div></div>
+            ) : (
+              events.map((event) => <EventItem key={event._id} event={event} />)
+            )}
+          </div>
+          <FaArrowAltCircleRight
+            className="rightarr"
+            // onClick={nextSlide}
+          />
+        </section>
       </div>
+      
     </div>
-    
-    
   );
 }
 // || Object.keys(auth).length === 0

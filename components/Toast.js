@@ -8,7 +8,6 @@ const Toast = ({ msg, handleShow, titleColor }) => {
       <button
         type="button"
         className={styles.button}
-        data-dismiss="toast"
         style={{ outline: "none" }}
         onClick={handleShow}
       >

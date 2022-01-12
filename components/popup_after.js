@@ -46,6 +46,9 @@ export default function PopUp({open, onClose}) {
             <Link href={"/settings/profile"} >
             <p className={styles.settings}>User Settings</p>
             </Link>
+            <Link href={"/createEvent"} >
+            <p className={styles.settings}>Create Event</p>
+            </Link>
           </li>
           </ul>
           <div className={styles.singoutuser1}>

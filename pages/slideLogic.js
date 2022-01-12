@@ -9,25 +9,25 @@ export async function slideLogicc() {
   useEffect(() => 
   {
     const track = document.querySelector(".tracker");
-    console.log(track);
+    // console.log(track);
     const slides = Array.from(track.children);
     const nextButton = document.querySelector(".rightarr");
     
     const prevButton = document.querySelector(".leftarr");
-    console.log(prevButton);
+    // console.log(prevButton);
 
     const slideWith = slides[0].getBoundingClientRect().width;
-    console.log(slideWith);
+    // console.log(slideWith);
     const setSliderPosition = (slide, index) => {
       slide.style.left = slideWith * index + "px";
       slides.forEach(setSliderPosition);
-      console.log("hier");
+      // console.log("hier");
       const moveToSlide = (track, currentSlide, targetSlide) => {
         track.style.transform = "translateX(-" + targetSlide.style.left + ")";
         currentSlide.classList.remove("current-slide");
         targetSlide.classList.add("current-slide");
       };
-      console.log("hier");
+      // console.log("hier");
       const handlePrevClick = (e) => {
         prevButton.addEventListener("click", (e) => {
         1
@@ -46,7 +46,7 @@ export async function slideLogicc() {
         moveToSlide(track, currentSlide, nextSlide);
       });
 
-      console.log(track.children);
+      // console.log(track.children);
     };
   })
 }
