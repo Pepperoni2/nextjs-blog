@@ -25,7 +25,6 @@ const eventSchema = new mongoose.Schema({
     },
     openslots: {
         type: Number,
-        default: 0
     },
     closedSlots: {
         type: Number,

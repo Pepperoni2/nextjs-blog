@@ -23,21 +23,21 @@ export default function Organizer(props) {
     }
   },[auth])
 
-  slideLogicc();
+  // slideLogicc();
 
   return (
     
     <div className={styles.wrapper}>
       <NavigationLeftO />
-      <div id="test">
-      {
+      {/* <div id="test"> */}
+      {/* {
         events.length === 0 || Object.keys(auth).length === 0
         ? <div></div>
         : events.map(event => (
           <EventItem key={event._id} event={event}/>
         ))
-      }
-      </div>
+      } */}
+      {/* </div> */}
     </div>
   );
 }

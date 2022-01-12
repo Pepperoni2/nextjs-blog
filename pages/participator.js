@@ -25,7 +25,7 @@ export default function Participator(props) {
     }
   },[auth])
 
-  slideLogicc();
+  // slideLogicc();
 
   return (
     
