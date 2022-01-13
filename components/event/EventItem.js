@@ -47,7 +47,7 @@ const EventItem = ({ event }) => {
     // ------ feel free to style ------
  
     
-    <div className="card">
+    <div className={styles.card}>
     
       <img
         className={styles.cardimgtop}

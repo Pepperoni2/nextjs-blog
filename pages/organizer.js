@@ -43,33 +43,32 @@ export default function Organizer(props) {
     );
   };
 
-  
-
-  
-    const settings = {
-      className: "center",
-      centerMode: true,
-      infinite: true,
-      centerPadding: "60px",
-      slidesToShow: 3,
-      speed: 500
-    };
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 1,
+    speed: 500,
+    dots: true,
+    arrows: true,
+  };
 
   return (
     <div className={styles.wrapper}>
       <NavigationLeftO />
       <div className={styles.container}>
         <section className="sliderReal">
-          <Slider {...settings}>
-            {events.length === 0 || Object.keys(auth).length === 0 ? (
-              <div></div>
-            ) : (
-              events.map((event) => <EventItem key={event._id} event={event} />)
-            )}
-            
-          
-          
-          </Slider>
+          {events.map((event) => (
+            <EventItem key={event._id} event={event} />
+          ))}
+        </section>
+        <section className="sliderReal">
+          <CenterMode>
+            {events.map((event) => (
+              <EventItem key={event._id} event={event} />
+            ))}
+          </CenterMode>
         </section>
       </div>
     </div>

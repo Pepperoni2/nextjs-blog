@@ -1,49 +1,53 @@
-import React, { Component } from "react";
-import { ReactDOM } from "react";
+import React, { Component, useContext } from "react";
 import Slider from "react-slick";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { useState } from "react";
+import { DataContext } from "../store/GlobalState";
 
-export default class CenterMode extends Component {
-  render () {
+export default function CenterMode(props) {
   
+      const [event] = useState(props.event);
+      const { state, dispatch } = useContext(DataContext);
+      const { auth, enteredEvent } = state;
+   
 
-
-  const settings = {
-    className: "slide",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 3,
-    dots: true,
-    speed: 500,
-    lazyLoad: true,
-    slidesToShow: 10,
-    centerMode: true,
-    centerPadding: 0,
-   arrows:true
-  };
-  return (
-    <>
-      <Slider {...settings}><div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div></Slider>
-    </>
-  );
-}
-}
+    const settings = {
+      customPaging: function(i) {
+        return (
+          <a>
+             <img src={event.images[0].url} alt={event.images[0].url} style={{height:"100%", width: "100%", objectFit: "cover" }}/>
+          </a>
+        );
+      },
+      dots: true,
+      dotsClass: "slick-dots slick-thumb",
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true
+    };
+    return (
+      <div>
+        <h2>Custom Paging</h2>
+        <Slider {...settings}>
+          
+          {event.images.map((img, index) => (
+                <img
+                  key={index}
+                  src={img.url}
+                  alt={img.url}
+                  style={{ height: "80px", width: "20%" }}
+                />
+              ))}
+        </Slider>
+      </div>
+    );
+  }
+  export async function getServerSideProps() {
+    const res = await getData();
+    console.log(res);
+    // server-side-rendering, console.log() will not be displayed in the browser
+    return {
+      props: { event: res.event }, // will be passed to the page component as props
+    };
+  }
