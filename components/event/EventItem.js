@@ -36,7 +36,7 @@ const EventItem = ({ event }) => {
 /*     
     console.log(event) */
 // --------------------------------------
-useEffect
+
   
     // if (!Array.isArray(event) || length <= 0) {
     //   return null;
@@ -46,7 +46,7 @@ useEffect
     // ----- Event Cards --------
     // ------ feel free to style ------
  
-
+    
     <div className="card">
     
       <img
@@ -64,7 +64,7 @@ useEffect
         <div className={styles.divlink}>{userLink()}</div>
       </div>
     </div>
-    
+  
     // -----
   );
 };
