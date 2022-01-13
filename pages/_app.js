@@ -4,8 +4,8 @@ import "../styles/navstyles.css";
 /* import 'bootstrap/dist/css/bootstrap.css'  */
 import "../styles/stylelogin.css";
 import "../styles/distributor.css";
-import "~slick-carousel/slick/slick.css"; 
-import "~slick-carousel/slick/slick-theme.css";
+/* import "~slick-carousel/slick/slick.css"; 
+import "~slick-carousel/slick/slick-theme.css"; */
 //-------------------------------------
 //---- Backend & Animation imports-----
 import { DataProvider } from "../store/GlobalState";

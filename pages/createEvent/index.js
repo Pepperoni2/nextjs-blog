@@ -42,8 +42,7 @@ const OrgsEvent = () => {
             if (openslots <= 0) return dispatch({ type: "NOTIFY", payload: { error: "The amount of openslots can't be zero or negative" } }); 
             
             return dispatch({ type: "NOTIFY", payload: { success: "Event erstellt!" } });
-
-              
+                  
         }
         else {
             return dispatch({ type: "NOTIFY", payload: { error: "Please fill out all the event fields!" } })
