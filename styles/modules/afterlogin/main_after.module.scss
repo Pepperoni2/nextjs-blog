@@ -1,13 +1,14 @@
 .wrapper{
     width: 100%;
     height: 120vh;
-    color: #e97231;
+    color: black;
     background-color: rgba(233, 114, 49, 0.8);
   }
     .container{
         width: auto;
         margin-left: 180px;
         height: 100%;
+        // overflow: scroll;
         background-color: rgba(64, 224, 208, 0.233);
        position: relative;
     }
@@ -16,12 +17,10 @@
         height: 500px;
         position: relative;
         background-color: #e97231;
-        overflow: hidden;
+        
       }
-      .slide {
-        opacity: 0;
-        transition-duration: 1s ease;
-      }
+      
+        
       
      
 
