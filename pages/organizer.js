@@ -43,14 +43,17 @@ export default function Organizer(props) {
     );
   };
 
-  const settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 3,
-    speed: 500
-  };
+  
+
+  
+    const settings = {
+      className: "center",
+      centerMode: true,
+      infinite: true,
+      centerPadding: "60px",
+      slidesToShow: 3,
+      speed: 500
+    };
 
   return (
     <div className={styles.wrapper}>
