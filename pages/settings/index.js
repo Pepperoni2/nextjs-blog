@@ -11,7 +11,7 @@ import Link from "next/link"
 // Profile page stylen, navigation sollte am besten gleich bleiben
 // Style es wie du es willst 
 
-const SettingsP = () => {
+const Settings = () => {
     const router = useRouter();
     const { state, dispatch } = useContext(DataContext);
     const { auth } = state;
@@ -32,7 +32,7 @@ const SettingsP = () => {
             </Head>
            
             <section>
-            <Link href="/settingsP/profile">
+            <Link href="settings/profile">
               <button className={styles.btpro} >
                 <a className={styles.linkpro + isActive("/")}>
                   Profile-Settings
@@ -45,4 +45,4 @@ const SettingsP = () => {
     )
 }
 
-export default SettingsP
+export default Settings

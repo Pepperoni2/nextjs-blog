@@ -12,6 +12,13 @@ function Nav(props) {
   const { state } = useContext(DataContext)
   const { auth } = state
 
+  const nixRouter = () => {
+    return(
+      <>
+      <div></div>
+      </>
+    )
+  }
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -78,17 +85,26 @@ function Nav(props) {
 
               {
                 Object.keys(auth).length === 0 ?
-                  <Link href="/login">
-                    <button className="bt">
-                      <a>Login</a>
-                    </button>
-                  </Link>
-                  :
-                  <Link href="/participator">
-                    <button className="bt">
-                      <a>Home</a>
-                    </button>
-                  </Link>
+                <Link href="/login">
+                  <button className="bt">
+                    <a>Login</a>
+                  </button>
+                </Link>
+                : auth.user.role === "participator" ?
+                <Link href="/participator">
+                  <button className="bt">
+                    <a>Home</a>
+                  </button>
+                </Link>
+                : auth.user.role === "organizer" ?
+                
+                <Link href="/organizer">
+                  <button className="bt">
+                    <a>Home</a>
+                  </button>
+                </Link>
+                : nixRouter()
+                
               }
 
 

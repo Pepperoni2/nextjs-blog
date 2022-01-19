@@ -101,7 +101,7 @@ export default function NavigationLeftP() {
                 </a>
               </button>
             </Link>
-            <Link href="/settingsP">
+            <Link href="/settings">
               <button className={styles.bt5}>
                 <a className={styles.link5 + isActive("/settings")}>
                   <h2>

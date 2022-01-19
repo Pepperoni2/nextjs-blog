@@ -61,7 +61,7 @@ export default function NavigationLeftO() {
             </div>
           </Link>
           <div className={styles.divbutton}>
-          <Link href="/participator">
+          <Link href="/createEvent/">
               <button className={styles.addEvent}>
                 <a className={styles.linkadd + isActive("/")}>
                   {/* <h2>
@@ -71,7 +71,7 @@ export default function NavigationLeftO() {
                 </a>
               </button>
             </Link>
-            <Link href="/participator">
+            <Link href="/organizer">
               <button className={styles.bt1} >
                 <a className={styles.link1 + isActive("/")}>
                   <h2>
@@ -81,7 +81,7 @@ export default function NavigationLeftO() {
                 </a>
               </button>
             </Link>
-            <Link href="/participator">
+            <Link href="/organizer">
               <button className={styles.bt2}>
                 <a className={styles.link2 + isActive("/notifications")}>
                   <h2>

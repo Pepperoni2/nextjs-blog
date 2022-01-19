@@ -213,7 +213,7 @@ const Profile = () => {
           </div>
           <div className={styles.item4}>
           <div className={styles.divinput}>
-            <label className={styles.label} htmlFor="cf_password">
+            <label className={styles.label}>
               Confirm New Password
             </label>
             <input
