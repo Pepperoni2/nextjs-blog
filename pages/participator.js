@@ -31,109 +31,7 @@ export default function Participator(props) {
   }, [auth]);
 
   
-
-  useEffect(() => {
-    if(Object.keys(auth).length !== 0){
-    const track = document.querySelector(".tracker");
-    const slides = Array.from(track.children);
-    slides[0].classList.add("current-slide");
-    console.log(slides);
-    const index = slides.findIndex(find => find === track.querySelector(".current-slide"));
-    const slideWith = slides[0].getBoundingClientRect().width;
-
-    const setSliderPosition = (slide, index) => {
   
-      slide.style.left = slideWith * index + "px";
-    };
-    slides.forEach(setSliderPosition);
-    }
-  });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if(Object.keys(auth).length !== 0){
-      const track = document.querySelector(".tracker");
-      const slides = Array.from(track.children);
-      const nextButton = document.querySelector(".rightarr");
-      const prevButton = document.querySelector(".leftarr");
-      
-
-      if (track.querySelector(".current-slide").nextElementSibling === null) {
-        nextButton.classList.add("is-hidden");
-        nextButton.classList.remove("is-visible");
-        prevButton.classList.remove("is-hidden");
-        prevButton.classList.add("is-visible");
-        
-      }
-
-      if (
-        track.querySelector(".current-slide").previousElementSibling === null
-      ) {
-        prevButton.classList.add("is-hidden");
-        prevButton.classList.remove("is-visible");
-        nextButton.classList.remove("is-hidden");
-        nextButton.classList.add("is-visible");
-      }
-
-    }
-
-
-    }, 500);
-     return () => clearInterval(interval);
-  }, []);
-
-  const moveToSlide = async (track, currentSlide, targetSlide) => {
-    const nextButton = document.querySelector(".rightarr");
-    const prevButton = document.querySelector(".leftarr");
-    if (targetSlide == null) {
-    } else {
-      prevButton.classList.remove("is-hidden");
-      prevButton.classList.add("is-visible");
-      nextButton.classList.remove("is-hidden");
-      nextButton.classList.add("is-visible");
-
-      track.style.transform = "translateX(-" + targetSlide.style.left + ")";
-      currentSlide.classList.remove("current-slide");
-      targetSlide.classList.add("current-slide");
-      
-    }
-  };
-
-  function nextBt() {
-    const track = document.querySelector(".tracker");
-    const slides = Array.from(track.children);
-    const currentSlide = track.querySelector(".current-slide");
-    console.log(track.querySelector(".current-slide"));
-    const nextSlide = currentSlide.nextElementSibling;
-
-    moveToSlide(track, currentSlide, nextSlide);
-
-    const slideWith = slides[0].getBoundingClientRect().width;
-
-    const setSliderPosition = (slide, index) => {
-  
-      slide.style.left = slideWith * index + "px";
-    };
-    slides.forEach(setSliderPosition);
-  }
-
-  function prevBt() {
-    const track = document.querySelector(".tracker");
-    const slides = Array.from(track.children);
-    const currentSlide = track.querySelector(".current-slide");
-
-    const prevSlide = currentSlide.previousElementSibling;
-
-    moveToSlide(track, currentSlide, prevSlide);
-
-    const slideWith = slides[0].getBoundingClientRect().width;
-
-    const setSliderPosition = (slide, index) => {
-  
-      slide.style.left = slideWith * index + "px";
-    };
-    slides.forEach(setSliderPosition);
-  }
 
   return (
     
@@ -143,15 +41,15 @@ export default function Participator(props) {
         <NavigationLeftP />
         <div className={styles.container}>
           <section className={styles.slider}>
-            <FaArrowAltCircleLeft className="leftarr" onClick={prevBt} />
-            <FaArrowAltCircleRight className="rightarr" onClick={nextBt} />
-            <div className="tracker"> 
+            {/* <FaArrowAltCircleLeft className="leftarr" onClick={prevBt} />
+            <FaArrowAltCircleRight className="rightarr" onClick={nextBt} /> */}
+            
               {events.length === 0 || Object.keys(auth).length === 0 ? (
                 <div></div>
               ) : (
                 events.map((event) => <EventItem key={event._id} event={event} />)
               )}
-            </div>
+            
           </section>
         </div>
         </> : <div></div>
