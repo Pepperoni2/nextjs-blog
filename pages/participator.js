@@ -40,6 +40,7 @@ export default function Participator(props) {
         <>
         <NavigationLeftP />
         <div className={styles.container}>
+          <div className={styles.stickynav}><p>Ich verfloge dich</p></div>
           <section className={styles.slider}>
             {/* <FaArrowAltCircleLeft className="leftarr" onClick={prevBt} />
             <FaArrowAltCircleRight className="rightarr" onClick={nextBt} /> */}

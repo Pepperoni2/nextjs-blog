@@ -12,10 +12,22 @@
         // overflow: scroll;
         
        position: relative;
-    }
-    .slider {
+
+      .stickynav{
+        position: sticky;
         width: 100%;
-      
+        height: fit-content;
+        z-index: 100;
+        top: 0px;
+        padding:10px 0;
+        background-color: rgba(0,0,0,0.2);
+        text-align: center;
+        border-bottom: 1px solid black;
+      }
+
+       .slider {
+        width: 100%;
+        
        
       
        display: flex;
@@ -23,6 +35,8 @@
         
         
       }
+    }
+    
      
       
         
