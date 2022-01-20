@@ -5,6 +5,7 @@ import styles from "../styles/modules/impressum.module.scss";
 export default function Impressum() {
   return (
     <div className={styles.wrapper}>
+     
       <div className={styles.wrap}>
         <h1>Information</h1>
         <p>
@@ -17,9 +18,11 @@ export default function Impressum() {
           Go back
         </a>
       </div>
+      
       <div className={styles.footer}>
         <Footer></Footer>
       </div>
+      
     </div>
   );
 }
