@@ -16,6 +16,13 @@ function Footer() {
           {/* <Link href="#">About</Link> */}
           About
         </li>
+        <li>
+        <Link href="/impressum">
+          <a className={styles.atag}>
+            Impressum
+          </a>
+        </Link>
+        </li>
       </div>
     </footer>
   );
