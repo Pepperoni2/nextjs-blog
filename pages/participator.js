@@ -10,7 +10,6 @@ import {
   FaArrowAltCircleLeft,
   FaSlideshare,
 } from "react-icons/fa";
-import { slideLogicc } from "./slideLogic";
 import { hoursToSeconds, set } from "date-fns";
 
 export default function Participator(props) {

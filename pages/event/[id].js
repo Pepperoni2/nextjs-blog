@@ -4,8 +4,7 @@ import { useState, useContext, useEffect } from "react";
 import { DataContext } from "../../store/GlobalState";
 import { useRouter } from "next/router";
 import { addToEnteredEvents } from "../../store/Actions";
-import Slider from "react-slick";
-import CenterMode from "../Slider";
+
 const DetailEvent = (props) => {
   const [event] = useState(props.event);
   const { state, dispatch } = useContext(DataContext);

@@ -5,12 +5,11 @@ import { DataContext } from "../store/GlobalState";
 import { useContext, useState, useEffect } from "react";
 import EventItem from "../components/event/EventItem";
 import { useRouter } from "next/router";
-import Slider from "react-slick";
+
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
-import { slideLogicc } from "./slideLogic";
 import React, { Component } from "react";
-import CenterMode from "./Slider";
+
 
 export default function Organizer(props) {
   const router = useRouter();
