@@ -10,7 +10,7 @@ function Footer() {
           </a>
         </Link>
 
-        <li>Copyright 2021</li>
+        <li>© Copyright 2022</li>
 
         <li>
         <Link href="">
