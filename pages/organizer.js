@@ -64,11 +64,11 @@ export default function Organizer(props) {
           ))}
         </section>
         <section className="sliderReal">
-          <CenterMode>
+          {/* <CenterMode> */}
             {events.map((event) => (
               <EventItem key={event._id} event={event} />
             ))}
-          </CenterMode>
+          {/* </CenterMode> */}
         </section>
       </div>
     </div>

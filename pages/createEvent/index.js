@@ -122,8 +122,22 @@ return (
                 }
                 <span className={styles.textspan}></span>
                 <div>
+                    <label htmlFor="category" style={{color: 'black'}}>
+                        Category
+                    </label>
+                    <input
+                        className={styles.inputs}
+                        type="text"
+                        name="category"
+                        value={category}
+                        placeholder="Category"
+                        onChange={handleChange}
+                    />
+                </div>
+                <span className={styles.textspan}></span>
+                <div>
                     <label htmlFor="openslots" style={{color: 'black'}}>
-                        Content
+                        Openslots
                     </label>
                     <input
                         className={styles.inputs}
