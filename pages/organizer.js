@@ -27,21 +27,8 @@ export default function Organizer(props) {
     }
   }, [auth]);
 
-  const NextArrow = ({ onClick }) => {
-    return (
-      <div className="arrow next" onClick={onClick}>
-        <FaArrowRight />
-      </div>
-    );
-  };
-
-  const PrevArrow = ({ onClick }) => {
-    return (
-      <div className="arrow prev" onClick={onClick}>
-        <FaArrowLeft />
-      </div>
-    );
-  };
+  
+  
 
   const settings = {
     className: "center",
@@ -56,21 +43,9 @@ export default function Organizer(props) {
 
   return (
     <div className={styles.wrapper}>
-      <NavigationLeftO />
+      
       <div className={styles.container}>
-        <section className="sliderReal">
-          {events.map((event) => (
-            <EventItem key={event._id} event={event} />
-          ))}
-        </section>
-        <section className="sliderReal">
-          {/* <CenterMode> */}
-            {events.map((event) => (
-              <EventItem key={event._id} event={event} />
-            ))}
-          {/* </CenterMode> */}
-        </section>
-      </div>
+       </div>	
     </div>
   );
 }

@@ -13,15 +13,14 @@ function Footer() {
         <li>Copyright 2021</li>
 
         <li>
-          {/* <Link href="#">About</Link> */}
-          About
+        <Link href="">
+            <a className={styles.about}>About</a>
+          </Link>
         </li>
         <li>
-        <Link href="/impressum">
-          <a className={styles.atag}>
-            Impressum
-          </a>
-        </Link>
+          <Link href="/impressum">
+            <a className={styles.impress}>Impressum</a>
+          </Link>
         </li>
       </div>
     </footer>

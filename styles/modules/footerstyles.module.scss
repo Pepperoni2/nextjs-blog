@@ -40,3 +40,22 @@
      height: 100%;
      
     }
+    .impress{
+        color: #E97231;
+        text-decoration: none;
+        transition: all 0.15s ease-in-out;
+        &:hover{
+            opacity: 0.8;
+            color: #f15602;
+
+        }
+    }
+    .about{
+        color: #E97231;
+        text-decoration: none;
+        transition: all 0.15s ease-in-out;
+        &:hover{
+            opacity: 0.8;
+            color: #f15602;
+        }
+    }
