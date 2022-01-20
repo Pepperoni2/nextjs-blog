@@ -1,12 +1,12 @@
-// import Head from "next/head";
-// import { useContext, useEffect, useState } from "react";
-// import { DataContext } from "../../store/GlobalState";
-// import NavigationLeft from "../../components/navigationO_after";
-// import styles from "../../styles/modules/afterlogin/profile.module.scss";
-// import { set } from "date-fns";
-// import { Link } from "react-router-dom";
+import Head from "next/head";
+import { useContext, useEffect, useState } from "react";
+import { DataContext } from "../../store/GlobalState";
+import NavigationLeft from "../../components/navigationO_after";
+import styles from "../../styles/modules/afterlogin/profile.module.scss";
+import { set } from "date-fns";
+import { Link } from "react-router-dom";
 
-// const OrgsEvent = () => {
+const OrgsEvent = () => {
 //     const initialState = {
 //         title: "",
 //         description: "",
@@ -51,8 +51,8 @@
 
 //     };
 
-// return (
-//     <div>
+return (
+    //  <div>
 //         <NavigationLeft />
 //         <Head>
 //             <title>Create Portal</title>
@@ -165,7 +165,8 @@
 //             </div>
 //         </section>
 //     </div>
-// );
-// };
+<></>
+);
+};
 
-// export default OrgsEvent;
+export default OrgsEvent;
