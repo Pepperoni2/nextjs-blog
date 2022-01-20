@@ -61,7 +61,7 @@ export default function NavigationLeftO() {
             </div>
           </Link>
           <div className={styles.divbutton}>
-          <Link href="/createEvent/">
+          <Link href="/">
               <button className={styles.addEvent}>
                 <a className={styles.linkadd + isActive("/")}>
                   {/* <h2>
