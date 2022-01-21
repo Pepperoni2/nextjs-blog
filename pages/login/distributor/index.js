@@ -10,12 +10,32 @@ import { get } from "jquery";
 import React, { useState, useEffect } from "react";
 import Loading from "../../../components/Loading";
 import Footer from "../../../components/footer";
+import { id } from "date-fns/locale";
+
 export default function Distributor(params) {
   const style = { color: "white", fontSize: "1.5em" };
 
-  React.useEffect(() => {
-    const drop = document.getElementsByClassName("dropdown-content");
-  });
+  const [stateText, setText] = useState();
+
+  const changeText = (vari) => {
+    setText(vari);
+  };
+
+  useEffect(() => {
+    const text = document.getElementById("text");
+    console.log(text);
+    if (text.innerText == "") {
+      text.style.scale = "0";
+    } else {
+      text.style.scale = "1";
+      text.style.opacity = "1";
+      // text.innerHTML = stateText;
+    }
+    
+
+
+  }, [stateText]);
+
   return (
     <motion.div
       initial="hidden"
@@ -39,19 +59,38 @@ export default function Distributor(params) {
           <div className={styles.bwrap}>
             <h1>Choose</h1>
             <div className={styles.flexbwrap}>
-              <span className={styles.chbt}>
+              <span
+                className={styles.chbt}
+                id="0"
+                onClick={() =>
+                  changeText(
+                    "Organizers have the ability to create and to organize your own events or parties"
+                  )
+                }
+              >
                 <h3>Organizer</h3>
                 <GiAries className={styles.icons} />
                 <div className={styles.backg}></div>
               </span>
 
-              <span className={styles.chbt}>
+              <span
+                className={styles.chbt}
+                id="1"
+                onClick={() =>
+                  changeText(
+                    "Participators have the ability to create and to organize your own events or parties"
+                  )
+                }
+              >
                 <h3>Participator</h3>
                 <GiAzulFlake className={styles.icons} />
                 <div className={styles.backg}></div>
               </span>
             </div>
-            <p className={styles.inptext}>ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>
+            <p className={styles.inptext} id="text">
+              {stateText}
+              {/* <div>Confirm</div> */}
+            </p>
           </div>
         </div>
 

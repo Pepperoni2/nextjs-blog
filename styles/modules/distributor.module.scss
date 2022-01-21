@@ -45,7 +45,7 @@ $color-fourth: #e8dbc9;
 
     .chbt {
       transition: all 0.2s ease-in-out;
-      width: 40%;
+      width: 100%;
       position: relative;
       line-height: 35px;
       display: flex;
@@ -54,11 +54,15 @@ $color-fourth: #e8dbc9;
       flex-direction: column;
       background-color: #e97231;
       border-radius: 20px;
-      padding: 40px 20px;
+      padding: 2% 1%;
       font-size: 1.15em;
       cursor: pointer;
       color: $color-third;
       text-shadow: $color-second 0px 0px 0.5px;
+      &:nth-child(1)
+      {
+          margin-right: 20px;
+      }
       &:hover {
         background-color: #f06f2a;
       }
@@ -98,16 +102,20 @@ $color-fourth: #e8dbc9;
     }
   }
   .inptext {
-    
     display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
     padding: 20px;
     width: 90%;
-    height: 100px;
+    flex-wrap: wrap;
     background-color: $color-fourth;
-    word-wrap: break-word;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    i{
+      height: fit-content;
+      font-size: 1.1em;
+    }
   }
   .back {
     text-decoration: none;
@@ -133,8 +141,18 @@ $color-fourth: #e8dbc9;
     z-index: 2;
   }
 }
-@media only screen and (max-width: 250px) {
-  .space {
-    max-height: 50px;
+@media only screen and (max-width: 500px) {
+  .flexbwrap{
+      flex-wrap: wrap;
+      flex-direction: column;
+      .chbt{
+          width: 100%;
+          margin-top: 20px;
+          min-width: 200px;
+          &:nth-child(1)
+          {
+              margin-right: 0;
+          }
+      }
   }
 }
