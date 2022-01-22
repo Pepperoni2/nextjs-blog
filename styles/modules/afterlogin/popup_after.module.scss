@@ -3,9 +3,9 @@
 .singoutuser1 {
   height: 50px;
   width: 100%;
-
+z-index: 1000;
   display: flex;
-
+  
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -108,7 +108,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-
+    cursor: grab;
     align-items: center;
 
     h2 {
