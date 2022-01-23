@@ -6,7 +6,7 @@ $color-fourth: #e8dbc9;
 .wrapper {
   height: 100%;
   width: 100%;
-
+  
   .wrap {
     display: flex;
 
@@ -17,7 +17,8 @@ $color-fourth: #e8dbc9;
     align-items: center;
     .bwrap {
       position: relative;
-      margin-top: 5%;
+
+      margin-top: 2.5%;
       display: flex;
       width: 90%;
       max-width: 650px;
@@ -26,8 +27,8 @@ $color-fourth: #e8dbc9;
       align-items: center;
       background-color: rgba(0, 0, 0, 0.3);
       border-radius: 20px;
-      padding: 2.5% 20px;
-      margin-bottom: 20px;
+      padding: 2.5% 2.5%;
+      margin-bottom: 2.5%;
       flex-wrap: wrap;
     }
   }
@@ -35,6 +36,7 @@ $color-fourth: #e8dbc9;
   h1 {
     color: $color-fourth;
     margin-bottom: 20px;
+    width: fit-content;
   }
   .flexbwrap {
     display: flex;
@@ -42,6 +44,15 @@ $color-fourth: #e8dbc9;
     justify-content: space-around;
     width: 100%;
     height: 100%;
+
+    a {
+      width: 100%;
+
+      text-decoration: none;
+      &:nth-child(1) {
+        margin-right: 20px;
+      }
+    }
 
     .chbt {
       transition: all 0.2s ease-in-out;
@@ -54,23 +65,33 @@ $color-fourth: #e8dbc9;
       flex-direction: column;
       background-color: #e97231;
       border-radius: 20px;
-      padding: 2% 1%;
+      padding: 2% 0%;
       font-size: 1.15em;
+      box-shadow: 0 0 10px 1px black;
       cursor: pointer;
       color: $color-third;
       text-shadow: $color-second 0px 0px 0.5px;
-      &:nth-child(1)
-      {
-          margin-right: 20px;
+      &:nth-child(1) {
       }
       &:hover {
         background-color: #f06f2a;
+        transform: scale(1.02);
       }
+      &:active {
+        
+      }
+
+      &:active .backg {
+        opacity: 0.3;
+        background-color: #e8dbc9;
+        box-shadow: 0 0 20px 10px #e8dbc9;
+      }
+
       h3 {
         font-size: 1.2em;
       }
       .backg {
-        transition: all 0.2s ease-in-out;
+        transition: all 0.15s ease-in-out;
         transform: scale(0);
         position: absolute;
         background-color: #e8dbc9;
@@ -102,19 +123,44 @@ $color-fourth: #e8dbc9;
     }
   }
   .inptext {
-    display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
-    padding: 20px;
-    width: 93%;
+    padding: 4% 2%;
+    width: 96%;
     flex-wrap: wrap;
     background-color: $color-fourth;
     transition: all 0.2s ease-in-out;
-    opacity: 0;
-    i{
-      height: fit-content;
-      font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+  
+    h1 {
+      color: black;
+      width: fit-content;
+    }
+    .backtop {
+      font-size: 2em;
+      padding: 0% 2% 1.2% 2%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #e971319f;
+      cursor: pointer;
+      border-radius: 10px;
+      margin: 3% 0 0 0;
+    }
+    .textdiv {
+      background-color: #00000011;
+      border-radius: 10px;
+      padding: 2%;
+      margin: 1% 0;
+      width: 100%;
+      
+      
+      h3 {
+        padding: 1% 0;
+        text-decoration: underline;
+      }
     }
   }
   .back {
@@ -137,22 +183,23 @@ $color-fourth: #e8dbc9;
 
   .footer {
     width: 100%;
-    height: 30vh;
+    height: 20vh;
+    
     z-index: 2;
   }
 }
 @media only screen and (max-width: 500px) {
-  .flexbwrap{
-      flex-wrap: wrap;
-      flex-direction: column;
-      .chbt{
-          width: 100%;
-          margin-top: 20px;
-          min-width: 200px;
-          &:nth-child(1)
-          {
-              margin-right: 0;
-          }
+  .flexbwrap {
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    .chbt {
+      width: 100%;
+      margin-top: 20px;
+      min-width: 200px;
+      &:nth-child(1) {
+        margin-right: 0;
       }
+    }
   }
 }
