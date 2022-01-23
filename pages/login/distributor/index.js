@@ -18,11 +18,22 @@ export default function Distributor(params) {
   const [stateText, setText] = useState();
 
   const changeText = (vari) => {
-    setText(vari);
+    text.insertBefore.innerHTML = setText(vari);
+  };
+
+  const showButton1 = () => {
+    const bt1 = document.getElementById("0");
+    console.log(bt1);
+    bt1.innerHTML = (
+      <Link href="/">
+        <a className={styles.confirm}>Confirm</a>
+      </Link>
+    );
   };
 
   useEffect(() => {
     const text = document.getElementById("text");
+    var found;
     console.log(text);
     if (text.innerText == "") {
       text.style.scale = "0";
@@ -30,10 +41,13 @@ export default function Distributor(params) {
       text.style.scale = "1";
       text.style.opacity = "1";
       // text.innerHTML = stateText;
+      for (var i = 0; i < text.length; i++) {
+        if (text[i].textContent == "Organizer") {
+          console.log("lol");
+          break;
+        }
+      }
     }
-    
-
-
   }, [stateText]);
 
   return (
@@ -62,10 +76,12 @@ export default function Distributor(params) {
               <span
                 className={styles.chbt}
                 id="0"
-                onClick={() =>
-                  changeText(
-                    "Organizers have the ability to create and to organize your own events or parties"
-                  )
+                onClick={
+                  (() =>
+                    changeText(
+                      "Organizers have the ability to create and to organize your own events or parties"
+                    ),
+                  showButton1)
                 }
               >
                 <h3>Organizer</h3>
@@ -89,7 +105,10 @@ export default function Distributor(params) {
             </div>
             <p className={styles.inptext} id="text">
               {stateText}
-              {/* <div>Confirm</div> */}
+
+              {/* <Link href="/">
+                <a className={styles.confirm}>Confirm</a>
+              </Link> */}
             </p>
           </div>
         </div>

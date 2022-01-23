@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Footer from "../components/footer";
 import styles from "../styles/modules/impressum.module.scss";
 
@@ -15,9 +15,11 @@ export default function Impressum() {
           only.
         </p>
         </div>
-        <a href="/" className={styles.back}>
+        <Link href="/">
+        <a className={styles.back}>
           Go back
         </a>
+        </Link>
       </div>
       
       <div className={styles.footer}>
