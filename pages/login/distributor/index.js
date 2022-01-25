@@ -11,8 +11,9 @@ import React, { useState, useEffect } from "react";
 import Loading from "../../../components/Loading";
 import Footer from "../../../components/footer";
 import { id } from "date-fns/locale";
+import ScrollToTop from "../../../components/scrollTop";
 
-export default function Distributor(params) {
+export default function Distributor(params, props) {
   const style = { color: "white", fontSize: "1.5em" };
   const slidess = useAnimation();
   const controls = useAnimation();
@@ -52,16 +53,10 @@ export default function Distributor(params) {
     controls.start((i) => ({
       opacity: 1,
       x: 0,
-      transition: { delay: i * 0.7 },
+      transition: { delay: i * 0.5 },
     }));
 
-    slidess.set({ opacity: 0, x: 50 });
-
-    slidess.start((i) => ({
-      opacity: 1,
-      x: 0,
-      transition: { delay: i * 0.7 },
-    }));
+ 
   }, []);
 
   return (
@@ -121,7 +116,7 @@ export default function Distributor(params) {
               <h1>What's the difference?</h1>
               <motion.div
                 className={styles.textdiv}
-                custom={0}
+                custom={1}
                 animate={controls}
               >
                 <h3>Organizers</h3>
@@ -131,16 +126,17 @@ export default function Distributor(params) {
 
               <motion.div
                 className={styles.textdiv}
-                custom={1}
+                custom={2}
                 animate={controls}
               >
                 <h3>Participators</h3>
                 have the ability to join an event. With that it is possible to
-                see any changes related to the event.
+                see any specific data related to the event.
+
               </motion.div>
               <motion.div
                 className={styles.textdiv}
-                custom={2}
+                custom={3}
                 animate={controls}
               >
                 <h3>Additional information</h3>
@@ -151,9 +147,10 @@ export default function Distributor(params) {
                 anim ad dolore nostrud. Laborum magna incididunt aute magna duis
                 deserunt ut duis ipsum nisi consectetur laboris sunt.
               </motion.div>
-              <motion.div className={styles.backtop} whileTap={{ scale: 0.8 }}>
-                &and;
-              </motion.div>
+              
+                <ScrollToTop></ScrollToTop>
+             
+              
             </p>
           </div>
         </div>

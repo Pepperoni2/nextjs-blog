@@ -1,0 +1,35 @@
+.divscroll {
+  width: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+  height: 40px;
+
+  position: fixed;
+  bottom: 5vh;
+  right: 5vw;
+  // padding: 0% 2% 1.2% 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:active {
+    transform: scale(0.8);
+  }
+
+  .scrolltotop {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: #e971319f;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

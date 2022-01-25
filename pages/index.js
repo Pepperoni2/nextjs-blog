@@ -10,6 +10,7 @@ import Header1 from "/components/head";
 import video from "/Vids/Concert_1630.mp4";
 /* import { FixedSizeList as List } from "react-window"; */
 import Header from "/components/head";
+import ScrollToTop from "../components/scrollTop";
 //import {window} from 'window'
 
 
@@ -52,6 +53,7 @@ export default function Home() {
           </p>
         </div>
       </div>
+      <ScrollToTop></ScrollToTop>
       <div id="footer1">
         <Footer />
       </div>
