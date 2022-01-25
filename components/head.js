@@ -5,6 +5,7 @@ function Header1(props) {
     <Head>
       <title>Eventx</title>
       <link rel="icon" type="image/x-icon" href={favicon.src} />
+      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="preconnect"/>
     </Head>
   );
 }

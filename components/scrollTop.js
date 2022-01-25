@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 export default function ScrollToTop(props) {
   const [isVisible, setIsVisible] = useState(false);
-  const [scaleValue, setScaleValue] = useState(1);
+  const [scaleValue, setScaleValue] = useState(0);
 
   const toggleVisibility = () => {
-    if (window.pageYOffset > 1) {
+    if (window.pageYOffset > 20) {
       setIsVisible(true);
       setScaleValue(1);
     } else {
