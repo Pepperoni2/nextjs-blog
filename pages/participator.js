@@ -5,12 +5,13 @@ import { DataContext } from "../store/GlobalState";
 import { useContext, useState, useEffect } from "react";
 import EventItem from "../components/event/EventItem";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 import {
   FaArrowAltCircleRight,
   FaArrowAltCircleLeft,
   FaSlideshare,
 } from "react-icons/fa";
-import { slideLogicc } from "./slideLogic";
+
 import { hoursToSeconds, set } from "date-fns";
 
 export default function Participator(props) {
@@ -41,17 +42,17 @@ export default function Participator(props) {
         <NavigationLeftP />
         <div className={styles.container}>
           <div className={styles.stickynav}><p>Ich verfloge dich</p></div>
-          <section className={styles.slider}>
+          <motion.section className={styles.slider}>
             {/* <FaArrowAltCircleLeft className="leftarr" onClick={prevBt} />
             <FaArrowAltCircleRight className="rightarr" onClick={nextBt} /> */}
             
               {events.length === 0 || Object.keys(auth).length === 0 ? (
                 <div></div>
               ) : (
-                events.map((event) => <EventItem key={event._id} event={event} />)
+                events.map((event) => <EventItem key={event._id} event={event}  />)
               )}
             
-          </section>
+          </motion.section>
         </div>
         </> : <div></div>
       }

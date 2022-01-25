@@ -140,14 +140,15 @@ $color-fourth: #e8dbc9;
     }
     .backtop {
       font-size: 2em;
-      padding: 0% 2% 1.2% 2%;
+      position: fixed;
+      bottom: 5vh;
+      right:5vw;
+      // padding: 0% 2% 1.2% 2%;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #e971319f;
-      cursor: pointer;
-      border-radius: 10px;
       margin: 3% 0 0 0;
+      
     }
     .textdiv {
       background-color: #00000011;
