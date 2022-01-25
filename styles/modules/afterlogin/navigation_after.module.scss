@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
-
+@import "/styles/modules/afterlogin/+navigation_after.module.scss";
+@include addEvent;
 $color-first: #e97231;
 $color-second: #292627;
 $color-third: #251e21;
@@ -7,30 +8,107 @@ $color-fourth: #e8dbc9;
 
 $logo: url(/Pics/logo_large.png);
 
+@mixin signOut {
+  .singoutuser {
+    height: 40%;
+    width: 100%;
+    background-color: darkcyan;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    .button1 {
+      width: 100%;
+    z-index: 2;
+      height: 100%;
+      background-color: $color-fourth;
+      position: relative;
+      transition: all ease-in-out 0.3s;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: none;
+
+      .link6{
+        text-align: center;
+        transition: 0.3s all ease-in-out;
+        background-color: darken($color: $color-third, $amount: 40);
+      align-items: center;
+      justify-content: center;
+      color: $color-fourth;
+      display: flex;
+      height: 100%;
+      position: relative;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+     
+      width: 100%;
+      
+        .icon6{
+          margin-right: 5px;
+          transition: all ease-in-out 0.3s;
+        }
+      }
+
+    }
+    
+    .button1:hover .link6{
+      color: $color-third;
+      background-color: #e8dbc9;
+    }
+    .button1:hover .icon6{
+      color: $color-third;
+      
+    }
+
+    .button1::after {
+      position: absolute;
+      transition: 0.3s ease-in-out;
+      content: "";
+      width: 100%;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 0;
+      background: #251e21;
+      opacity: 0.2;
+    }
+    .button1:hover::after {
+      height: 100%;
+      bottom: 0;
+    }
+  }
+}
+
 .main {
   background-color: $color-second;
-  width: 20vw;
+  
   position: fixed;
+  width: 180px;
   height: 100vh;
   left: 0;
   overflow: hidden;
-  max-width: 180px;
-  min-width: 150px;
+  
  
 
   .divl {
     width: 100%;
-    height: 20%;
+    height: 18%;
+    min-height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 
     .divlogo {
-      width: 90%;
-      height: 90%;
-
-      background-image: url(D:/nextjs-blog/Pics/logo_large.png);
+      width: 80%;
+      height: 80%;
+      min-height: 50px;
+      background-image: url('/_next/static/media/logo_large.3f4aa90a.png');
 
       background-position: center;
       background-repeat: no-repeat;
@@ -42,21 +120,21 @@ $logo: url(/Pics/logo_large.png);
 
   .divbutton {
     width: 100%;
-    height: 55.5%;
+    height:55.5%;
     background-color: lighten($color: $color-second, $amount: 10);
     display: flex;
     position: relative;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-direction: column;
     font-family: "Raleway", sans-serif;
-
+    
     .bt1 {
       
       width: 100%;
       font: inherit;
-      height: 74px;
+      height: 19.8%;
       border: none;
-
+      color: #e97231;
       cursor: pointer;
 
       display: flex;
@@ -73,7 +151,7 @@ $logo: url(/Pics/logo_large.png);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-
+        
         width: 100%;
         transition: all 0.15s ease-in-out;
 
@@ -104,20 +182,20 @@ $logo: url(/Pics/logo_large.png);
       opacity: 1;
       width: 100%;
 
-      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+      /* background-image: url("/Vids/ezgif.com-gif-maker1.gif"); */
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt1:hover .icon1 {
-      color: #e8dbc9;
-
       
+
+     
     }
 
     .bt2 {
       width: 100%;
-     
-      height: 74px;
+      color: #e97231;
+      height: 19.8%;
       border: none;
       font: inherit;
       cursor: pointer;
@@ -167,20 +245,20 @@ $logo: url(/Pics/logo_large.png);
       opacity: 1;
       width: 100%;
 
-      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+      background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt2:hover .icon2 {
-      color: #e8dbc9;
+      
 
       text-shadow: 1px 1px 1px #ccc;
     }
 
     .bt3 {
       width: 100%;
-      
-      height: 74px;
+      color: #e97231;
+      height: 19.8%;
       border: none;
       font: inherit;
       cursor: pointer;
@@ -230,19 +308,19 @@ $logo: url(/Pics/logo_large.png);
       opacity: 1;
       width: 100%;
 
-      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+      background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt3:hover .icon3 {
-      color: #e8dbc9;
+      
 
       text-shadow: 1px 1px 1px #ccc;
     }
     .bt4 {
       width: 100%;
-      
-      height: 74px;
+      color: #e97231;
+      height: 19.8%;
       border: none;
       font: inherit;
       cursor: pointer;
@@ -291,21 +369,21 @@ $logo: url(/Pics/logo_large.png);
     .bt4:hover .link4 {
       opacity: 1;
       width: 100%;
-
-      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+      
+      background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt4:hover .icon4 {
-      color: #e8dbc9;
+      
 
       text-shadow: 1px 1px 1px #ccc;
     }
     .bt5 {
       width: 100%;
       font: inherit;
-      
-      height: 74px;
+      color: #e97231;
+      height: 19.8%;
       border: none;
 
       cursor: pointer;
@@ -354,18 +432,18 @@ $logo: url(/Pics/logo_large.png);
     .bt5:hover .link5 {
       opacity: 1;
       width: 100%;
-
-      background-image: url("D:/nextjs-blog/Vids/ezgif.com-gif-maker1.gif");
+      
+      background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt5:hover .icon5 {
-      color: #e8dbc9;
+      
 
       
     }
     .bt5:hover .icon5 {
-      transform: translateX(-20px) rotate(360deg);
+      // transform: translateX(-20px) rotate(360deg);
     }
   }
 
@@ -380,6 +458,7 @@ $logo: url(/Pics/logo_large.png);
       width: 100%;
       background-color: darkcyan;
       display: flex;
+      
       justify-content: center;
       align-items: center;
       cursor: pointer;
@@ -403,6 +482,7 @@ $logo: url(/Pics/logo_large.png);
           background-color: darken($color: $color-third, $amount: 40);
         align-items: center;
         justify-content: center;
+        color: $color-fourth;
         display: flex;
         height: 100%;
         position: relative;
@@ -414,6 +494,7 @@ $logo: url(/Pics/logo_large.png);
         
           .icon6{
             margin-right: 5px;
+            transition: all ease-in-out 0.3s;
           }
         }
 
@@ -424,7 +505,7 @@ $logo: url(/Pics/logo_large.png);
         background-color: #e8dbc9;
       }
       .button1:hover .icon6{
-        color: $color-fourth;
+        color: $color-third;
         
       }
 
@@ -445,59 +526,76 @@ $logo: url(/Pics/logo_large.png);
         bottom: 0;
       }
     }
-
+    .help1{
+      width: 100%;
+      height: 67%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      
     .logouser {
-      height: 60%;
-      width: 45%;
+      height: 100%;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #e8dbc9;
-
+      transition: all 0.2s ease;
+      cursor: pointer;
+      &:hover{
+        background-color: #c56f40;
+        box-shadow: 0 0 2px 2px red;
+      }
       .logo {
-        background-color: sienna;
         width: 60px;
         height: 60px;
-        border-radius: 80px;
+        border-radius: 70px;
         cursor: pointer;
+        box-shadow: 0 0 5px 2px black;
+
+        
       }
+
     }
 
     .divuser {
-      height: 60%;
-      width: 55%;
+      height: 100%;
+      width: 100%;
       background-color: seagreen;
-      position: absolute;
-      top: 40%;
-      right: 0;
-
+      
+     
       .userhelp {
-        background-color: sienna;
-        width: 80%;
+        background-color: rgb(194, 87, 37);
+        width: 100%;
         height: 100%;
-
         display: flex;
         justify-content: center;
         align-items: center;
+      
 
         .username {
           display: flex;
-          justify-content: center;
           align-items: center;
+          justify-content: center;
+          color: $color-third;
+          font-size: 1.6em;
+          
         }
 
-        .userarrow {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: white;
-          width: 20%;
-          position: absolute;
-          right: 0;
-          height: 100%;
-          cursor: pointer;
-        }
+        // .userarrow {
+        //   display: flex;
+        //   justify-content: center;
+        //   align-items: center;
+        //   background-color: white;
+        //   width: 20%;
+        //   position: relative;
+          
+        //   height: 100%;
+        //   cursor: pointer;
+        // }
       }
     }
   }
+
+  }
+
 }

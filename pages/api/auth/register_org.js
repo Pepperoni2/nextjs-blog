@@ -16,7 +16,7 @@ export default async (req, res) => {
 
 const register = async (req, res) => {
     try{
-        const { name, email, password, cf_password } = req.body
+        const { name, email, password, cf_password, phone, location, address } = req.body
 
         const errMsg = valid(name, email, password, cf_password)
         if(errMsg) return res.status(400).json({err: errMsg})
@@ -27,7 +27,7 @@ const register = async (req, res) => {
         const passwordHash = await bcrypt.hash(password, 12)
 
         const newOrganizer = new Organizers({ 
-            name, email, password: passwordHash, cf_password 
+            name, email, password: passwordHash, cf_password, phone, location, address
         })
 
         await newOrganizer.save()

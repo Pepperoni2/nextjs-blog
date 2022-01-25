@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        default: 'user'
+        default: 'participator'
     },
     root: {
         type: Boolean,
@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
     },
     avatar: {
         type: String,
-        defaul: 'https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1636292537~hmac=2e4dc16cbbf0741d2ff4397d63804b26'
+        default: 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png'
     }
 },{
     timestamps: true

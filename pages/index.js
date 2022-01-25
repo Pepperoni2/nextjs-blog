@@ -1,24 +1,20 @@
 import React from "react";
 import Link from "next/link";
-
-import { signIn, signOut, useSession } from "next-auth/client";
+import { useEffect, useState } from "react";
 //Front-end has added this:
 //import ReactPlayer from 'react-player'
 import Nav from "/components/navigation";
 import Footer from "/components/footer";
 import Header1 from "/components/head";
-import { useState } from "react";
-import { Player } from "video-react";
+/* import { Player } from "video-react"; */
 import video from "/Vids/Concert_1630.mp4";
-import { FixedSizeList as List } from "react-window";
+/* import { FixedSizeList as List } from "react-window"; */
 import Header from "/components/head";
 //import {window} from 'window'
 
+
 export default function Home() {
-  const [session, loading] = useSession();
-  /*
-   
-*/
+
   return (
     <div id="wrapper">
       <Header1 />
@@ -56,7 +52,9 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <Footer />
+      <div id="footer1">
+        <Footer />
+      </div>
     </div>
   );
 }

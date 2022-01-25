@@ -1,18 +1,29 @@
 import Link from "next/dist/client/link";
+import styles from "../styles/modules/footerstyles.module.scss";
 function Footer() {
-    return(
-    <footer id="footer">
-    <div id="wrpfooter">
-      <div id="logo1" ></div>
-      <li>
-        Copyright 2021
-      </li>
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.wrpfooter}>
+        <Link href="/">
+          <a className={styles.atag}>
+            <div className={styles.logo1}></div>
+          </a>
+        </Link>
 
-      <li>
-      <Link href="#">About</Link>
-      </li>
-    </div>
-  </footer>
-    );
+        <li>© Copyright 2022</li>
+
+        <li>
+        <Link href="">
+            <a className={styles.about}>About</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/impressum">
+            <a className={styles.impress}>Impressum</a>
+          </Link>
+        </li>
+      </div>
+    </footer>
+  );
 }
 export default Footer;

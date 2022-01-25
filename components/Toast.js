@@ -1,20 +1,22 @@
-const Toast = ({msg, handleShow, bgColor}) => {
-    return(
-        <div className={`toast show position-fixed text-light ${bgColor}`}
-        style={{ top: '5px', right: '5px', zIndex: 9, minWidth: '280px', paddingBottom: '50px', paddingTop: '10px'}} >
+import styles from "../styles/modules/toast.module.scss";
 
-            <div className={`toast-header ${bgColor} text-light`}>
-                <strong className="mr-auto text-light">{msg.title}</strong>
+const Toast = ({ msg, handleShow, titleColor }) => {
+  return (
+    <div className={styles.toast} >
+      <strong className={styles.title} style={{color: titleColor}}>{msg.title}</strong>
 
-                <button type="button" className="ml-2 mb-1 close text-light" 
-                data-dismiss="toast" style={{ outline: 'none'}} 
-                onClick={handleShow}>x</button>
-            </div>
+      <button
+        type="button"
+        className={styles.button}
+        style={{ outline: "none" }}
+        onClick={handleShow}
+      >
+        &#10005;
+      </button>
 
-            <div className="toast-body">{msg.msg}</div>
+      <div className={styles.message}>{msg.msg}</div>
+    </div>
+  );
+};
 
-        </div>
-    )
-}
-
-export default Toast
+export default Toast;

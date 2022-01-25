@@ -1,55 +1,54 @@
 import Link from "next/dist/client/link";
-import { signIn, signOut, useSession } from "next-auth/client";
+import { useEffect, useState, useContext } from "react";
+import { DataContext } from "../store/GlobalState";
 
 function Nav(props) {
-  /*
-  const mq = typeof window.matchMedia("(max-width: 690px)");
+  const [clientWindowHeight, setClientWindowHeight] = useState("");
 
-  var prevScrollpos = window.pageYOffset;
+  const [backgroundTransparacy, setBackgroundTransparacy] = useState(0);
+  const [height, setHeight] = useState(30);
+  const [boxShadow, setBoxShadow] = useState(0);
 
-  window.onscroll = function () {
-    scrollFunction();
+  const { state } = useContext(DataContext)
+  const { auth } = state
+
+  const nixRouter = () => {
+    return(
+      <>
+      <div></div>
+      </>
+    )
+  }
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
+  const handleScroll = () => {
+    setClientWindowHeight(window.scrollY);
   };
 
-  function scrollFunction() {
-    if (
-      document.body.scrollTop > 150 ||
-      document.documentElement.scrollTop > 150
-    ) {
-      document.getElementById("nav").style.height = "15vh";
-      document.getElementById("nav").style.backgroundColor =
-        "rgba(47,47,47, 0.5)";
-    } else {
-      document.getElementById("nav").style.height = "20vh";
-      document.getElementById("nav").style.backgroundColor =
-        "rgba(47,47,47, 1)";
-    }
+  useEffect(() => {
+    let backgroundTransparacyVar = clientWindowHeight / 200;
 
-    if (
-      document.body.scrollTop > 150 ||
-      document.documentElement.scrollTop > 150
-    ) {
-      document.getElementById("wrapper").style.backgroundColor =
-        "rgba(47,47,47, 0.5)";
+    if (backgroundTransparacyVar < 1) {
+      let heightVar = 200 - backgroundTransparacyVar * 30;
+      let boxShadowVar = backgroundTransparacyVar * 0.4;
+      setBackgroundTransparacy(backgroundTransparacyVar);
+      setHeight(heightVar);
+      setBoxShadow(boxShadowVar);
     }
-    if (
-      document.body.scrollTop > 400 ||
-      document.documentElement.scrollTop > 400
-    ) {
-      document.getElementById("wrppic").style.backgroundColor =
-        "rgba(233, 114, 49, 1)";
-    } else {
-      document.getElementById("wrppic").style.backgroundColor =
-        "rgba(47,47,47, 0.5)";
-    }
-  }
-  function scrollWin() {
-    window.scrollBy(0, 300);
-  }
-  */
-  const [session, loading] = useSession();
+  }, [clientWindowHeight]);
+
   return (
-    <nav id="nav">
+    <nav
+      id="nav"
+      style={{
+        background: `rgba(37, 30, 33, ${backgroundTransparacy})`,
+        height: `${height}px`,
+        boxShadow: `rgb(0 0 0 / ${boxShadow}) 0px 0px 20px 6px`,
+      }}
+    >
       <div id="wrpnav">
         <div id="wrph1">
           <div id="wrplh">
@@ -67,28 +66,53 @@ function Nav(props) {
           <div id="Popup">
             <div id="flexPop">
               <Link href="/">
-                <button className="bt">
-                  <a>Home</a>
-                </button>
-              </Link>
-              <Link href="/">
-                <button className="bt">
+                <button
+                  className="bt"
+                // TODO lol
+                //style={{
+                //   background: `rgb(229, 112, 49, ${backgroundTransparacy})`,
+                // }}
+                >
                   <a>About</a>
                 </button>
               </Link>
-              <Link href="/login">
+              <Link href="/login/distributor">
                 <button className="bt">
-                  <a>Login</a>
+                  <a>Register</a>
                 </button>
               </Link>
+
+
+              {
+                Object.keys(auth).length === 0 ?
+                <Link href="/login">
+                  <button className="bt">
+                    <a>Login</a>
+                  </button>
+                </Link>
+                : auth.user.role === "participator" ?
+                <Link href="/participator">
+                  <button className="bt">
+                    <a>Home</a>
+                  </button>
+                </Link>
+                : auth.user.role === "organizer" ?
+                
+                <Link href="/organizer">
+                  <button className="bt">
+                    <a>Home</a>
+                  </button>
+                </Link>
+                : nixRouter()
+                
+              }
+
+
             </div>
           </div>
         </div>
       </div>
-      
     </nav>
-
-
   );
 }
 

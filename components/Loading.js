@@ -1,5 +1,13 @@
-const Loading = () => {
-    return <h2>Loading....</h2>
-}
+import styles from "../styles/modules/loading.module.scss";
 
-export default Loading
+const Loading = (props) => {
+  return (
+    <div className={props.loading ? styles.container1 : styles.none}>
+      <h2 className={styles.loading}>Loading</h2>
+      <div className={styles.bubbles}></div>
+      <div className={styles.bubbles}></div>
+    </div>
+  );
+};
+
+export default Loading;

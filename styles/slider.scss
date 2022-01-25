@@ -1,0 +1,46 @@
+// @import "~slick-carousel/slick/slick.css"; 
+// @import "~slick-carousel/slick/slick-theme.css";
+
+ .sliderReal{
+   height:500px;
+   position: relative;
+   width: 100%;
+   overflow: hidden;
+ }
+ .slick-slider{
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+ }
+.slick-list{
+  height: 100%;
+  overflow: hidden;
+}
+ .slick-track{
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: row;
+   
+ }
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+
+// .slick-side{
+//   height: 100%;
+//   width: 100%;
+//   position: relative;
+// }
+.slick-prev {
+  left: 5%;
+}
+
+.slick-next {
+  right: 5%;
+}

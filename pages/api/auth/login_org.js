@@ -22,7 +22,7 @@ const login = async (req, res) => {
 
         // Search the email from the user in the Users Database
 
-        const org = await Organizers.findOne({ email })
+        const org = await Organizers.findOne({ email },{role:'organizer'})
         if(!org) return res.status(400).json({err: 'Dieser Organizator existiert nicht.'})
 
         // Does the typed in password equal to the users.password?

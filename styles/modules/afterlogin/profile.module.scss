@@ -1,0 +1,232 @@
+@use "sass:math";
+@import "/styles/modules/p-register.module.scss";
+
+$color-first: #e97231;
+$color-second: #292627;
+$color-third: #251e21;
+$color-fourth: #e8dbc9;
+@include coolbt;
+
+@include inputsEffekt;
+$val: 100%;
+@debug $val;
+
+.wrapper {
+  background-color: $color-first;
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  section {
+    margin-left: 180px;
+    width: auto;
+    height: 100%;
+    position: relative;
+    .griddi {
+      width: 100%;
+      height: 100vh;
+      flex-wrap: wrap;
+      background-color: #ebeae7;
+      display: grid;
+      position: relative;
+      grid-template-columns: 10% auto 350px auto 10%;
+      grid-template-rows: 100px 100px 100px 100px 100px 100px;
+      row-gap: none;
+      grid-auto-flow:column;
+      .title {
+        
+
+        
+        font-size: 1.5em;
+        
+      }
+      .propic {
+       
+        width: 150px;
+        height: 100%;
+        right: 0;
+        min-width: 100px;
+        min-height: 80px;
+        
+        overflow: hidden;
+        position: relative;
+
+        border: 1px solid;
+
+        .changepic {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 50%;
+          background: #fff8;
+          text-align: center;
+          transition: 0.3 ease-in-out;
+          .btchangepic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+          }
+        }
+      }
+      .itemtit{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        
+      }
+      .itempic{
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        position: absolute;
+        left: 0;
+        z-index: 0;
+        
+      }
+
+      .item1 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+   
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: fit-content;
+        
+      }
+      .item2 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: fit-content;
+      }
+      .item3 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: fit-content;
+      }
+      .item4 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: fit-content;
+        
+      }
+      .itembt {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 6;
+        grid-row-end: 7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        
+      }
+      .divinput {
+        
+        	
+        width: 100%;
+        max-width: 300px;
+        font-family: "Raleway", sans-serif;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .label {
+          color: #e97231;
+          padding: 1%;
+          font-size: 1.13em;
+        }
+
+        .inputs {
+          position: static;
+
+          width: 100%;
+          background-color: rgb(196, 193, 186);
+          font-size: 1.05em;
+          max-width: 300px;
+          padding: 10px 20px;
+          margin: 6px 0;
+          font-family: "Raleway", sans-serif;
+          border: none;
+
+          box-sizing: border-box;
+          
+          transition: all 0.2s ease-in-out;
+          color: black;
+        }
+        .textspan{
+          background-color: #e97231;
+        }
+      }
+      .bt {
+        width: 200px;
+        height: 40px;
+        z-index: 1;
+        background-color: black;
+        padding: 0;
+        position: static;
+
+        &:hover {
+          opacity: 1;
+          background-color: hsla(0, 0%, 0%, 0.8);
+        }
+      }
+    }
+
+    @media only screen and (max-width: 700px) {
+      .itempic {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: 2;
+        grid-row-end: 3;
+      }
+      // .item1 {
+      //   grid-area: 3 / 4 / 3 /4;
+      // }
+      // .item2 {
+      //   grid-area: 3 / 4 / 4 / 5;
+      // }
+      // .item3 {
+      //   grid-area: 3 / 4 / 5 /6;
+      // }
+      // .item4 {
+      //   grid-area: 3 / 4 / 6 /7;
+      // }
+      // .itembt{
+      //   grid-area: 3 / 4 / 7 /8;
+      // }
+      
+    }
+    //name passwort profilbild
+  }
+}

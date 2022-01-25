@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+
+@mixin coolbt {
+  .bt {
+    background-color: #e97231;
+    color: white;
+    font-size: larger;
+
+    padding: 14px 20px;
+    margin: 8px 0;
+    width: 100%;
+    max-width: 250px;
+    border: none;
+    cursor: pointer;
+    transition: ease-in-out all 0.1s;
+    position: relative;
+    z-index: -1;
+    &:hover {
+      transform: translateY(2px);
+      opacity: 0.8;
+    }
+  }
+}
+
+@mixin inputsEffekt {
+  .textspan {
+    width: 100%;
+    transform: scale(0);
+    transform-origin: center;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(223, 220, 215, 0.7);
+    bottom: 6.5%;
+    transition: 0.35s ease-in-out;
+  }
+  .inputs:focus ~ .textspan {
+    transform: scale(1);
+  }
+  .inputs:focus {
+    box-shadow: 0 0 10px 1px #e8dbc927;
+    outline: none;
+    background-color: rgba(232, 219, 201, 0.4);
+  }
+}
+
+$color-first: #e97231;
+$color-second: #292627;
+$color-third: #251e21;
+$color-fourth: #e8dbc9;
+.wrapperregister {
+  
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: baseline;
+  align-items:center;
+  flex-direction: column;
+
+  .header {
+    width: 30%;
+    min-width: 450px;
+    min-height: 75px;
+    margin-top: 20px;
+    transition: transform ease-in-out 0.5s;
+    height: 13vh;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+    background-color: darken($color: rgba(0, 0, 0, 0.8), $amount: 80);
+    font-family: "Raleway", sans-serif;
+
+    .logo {
+      background-image: url("/_next/static/media/logo_large.3f4aa90a.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      cursor: pointer;
+      transition: all ease-in-out 0.5s;
+      width: 12.5%;
+      height: 100%;
+
+      min-height: 50px;
+      max-height: 90%;
+      max-height: 80px;
+    }
+    .a1 {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      background-color: transparent;
+      margin-left: 10px;
+
+      &:hover {
+        box-shadow: 0px 0px 1px 0px rgba(232, 219, 201, 0.4);
+      }
+      a {
+        text-decoration: none;
+        height: 100%;
+        width: 100%;
+
+        text-decoration: none;
+        color: #e97231;
+        cursor: pointer;
+        font-size: 2em;
+        // background-color: rgba(223, 220, 215, 0.1);
+      }
+      a:nth-child(2) {
+        text-decoration: none;
+        height: 100%;
+
+        width: fit-content;
+        padding-bottom: 2px;
+        box-shadow: 0px 2px 0px rgba(223, 220, 215, 1);
+
+        text-decoration: none;
+        color: #e97231;
+        cursor: pointer;
+        font-size: 1.1em;
+      }
+    }
+  }
+
+  .register {
+    transition: transform ease-in-out 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+    width: 30%;
+    height: 50vh;
+    min-height: 450px;
+    min-width: 450px;
+    padding-top: 20px;
+
+    .formgroup {
+      width: 100%;
+      max-width: 300px;
+      font-family: "Raleway", sans-serif;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      &:nth-child(3),
+      &:nth-child(4) {
+        text-decoration: underline;
+        color: #e97231;
+      }
+
+      .label {
+        color: #e8dbc9;
+        padding: 1%;
+        font-size: 1.13em;
+      }
+
+      .formcontrol {
+        width: 100%;
+        background-color: rgba(223, 220, 215, 0.7);
+        font-size: 1.05em;
+        max-width: 300px;
+        padding: 10px 20px;
+        margin: 6px 0;
+        font-family: "Raleway", sans-serif;
+        border: none;
+
+        box-sizing: border-box;
+
+        transition: all 0.2s ease-in-out;
+        color: black;
+      }
+
+      .textspan {
+        width: 100%;
+        transform: scale(0);
+        transform-origin: center;
+        height: 2px;
+        position: absolute;
+        background-color: rgba(223, 220, 215, 0.7);
+        bottom: 6.5%;
+        transition: 0.35s ease-in-out;
+      }
+      .formcontrol:focus ~ .textspan {
+        transform: scale(1);
+      }
+      .formcontrol:focus {
+        box-shadow: 0 0 10px 1px #e8dbc927;
+        outline: none;
+        background-color: rgba(232, 219, 201, 0.4);
+      }
+    }
+
+    .submit {
+      background-color: #e97231;
+      color: white;
+      font-size: larger;
+
+      padding: 14px 20px;
+      margin: 8px 0;
+      width: 100%;
+      max-width: 250px;
+      border: none;
+      cursor: pointer;
+      transition: ease-in-out all 0.1s;
+      position: relative;
+      z-index: -1;
+    }
+    .submit:hover {
+      transform: translateY(2px);
+      opacity: 0.8;
+    }
+    .line {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      color: #e8dbc9;
+      background-color: darken($color: rgba(0, 0, 0, 0.3), $amount: 80);
+    }
+    .line a {
+      margin-left: 15px;
+      font-style: italic;
+      color: #e97231;
+    }
+    .line a:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .footer1 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    overflow: hidden;
+  }
+}

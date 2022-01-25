@@ -1,0 +1,308 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+
+$color-first: #e97231;
+$color-second: #292627;
+$color-third: #251e21;
+$color-fourth: #e8dbc9;
+$borderradius: 10px;
+$margin: 1px;
+.wrapperregister {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  min-width: 55px;
+  // overflow: hidden;
+  display: flex;
+  
+  justify-content: center;
+  
+  
+
+  .header {
+    
+    width: 100%;
+   
+    min-height: 100px;
+    max-height: 100px;
+    max-width: 650px;
+    transition: transform ease-in-out 0.5s;
+    margin-top: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: $borderradius;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: $margin;
+    background-color: darken($color: rgba(0, 0, 0, 0.8), $amount: 80);
+    font-family: "Raleway", sans-serif;
+
+    .logo {
+      background-image: url("/_next/static/media/logo_large.3f4aa90a.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      cursor: pointer;
+      transition: all ease-in-out 0.5s;
+      width: 12.5%;
+      height: 100%;
+
+      min-height: 80px;
+      
+     
+    }
+    .a1 {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      background-color: transparent;
+      margin-left: 10px;
+
+      &:hover {
+        box-shadow: 0px 0px 1px 0px rgba(232, 219, 201, 0.4);
+      }
+      a {
+        text-decoration: none;
+        height: 100%;
+        width: 100%;
+
+        text-decoration: none;
+        color: #e97231;
+        cursor: pointer;
+        font-size: 2em;
+        // background-color: rgba(223, 220, 215, 0.1);
+      }
+      a:nth-child(2) {
+        text-decoration: none;
+        height: 100%;
+
+        width: fit-content;
+        padding-bottom: 2px;
+        box-shadow: 0px 2px 0px rgba(223, 220, 215, 1);
+
+        text-decoration: none;
+        color: #e97231;
+        cursor: pointer;
+        font-size: 1.1em;
+      }
+    }
+  }
+
+  .register {
+    transition: transform ease-in-out 0.5s;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    
+    // background-color: rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+    
+    width: 100%;
+    max-width: 650px;
+    height: 100%;
+    
+    
+    min-width: 450px;
+    
+    
+    
+    
+    .mainform {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      flex-grow: 1;
+    flex-wrap: wrap;
+      height: fit-content;
+      padding-top: 1%;
+      padding-bottom:1%;
+      
+      
+      margin: $margin 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: $borderradius;
+      
+      
+      &:nth-child(1){
+       width: 300px;
+       align-items: center;
+       background-color: violet;
+      }
+      
+      .space{
+        
+        width: 5%;
+        
+      }
+      .formgroup {
+        max-width: 350px;
+        min-width: 270px;
+        font-family: "Raleway", sans-serif;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        
+        flex-direction: column;
+        
+       
+        .label {
+          color: #e8dbc9;
+          padding: 1%;
+          font-size: 1.13em;
+         
+          // &:first-child(1){
+
+          //   text-align: left;
+          //   text-decoration: underline;
+          // }
+
+        }
+
+        .formcontrol {
+          width: 100%;
+          background-color: rgba(223, 220, 215, 0.7);
+          font-size: 1.05em;
+          max-width: 300px;
+          padding: 10px 20px;
+          margin: 6px 0;
+          font-family: "Raleway", sans-serif;
+          border: none;
+          border-radius: $borderradius;
+          box-sizing:border-box;
+        
+          transition: all 0.2s ease-in-out;
+          color: black;
+        }
+
+        .textspan {
+          width: 95%;
+          
+          transform: scale(0);
+          transform-origin: center;
+          height: 2px;
+          position: absolute;
+          background-color: #292627;
+          bottom: 10%;
+          left: 2.5%;
+          transition: 0.35s ease-in-out;
+        }
+        .formcontrol:focus ~ .textspan {
+          transform: scale(1);
+          
+        }
+        .formcontrol:focus {
+          box-shadow: 0 0 10px 1px #e8dbc927;
+          outline: none;
+          background-color: rgba(255, 255, 255, 0.8);
+        }
+       
+      }
+    }
+
+    .submit {
+      background-color: #e97231;
+      color: white;
+      font-size: larger;
+      border-radius: $borderradius;
+      
+      height: 100%;
+      width: 100%;
+      
+      max-height: 50px;
+      max-width: 250px;
+      border: none;
+      cursor: pointer;
+      transition: ease-in-out all 0.1s;
+      position: relative;
+      z-index: 1;
+    }
+    .submit:hover {
+      transform: translateY(2px);
+      opacity: 0.8;
+    }
+    .line {
+      
+      position: static;
+      border-radius: $borderradius;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 5vh;
+      margin-top:$margin;
+      flex-wrap: nowrap;
+      max-height: 50px;
+      min-height: 40px;
+     margin-bottom: 110px;
+      color: #e8dbc9;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .line a {
+      margin-left: 15px;
+      font-style: italic;
+      color: #e97231;
+    }
+    .line a:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .footer1 {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100px;
+    
+    left: 0;
+    bottom: 0;
+    min-height: 80px;
+    z-index: 1;
+    
+  }
+.wallpaper{
+  overflow: hidden;
+  position: fixed;
+  
+  
+  width: 100%;
+
+  height: 100%;
+  bottom: 0;
+  z-index: -1;
+}
+
+.btdiv{
+  margin: $margin 0;
+  width: 100%;
+  
+  height: 50px;
+  min-height: 70px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+    justify-content: center;
+  align-items: center;
+  z-index: 1;
+ border-radius: $borderradius;
+  }
+}
+@media only screen and (max-height: 700px){
+  .footer1{
+    display: block;
+  }
+  .header{
+    margin-top: 0;
+  }
+}
+
+  @media only screen and (max-width: 900px){
+    
+    .header{
+      margin-top: 0;
+    }
+    .space{
+     display: none;
+    }
+
+  }
+  

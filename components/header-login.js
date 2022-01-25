@@ -1,8 +1,6 @@
 import Link from "next/dist/client/link";
-import { signIn, signOut, useSession } from "next-auth/client";
 
 function NavLogin(props) {
-  const [session, loading] = useSession();
   return (
     <div id="wrplh-login">
       <Link href="/">

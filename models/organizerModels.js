@@ -25,7 +25,7 @@ const orgSchema = new mongoose.Schema({
     },
     avatar: {
         type: String,
-        default: 'https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1636292537~hmac=2e4dc16cbbf0741d2ff4397d63804b26'
+        default: 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png'
     },
     // Not required data for org-register
     location: {
@@ -35,7 +35,12 @@ const orgSchema = new mongoose.Schema({
     phone:{
         type: String,
         required: false
+    },
+    address:{
+        type: String,
+        required: false
     }
+
 },{
     timestamps: true
 })
