@@ -7,8 +7,6 @@ import EventItem from "../components/event/EventItem";
 import { useRouter } from "next/router";
 import Slider from "react-slick";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-
-import { slideLogicc } from "./slideLogic";
 import React, { Component } from "react";
 import CenterMode from "./Slider";
 
