@@ -41,7 +41,7 @@ export default function Organizer(props) {
 
   return (
     <div className={styles.wrapper}>
-      
+      <NavigationLeftO />
       <div className={styles.container}>
        </div>	
     </div>

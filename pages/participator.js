@@ -32,7 +32,16 @@ export default function Participator(props) {
   }, [auth]);
 
   
-  
+  const container = {
+    hidden: { backgroundColor: "white"},
+    show: {
+      backgroundColor: "",
+      transition: {
+        delay: 1,
+        ease: "easeInOut"
+      }
+    }
+  }
 
   return (
     
@@ -41,8 +50,13 @@ export default function Participator(props) {
         <>
         <NavigationLeftP />
         <div className={styles.container}>
-          <div className={styles.stickynav}><p>Ich verfloge dich</p></div>
-          <motion.section className={styles.slider}>
+          {/* <div className={styles.stickynav}><p>Ich verfloge dich</p></div> */}
+          <motion.section className={styles.slider}
+          
+          variants={container}
+          initial="hidden"
+          animate="show"
+          >
             {/* <FaArrowAltCircleLeft className="leftarr" onClick={prevBt} />
             <FaArrowAltCircleRight className="rightarr" onClick={nextBt} /> */}
             

@@ -25,15 +25,82 @@ const EventItem = ({ event }) => {
     ent === false;
   };
 
+  
+
+  const variantsTitle = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        y: {
+          delay: 1,
+        },
+        opacity: {
+          delay: 1,
+        },
+      },
+    },
+    hidden: { opacity: 0, y: "-100" },
+  };
+  const variantsDesc = {
+    open: { opacity: 1, x:0,
+      transition: {
+        duration: 0.8,
+        type: "spring",
+      bounce: 0,
+      // velocity: 2 ,
+      }
+    
+    },
+    closed: { opacity: 0, x:[0,-10,-100],
+    transition: {
+      
+      x: {
+       
+        delay: 0.1,
+      },
+      opacity: {
+        
+        delay: 0.1,
+      },
+    },
+  },
+  };
+  const variantsButtons = {
+    open: { opacity: [0,1], y: 0
+    ,
+    transition: {
+      duration: 0.1,
+        type: "spring",
+      bounce: 0,
+    },
+    
+    },
+    closed: { opacity: [0.5,0], y:[0,10],
+    transition: {
+      y: {
+        delay: 0.1
+      },
+      opacity: {
+        delay: 0.1
+      },
+    },
+  },
+  };
+  const [isOpen, setIsOpen] = useState(false);
+
   const userLink = () => {
     return (
-      <motion.div className={styles.flexdiv}>
-        <Link href={`event/${event._id}`} >
-          <motion.a className={styles.link}>
-          Find out more
-          </motion.a>
+      <motion.div
+        className={styles.flexdiv}
+        animate={isOpen ? "open" : "closed"}
+        variants={variantsButtons}
+        initial={{ opacity: 0, y: 100 }}
+      >
+        <Link href={`event/${event._id}`}>
+          <motion.a className={styles.link}>Find out more</motion.a>
         </Link>
-        <motion.button 
+        <motion.button
           className={styles.btLink}
           onClick={enter}
           disabled={event.openslots === 0 ? true : false}
@@ -43,14 +110,20 @@ const EventItem = ({ event }) => {
       </motion.div>
     );
   };
-  const [isHovered, setHovered] = useState(false);
 
   return (
     // ----- Event Cards --------
     // ------ feel free to style ------
 
-    <motion.div className={styles.card} whileHover={{}}>
-      <img
+    <motion.div
+      className={styles.card}
+      onHoverStart={() => setIsOpen(true)}
+      onHoverEnd={() => setIsOpen(false)}
+
+      
+
+    >
+      <motion.img 
         className={styles.cardimgtop}
         src={event.images[0].url}
         alt={event.images[0].url}
@@ -58,12 +131,24 @@ const EventItem = ({ event }) => {
 
       <motion.div className={styles.cardbody}>
         <div className={styles.divtext}>
-          <h2 title={event.title} className={styles.cardtitle}>
+          <motion.h2
+            title={event.title}
+            className={styles.cardtitle}
+            animate={"visible"}
+            initial={"hidden"}
+            variants={variantsTitle}
+          >
             {event.title}
-          </h2>
-          <p title={event.description} className={styles.carddescription}>
+          </motion.h2>
+          <motion.p
+            title={event.description}
+            className={styles.carddescription}
+            animate={isOpen ? "open" : "closed"}
+            variants={variantsDesc}
+            initial={{opacity: 0, x: -100}}
+          >
             {event.description}
-          </p>
+          </motion.p>
         </div>
         {userLink()}
       </motion.div>
