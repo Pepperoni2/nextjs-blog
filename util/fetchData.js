@@ -1,7 +1,7 @@
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
 export const getData = async (url, token) => {
-    const res = await fetch(`http://localhost:3000/api/${url}`, {
+    const res = await fetch(`http://eventx-online.com/api/${url}`, {
         method: 'GET',
         headers:{
             'Authorization': token
@@ -41,7 +41,7 @@ export const putData = async (url, post, token) => {
 }
 
 export const patchData = async (url, post, token) => {
-    const res = await fetch(`http://localhost:3000/api/${url}`, {
+    const res = await fetch(`http://eventx-online.com/api/${url}`, {
         method:'PATCH',
         headers:{
             'Content-Type': 'application/json',
