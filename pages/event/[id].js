@@ -35,7 +35,6 @@ const DetailEvent = (props) => {
         >
           <img src={event.images[0].url} alt={event.images[0].url} style={{height:"100%", width: "100%", objectFit: "cover" }}/>
           <div style={{ cursor: "pointer" }}>
-            <CenterMode>
               {event.images.map((img, index) => (
                 <img
                   key={index}
@@ -44,7 +43,6 @@ const DetailEvent = (props) => {
                   style={{ height: "80px", width: "20%" }}
                 />
               ))}
-            </CenterMode>
           </div>
         </div>
 
@@ -84,7 +82,7 @@ const DetailEvent = (props) => {
 
 export async function getServerSideProps({ params: { id } }) {
   const res = await getData(`event/${id}`);
-  console.log(res);
+  // console.log(res);
   // server-side-rendering, console.log() will not be displayed in the browser
   return {
     props: { event: res.event }, // will be passed to the page component as props

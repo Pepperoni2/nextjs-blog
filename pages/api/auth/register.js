@@ -1,9 +1,12 @@
 import connectDB from '../../../util/connectDB'
 import Users from '../../../models/userModels'
 import valid from '../../../util/valid'
+import nc from 'next-connect'
 import bcrypt from 'bcrypt'
 
 connectDB()
+
+const handler = nc()
 
 export default async (req, res) => {
     switch(req.method){
