@@ -25,9 +25,22 @@ const EventItem = ({ event }) => {
     ent === false;
   };
 
-  
-
   const variantsTitle = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        y: {
+          delay: 0.5,
+        },
+        opacity: {
+          delay: 0.5,
+        },
+      },
+    },
+    hidden: { opacity: 0, y: "-100" },
+  };
+  const variantsTitleAway = {
     visible: {
       opacity: 1,
       y: 0,
@@ -43,49 +56,57 @@ const EventItem = ({ event }) => {
     hidden: { opacity: 0, y: "-100" },
   };
   const variantsDesc = {
-    open: { opacity: 1, x:0,
+    open: {
+      opacity: 1,
+      y: 0,
       transition: {
         duration: 0.8,
         type: "spring",
-      bounce: 0,
-      // velocity: 2 ,
-      }
-    
-    },
-    closed: { opacity: 0, x:[0,-10,-100],
-    transition: {
-      
-      x: {
-       
-        delay: 0.1,
-      },
-      opacity: {
-        
-        delay: 0.1,
+        bounce: 0,
+        // velocity: 2 ,
       },
     },
-  },
+    closed: {
+      opacity: 0,
+      y: -15,
+     
+      transition: {
+        y: {
+          delay: 0,
+        },
+        opacity: {
+          delay: 0,
+        },
+      },
+    },
   };
   const variantsButtons = {
-    open: { opacity: [0,1], y: 0
-    ,
-    transition: {
-      duration: 0.1,
+    open: {
+      opacity: 1,
+      scale: 1 ,
+      y: 0,
+      transition: {
+        duration: 0.1,
         type: "spring",
-      bounce: 0,
-    },
-    
-    },
-    closed: { opacity: [0.5,0], y:[0,10],
-    transition: {
-      y: {
-        delay: 0.1
-      },
-      opacity: {
-        delay: 0.1
+        bounce: 0,
+        opacity: {
+          delay: 0.1,
+        },
       },
     },
-  },
+    closed: {
+      opacity: 0,
+      y: 0,
+      
+      transition: {
+        y: {
+          delay: 0.1,
+        },
+        opacity: {
+          delay: 0.1,
+        },
+      },
+    },
   };
   const [isOpen, setIsOpen] = useState(false);
 
@@ -95,7 +116,7 @@ const EventItem = ({ event }) => {
         className={styles.flexdiv}
         animate={isOpen ? "open" : "closed"}
         variants={variantsButtons}
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 0, scale: 1 }}
       >
         <Link href={`event/${event._id}`}>
           <motion.a className={styles.link}>Find out more</motion.a>
@@ -119,33 +140,30 @@ const EventItem = ({ event }) => {
       className={styles.card}
       onHoverStart={() => setIsOpen(true)}
       onHoverEnd={() => setIsOpen(false)}
-
-      
-
     >
-      <motion.img 
+      <motion.img
         className={styles.cardimgtop}
         src={event.images[0].url}
         alt={event.images[0].url}
       />
 
       <motion.div className={styles.cardbody}>
+        <motion.h2
+          title={event.title}
+          className={styles.cardtitle}
+          animate={"visible"}
+          initial={"hidden"}
+          variants={variantsTitle}
+        >
+          {event.title}
+        </motion.h2>
         <div className={styles.divtext}>
-          <motion.h2
-            title={event.title}
-            className={styles.cardtitle}
-            animate={"visible"}
-            initial={"hidden"}
-            variants={variantsTitle}
-          >
-            {event.title}
-          </motion.h2>
           <motion.p
             title={event.description}
             className={styles.carddescription}
             animate={isOpen ? "open" : "closed"}
             variants={variantsDesc}
-            initial={{opacity: 0, x: -100}}
+            initial={{ opacity: 0, y: 100 }}
           >
             {event.description}
           </motion.p>
