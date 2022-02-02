@@ -15,10 +15,16 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    images: {
-        type: Array,
-        required: true
-    },
+    images: [
+        {
+            public_id:{type: String},
+            url: { 
+                type:String, 
+                default: "https://res.cloudinary.com/eventx-cloud/image/upload/v1643798820/eventx_media/NoThumbnail_cfkxha.png", 
+                required: true
+            }
+        }
+    ],
     category: {
         type: String, 
         required: true

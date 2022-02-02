@@ -48,22 +48,19 @@ const DetailEvent = (props) => {
 
         <div>
           <h2>{event.title}</h2>
-          <h5>{event.openslots}</h5>
           <div>
             {event.openslots > 0 ? (
-              <h6>Freie Plätze: {event.openslots}</h6>
+              <h6>Freie Plätze: {event.openslots - event.closedSlots}</h6>
             ) : (
               <h6>Event ist vollgebucht!</h6>
             )}
             <h6>
-              Anzahl der Teilnehmer: {event.closedSlots - event.openslots}
+              Anzahl der Teilnehmer: {event.closedSlots}
             </h6>
           </div>
 
           <div>{event.description}</div>
           <div>
-            {event.content}
-            {event.content}
             {event.content}
           </div>
         </div>

@@ -1,4 +1,4 @@
-const Mail = require('@sendgrid/mail') // install node-package
+/*const Mail = require('@sendgrid/mail') // install node-package
 
 
 module.exports = class Email {
@@ -25,3 +25,4 @@ module.exports = class Email {
         await Mail.send(MailOptions).then(() => {}, console.error);     // sends mail to user | else display error in console
     }
 };
+*/

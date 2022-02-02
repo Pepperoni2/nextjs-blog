@@ -3,7 +3,7 @@ import Users from '../../../models/userModels'
 import valid from '../../../util/valid'
 import nc from 'next-connect'
 import bcrypt from 'bcrypt'
-import Email from '../../../util/email'
+//import Email from '../../../util/email'
 import { createAuthenticationToken } from '../../../util/generateToken'
 
 connectDB()
@@ -38,8 +38,9 @@ const register = handler.post(async (req, res) => {
         
 
         await newUser.save();
+        res.json({msg: "Register Success!"});
         // Can be tested if sendgrid template is used
-        const authentication_token = createAuthenticationToken();
+        /*const authentication_token = createAuthenticationToken();
         try{
             await new Email(users, authentication_token).sendMagicLink();
 
@@ -48,6 +49,7 @@ const register = handler.post(async (req, res) => {
         catch(error){
             users.authentication_token = undefined;     // resetting auth token
         }
+        */
         
 
     }catch(err){
