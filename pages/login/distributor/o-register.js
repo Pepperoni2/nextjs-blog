@@ -76,7 +76,7 @@ const RegisterO = () => {
 
   return (
     <div className={styles.wrapperregister} >
-      <div className={styles.wallpaper} ref={vantaRef}></div>
+      <div className={styles.wallpaper} ref={vantaRef} ></div>
       <Head>
         <title>Register Page</title>
       </Head>

@@ -55,7 +55,7 @@ const EnteredEvent = ({ event, dispatch, enteredEvent }) => {
 
                 <td style={{ minWidth: '50px', cursor: 'pointer', alignItems: 'center' }}>
                     <button aria-hidden="true" style={{ color: 'red', margin: '10px' }} onClick={switchModal}>
-                        Entfernen
+                        Delete
                     </button>
                 </td>
             </tr>

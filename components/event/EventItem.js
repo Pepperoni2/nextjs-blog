@@ -118,6 +118,7 @@ const EventItem = ({ event }) => {
         variants={variantsButtons}
         initial={{ opacity: 0, y: 0, scale: 1 }}
       >
+        <div className={styles.div}>
         <Link href={`event/${event._id}`}>
           <motion.a className={styles.link}>Find out more</motion.a>
         </Link>
@@ -128,6 +129,7 @@ const EventItem = ({ event }) => {
         >
           Join
         </motion.button>
+        </div>
       </motion.div>
     );
   };
@@ -148,6 +150,9 @@ const EventItem = ({ event }) => {
       />
 
       <motion.div className={styles.cardbody}>
+        <div className={styles.reldiv}>
+
+        
         <motion.h2
           title={event.title}
           className={styles.cardtitle}
@@ -169,6 +174,7 @@ const EventItem = ({ event }) => {
           </motion.p>
         </div>
         {userLink()}
+        </div>
       </motion.div>
     </motion.div>
 
