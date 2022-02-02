@@ -39,10 +39,10 @@ const RegisterO = () => {
     const res = await postData("auth/register_org", orgData);
 
     if (res.err)
-      return dispatch({ type: "NOTIFY", payload: { success: res.err } });
+      return dispatch({ type: "NOTIFY", payload: { error: res.err } });
     
-    return dispatch({ type: "NOTIFY", payload: { success: res.msg } }); 
-
+    dispatch({ type: "NOTIFY", payload: { success: res.msg } }); 
+    router.push("/login")
   };
   // --------------------------------------------
   const [vantaEffect, setVantaEffect] = useState(0);
