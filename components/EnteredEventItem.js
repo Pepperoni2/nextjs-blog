@@ -3,7 +3,7 @@ import { useContext, useState } from "react"
 import { DataContext } from "../store/GlobalState"
 import { ExitEvent } from "../store/Actions"
 import Modal from "../components/Modal"
-
+import styles from "../styles/modules/afterlogin/EnteredEventItem.module.scss"
 const EnteredEvent = ({ event, dispatch, enteredEvent }) => {
 
     const [isOpen, setIsOpen] = useState(false);
@@ -28,36 +28,37 @@ const EnteredEvent = ({ event, dispatch, enteredEvent }) => {
 
 
     return (
-        <div>
+        <div className={styles.wrapper}>
             <Modal open={isOpen} onClose={closeModal}></Modal>
-            <tr>
-                <td style={{ width: '100px', overflow: 'hidden' }}>
-                    <img src={event.images[0].url} alt={event.images[0].url} style={{ minWidth: '200px', height: '100px' }} />
+            <tr className={styles.contenttb}>
+                <td className={styles.wrapimages}>
+                    <img className={styles.images} src={event.images[0].url} alt={event.images[0].url}  />
                 </td>
-
-                <td styl={{ minWidth: '200px' }}>
-                    <h5>
+                <div className={styles.textdiv}> 
+                <div className={styles.title}>
+                    <h5 className={styles.linkwrap}>
                         <Link href={`/event/${event._id}`}>
-                            <a>{event.title}</a>
+                            <a className={styles.linktitle}>{event.title}</a>
                         </Link>
                     </h5>
 
-                    <h6>
-                        {event.openslots}
+                    <h6 className={styles.wrapinfo}>
+                       <p className={styles.countopen}>{event.openslots}</p> 
                         {
                             event.openslots > 0
-                                ? <p>Offen: {event.openslots} Plätze frei</p>
-                                : <p>Voll: keine Plätze frei</p>
+                                ? <p className={styles.infoOpen}>Open: {event.openslots} free</p>
+                                : <p className={styles.infofull}>Full: Event is filled</p>
 
                         }
                     </h6>
-                </td>
+                </div>
 
-                <td style={{ minWidth: '50px', cursor: 'pointer', alignItems: 'center' }}>
-                    <button aria-hidden="true" style={{ color: 'red', margin: '10px' }} onClick={switchModal}>
+                <div className={styles.wrapbutton}>
+                    <button onClick={switchModal} className={styles.bt}>
                         Delete
                     </button>
-                </td>
+                </div>
+                </div>
             </tr>
         </div>
     )

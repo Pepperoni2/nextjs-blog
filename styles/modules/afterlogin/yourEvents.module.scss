@@ -4,8 +4,8 @@ $color-third: #251e21;
 $color-fourth: #e8dbc9;
 
 .wrapper {
-  background-color: #292627;
-  height: 100%;
+  background-color: #913d59;
+  min-height: 100%;
   width: 100%;
 }
 .backg {
@@ -13,15 +13,16 @@ $color-fourth: #e8dbc9;
   min-width: fit-content;
   min-height: fit-content;
   background-color: #292627;
-  height: 100vh;
+  height: 100%;
 
   .divbackg {
-    background-image: url("/_next/static/media/pexels-wolfgang-2747449.jpg");
+    background-image: url("/pexels-wolfgang-2747449.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
-    z-index: 0;
+    // position: sticky;
+    top:0;
+    z-index: 2;
     width: 100%;
     height: fit-content;
     &:before {
@@ -38,18 +39,19 @@ $color-fourth: #e8dbc9;
       background-color: transparent;
       display: flex;
       align-items: center;
-      width: 50%;
+      width: 100%;
       height: 13vh;
+      min-height: 80px;
       overflow: hidden;
       position: relative;
       //   flex-wrap: wrap;
-      // margin-top: 10px;
+      //  margin-bottom: 10px;
       .atag {
         text-decoration: none;
         height: 100%;
         width: fit-content;
         background-color: #292627;
-        padding: 0 2%;
+        padding: 0 4%;
         border-radius: 10px 0 0 10px;
         transition: all 0.2s ease-in-out;
         &:hover {
@@ -69,12 +71,12 @@ $color-fourth: #e8dbc9;
         //   background-color: aliceblue;
         width: 100%;
         min-width: fit-content;
-        max-width: 500px;
+        max-width: 300px;
         height: 85%;
         display: flex;
         align-items: center;
         flex-direction: row;
-       
+
         //   flex-wrap: wrap;
       }
       .title {
@@ -88,43 +90,46 @@ $color-fourth: #e8dbc9;
         padding: 0% 2%;
         display: flex;
         align-items: center;
+        justify-content: center;
 
         width: 100%;
-        border-radius: 0px 10px 0px 0;
+        // border-radius: 0px 10px 0px 0;
 
         p {
           background-color: #292627;
           height: 100%;
           width: 100%;
           min-width: 180px;
-          padding: 0 2%;
+          max-width: 240px;
+          padding: 0 3%;
           display: flex;
           align-items: center;
           color: #e97231;
           border-radius: 0px 10px 10px 0;
         }
         .back {
-          margin-left: 2%;
-          
+          margin-left: 3%;
+
           text-decoration: none;
           width: fit-content;
           border-radius: 10px;
           font-size: 0.8em;
-          color: #e8dbc9;
-          background-color: #292627;
+          color: #251e21;
+          background-color: #e8dbc9;
           transition: all 0.2s ease-in-out;
           padding: 10px 20px;
           &:hover {
-            color: #251e21;
-            background-color: #e8dbc9;
+            color: #e8dbc9;
+            background-color: #292627;
+            transform: translateY(2px);
           }
         }
       }
       .spantitle {
         width: 100%;
-
+        background-color: #e97231;
         height: 100%;
-        border-radius: 10px 0px 0px 0px;
+        // border-radius: 10px 0px 0px 0px;
         display: flex;
         justify-content: start;
         align-items: center;
@@ -136,25 +141,40 @@ $color-fourth: #e8dbc9;
       align-items: center;
       width: 100%;
       height: 10vh;
+      min-height: 90px;
+      
       overflow: hidden;
 
       .desc {
         display: flex;
         align-items: center;
+        justify-content: center;
         min-width: fit-content;
         padding: 0% 2%;
         height: 100%;
+
         background-color: rgba(233, 114, 49, 1);
         width: 100%;
         font-size: 1.2em;
-        border-radius: 0px 0px 10px 0;
+        // border-radius: 0px 0px 10px 0;
+        p {
+          background-color: rgba(41, 38, 39, 0.5);
+          color: #e8dbc9;
+          border-radius: 10px;
+          width: 400px;
+          height: 85%;
+          padding: 0% 2%;
+          display: flex;
+          align-items: center;
+
+        }
       }
       .spandesc {
         width: 100%;
-        // background-color: #e8dbc9;
+        background-color: #e97231;
         opacity: 0.5;
         height: 100%;
-        border-radius: 0px 0px 0px 10px;
+        // border-radius: 0px 0px 0px 10px;
       }
     }
   }
@@ -162,14 +182,23 @@ $color-fourth: #e8dbc9;
   .table {
     //   background-color: rosybrown;
     // margin-top: 2%;
-    padding: 2% 2%;
+    // padding: 2% 2%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-spacing: 0px;
+    position: relative;
 
     .tablebody {
-      height: 100%;
-      background-color: #251e21;
-      height: 100%;
+      border-spacing: 0px;
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+      min-height: 100%;
       width: 100%;
+      background-color: #2e292b;
+      
       //   margin: 10px 0;
     }
   }

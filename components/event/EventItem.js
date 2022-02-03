@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import { set } from "date-fns";
 import { tr } from "date-fns/locale";
 
+
+
 const EventItem = ({ event }) => {
   const { state, dispatch } = useContext(DataContext);
   const { enteredEvent } = state;
@@ -40,27 +42,13 @@ const EventItem = ({ event }) => {
     },
     hidden: { opacity: 0, y: "-100" },
   };
-  const variantsTitleAway = {
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        y: {
-          delay: 1,
-        },
-        opacity: {
-          delay: 1,
-        },
-      },
-    },
-    hidden: { opacity: 0, y: "-100" },
-  };
+  
   const variantsDesc = {
     open: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.1,
         type: "spring",
         bounce: 0,
         // velocity: 2 ,
@@ -68,14 +56,14 @@ const EventItem = ({ event }) => {
     },
     closed: {
       opacity: 0,
-      y: -15,
+      y: 0,
      
       transition: {
         y: {
-          delay: 0,
+          delay: 0.1,
         },
         opacity: {
-          delay: 0,
+          delay: 0.1,
         },
       },
     },
@@ -83,21 +71,18 @@ const EventItem = ({ event }) => {
   const variantsButtons = {
     open: {
       opacity: 1,
-      scale: 1 ,
       y: 0,
       transition: {
         duration: 0.1,
         type: "spring",
         bounce: 0,
-        opacity: {
-          delay: 0.1,
-        },
+        // velocity: 2 ,
       },
     },
     closed: {
       opacity: 0,
       y: 0,
-      
+     
       transition: {
         y: {
           delay: 0.1,
@@ -116,7 +101,7 @@ const EventItem = ({ event }) => {
         className={styles.flexdiv}
         animate={isOpen ? "open" : "closed"}
         variants={variantsButtons}
-        initial={{ opacity: 0, y: 0, scale: 1 }}
+        initial={{ opacity: 0, y: 0, }}
       >
         <div className={styles.div}>
         <Link href={`event/${event._id}`}>
@@ -168,7 +153,7 @@ const EventItem = ({ event }) => {
             className={styles.carddescription}
             animate={isOpen ? "open" : "closed"}
             variants={variantsDesc}
-            initial={{ opacity: 0, y: 100 }}
+            initial={{ opacity: 0, y: 0 }}
           >
             {event.description}
           </motion.p>
