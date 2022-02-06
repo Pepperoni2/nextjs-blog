@@ -16,12 +16,13 @@ $color-fourth: #e8dbc9;
   height: 100%;
 
   .divbackg {
-    background-image: url("/pexels-wolfgang-2747449.jpg");
+    // background-image: url("/pexels-wolfgang-2747449.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+     background-size: cover;
+    object-fit: cover;
     // position: sticky;
-    top:0;
+    top: 0;
     z-index: 2;
     width: 100%;
     height: fit-content;
@@ -80,7 +81,7 @@ $color-fourth: #e8dbc9;
         //   flex-wrap: wrap;
       }
       .title {
-        background-color: rgba(233, 114, 49, 0.5);
+        background-color: rgba(233, 114, 49, 0.8);
         position: sticky;
         top: 0;
         font-size: 2em;
@@ -142,7 +143,7 @@ $color-fourth: #e8dbc9;
       width: 100%;
       height: 10vh;
       min-height: 90px;
-      
+
       overflow: hidden;
 
       .desc {
@@ -153,7 +154,7 @@ $color-fourth: #e8dbc9;
         padding: 0% 2%;
         height: 100%;
 
-        background-color: rgba(233, 114, 49, 0.5);
+        background-color: rgba(233, 114, 49, 0.8);
         width: 100%;
         font-size: 1.2em;
         // border-radius: 0px 0px 10px 0;
@@ -166,7 +167,6 @@ $color-fourth: #e8dbc9;
           padding: 0% 2%;
           display: flex;
           align-items: center;
-
         }
       }
       .spandesc {
@@ -185,21 +185,27 @@ $color-fourth: #e8dbc9;
     // padding: 2% 2%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    
     width: 100%;
+    min-height: fit-content;
     border-spacing: 0px;
     position: relative;
-    background-image: url("/concert-3387324_1920.jpg");
+    background-image: url("/pexels-dapo-abideen-5677459.jpg");
+    background-position: center;
+
+    background-size: cover;
 
     .tablebody {
       border-spacing: 0px;
       display: flex;
-    flex-direction: column;
-    align-items: center;
+      flex-direction: column;
+      align-items: center;
       min-height: 100%;
       width: 90%;
-      background-color: #2e292b;
-      
+      height: fit-content;
+
+      background-color: #2e292b91;
+
       //   margin: 10px 0;
     }
   }
@@ -213,4 +219,9 @@ $color-fourth: #e8dbc9;
   z-index: 1;
   position: static;
   //   bottom: 0;
+}
+@media only screen and (max-width: 650px) {
+  .tablebody{
+    min-width: 100%;
+  }
 }

@@ -1,0 +1,179 @@
+$color-first: #e97231;
+$color-second: #292627;
+$color-third: #251e21;
+$color-fourth: #e8dbc9;
+@import "/styles/modules/toast.module.scss";
+.wrapper {
+  background-color: rgba(0, 0, 0, 0.7);
+
+  z-index: 99;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .backg {
+    max-height: 500px;
+    max-width: 450px;
+    min-height: 250px;
+    border-radius: 10%;
+    height: 30%;
+    width: 100%;
+    background-color: #292627;
+    box-shadow: 0 0 2px 2px #251e21;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 5%;
+    &::before {
+      content: "";
+      position: absolute;
+
+      width: 400px;
+      height: 400px;
+      background-color: #e8dbc942;
+      z-index: -1;
+      top: -15%;
+      box-shadow: 0 0 2px 2px #e8dbc942;
+
+      border-radius: 50%;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background-color: #e8dbc942;
+      z-index: -1;
+      bottom: -15%;
+      box-shadow: 0 0 2px 2px #e8dbc942;
+      border-radius: 50%;
+    }
+    // .btx {
+    //   @include button();
+    //   margin: 0;
+    //   width: 50px;
+    //   height: 30px;
+    //   position: absolute;
+    //   top: 0px;
+    //   right: 0%;
+    //   font-size: 2.5em;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   box-shadow: none;
+    // }
+    .topdiv {
+      //   background-color: violet;
+      display: flex;
+      width: 100%;
+      height: 50%;
+
+      justify-content: center;
+      align-items: center;
+      background-color: #e8dbc9;
+      border-radius: 10px 10px 0 0;
+
+      //   background-color: saddlebrown;
+      .title {
+        font-size: 1.5em;
+        // background-color: turquoise;
+        width: 100%;
+        text-align: center;
+        padding: 2% 2%;
+       
+        height: fit-content;
+
+        // background-color: #292627;
+      }
+    }
+    .bottomdiv {
+      background-color: #d4be9f;
+      width: 100%;
+      height: 70%;
+      border-radius: 0 0 10px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding-top: 1%;
+      .text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3em;
+        width: 100%;
+
+        span {
+          background-color: #e8dbc9;
+          border-radius: 4px;
+          color: black;
+          padding: 2% 3%;
+          margin: 1% 1%;
+          font-size: 1.2em;
+        }
+      }
+      .divbt {
+        margin-top: 3%;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        background-color: #d4be9f;
+        border-radius: 0 0 4px 4px;
+        align-items: center;
+        height: fit-content;
+
+        .btyes {
+          max-width: 200px;
+          min-width: 100px;
+          min-height: 50px;
+          max-height: 100px;
+          cursor: pointer;
+          background-color: #e97231;
+          color: white;
+          font-size: larger;
+
+          padding: 14px 20px;
+
+          border: none;
+
+          transition: ease-in-out all 0.1s;
+          position: relative;
+          border-radius: 4px;
+          &:hover {
+            transform: translateY(2px);
+            opacity: 0.8;
+          }
+        }
+        .btcancle {
+          max-width: 200px;
+          min-width: 100px;
+          min-height: 50px;
+          max-height: 100px;
+          cursor: pointer;
+          background-color: #e97231;
+          color: white;
+          font-size: larger;
+
+          padding: 14px 20px;
+
+          border: none;
+
+          transition: ease-in-out all 0.1s;
+          position: relative;
+          border-radius: 4px;
+          &:hover {
+            transform: translateY(2px);
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}
