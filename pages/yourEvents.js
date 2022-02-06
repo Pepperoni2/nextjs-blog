@@ -11,6 +11,8 @@ import * as THREE from "three";
 import Link from "next/link";
 import Image from "next/image";
 import { withRouter } from "next/router";
+import ScrollToTop from "../components/scrollTop";
+
 const yourEvents = () => {
   const { state, dispatch } = useContext(DataContext);
   const { enteredEvent } = state;
@@ -175,7 +177,9 @@ const yourEvents = () => {
           <motion.div className={styles.footer}>
             <Footer></Footer>
           </motion.div>
+          <ScrollToTop></ScrollToTop>
         </div>
+        
       </div>
     );
   }
