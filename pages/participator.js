@@ -6,6 +6,8 @@ import { useContext, useState, useEffect } from "react";
 import EventItem from "../components/event/EventItem";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import Footer from "../components/footer";
+
 import {
   FaArrowAltCircleRight,
   FaArrowAltCircleLeft,
@@ -25,52 +27,54 @@ export default function Participator(props) {
       if (auth.user.role === "participator") {
         router.push("/participator");
       } else if (auth.user.role === "organizer") router.push("/organizer");
-    }
-    else{
-      router.push("/")
+    } else {
+      router.push("/");
     }
   }, [auth]);
 
-  
   const container = {
-    hidden: { backgroundColor: "white"},
+    hidden: { backgroundColor: "white" },
     show: {
       backgroundColor: "",
       transition: {
         delay: 1,
-        ease: "easeInOut"
-      }
-    }
-  }
+        ease: "easeInOut",
+      },
+    },
+  };
 
   return (
-    
     <div className={styles.wrapper}>
-      { Object.keys(auth).length !== 0 ?
+      {Object.keys(auth).length !== 0 ? (
         <>
-        <NavigationLeftP />
-        <div className={styles.container}>
-          {/* <div className={styles.stickynav}><p>Ich verfloge dich</p></div> */}
-          <motion.section className={styles.slider}
-          
-          variants={container}
-          initial="hidden"
-          animate="show"
-          >
-            {/* <FaArrowAltCircleLeft className="leftarr" onClick={prevBt} />
+          <NavigationLeftP />
+          <div className={styles.container}>
+            {/* <div className={styles.stickynav}><p>Ich verfloge dich</p></div> */}
+            <motion.section
+              className={styles.slider}
+              variants={container}
+              initial="hidden"
+              animate="show"
+            >
+              {/* <FaArrowAltCircleLeft className="leftarr" onClick={prevBt} />
             <FaArrowAltCircleRight className="rightarr" onClick={nextBt} /> */}
-            
+
               {events.length === 0 || Object.keys(auth).length === 0 ? (
                 <div></div>
               ) : (
-                events.map((event) => <EventItem key={event._id} event={event}  />)
+                events.map((event) => (
+                  <EventItem key={event._id} event={event} />
+                ))
               )}
-            
-          </motion.section>
-        </div>
-        </> : <div></div>
-      }
-      
+            </motion.section>
+            <div className={styles.footer}>
+              <Footer></Footer>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }

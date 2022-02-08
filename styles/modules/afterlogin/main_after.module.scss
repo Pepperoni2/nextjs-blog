@@ -1,12 +1,20 @@
+
+
 .wrapper {
   // width: 100%;
-  // height: 150vh;
+   height: 100%;
   color: black;
+  background-color: lighten(#251e21,15);
+  
 }
 .container {
   width: auto;
   margin-left: 180px;
-
+  height: 100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
   // overflow: scroll;
 
   position: relative;
@@ -28,6 +36,15 @@
     padding-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
+    background-color: lighten(#251e21,15);
+  }
+
+
+  .footer{
+    width: 100%;
+    height: 20vh;   
+    z-index: 1;
+    margin-top:auto;
   }
 }
 

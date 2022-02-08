@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { addToEnteredEvents } from "../../store/Actions";
 import Slider from "react-slick";
 import CenterMode from "../Slider";
+import styles from "../../styles/modules/afterlogin/ids.module.scss";
 const DetailEvent = (props) => {
   const [event] = useState(props.event);
   const { state, dispatch } = useContext(DataContext);

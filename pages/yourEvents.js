@@ -57,7 +57,7 @@ const yourEvents = () => {
       opacity: 1,
     },
     hidden: {
-      width: ["0%", "30%", "0%"],
+      width: ["0%", "10%", "0%"],
       //   opacity: [1, 1, 1, 0,1],
       transition: {
         width: {
@@ -78,7 +78,7 @@ const yourEvents = () => {
       opacity: 1,
     },
     hidden: {
-      width: ["0%", "30%", "0%"],
+      width: ["0%", "100%",],
       
       //   opacity: [1, 1, 1, 0,1],
       transition: {
@@ -91,10 +91,10 @@ const yourEvents = () => {
           restDelta: 0.5,
         },
       },
-        transitionEnd: { display: "none"},
+        // transitionEnd: { display: "none"},
     },
   };
-
+  
   if (enteredEvent.length === 0) {
     return (
       <div className={styles.backg1}>
@@ -112,7 +112,10 @@ const yourEvents = () => {
         </Head>
         <div className={styles.backg}>
        
-          <motion.div className={styles.divbackg}>
+          <motion.div className={styles.divbackg}
+          // style={{ boxShadow: "0 0 6px 1px white"}}
+         
+          >
             
             <motion.div className={styles.divtitle}
             
@@ -146,22 +149,23 @@ const yourEvents = () => {
                   
               </motion.span>
             </motion.div>
-            <div className={styles.divdesc}>
-              <h3 className={styles.desc}>
-                <p>
-                Here you can keep track of every event you've entered or already
-                participated
-                </p>
-               
-              </h3>
+            {/* <div className={styles.divdesc}>
+             
               <motion.span
                 className={styles.spandesc}
                 initial={"visible"}
                 animate={"hidden"}
                 variants={variantsspan2}
               ></motion.span>
-            </div>
+            </div> */}
           </motion.div>
+          <h3 className={styles.desc}>
+                <p>
+                Here you can keep track of every event you've entered or already
+                participated
+                </p>
+               
+              </h3>
           <table className={styles.table}>
             <tbody className={styles.tablebody}>
               {enteredEvent.map((event) => (
@@ -170,17 +174,24 @@ const yourEvents = () => {
                   event={event}
                   dispatch={dispatch}
                   enteredEvent={enteredEvent}
-                />
+                  
+                >
+
+                </EnteredEvent>
               ))}
             </tbody>
           </table>
-          <motion.div className={styles.footer}>
+         
+        </div>
+        <ScrollToTop></ScrollToTop>
+        <motion.div className={styles.footer}
+               
+        >
             <Footer></Footer>
           </motion.div>
-          <ScrollToTop></ScrollToTop>
-        </div>
-        
+          
       </div>
+      
     );
   }
 };
