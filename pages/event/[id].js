@@ -101,28 +101,33 @@ const DetailEvent = (props) => {
             </div>
           </div>
         </div>
+        <div className={styles.more}>
+          <p></p>
+        </div>
         <div className={styles.divslider}>
-        <BiLeftArrow className={styles.leftarr} onClick={prevSlide} />
-            <BiRightArrow className={styles.rightarr} onClick={nextSlide} />
-          <section className={styles.slider}>
-            
+          <BiLeftArrow className={styles.leftarr} onClick={prevSlide} />
+          <BiRightArrow className={styles.rightarr} onClick={nextSlide} />
 
-            {event.images.map((img, index) => (
-              <div
-                className={
-                  index === current ? styles.slideactive : styles.slide
-                }
-              >
-                {index === current && (
-                  <img
-                    key={index+1}
-                    src={img.url}
-                    alt={img.url}
-                    // style={{ height: "100%", width: "100%" }}
-                  />
-                )}
-              </div>
-            ))}
+          <section className={styles.slider}>
+            {event.images.map((img, index) => {
+              return (
+                <div
+                  className={
+                    index === current ? 'slide active' : 'slide'
+                  }
+                >
+                  {index === current && (
+                    <img
+                    className={styles.imagesslide}
+                      key={index}
+                      src={img.url}
+                      alt={img.url}
+                      // style={{ height: "100%", width: "100%" }}
+                    />
+                  )}
+                </div>
+              );
+            })}
           </section>
         </div>
         <div className={styles.space}></div>
