@@ -20,14 +20,15 @@ const create = async (req, res) => {
             content,
             category,
             openslots,
-            organizer
+            organizer,
+            images
         } = req.body
 
         const events = await Events.findOne({ title })
         if(events) return res.status(400).json({err: 'This title is already in use!'})
 
         const newEvent = new Events({
-            title, description, content, category, openslots, organizer
+            title, description, content, category, openslots, organizer, images
         })
         
         await newEvent.save()
