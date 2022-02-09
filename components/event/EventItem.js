@@ -44,11 +44,11 @@ const EventItem = ({ event }) => {
   const variantsDesc = {
     open: {
       opacity: 1,
-      x: 0,
+      y: -10,
       transition: {
         bounce: 0,
         damping: 1,
-        duration: 0.5,
+        duration: 0.3,
       },
     },
     closed: {
@@ -64,11 +64,11 @@ const EventItem = ({ event }) => {
   const variantsButtons = {
     open: {
       opacity: 1,
-      x: 0,
+      y: -10,
       transition: {
         bounce: 0,
         damping: 1,
-        duration: 0.5,
+        duration: 0.3,
       },
     },
     closed: {
