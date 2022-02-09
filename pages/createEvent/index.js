@@ -14,14 +14,10 @@ const OrgsEvent = () => {
         category: "",
         openslots: 0,
         organizer: "",
-        images:
-            {
-            public_id: "",
-            url: ""
-            }    
+        images: [{ public_id: "", url:""}]
     };
     const [eventData, setData] = useState(initialState)
-    const { title, description, content, category, openslots, images, organizer } = eventData
+    const { title, description, content, category, openslots, organizer, images } = eventData
 
     const { state, dispatch } = useContext(DataContext)
     const { auth, notify } = state
@@ -77,8 +73,7 @@ const OrgsEvent = () => {
             let media;
 
             if (images) media = await ImageUpload([images]);
-
-            const res = await postData("create/newEvent", { title, description, content, category, openslots, organizer, images: images ? media[0].url : images.url }, eventData)
+            const res = await postData("create/newEvent", { title, description, content, category, openslots, organizer, images: media }, eventData)
             if (res.err)
                 return dispatch({ type: "NOTIFY", payload: { error: res.err } });
             
