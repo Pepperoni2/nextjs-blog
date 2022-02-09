@@ -42,13 +42,15 @@ const EnteredEvent = ({ event, dispatch, enteredEvent }) => {
     >
       <Modal open={isOpen} onClose={closeModal}></Modal>
       <tr className={styles.contenttb}>
-        <td className={styles.wrapimages}>
-          <img
-            className={styles.images}
-            src={event.images[0].url}
-            alt={event.images[0].url}
-          />
-        </td>
+        <Link href={`/event/${event._id}`}>
+          <td className={styles.wrapimages}>
+            <img
+              className={styles.images}
+              src={event.images[0].url}
+              alt={event.images[0].url}
+            />
+          </td>
+        </Link>
         <div className={styles.textdiv}>
           <div className={styles.title}>
             <h5 className={styles.linkwrap}>
@@ -58,13 +60,15 @@ const EnteredEvent = ({ event, dispatch, enteredEvent }) => {
             </h5>
 
             <h6 className={styles.wrapinfo}>
-              <p className={styles.countopen}>{event.openslots}</p>
+             
               {event.openslots > 0 ? (
-                <p className={styles.infoOpen}>Open: {event.openslots} free</p>
+                <p className={styles.infoOpen}>Free remaining places: {event.openslots}</p>
               ) : (
                 <p className={styles.infofull}>Full: Event is filled</p>
               )}
+               <p className={styles.countopen}>Number of participants: {event.closedSlots}</p>
             </h6>
+           
           </div>
 
           <div className={styles.wrapbutton}>

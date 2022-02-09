@@ -12,7 +12,7 @@ $color-fourth: #e8dbc9;
   position: relative;
   min-width: 70%;
   .contenttb {
-    border-radius: 10px;
+    border-radius: 4px;
     background-color: darken(#e8dbc9, 79);
     box-shadow: 0 0 5px 2px darken(#e8dbc9, 75);
     display: flex;
@@ -20,7 +20,7 @@ $color-fourth: #e8dbc9;
     height: 100%;
     align-items: center;
     position: relative;
-    
+
     // box-shadow: 20px 5px 1px 2px gray;
     .wrapimages {
       border-radius: 4px;
@@ -30,6 +30,30 @@ $color-fourth: #e8dbc9;
       justify-content: center;
       align-items: center;
       // background-color: #292627;
+      transition: all ease-out 0.3s;
+      cursor: pointer;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0);
+        height: 100%;
+        width: 100%;
+        // transform: scaleX(0.5);
+        top: 0;
+        right: 0;
+        z-index: 2;
+        border-radius: 4px;
+        transition: all ease-in-out 0.2s;
+      }
+
+      &:hover {
+        // background-color: #e97231;
+      }
+      &:hover::after {
+        // transform: scaleX(1);
+        background-color: rgba(0, 0, 0, 0.5);
+      }
       .images {
         border-radius: 4px;
         min-height: 200px;
@@ -68,7 +92,7 @@ $color-fourth: #e8dbc9;
         .linkwrap {
           // background-color: saddlebrown;
           width: 100%;
-          
+
           display: flex;
           border-radius: 4px;
           margin-top: 5%;
@@ -77,12 +101,12 @@ $color-fourth: #e8dbc9;
           margin-left: 3%;
           .linktitle {
             // background-color: rosybro;
-            text-decoration: underline;
+            text-decoration: none;
             color: #e8dbc9;
             display: flex;
             align-items: center;
             height: 100%;
-            padding-right: 5%;
+            padding-right: 2%;
             padding-left: 2%;
             padding-top: 2%;
             padding-bottom: 2%;
@@ -94,7 +118,7 @@ $color-fourth: #e8dbc9;
               background-color: rgba(56, 52, 52, 0.8);
 
               box-shadow: 0px 0px 3px 1px black;
-              transform: translateX(2px);
+              padding: 3%;
             }
           }
         }
@@ -126,9 +150,8 @@ $color-fourth: #e8dbc9;
             margin-left: 3%;
             height: 100%;
             padding: 2%;
-             border-bottom: 2px solid black;
+            border-bottom: 2px solid black;
             transition: all 0.2s ease-in-out;
-            
           }
 
           .infofull {
@@ -153,7 +176,7 @@ $color-fourth: #e8dbc9;
         display: flex;
         align-items: center;
         margin: 2% 0;
-        
+
         .bt {
           height: 60%;
           width: 40%;
