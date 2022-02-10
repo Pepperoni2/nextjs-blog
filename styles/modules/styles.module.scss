@@ -1,0 +1,31 @@
+.parallax {
+    background-image: url("/pexels-vlad-chețan-2409111.jpg");
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+    min-height: fit-content;
+
+    .more {
+      height: 100%;
+      color: white;
+      background-color: #29262766;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        padding: 2%;
+      }
+      p {
+        padding: 0 3%;
+        line-height: 25px;
+        padding-bottom: 2%;
+
+        width: 90%;
+        text-align: center;
+      }
+    }
+  }

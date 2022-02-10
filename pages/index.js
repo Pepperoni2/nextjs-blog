@@ -11,11 +11,28 @@ import video from "/Vids/Concert_1630.mp4";
 /* import { FixedSizeList as List } from "react-window"; */
 import Header from "/components/head";
 import ScrollToTop from "../components/scrollTop";
+import styles from "../styles/modules/styles.module.scss";
 //import {window} from 'window'
+import axios from "axios";
 
 
 export default function Home() {
-
+  const [jokeState, setJokeState] = useState({
+    joke: "",
+  });
+  
+  useEffect(() => {
+    fetchData();
+  }, []);
+  
+  const fetchData = async () => {
+    const mamares = await axios.get("https://yomomma-api.herokuapp.com/jokes");
+    console.log(mamares);
+    setJokeState({
+      ...jokeState,
+      joke: joke,
+    });
+  };
   return (
     <div id="wrapper">
       <Header1 />
@@ -54,6 +71,12 @@ export default function Home() {
         </div>
       </div>
       <ScrollToTop></ScrollToTop>
+      <div className={styles.parallax}>
+          <div className={styles.more}>
+            <h1>Yo Mama Joke</h1>
+            <p></p>
+          </div>
+        </div>
       <div id="footer1">
         <Footer />
       </div>
