@@ -12,6 +12,7 @@ import Footer from "../../components/footer";
 
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import NavEvents from "../../components/NavEvents";
+import axios from "axios";
 const DetailEvent = (props) => {
   const [event] = useState(props.event);
   const { state, dispatch } = useContext(DataContext);
@@ -45,6 +46,23 @@ const DetailEvent = (props) => {
   if (!Array.isArray(event.images) || event.images.length <= 0) {
     return null;
   }
+
+  const [jokeState, setJokeState] = useState({
+    joke: ""
+  });
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const chuckres = await axios.get("https://api.chucknorris.io/jokes/random");
+    console.log(chuckres.data.value);
+    setJokeState({
+      ...jokeState,
+      joke: chuckres.data.value,
+    });
+  };
 
   const loggedRouter = () => {
     return (
@@ -102,7 +120,8 @@ const DetailEvent = (props) => {
           </div>
         </div>
         <div className={styles.more}>
-          <p></p>
+          <h1>Chuck Norris Joke</h1>
+          <p>{jokeState.joke}</p>
         </div>
         <div className={styles.divslider}>
           <BiLeftArrow className={styles.leftarr} onClick={prevSlide} />
@@ -111,14 +130,10 @@ const DetailEvent = (props) => {
           <section className={styles.slider}>
             {event.images.map((img, index) => {
               return (
-                <div
-                  className={
-                    index === current ? 'slide active' : 'slide'
-                  }
-                >
+                <div className={index === current ? "slide active" : "slide"}>
                   {index === current && (
                     <img
-                    className={styles.imagesslide}
+                      className={styles.imagesslide}
                       key={index}
                       src={img.url}
                       alt={img.url}
@@ -130,7 +145,7 @@ const DetailEvent = (props) => {
             })}
           </section>
         </div>
-        <div className={styles.space}></div>
+        {/* <div className={styles.space}></div> */}
 
         <motion.div className={styles.footer}>
           <Footer></Footer>

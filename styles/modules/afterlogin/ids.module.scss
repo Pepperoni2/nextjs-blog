@@ -13,6 +13,7 @@ $colorback: #433f40;
   .space {
     height: 3.5vh;
     background-color: #292627;
+    
   }
   .flexitup {
     display: flex;
@@ -167,11 +168,26 @@ $colorback: #433f40;
       }
     }
   }
+  .more{
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+min-height: 100px;
+    h1{
+      padding: 2%;
+    }
+    p{
+      padding: 0 2%;
+      padding-bottom: 2%;
+    }
+  }
   .divslider {
     width: 100%;
     height: 50vh;
     position: relative;
-    margin: 2% 0;
+    // margin-top: 5%;
+    background-color: #433f40;
     .leftarr {
       position: absolute;
       top: 50%;
@@ -222,9 +238,7 @@ $colorback: #433f40;
       width: 100%;
 
       width: 100%;
-      background-color: #433f40;
-      border-radius: 4px;
-      background-color: #c0b5a7;
+      
       width: 100%;
       height: 100%;
       display: flex;
@@ -233,12 +247,12 @@ $colorback: #433f40;
 
       img {
         border-radius: 4px;
-        min-height: 400px;
+        min-height: 300px;
         // box-shadow: 0 0 1px 1px white;
         // border: solid 3px white;
-        min-width: 300px;
-
-        max-height: 30vh;
+        min-width: 400px;
+        max-height: 48vh;
+        
         // padding: 1%;
 
         // background-color: red;

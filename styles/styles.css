@@ -264,11 +264,12 @@ video {
 .slide.active {
   opacity: 1;
   transition-duration: 1s;
-  transform: scale(1.08);
+  transform: scale(1);
 }
 .slide {
   opacity: 0;
   transition-duration: 1s ease;
+  transform: scale(0.95);
 }
 
 .is-hidden {
