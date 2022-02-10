@@ -5,6 +5,7 @@ import NavigationLeft from "../../components/navigationO_after";
 import styles from "../../styles/modules/afterlogin/profile.module.scss";
 import { postData } from "../../util/fetchData";
 import { ImageUpload } from "../../util/imageUpload";
+import { useRouter } from "next/router";
 
 const OrgsEvent = () => {
     const initialState = {
@@ -19,12 +20,21 @@ const OrgsEvent = () => {
     const [eventData, setData] = useState(initialState)
     const { title, description, content, category, openslots, organizer, images } = eventData
 
+    const router = useRouter();
+
     const { state, dispatch } = useContext(DataContext)
     const { auth, notify } = state
 
     useEffect(() => {
-        if (auth.user) setData({ ...eventData, name: auth.user.name });
-    }, [auth.user])
+        if (Object.keys(auth).length !== 0) {
+            setData({ ...eventData, name: auth.user.name });
+        }
+        else{
+            router.push("/organizer")
+        }
+        
+        
+    }, [auth])
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -45,7 +55,7 @@ const OrgsEvent = () => {
             // 2MB
             return dispatch({
                 type: "NOTIFY",
-                payload: { error: "The maximum image size is 5MB." },
+                payload: { error: "The maximum image size is 2MB." },
             });
 
         if (file.type !== "image/jpeg" && file.type !== "image/png")
@@ -68,17 +78,28 @@ const OrgsEvent = () => {
             if (description.length > 50) return dispatch({ type: "NOTIFY", payload: { error: "The description is too long" } });
             if (content.length < 10) return dispatch({ type: "NOTIFY", payload: { error: "The content is too short" } });
             if (openslots <= 0) return dispatch({ type: "NOTIFY", payload: { error: "The amount of openslots can't be zero or negative" } });
-            
-
+        
             let media;
 
             if (images) media = await ImageUpload([images]);
-            const res = await postData("create/newEvent", { title, description, content, category, openslots, organizer, images: media }, eventData)
+            const res = await postData(
+                "create/newEvent", 
+                { 
+                  title,
+                  description, 
+                  content, 
+                  category, 
+                  openslots, 
+                  organizer: auth.user.name, 
+                  images: media 
+
+                }, eventData
+            )
+
             if (res.err)
                 return dispatch({ type: "NOTIFY", payload: { error: res.err } });
             
                 return dispatch({ type: "NOTIFY", payload: { success: "Event created!" } });
-
         }
         else {
             return dispatch({ type: "NOTIFY", payload: { error: "Please fill out all the event fields!" } })
@@ -96,21 +117,14 @@ const OrgsEvent = () => {
             <section>
                 <div style={{ paddingLeft: '20em' }}>
                     <div>
-                        <h2>{auth.user.name}'s own Event</h2>
+                        {
+                            Object.keys(auth).length === 0
+                            ?
+                             <div></div>
+                            :
+                            <h2>{auth.user.name}'s own Event</h2>
+                        }
                         <h3>Here you can create your own event and publish it, to display it on the EventX Webpage to promote your event to other participants.</h3>
-                    </div>
-                    <div>
-                        <label htmlFor="organizer" style={{ color: 'black' }}>
-                            Organizer
-                        </label>
-                        <input
-                            className={styles.inputs}
-                            type="text"
-                            name="organizer"
-                            placeholder={auth.user.name}
-                            value={auth.user._id}
-                            disabled={true}
-                        />
                     </div>
                     <div>
                         <label htmlFor="title" style={{ color: 'black' }}>

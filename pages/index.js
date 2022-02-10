@@ -17,7 +17,7 @@ import axios from "axios";
 
 
 export default function Home() {
-  const [jokeState, setJokeState] = useState({
+  /* const [jokeState, setJokeState] = useState({
     joke: "",
   });
   
@@ -32,7 +32,7 @@ export default function Home() {
       ...jokeState,
       joke: joke,
     });
-  };
+  }; */
   return (
     <div id="wrapper">
       <Header1 />
