@@ -13,7 +13,6 @@ $colorback: #433f40;
   .space {
     height: 3.5vh;
     background-color: #292627;
-    
   }
   .flexitup {
     display: flex;
@@ -68,6 +67,7 @@ $colorback: #433f40;
           color: white;
           font-size: 1.8em;
           margin-top: 1%;
+          margin-left: 3%;
         }
         .containertext {
           .infoOpen {
@@ -168,18 +168,35 @@ $colorback: #433f40;
       }
     }
   }
-  .more{
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
-min-height: 100px;
-    h1{
-      padding: 2%;
-    }
-    p{
-      padding: 0 2%;
-      padding-bottom: 2%;
+  .parallax {
+    background-image: url("/pexels-vlad-chețan-2409111.jpg");
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+    min-height: fit-content;
+
+    .more {
+      height: 100%;
+      color: white;
+      background-color: #29262766;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        padding: 2%;
+      }
+      p {
+        padding: 0 3%;
+        line-height: 25px;
+        padding-bottom: 2%;
+
+        width: 90%;
+        text-align: center;
+      }
     }
   }
   .divslider {
@@ -238,7 +255,7 @@ min-height: 100px;
       width: 100%;
 
       width: 100%;
-      
+
       width: 100%;
       height: 100%;
       display: flex;
@@ -250,9 +267,9 @@ min-height: 100px;
         min-height: 300px;
         // box-shadow: 0 0 1px 1px white;
         // border: solid 3px white;
-        min-width: 400px;
+        min-width: 300px;
         max-height: 48vh;
-        
+        max-width: 100%;
         // padding: 1%;
 
         // background-color: red;

@@ -48,7 +48,7 @@ const DetailEvent = (props) => {
   }
 
   const [jokeState, setJokeState] = useState({
-    joke: ""
+    joke: "",
   });
 
   useEffect(() => {
@@ -119,10 +119,13 @@ const DetailEvent = (props) => {
             </div>
           </div>
         </div>
-        <div className={styles.more}>
-          <h1>Chuck Norris Joke</h1>
-          <p>{jokeState.joke}</p>
+        <div className={styles.parallax}>
+          <div className={styles.more}>
+            <h1>Chuck Norris Joke</h1>
+            <p>{jokeState.joke}</p>
+          </div>
         </div>
+
         <div className={styles.divslider}>
           <BiLeftArrow className={styles.leftarr} onClick={prevSlide} />
           <BiRightArrow className={styles.rightarr} onClick={nextSlide} />
@@ -145,8 +148,7 @@ const DetailEvent = (props) => {
             })}
           </section>
         </div>
-        {/* <div className={styles.space}></div> */}
-
+        {/* <div className={styles.parallax}></div> */}
         <motion.div className={styles.footer}>
           <Footer></Footer>
         </motion.div>
