@@ -68,6 +68,33 @@ const OrgsEvent = () => {
         setData({ ...eventData, images: file});
     }
 
+    // Image Handling 
+
+    const handleImages = (e) => {
+        const file = e.target.files[1]  // six files
+        if (!file)
+            return dispatch({
+                type: "NOTIFY",
+                payload: { error: "This file does not exist!" },
+            });
+
+        if (file.size > 1024 * 1024 * 10)
+            // 10MB
+            return dispatch({
+                type: "NOTIFY",
+                payload: { error: "The maximum size of all images should not is 10MB." },
+            });
+
+        if (file.type !== "image/jpeg" && file.type !== "image/png")
+            return dispatch({
+                type: "NOTIFY",
+                payload: {
+                    error: "Invalid file format. Only .jpeg and .png files are allowed!",
+                },
+            });
+        setData({ ...eventData, images: file});
+    }
+
     const createNewEvent = async (e) => {
         e.preventDefault();
         if (title && description && content && openslots) {
@@ -208,6 +235,18 @@ const OrgsEvent = () => {
                             name="images"
                             accept="image/*"
                             onChange={handleThumbnail}
+                        />
+                    </div>
+                    { /* Event-Images */ }
+                    <div>
+                        <label htmlFor="images" style={{ color: 'black' }}>
+                            Images of your Event
+                        </label>
+                        <input
+                            type="file"
+                            name="images"
+                            accept="image/*"
+                            multiple onChange={handleImages}
                         />
                     </div>
                     <div className={styles.itembt}>
