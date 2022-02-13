@@ -1,88 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
 
-#nav{
-    overflow: hidden;
-    width: 100%;
-    height: 20vh;
-    position: fixed;
-    /* border-bottom: solid 1px white; */
-    top: 0;
-    z-index: 20;
-    transition: all ease-in-out 0.3s;
-   background-color: rgba(47,47,47, 1);
+#nav {
+  width: 100%;
+  height: 20vh;
+  position: fixed;
+  /* border-bottom: solid 1px white; */
+  top: 0;
+  z-index: 20;
+  transition: all ease-in-out 0.3s;
+  background-color: rgba(47, 47, 47, 1);
 }
-#wrpnav{
+#wrpnav {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+#wrph1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#h1 {
+}
+#wrplh {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  transition: all ease-in-out 0.5s;
+  justify-content: center;
+  align-items: center;
+}
+#wrph1:hover .h1aspan {
+  opacity: 0.9;
+  transform: translateY(-1vh);
+}
+#logo {
+  background-image: url(../Pics/logo_large.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  transition: all ease-in-out 0.5s;
+  width: 100%;
+  height: 70%;
 
-display: flex;
-height: 100%;
-width: 100%;
+  min-width: fit-content;
+  max-width: 140px;
+  min-height: fit-content;
+}
+#logo a {
+  height: 100%;
+  width: 100%;
+  background-color: darkorchid;
+}
+#wrplh a {
+  text-decoration: none;
+  color: #e97231;
+  cursor: pointer;
+  font-size: 2em;
+  margin-left: 00px;
 
-}
-#wrph1{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-#h1{
-    
-}
-#wrplh{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    transition: all ease-in-out 0.5s;
-    justify-content: center;
-    align-items: center;
-    
-    
-   
-}
-#wrph1:hover .h1aspan{
-    opacity: 0.9;
-    transform: translateY(-1vh);
-}
-#logo{
-    
- background-image: url(../Pics/logo_large.png);
- background-position: center;
- background-repeat: no-repeat;
- background-size: contain;
- cursor: pointer;
- transition: all ease-in-out 0.5s;
- width: 100%;
- height: 70%; 
- 
- min-width: fit-content;
- max-width: 140px;
- min-height: fit-content;
- 
- 
- 
-
-}
-#logo a{
-    height: 100%;
-    width: 100%;
-    background-color: darkorchid;
-    
-}
-#wrplh a{
-    text-decoration: none;
-    color: #E97231;
-    cursor: pointer;
-    font-size: 2em;
-    margin-left: 00px;
-    
-    text-align: center;
-    
-    
-    
-    
+  text-align: center;
 }
 
 /*
@@ -96,65 +79,80 @@ width: 100%;
 
 }
 */
-#wrpbt{
-    display: flex;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-    justify-content:center;
+.wrpbt-div {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
 }
-.bt:nth-child(1){
-    /* background-color: rgba(37, 30, 33,0.5); */
-    color: #E8DBC9;
+.bt:nth-child(1) {
+  /* background-color: rgba(37, 30, 33,0.5); */
+  color: #e8dbc9;
 }
-.bt:nth-child(3){
-    /* background-color: rgba(37, 30, 33,0.5); */
-    background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 2px 0 white;
+.bt:nth-child(2) {
+  /* background-color: rgba(37, 30, 33,0.5); */
+ 
+  /* min-width: 110px; */
 }
-.bt{
-    position: relative;
-    
-    
-    background-color: transparent;
-    font-family: 'Raleway', sans-serif;
-    border: none;
-    cursor: pointer;
-    margin:0px 5%;
-    
-    transition:ease-in-out 0.2s all;
-    color: #E97231;
-    min-height: 50px;
-    min-width: 90px;
-    font-size: 0.9em;
-    width: 100%;
-    height: 100%;
-    
+.bt:nth-child(3) {
+  /* background-color: rgba(37, 30, 33,0.5); */
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 2px 0 white;
 }
-.bt:hover{
-   
-    box-shadow: 0 0 7px 0.1px #E8DBC9;
-    
+.bt {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  font-family: "Raleway", sans-serif;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+  margin-left: 20px;
+  font-size: 0.95em;
+
+  transition: ease-in-out 0.2s all;
+  color: #e97231;
+  min-height: 50px;
+  min-width: 90px;
+  padding: 0 2%;
+  width: 100%;
+  height: 100%;
 }
-.bt:active{
-    transform: translateY(2px);
+.bt a {
+  letter-spacing: 1px;
+
+  /* background-color: rebeccapurple; */
+}
+.bt:hover {
+  box-shadow: 0 0 7px 0.1px #e8dbc9;
+}
+
+.bt:active {
+  transform: translateY(2px);
 }
 .bt::before,
 .bt::after {
-  width: 10%; height: 15%;
+  padding: 5%;
+  width: 10%;
+  height: 15%;
   transition: 0.35s;
   content: "";
   position: absolute;
 }
 .bt::before {
-  top: 0; left: 0;
-  border-left: 1px solid rgba(232,219,201);
-  border-top: 1px solid rgba(232,219,201);
+  top: 0;
+  left: 0;
+  border-left: 1px solid rgba(232, 219, 201);
+  border-top: 1px solid rgba(232, 219, 201);
 }
 .bt::after {
-  bottom: 0; right: 0;
-  border-right: 1px solid rgba(232,219,201);
-  border-bottom: 1px solid rgba(232,219,201);
+  bottom: 0;
+  right: 0;
+  border-right: 1px solid rgba(232, 219, 201);
+  border-bottom: 1px solid rgba(232, 219, 201);
 }
 .bt:hover::before,
 .bt:hover::after {
@@ -162,133 +160,113 @@ width: 100%;
   height: 98%;
 }
 
-#Popup{
+#Popup {
+  
+    align-items: center;
+  display: flex;
+  /* justify-content: center; */
+  transition: all ease 0.3s;
+}
+#flexPop {
+  display: flex;
+  height: 100%;
+  width: 15%;
+}
+.backg {
+  background-color: rgb(255, 255, 255);
+  width: 15%;
+  height: 20%;
+  min-height: 40px;
+  min-width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+  border-radius: 4px;
+}
+.backg:hover{
+    background-color: #e8dbc9;
+}
+.backg span {
+  height: 3px;
+  width: 25px;
+  min-width: 25px;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  background-color: black;
+  margin: 2px 0;
+}
+@keyframes navLinksFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 
+@media only screen and (max-width: 750px) {
+  #wrph1 {
     width: 100%;
-    
+  }
+
+  .wrpbt-div {
+    /* opacity: 0; */
+    position: absolute;
     display: flex;
-    justify-content: center;
-    transition: all ease 0.3s;
-    
-}
-#flexPop{
-    display: flex;
+    width: 100%;
+    border-radius: 4px;
+    min-height: 0vh;
+    top: 100%;
+    z-index: 99;
+    right: 0;
+    /* transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out; */
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
 
-}
+    /* background-color: rgb(0, 0, 0); */
+  }
 
-@media only screen and (max-width: 690px){
-    #wrppic{
-        height: 100%;
-        flex-direction:column;
-        width: 100%;
-        overflow: hidden;
-        transform: translateY(20vh);
+  .wrpbt-active {
+    top: 100%;
+    min-height: 80vh;
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 1;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    background-color: rgb(0, 0, 0);
+  }
+  .wrpbt-close {
+    top: 100%;
+    min-height: 50vh;
 
-    }
-    #nav{
-        height: 25vh;
-    }
-    #pic1{
-        margin-top: 2%;
-        margin-bottom: 2%;
-        width: 100%;
-        height: 50%;
-        align-items:flex-end;
-        background-size: cover;
-
-
-
-    }   
-    #pic2{
-        margin-top: 2%;
-        margin-bottom: 2%;
-        width: 100%;
-        height: 50%;
-        align-items:flex-end;
-        background-size: cover;
-    }
-    #pic3{
-        margin-top: 2%;
-        margin-bottom: 2%;
-        width: 100%;
-        height: 50%;
-        align-items:flex-end;
-        background-size: cover;
-    }
-    .SchB{
-        height: 100%;
-    }
-    #wrpbt{
-        
-        
-        width: 100%;
-        margin-bottom: 2%;
-        
-        z-index: 2;
-        
-    }
-    
-    #wrph1:hover .h1aspan{
-        opacity: 0;
-    }
-    #logo{
-        min-width: 40px;
-        
-    }
-    #wrph1{
-        margin-top: 2%;
-       
-        display: flex;
-        justify-content: center;
-        
-    }
-    
-    #wrph1 h1{
-        min-width: 100px;
-        padding-left: 0%;
-        
-    }
-    #wrpnav{
-        display: flex;
-        height: 100%;
-        width: 100%;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-       
-    }
-    
-    #Popup{
-        
-        
-        z-index: 2;
-        width: 100%;
-        height: 6vh;
-        
-        
-    }
-    #flexPop
-    {
-      
-        
-        z-index: 2;
-        display: flex;
-        flex-direction:row;
-        justify-content: center;
-        align-items: center;
-        
-        flex-grow: 1;
-        width: 100%;
-        height: 100%;
-        
-        
-    }
-    .bt{
-      background-color: rgba(233, 114, 49, 0.8);
-      color: #251E21;
-       
-       width: 30%;
-       max-width: 110px;
-        
-    }
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    background-color: rgb(0, 0, 0);
+  }
+  .rotate .line1 {
+    transform: rotate(-45deg) translate(-5px, 5px);
+  }
+  .rotate .line2 {
+    opacity: 0;
+  }
+  .rotate .line3 {
+    transform: rotate(45deg) translate(-4px, -5px);
+  }
+  
+  #flexPop {
+    flex-direction: column;
+  }
+  .bt {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transform: translateY(20px);
+    opacity: 0;
+  }
 }
