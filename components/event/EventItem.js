@@ -110,13 +110,13 @@ const EventItem = ({ event }) => {
           <Link href={`event/${event._id}`}>
             <motion.a className={styles.link}>Find out more</motion.a>
           </Link>
-          <motion.button
+          {/* <motion.button
             className={styles.btLink}
             onClick={enter}
             disabled={event.openslots === 0 || entered === true ? true : false}
           >
             Join
-          </motion.button>
+          </motion.button> */}
         </motion.div>
       </div>
     );
@@ -130,6 +130,10 @@ const EventItem = ({ event }) => {
       className={styles.card}
       onHoverStart={() => setIsOpen(true)}
       onHoverEnd={() => setIsOpen(false)}
+      initial={{ opacity: 0,  }}
+      whileInView={{ opacity: 1, }}
+      transition={{delay:0.2, duration: 0.2}}
+      viewport={{ once: true }}
     >
       <motion.img
         className={styles.cardimgtop}
