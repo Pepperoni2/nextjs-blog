@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { getData } from "../../util/fetchData";
+import { getData, putData } from "../../util/fetchData";
 import { useState, useContext, useEffect } from "react";
 import { DataContext } from "../../store/GlobalState";
 import { useRouter } from "next/router";
@@ -9,18 +9,23 @@ import Slider from "react-slick";
 import styles from "../../styles/modules/afterlogin/ids.module.scss";
 import { motion } from "framer-motion";
 import Footer from "../../components/footer";
-
+import connectDB from "../../util/connectDB";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import NavEvents from "../../components/NavEvents";
 import axios from "axios";
+
+
 const DetailEvent = (props) => {
+
   const [event] = useState(props.event);
   const { state, dispatch } = useContext(DataContext);
   const { auth, enteredEvent } = state;
   const router = useRouter();
+  
 
   useEffect(() => {
     if (Object.keys(auth).length === 0) router.push("/login");
+    
   }, [auth]);
 
   const settings = {
@@ -63,6 +68,13 @@ const DetailEvent = (props) => {
       joke: chuckres.data.value,
     });
   };
+
+  const enterEvent = async () => {
+    const username = auth.user.name
+    dispatch(addToEnteredEvents(event, enteredEvent))
+    await putData(`event/${event._id}`, username)
+    
+  }
 
   const loggedRouter = () => {
     return (
@@ -108,9 +120,7 @@ const DetailEvent = (props) => {
               <div className={styles.divbt}>
                 <button
                   className={styles.bt}
-                  onClick={() =>
-                    dispatch(addToEnteredEvents(event, enteredEvent))
-                  }
+                  onClick={enterEvent}
                   disabled={event.openslots === 0 ? true : false}
                 >
                   Enter

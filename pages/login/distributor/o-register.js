@@ -48,7 +48,6 @@ const RegisterO = () => {
   const [vantaEffect, setVantaEffect] = useState(0);
   const vantaRef = useRef(null);
   useEffect(() => {
-    if(Object.keys(auth).length !== 0) router.push("/participator")
     if (!vantaEffect) {
       setVantaEffect(
         FOG({

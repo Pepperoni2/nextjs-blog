@@ -7,22 +7,37 @@ import { addToEnteredEvents } from "../../store/Actions";
 import { motion } from "framer-motion";
 import { set } from "date-fns";
 import { tr } from "date-fns/locale";
-
+import { putData } from "../../util/fetchData";
+const entered = false;
 const EventItem = ({ event }) => {
   const { state, dispatch } = useContext(DataContext);
-  const { enteredEvent } = state;
+  const { auth, enteredEvent } = state;
+ 
   /*     dispatch({type: 'NOTIFY', payload: {success: 'You have successfully entered "'+ event.title + '"'}})
    */ // ----- The Buttons under the desc ----
-  const enter = () => {
+  const enter = async () => {
+    const username = auth.user.name
     const ent = dispatch(addToEnteredEvents(event, enteredEvent));
-    if (!ent)
+
+    if (!ent){
+      await putData(`event/${event._id}`, username)
+      
       dispatch({
         type: "NOTIFY",
         payload: {
           success: 'You have successfully entered "' + event.title + '"',
         },
       });
-    ent === false;
+    }
+    else{
+      dispatch({
+        type: "NOTIFY",
+        payload: {
+          success: 'You have already entered "' + event.title + '"',
+        },
+      });
+    }
+    
   };
 
   // const variantsTitle = {
@@ -98,7 +113,7 @@ const EventItem = ({ event }) => {
           <motion.button
             className={styles.btLink}
             onClick={enter}
-            disabled={event.openslots === 0 ? true : false}
+            disabled={event.openslots === 0 || entered === true ? true : false}
           >
             Join
           </motion.button>

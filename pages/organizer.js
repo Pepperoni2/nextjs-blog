@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import Slider from "react-slick";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import React, { Component } from "react";
-import CenterMode from "./Slider";
+//import CenterMode from "./Slider";
 
 export default function Organizer(props) {
   const router = useRouter();

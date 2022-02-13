@@ -17,11 +17,11 @@ import { useRouter } from "next/router";
 //-------------------------------------
 
 // ----- Performance report & metrics ---------
-export function reportWebVitals(metric) {
+/* export function reportWebVitals(metric) {
   if(metric.label === 'web-vital'){
     console.log(metric)
   }
-}
+} */
 //
 
 export default function App({ Component, pageProps }) {
