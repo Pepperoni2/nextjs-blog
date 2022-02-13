@@ -26,11 +26,11 @@ export default function Home() {
   }, []);
   
   const fetchData = async () => {
-    const mamares = await axios.get("https://yomomma-api.herokuapp.com/jokes");
-    console.log(mamares);
+    // const mamares = await axios.get("https://yomomma-api.herokuapp.com/jokes");
+    // console.log(mamares);
     setJokeState({
       ...jokeState,
-      joke: joke,
+      // joke: joke,
     });
   };
   return (
