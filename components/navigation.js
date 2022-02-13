@@ -95,7 +95,7 @@ function Nav(props) {
       burger.classList.add("wrpbt-close");
       Lines.classList.remove("rotate");
       body.style.overflow = "visible";
-      nav.style.background="";
+      nav.style.background="transparent";
       navLinks.forEach((links, index) => {
         if (links.style.animation) {
           links.style.animation = "";
