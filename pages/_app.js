@@ -10,18 +10,18 @@ import "../styles/stylelogin.css";
 //---- Backend & Animation imports-----
 import { DataProvider } from "../store/GlobalState";
 import Layout from "../components/ToastLayout";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import { useRouter } from "next/router";
 //-------------------------------------
 
 // ----- Performance report & metrics ---------
-export function reportWebVitals(metric) {
+/* export function reportWebVitals(metric) {
   if(metric.label === 'web-vital'){
     console.log(metric)
   }
-}
+} */
 //
 
 export default function App({ Component, pageProps }) {
@@ -29,14 +29,25 @@ export default function App({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const body = document.querySelector("body");
     const handleStart = (url) => {
-      url !== router.pathname ? setLoading(true) : setLoading(false);
+      body.style.overflow = "hidden";
+
+      url !== router.pathname ? setLoading(true)
+       : setLoading(false);
     };
-    const handleComplete = (url) => {setLoading(false)};
+    const handleComplete = (url) => {setLoading(false)
+      body.style.overflow = "visible";
+     
+    
+    };
 
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleComplete);
     router.events.on("routeChangeError", handleComplete);
+
+
+
   }, [router]);
 
   useEffect(() => {
@@ -57,7 +68,9 @@ export default function App({ Component, pageProps }) {
   return (
     <DataProvider>
       <Loading loading={loading} />
+      
       <Layout />
+      
       <div id="portal"></div>
       <Component {...pageProps} />
     </DataProvider>

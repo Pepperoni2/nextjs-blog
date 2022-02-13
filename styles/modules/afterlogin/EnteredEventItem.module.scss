@@ -155,13 +155,15 @@ $color-fourth: #e8dbc9;
           }
 
           .infofull {
+            font-size: 1.5em;
+            width: 91%;
             margin: 2% 0;
             margin-left: 3%;
-            font-size: 1.5em;
-            width: fit-content;
             height: 100%;
             padding: 2%;
-            border-bottom: 3px solid black;
+            border-bottom: 2px solid black;
+            color: rgb(224, 2, 2);
+            transition: all 0.2s ease-in-out;
           }
         }
       }
