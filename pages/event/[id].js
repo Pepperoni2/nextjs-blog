@@ -104,7 +104,7 @@ const DetailEvent = (props) => {
                     Free remaining places: {event.openslots}
                   </h6>
                 ) : (
-                  <h6 className={styles.infofull}>Full: Event is filled</h6>
+                  <h6 className={styles.infofull}>Full</h6>
                 )}
                 <h6 className={styles.infocount}>
                   Number of participants: {event.closedSlots}

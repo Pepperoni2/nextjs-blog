@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 //Front-end has added this:
 //import ReactPlayer from 'react-player'
 import Nav from "/components/navigation";
@@ -14,70 +14,463 @@ import ScrollToTop from "../components/scrollTop";
 import styles from "../styles/modules/styles.module.scss";
 //import {window} from 'window'
 import axios from "axios";
-
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  useSpring,
+  useMotionTemplate,
+  useViewportScroll,
+} from "framer-motion";
 
 export default function Home() {
   /* const [jokeState, setJokeState] = useState({
     joke: "",
   });
-  
+
   useEffect(() => {
     fetchData();
   }, []);
-  
+
   const fetchData = async () => {
-    const mamares = await axios.get("https://yomomma-api.herokuapp.com/jokes");
-    console.log(mamares);
+    // const mamares = await axios.get("https://yomomma-api.herokuapp.com/jokes");
+    // console.log(mamares);
     setJokeState({
       ...jokeState,
-      joke: joke,
+      // joke: joke,
     });
   }; */
+
+  const organzierDesc =
+    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ";
+  const handleScrollY = () => {
+    // if (window.pageYOffset > window.innerHeight)
+    // {
+    //   document.body.style.overflow = "hidden";
+    // }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollY);
+
+    const burger = document.querySelector(".wrpbt-div");
+    const navLinks = document.querySelectorAll("#flexPop button");
+    const Lines = document.querySelector(".backg");
+    const body = document.querySelector("body");
+  });
+  const draw = {
+    hidden: { pathLength: 0, opacity: 0 },
+    visible: {
+      pathLength: 1,
+      opacity: 1,
+      transition: {
+        pathLength: { delay: 0.1, type: "spring", duration: 1.5, bounce: 0 },
+        opacity: { delay: 0.1, duration: 0.01 },
+      },
+    },
+  };
+
+  const headLineOrg = {
+    visible: (i) => {
+      const delay = 0.3 + i * 0.2;
+      return {
+        opacity: 1,
+        x: 0,
+        transition: {
+          opacity: { delay, duration: 0.01 },
+          x: { delay, bounce: 300, duration: 0.2 },
+        },
+      };
+    },
+    hidden: { opacity: 0, x: 30 },
+  };
+  const headLinePart = {
+    visible: (i) => {
+      const delay = 0.3 + i * 0.2;
+      
+      return {
+        opacity: 1,
+        y: 0,
+        transition: {
+          opacity: { delay, duration: 0.01 },
+          y: { delay, bounce: 300, duration: 0.2 },
+        },
+      };
+    },
+    hidden: { opacity: 0, y: 20 },
+  };
+  const x = useMotionValue(10);
+  const y = useTransform(x, (value) => value * 2);
+
+  const backChange = useTransform(x, [-100, 0, 100], [0, 1, 0]);
   return (
-    <div id="wrapper">
+    <div className={styles.wrapper}>
       <Header1 />
 
       <Nav />
-
-      <main id="main">
-        <div id="mainbackgr"></div>
+      <main className={styles.main}>
+        <div className={styles.mainbackgr}></div>
         <video autoPlay muted loop src={video} />
 
-        <div id="p-div">
-          <p className="p1">
-            Vielseitige <i>Eventplannung!</i>
-          </p>
-          <Link href="#">
-            <button id="btMehr">Mehr erfahren</button>
-          </Link>
+        <div className={styles.pdiv}>
+          <div className={styles.phelp}>
+            <p className={styles.p1}>
+              Create your events <strong> now!</strong>
+            </p>
+          </div>
+          <div className={styles.flexbt}>
+            <Link href="/login/distributor">
+              <button className={styles.btMehr}>Click here</button>
+            </Link>
+          </div>
+        </div>
+        <div className={styles.divarrow}>
+          <span className={styles.arrow}></span>
         </div>
       </main>
 
-      <div id="wrppic">
-        <div id="pic1">
-          <p className="SchB">
-            <i>Sicherheit!</i>
-          </p>
-        </div>
-        <div id="pic2">
-          <p className="SchB">
-            <i>Ereignisse entdecken!</i>
-          </p>
-        </div>
-        <div id="pic3">
-          <p className="SchB">
-            <i>Erleben Sie Spaß!</i>
-          </p>
-        </div>
-      </div>
-      <ScrollToTop></ScrollToTop>
-      <div className={styles.parallax}>
-          <div className={styles.more}>
-            <h1>Yo Mama Joke</h1>
-            <p></p>
+      <div className={styles.informationOrg}>
+        {/* <motion.svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 600 600"
+          initial="hidden"
+          animate="visible"
+          className={styles.svg}
+        >
+          <motion.line
+            x1="220"
+            y1="30"
+            x2="360"
+            y2="170"
+            stroke="#00cc88"
+            variants={draw}
+          />
+        </motion.svg> */}
+
+        <motion.div
+          className={styles.helper}
+          animate={{ x: 10 }}
+          style={{ x, y }}
+        >
+          <div className={styles.headOrg}>
+            <motion.h1
+              custom={1}
+              variants={headLineOrg}
+              initial={"hidden"}
+              whileInView={"visible"}
+              className="org1"
+              viewport={{ once: true }}
+            >
+              O
+            </motion.h1>
+            <motion.h1
+              custom={2}
+              variants={headLineOrg}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              r
+            </motion.h1>
+            <motion.h1
+              custom={3}
+              variants={headLineOrg}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              g
+            </motion.h1>
+            <motion.h1
+              custom={4}
+              variants={headLineOrg}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              a
+            </motion.h1>
+            <motion.h1
+              custom={5}
+              variants={headLineOrg}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              n
+            </motion.h1>
+            <motion.h1
+              custom={6}
+              variants={headLineOrg}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              i
+            </motion.h1>
+            <motion.h1
+              custom={7}
+              variants={headLineOrg}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              z
+            </motion.h1>
+            <motion.h1
+              custom={8}
+              variants={headLineOrg}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              e
+            </motion.h1>
+            <motion.h1
+              custom={9}
+              variants={headLineOrg}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              r
+            </motion.h1>
           </div>
+          <div className={styles.headOrg1}>
+            <motion.div
+              className={styles.flex1}
+              transition={{ x: { delay: 0.7 }, opacity: { delay: 0.1 } }}
+              whileInView={{ opacity: 1, x: "3vw" }}
+              initial={{ opacity: 0, x: 0, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <motion.p
+                transition={{
+                  x: { delay: 0.7 },
+                  y: { delay: 0.7 },
+                  opacity: { delay: 0.1 },
+                }}
+                whileInView={{ opacity: 1, x: "3vh" }}
+                initial={{ opacity: 0, x: 0, y: 0 }}
+                viewport={{ once: true }}
+                style={{ backChange }}
+              >
+                {organzierDesc}{" "}
+              </motion.p>
+            </motion.div>
+            <motion.div
+              viewport={{ once: true }}
+              className={styles.flex2}
+              transition={{
+                x: { delay: 0.7 },
+                y: { delay: 0.7 },
+                opacity: { delay: 0.1 },
+              }}
+              whileInView={{ opacity: 1, x: "-3vw", y: "3vh" }}
+              initial={{ opacity: 0, x: 0, y: 0 }}
+            >
+              <div></div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+      <div className={styles.informationPart}>
+        {/* <motion.svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 600 600"
+          initial="hidden"
+          animate="visible"
+          className={styles.svg}
+        >
+          <motion.line
+            x1="220"
+            y1="30"
+            x2="360"
+            y2="170"
+            stroke="#00cc88"
+            variants={draw}
+          />
+        </motion.svg> */}
+
+        <motion.div
+          className={styles.helper1}
+          animate={{ x: 0 }}
+          style={{ x, y }}
+        >
+          <motion.div
+            className={styles.headPart}
+            whileInView={{ x: "-3vw" }}
+            initial={{ width: "97%" }}
+            transition={{
+              x: { delay: 0.7 },
+              
+            }}
+            viewport={{ once: true }}
+          >
+            <motion.h1
+              custom={1}
+              variants={headLinePart}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              P
+            </motion.h1>
+            <motion.h1
+              custom={2}
+              variants={headLinePart}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              a
+            </motion.h1>
+            <motion.h1
+              custom={3}
+              variants={headLinePart}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              r
+            </motion.h1>
+            <motion.h1
+              custom={4}
+              variants={headLinePart}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              t
+            </motion.h1>
+            <motion.h1
+              custom={5}
+              variants={headLinePart}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              i
+            </motion.h1>
+            <motion.h1
+              custom={6}
+              variants={headLinePart}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              c
+            </motion.h1>
+            <motion.h1
+              custom={7}
+              variants={headLinePart}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              i
+            </motion.h1>
+            <motion.h1
+              custom={8}
+              variants={headLinePart}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              p
+            </motion.h1>
+            <motion.h1
+              custom={9}
+              variants={headLinePart}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              a
+            </motion.h1>
+            <motion.h1
+              custom={10}
+              variants={headLinePart}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              t
+            </motion.h1>
+            <motion.h1
+              custom={11}
+              variants={headLinePart}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              o
+            </motion.h1>
+            <motion.h1
+              custom={12}
+              variants={headLinePart}
+              initial={"hidden"}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              r
+            </motion.h1>
+            
+          </motion.div>
+          <div className={styles.headOrg1}>
+            
+            <motion.div
+              viewport={{ once: true }}
+              className={styles.flex3}
+              transition={{
+                x: { delay: 0.7 },
+                y: { delay: 0.7 },
+                opacity: { delay: 0.1 },
+              }}
+              whileInView={{ opacity: 1, x: "3vw", y: "3vh" }}
+              initial={{ opacity: 0, x: 0, y: 0 }}
+            >
+              <div></div>
+            </motion.div>
+            <motion.div
+              className={styles.flex4}
+              transition={{ x: { delay: 0.7 }, opacity: { delay: 0.1 } }}
+              whileInView={{ opacity: 1, x: "-3vw" }}
+              initial={{ opacity: 0, x: 0, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <motion.p
+                transition={{
+                  x: { delay: 0.7 },
+                  y: { delay: 0.7 },
+                  opacity: { delay: 0.1 },
+                }}
+                whileInView={{ opacity: 1, x: "8vw" }}
+                initial={{ opacity: 0, x: 0, y: 0 }}
+                viewport={{ once: true }}
+                style={{ backChange }}
+              >
+                {organzierDesc}{" "}
+              </motion.p>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+      {/* <div className={styles.test}>
+      <span className={styles.test2}>1</span>
+      <span className={styles.test2}>2</span>
+      <span className={styles.test2}>3</span>
+    </div> */}
+      <ScrollToTop></ScrollToTop>
+      {/* <div className={styles.parallax}>
+        <div className={styles.more}>
+          <h1>Yo Mama Joke</h1>
+          <p></p>
         </div>
-      <div id="footer1">
+      </div> */}
+      <div className={styles.footer1}>
         <Footer />
       </div>
     </div>

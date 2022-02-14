@@ -36,8 +36,9 @@ const EnteredEvent = ({ event, dispatch, enteredEvent }) => {
   return (
     <motion.div
       className={styles.wrapper}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y:0 }}
+      transition={{delay:0.2, duration: 0.2}}
       viewport={{ once: true }}
     >
       <Modal open={isOpen} onClose={closeModal}></Modal>
@@ -64,7 +65,7 @@ const EnteredEvent = ({ event, dispatch, enteredEvent }) => {
               {event.openslots > 0 ? (
                 <p className={styles.infoOpen}>Free remaining places: {event.openslots}</p>
               ) : (
-                <p className={styles.infofull}>Full: Event is filled</p>
+                <p className={styles.infofull}>Full</p>
               )}
                <p className={styles.countopen}>Number of participants: {event.closedSlots}</p>
             </h6>

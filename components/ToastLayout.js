@@ -2,13 +2,16 @@ import React from "react";
 //import NavBar from "./navigation-login";
 import Notify from "./Notify";
 import styles from "../styles/modules/toast.module.scss";
+import { AnimatePresence, motion } from "framer-motion";
+
 // Pfusch nur zum Testen da
 function Layout({children}) {
     return(
-        <div className={styles.container}>
+        
+        <motion.div className={styles.container}  >
             <Notify />
             {children}
-        </div>
+        </motion.div>
         
     )
 }
