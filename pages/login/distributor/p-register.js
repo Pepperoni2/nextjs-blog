@@ -6,7 +6,7 @@ import Footer from "../../../components/footer.js";
 import { useState, useContext } from "react";
 import { DataContext } from "../../../store/GlobalState";
 import { postData } from "../../../util/fetchData";
-
+import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
 import FOG from "vanta/dist/vanta.fog.min";
 import * as THREE from "three";
@@ -19,8 +19,9 @@ const RegisterP = () => {
   const initialState = { name: "", email: "", password: "", cf_password: "" };
   const [userData, setUserData] = useState(initialState);
   const { name, email, password, cf_password } = userData;
-
+  const router = useRouter()
   const {state, dispatch} = useContext(DataContext);
+
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -37,9 +38,10 @@ const RegisterP = () => {
     const res = await postData("auth/register", userData);
 
     if (res.err)
-      return dispatch({ type: "NOTIFY", payload: { success: res.err } });
+      return dispatch({ type: "NOTIFY", payload: { error: res.err } });
 
-    return dispatch({ type: "NOTIFY", payload: { success: res.msg } });
+      dispatch({ type: "NOTIFY", payload: { success: res.msg } });
+      router.push("/login")
   };
   // --------------------------------------------
 

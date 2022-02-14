@@ -39,16 +39,15 @@ const RegisterO = () => {
     const res = await postData("auth/register_org", orgData);
 
     if (res.err)
-      return dispatch({ type: "NOTIFY", payload: { success: res.err } });
+      return dispatch({ type: "NOTIFY", payload: { error: res.err } });
     
-    return dispatch({ type: "NOTIFY", payload: { success: res.msg } }); 
-
+    dispatch({ type: "NOTIFY", payload: { success: res.msg } }); 
+    router.push("/login")
   };
   // --------------------------------------------
   const [vantaEffect, setVantaEffect] = useState(0);
   const vantaRef = useRef(null);
   useEffect(() => {
-    if(Object.keys(auth).length !== 0) router.push("/participator")
     if (!vantaEffect) {
       setVantaEffect(
         FOG({
@@ -76,7 +75,7 @@ const RegisterO = () => {
 
   return (
     <div className={styles.wrapperregister} >
-      <div className={styles.wallpaper} ref={vantaRef}></div>
+      <div className={styles.wallpaper} ref={vantaRef} ></div>
       <Head>
         <title>Register Page</title>
       </Head>

@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const eventSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true, 
+        required: true,
         trim: true
     },
     description: {
@@ -15,12 +15,30 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    images: {
-        type: Array,
-        required: true
+    images:
+    {   
+        type:Array,
+        required: true,
+        Object:
+        {
+            type: Object,
+            required: true,
+            public_id: {
+                type: String,
+                default: "eventx_media/NoThumbnail_cfkxha",
+                required: true
+            },
+            url: {
+                type: String,
+                default: "https://res.cloudinary.com/eventx-cloud/image/upload/v1643798820/eventx_media/NoThumbnail_cfkxha.png",
+                required: true
+            },
+        }
+        
+
     },
     category: {
-        type: String, 
+        type: String,
         required: true
     },
     openslots: {
@@ -45,7 +63,7 @@ const eventSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     }
-},{
+}, {
     timestamps: true
 })
 

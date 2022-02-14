@@ -12,7 +12,7 @@ $logo: url(/Pics/logo_large.png);
   .singoutuser {
     height: 40%;
     width: 100%;
-    background-color: darkcyan;
+    // background-color: darkcyan;
     display: flex;
     
     justify-content: center;
@@ -181,7 +181,7 @@ $logo: url(/Pics/logo_large.png);
     .bt1:hover .link1 {
       opacity: 1;
       width: 100%;
-
+      background-color: darken($color-third,4);
       /* background-image: url("/Vids/ezgif.com-gif-maker1.gif"); */
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
@@ -246,7 +246,7 @@ $logo: url(/Pics/logo_large.png);
       width: 100%;
 
       background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
-
+      background-color: darken($color-third,4);
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt2:hover .icon2 {
@@ -309,7 +309,7 @@ $logo: url(/Pics/logo_large.png);
       width: 100%;
 
       background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
-
+      background-color: darken($color-third,4);
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt3:hover .icon3 {
@@ -371,7 +371,7 @@ $logo: url(/Pics/logo_large.png);
       width: 100%;
       
       background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
-
+      background-color: darken($color-third,4);
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt4:hover .icon4 {
@@ -432,7 +432,7 @@ $logo: url(/Pics/logo_large.png);
     .bt5:hover .link5 {
       opacity: 1;
       width: 100%;
-      
+      background-color: darken($color-third,4);
       background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;

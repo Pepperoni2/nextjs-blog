@@ -7,9 +7,8 @@ import EventItem from "../components/event/EventItem";
 import { useRouter } from "next/router";
 
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-
 import React, { Component } from "react";
-
+//import CenterMode from "./Slider";
 
 export default function Organizer(props) {
   const router = useRouter();
@@ -42,7 +41,7 @@ export default function Organizer(props) {
 
   return (
     <div className={styles.wrapper}>
-      
+      <NavigationLeftO />
       <div className={styles.container}>
        </div>	
     </div>
