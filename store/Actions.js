@@ -10,7 +10,8 @@ export const ACTIONS = {
     AUTH: 'AUTH',
     ADD_EVENT: 'ADD_EVENT',
     EXIT_EVENT: 'EXIT_EVENT',
-    ADD_MODAL: 'ADD_MODAL', 
+    ADD_MODAL: 'ADD_MODAL',
+    ADD_USERS: 'ADD_USERS', 
 }
 
 export const addToEnteredEvents = (event, enteredEvent) => {
