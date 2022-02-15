@@ -13,7 +13,7 @@ function Nav(props) {
 
   const { state } = useContext(DataContext);
   const { auth } = state;
-
+  const [clicked, setClick] = useState(false);
   const nixRouter = () => {
     return (
       <>
@@ -21,24 +21,23 @@ function Nav(props) {
       </>
     );
   };
+  const [stateNav, setStateNav] = useState(false);
   useEffect(() => {
-    window.addEventListener("scroll", handleScrollY);
-  });
-  const [clicked, setClicked] = useState(false);
-
-  const handleScrollY = () => {
+    window.addEventListener("scroll", handleScrollY1);
     const nav = document.getElementById("nav");
-    if (window.pageYOffset > 20) {
+
+    if (stateNav) {
       nav.style.backgroundColor = "#251e21";
     } else {
-      if(clicked){
-        nav.style.backgroundColor = "#251e21";
+      nav.style.background = "#251e2113";
+    }
+  });
 
-      }
-      else{
-        nav.style.background = "#251e2113";
-
-      }
+  const handleScrollY1 = () => {
+    if (window.pageYOffset > 20) {
+      setStateNav(true);
+    } else {
+      setStateNav(false);
     }
   };
 
@@ -60,11 +59,11 @@ function Nav(props) {
 
   const toggleState = () => {
     if (clicked) {
-      setClicked(false);
+      setClick(false);
     } else {
-      setClicked(true);
+      setClick(true);
     }
-    if (window.innerWidth > 750) setClicked(false);
+    if (window.innerWidth > 750) setClick(false);
   };
   function A() {
     nav.style.background = "#251e21";
@@ -91,7 +90,7 @@ function Nav(props) {
     });
     window.addEventListener("resize", function Abc() {
       if (window.innerWidth > 750) {
-        setClicked(false);
+        setClick(false);
         console.log(this.window, innerWidth);
         burger.classList.remove("wrpbt-active");
         burger.classList.remove("wrpbt-close");
