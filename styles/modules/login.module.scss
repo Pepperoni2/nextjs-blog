@@ -31,7 +31,7 @@ $color-fourth: #e8dbc9;
     width: 90%;
     height: 55vh;
     min-height: 400px;
-    
+    border-radius: 10px;
     position: relative;
     // width: 60vw;
     flex-direction: row;
@@ -40,17 +40,17 @@ $color-fourth: #e8dbc9;
     max-width: 500px;
     animation: ani alternate 1s ease;
     animation-iteration-count: 2;
-    @keyframes ani {
-      to{
-        box-shadow: 20px -20px 0 black, 
-        20px 20px 0 black, -20px -20px 0 black, -20px 20px 0 black, 20px -20px 0 #e97231, 
-        35px 35px 0 #e97231, -35px -35px 0 #e97231, -20px 20px 0 #e97231, 50px -50px 0 #251e21, 
-        30px 30px 0 #251e21, -30px -30px 0 #251e21, -50px 50px 0 #251e21,;
-      }
-      from{
-        box-shadow: 0 0 0 transparent;
-      }
-    }
+    // @keyframes ani {
+    //   to{
+    //     box-shadow: 20px -20px 0 black, 
+    //     20px 20px 0 black, -20px -20px 0 black, -20px 20px 0 black, 20px -20px 0 #e97231, 
+    //     35px 35px 0 #e97231, -35px -35px 0 #e97231, -20px 20px 0 #e97231, 50px -50px 0 #251e21, 
+    //     30px 30px 0 #251e21, -30px -30px 0 #251e21, -50px 50px 0 #251e21,;
+    //   }
+    //   from{
+    //     box-shadow: 0 0 0 transparent;
+    //   }
+    // }
     .container {
       height: 100%;
       display: flex;
@@ -195,11 +195,13 @@ $color-fourth: #e8dbc9;
         max-width: 250px;
         border: none;
         cursor: pointer;
-        transition: ease-in-out all 0.1s;
         position: relative;
         border-radius: 4px;
+        transition: ease-in-out transform 0.1s;
       }
       .submit:hover {
+        
+
         transform: translateY(2px);
         opacity: 0.8;
       }
@@ -243,9 +245,6 @@ $color-fourth: #e8dbc9;
   .container {
  
     border-radius: 0px;
-  }
-  .container{
-    
   }
 }
 @media only screen and (max-width: 360px) {

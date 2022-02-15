@@ -123,6 +123,32 @@ const SignIn = () => {
 
     });
   });
+
+  const variants = {
+    visible: (i) => {
+      const delay = 0.5 + i * 0.1;
+      return {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: delay,
+        bounce: 0,
+        damping: 1,
+        duration: 0.3,
+      },
+    }
+    },
+    hidden: {
+      opacity: 0,
+      y: -10,
+
+      transition: {
+        y: { delay: 0.6, bounce: 0, damping: 1 },
+        opacity: { delay: 0.6 },
+      },
+    },
+  };
+
   return (
     <motion.div
       className={styles.wrapperlogin}
@@ -143,8 +169,8 @@ const SignIn = () => {
             <NavLogin />
 
             <div className={styles.img}></div>
-            <motion.h1 className={styles.title}>Login</motion.h1>
-            <div className={styles.textdiv}>
+            <motion.h1 custom={1} className={styles.title} variants={variants} animate={"visible"} initial={"hidden"}>Login</motion.h1>
+            <motion.div custom={2} className={styles.textdiv}  variants={variants} animate={"visible"} initial={"hidden"}>
               <input
                 className={styles.input}
                 type="email"
@@ -155,8 +181,8 @@ const SignIn = () => {
                 name="email"
               />
               <span className={styles.textspan} id="span1"></span>
-            </div>
-            <div className={styles.textdiv}>
+            </motion.div>
+            <motion.div custom={3} className={styles.textdiv}  variants={variants} animate={"visible"} initial={"hidden"}>
               <input
                 type="password"
                 id="psw"
@@ -167,8 +193,8 @@ const SignIn = () => {
                 className={styles.input}
               />
               <span className={styles.textspan} id="span2"></span>
-            </div>
-            <span className={styles.divpswAreg} /*style="color:#ce8e35"*/>
+            </motion.div>
+            <motion.span custom={4} className={styles.divpswAreg} variants={variants} animate={"visible"} initial={"hidden"} /*style="color:#ce8e35"*/>
               <li>
                 Forgot
                 <Link href="/about">
@@ -180,16 +206,16 @@ const SignIn = () => {
                   <a className={styles.register}>Register</a>
                 </Link>
               </li>
-            </span>
+            </motion.span>
             {/* <span className={styles.textspan}></span> */}
             {/* <div id="OtherLogins">
               <div>Google</div>
               <div>GitHub</div>
               <div>Sonstiges</div>
             </div> */}
-            <button className={styles.submit} type="submit">
+            <motion.button custom={5} className={styles.submit} type="submit" variants={variants} animate={{scale: 1, opacity:1}} initial={{scale: 0.9,opacity:0}} transition={{delay: 0.8}}>
               Login
-            </button>
+            </motion.button>
             {/* <div >
             <label className={styles.remember1} for="remember">
               
