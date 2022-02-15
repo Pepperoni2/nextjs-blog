@@ -1,14 +1,14 @@
 import Link from "next/dist/client/link";
-
+import styles from "../styles/modules/logRegNav.module.scss";
 function NavLogin(props) {
   return (
-    <div id="wrplh-login">
+    <div className={styles.wrplhlogin}>
       <Link href="/">
-        <div id="logo-login"></div>
+        <div className={styles.logologin}></div>
       </Link>
 
       <Link href="/">
-        <a>EventX</a>
+        <a className={styles.link}>EventX</a>
       </Link>
     </div>
   );

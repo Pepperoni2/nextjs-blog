@@ -135,7 +135,7 @@ export default function NavigationLeftP() {
               </div>
               <div className={styles.divuser}>
                 <div className={styles.userhelp} id="userhelp">
-                  <span className={styles.username}>{auth.user.name}</span>
+                  <span className={styles.username}>{auth.user.name} <span className={styles.underline}></span></span>
 
                   {/* <div className={styles.userarrow}>
                 &gt;

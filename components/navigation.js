@@ -37,10 +37,12 @@ function Nav(props) {
     console.log(stateNav);
     console.log(clicked)
     if (stateNav) {
-      nav.style.backgroundColor = "#251e21";
+      setTimeout(Color, 50);
+
     } else {
       if(!clicked){
-        nav.style.background = "#251e2113";
+        setTimeout(NoColor, 220);
+
 
       }
     }
@@ -72,13 +74,13 @@ function Nav(props) {
     }
     if (window.innerWidth > 750) setClick(false);
   };
-  function A() {
+  function Color() {
     const nav = document.getElementById("nav");
 
     nav.style.background = "#251e21";
     console.log("lol");
   }
-  function B() {
+  function NoColor() {
     const nav = document.getElementById("nav");
 
     nav.style.background = "transparent";
@@ -118,7 +120,7 @@ function Nav(props) {
       burger.classList.remove("wrpbt-close");
       console.log(Lines);
       // body.style.overflow = "hidden";
-      setTimeout(A, 50);
+      setTimeout(Color, 50);
     } else {
       burger.classList.remove("wrpbt-active");
       burger.classList.add("wrpbt-close");
@@ -129,7 +131,7 @@ function Nav(props) {
           links.style.animation = "";
         }
       });
-      setTimeout(B, 220);
+      setTimeout(NoColor, 220);
     }
   }, [clicked]);
 

@@ -88,12 +88,13 @@
 .bt:nth-child(1) {
   /* background-color: rgba(37, 30, 33,0.5); */
   color: #e8dbc9;
+  box-shadow: 0 0 2px 1px #292627;
 
 }
 
 .bt:nth-child(2) {
   /* background-color: rgba(37, 30, 33,0.5); */
-  background-color: rgb(27, 26, 26); 
+  /* background-color: rgb(27, 26, 26);  */
   box-shadow: 0 0 2px 1px #292627;
   /* min-width: 110px; */
   color: #e8dbc9;
@@ -263,6 +264,7 @@
     opacity: 0;
     transform: scaleY(0);
     transform-origin: top;
+
 
     /* background-color: rgb(0, 0, 0); */
   }

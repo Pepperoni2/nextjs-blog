@@ -1,0 +1,43 @@
+
+  .wrplhlogin {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    transition: all ease-in-out 0.5s;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+    height: 10vh;
+  }
+  
+  .logologin {
+    background-image: url("/logo_large.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+    width: 12.5%;
+    height: 80px;
+    min-height: 60px;
+    min-width: 60px;
+    &:hover{
+        
+    }
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #e97231;
+    cursor: pointer;
+    font-size: 2em;
+    margin-left: 10px;
+    height: 100%;
+    width: fit-content;
+    text-align: center;
+    font-family: "Almarai", sans-serif;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+  }
