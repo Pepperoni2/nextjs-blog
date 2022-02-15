@@ -17,12 +17,12 @@ const EditUser = () => {
 
     useEffect(() => {
         users.forEach(user => {
-            if(user._id === id){
+            if (user._id === id) {
                 setEditUser(user)
                 setCheckAdmin(user.role === 'admin' ? true : false)
             }
-        });
-    },[users])
+        })
+    }, [users])
 
     const handleCheck = () => {
         setCheckAdmin(!checkAdmin)
@@ -31,12 +31,12 @@ const EditUser = () => {
 
     const handleSubmit = () => {
         let role = checkAdmin ? 'admin' : 'participator'
-        if(num % 2 !== 0){
-            dispatch({type: 'NOTIFY', payload: {loading: true}})
-            patchData(`user/${editUser._id}`, {role}, auth.token)
+        if (num % 2 !== 0) {
+            dispatch({ type: 'NOTIFY', payload: { loading: true } })
+            patchData(`user/${editUser._id}`, { role }, auth.token)
             .then(res => console.log(res))
         }
-        
+
     }
 
     return (
@@ -44,26 +44,34 @@ const EditUser = () => {
             <Head>
                 <title>Edit User</title>
             </Head>
-            <div>Edit User {id}</div>
-
             <div>
-                <label>Name</label>
-                <input type="text" defaultValue={editUser.name} disabled />
+                <h2>Edit User {id}</h2>
+
+                <div>
+                    <button onClick={() => router.back()}>
+                        Go Back
+                    </button>
+                </div>
+                <div>
+                    <label htmlFor="name" style={{color: 'brown'}}>Name</label>
+                    <input type="text" id="name" defaultValue={editUser.name} disabled />
+                </div>
+
+                <div>
+                    <label htmlFor="email" style={{color: 'brown'}}>Email</label>
+                    <input type="text" id="email" defaultValue={editUser.email} disabled />
+                </div>
+
+                <div>
+                    <input type="checkbox" id="isAdmin" checked={checkAdmin}
+                        style={{ width: '20px', height: '20px' }}
+                        onChange={handleCheck} />
+                    <label htmlFor="isAdmin" style={{ color: 'brown', transform: 'translate(4px, -3px)' }}>IsAdmin</label>
+                </div>
+
+                <button onClick={handleSubmit}>Update</button>
             </div>
 
-            <div>
-                <label>Email</label>
-                <input type="text" defaultValue={editUser.email} disabled />
-            </div>
-
-            <div>
-                <input type="checkbox" checked={checkAdmin} 
-                style={{width: '20px', height: '20px'}} 
-                onChange={handleCheck} />
-                <label style={{ color: 'brown', transform: 'translate(4px, -3px)'}}>IsAdmin</label>
-            </div>
-
-            <button onClick={handleSubmit}>Update</button>
         </div>
 
     )

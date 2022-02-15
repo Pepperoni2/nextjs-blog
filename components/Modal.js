@@ -20,6 +20,10 @@ const Modal = ({ open, onClose }) => {
         return dispatch({type: 'NOTIFY', payload: {success: res.err}})
       })
     }
+    if(modal.type === 'ADD_USERS'){
+        deleteData(`user${modal.id}`, auth.token)
+        .then(res => console.log(res))
+    }
 
     dispatch(ExitEvent(exit.data, exit.id, "ADD_EVENT"));
     dispatch({ type: "EXIT_EVENT", payload: {} });
