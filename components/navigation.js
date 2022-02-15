@@ -4,6 +4,7 @@ import { DataContext } from "../store/GlobalState";
 import { motion } from "framer-motion";
 import Burger from "./burgermenu";
 import burgerstyles from "../styles/modules/burger.module.scss";
+import { el } from "date-fns/locale";
 function Nav(props) {
   const [clientWindowHeight, setClientWindowHeight] = useState("");
 
@@ -22,27 +23,33 @@ function Nav(props) {
     );
   };
   const [stateNav, setStateNav] = useState(false);
-  useEffect(() => {
-    window.addEventListener("scroll", handleScrollY1);
-    const nav = document.getElementById("nav");
-
-    if (stateNav) {
-      nav.style.backgroundColor = "#251e21";
-    } else {
-      nav.style.background = "#251e2113";
-    }
-  });
-
   const handleScrollY1 = () => {
     if (window.pageYOffset > 20) {
       setStateNav(true);
-    } else {
+    } 
+    if (window.pageYOffset < 20) {
       setStateNav(false);
-    }
+    } 
   };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollY1);
+    const nav = document.getElementById("nav");
+    console.log(stateNav);
+    console.log(clicked)
+    if (stateNav) {
+      nav.style.backgroundColor = "#251e21";
+    } else {
+      if(!clicked){
+        nav.style.background = "#251e2113";
+
+      }
+    }
+  });
 
   useEffect(() => {
     let backgroundTransparacyVar = clientWindowHeight / 200;
+
+    const nav = document.getElementById("nav");
     // console.log(clientWindowHeight);
     if (clicked) {
       nav.style.background = "#251e21";
@@ -66,10 +73,14 @@ function Nav(props) {
     if (window.innerWidth > 750) setClick(false);
   };
   function A() {
+    const nav = document.getElementById("nav");
+
     nav.style.background = "#251e21";
     console.log("lol");
   }
   function B() {
+    const nav = document.getElementById("nav");
+
     nav.style.background = "transparent";
     console.log("lol");
   }
@@ -166,7 +177,8 @@ function Nav(props) {
                     <a>Login</a>
                   </button>
                 </Link>
-               ) : auth.user.role === "participator" || auth.user.role === "admin" ? (
+              ) : auth.user.role === "participator" ||
+                auth.user.role === "admin" ? (
                 <Link href="/participator">
                   <button className="bt">
                     <a>Home</a>

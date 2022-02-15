@@ -79,7 +79,7 @@ const EventItem = ({ event }) => {
   const variantsButtons = {
     open: {
       opacity: 1,
-      y: -10,
+      y: -10.5,
       transition: {
         bounce: 0,
         damping: 1,
@@ -88,7 +88,7 @@ const EventItem = ({ event }) => {
     },
     closed: {
       opacity: 0,
-      y: 10,
+      y: 10.5,
 
       transition: {
         y: { delay: 0.1, bounce: 0, damping: 1 },
