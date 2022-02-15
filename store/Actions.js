@@ -9,7 +9,8 @@ export const ACTIONS = {
     NOTIFY: 'NOTIFY',
     AUTH: 'AUTH',
     ADD_EVENT: 'ADD_EVENT',
-    EXIT_EVENT: 'EXIT_EVENT'
+    EXIT_EVENT: 'EXIT_EVENT',
+    ADD_MODAL: 'ADD_MODAL', 
 }
 
 export const addToEnteredEvents = (event, enteredEvent) => {
@@ -20,13 +21,18 @@ export const addToEnteredEvents = (event, enteredEvent) => {
     })
 
     if (!enter) return ({ type: 'NOTIFY', payload: { error: 'You have already entered this event.' } })
-    else{
-        return ({ type: 'ADD_EVENT', payload: [...enteredEvent, { ...event, closedSlots: event.closedSlots += 1, openslots: event.openslots -= 1}] })
+    else {
+        return ({ type: 'ADD_EVENT', payload: [...enteredEvent, { ...event, closedSlots: event.closedSlots += 1, openslots: event.openslots -= 1 }] })
     }
-    
+
 }
 
 export const ExitEvent = (data, id, type) => {
     const newData = data.filter(enteredEvent => enteredEvent._id !== id)
+    return ({ type, payload: newData })
+}
+
+export const deleteEvent = (data, id, type) => {
+    const newData = data.filter(event => event._id !== id)
     return ({ type, payload: newData })
 }

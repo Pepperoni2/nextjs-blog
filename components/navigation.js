@@ -166,7 +166,7 @@ function Nav(props) {
                     <a>Login</a>
                   </button>
                 </Link>
-              ) : auth.user.role === "participator" ? (
+               ) : auth.user.role === "participator" || auth.user.role === "admin" ? (
                 <Link href="/participator">
                   <button className="bt">
                     <a>Home</a>
