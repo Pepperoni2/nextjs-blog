@@ -213,7 +213,7 @@ const SignIn = () => {
               <div>GitHub</div>
               <div>Sonstiges</div>
             </div> */}
-            <motion.button custom={5} className={styles.submit} type="submit" variants={variants} animate={{scale: 1, opacity:1}} initial={{scale: 0.9,opacity:0}} transition={{delay: 0.8}}>
+            <motion.button custom={5} className={styles.submit} type="submit" variants={variants} animate={{opacity:1}} initial={{opacity:0}} transition={{delay: 0.8}}>
               Login
             </motion.button>
             {/* <div >
