@@ -112,10 +112,11 @@ const SignIn = () => {
     });
     inputPassw.addEventListener("change", () => {
       const span2 = document.getElementById("span2");
-      
+      console.log("hallo");
       // const span2 = document.getElementsById("span2");
-      if (inputEmail && inputEmail.value) {
+      if (inputPassw && inputPassw.value) {
         span2.style.width = "100%";
+        console.log("hallo");
       } else {
         span2.style.width = null;
       }

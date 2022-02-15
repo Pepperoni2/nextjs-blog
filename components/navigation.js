@@ -26,24 +26,27 @@ function Nav(props) {
   const handleScrollY1 = () => {
     if (window.pageYOffset > 20) {
       setStateNav(true);
-    } 
+    }
     if (window.pageYOffset < 20) {
       setStateNav(false);
-    } 
+    }
   };
   useEffect(() => {
     window.addEventListener("scroll", handleScrollY1);
     const nav = document.getElementById("nav");
     console.log(stateNav);
-    console.log(clicked)
+    console.log(clicked);
     if (stateNav) {
-      setTimeout(Color, 50);
+      const nav = document.getElementById("nav");
 
+      nav.style.background = "#251e21";
     } else {
-      if(!clicked){
-        setTimeout(NoColor, 220);
+      if (!clicked) {
+        // setTimeout(NoColor, 220);
 
+        const nav = document.getElementById("nav");
 
+        nav.style.background = "transparent";
       }
     }
   });
