@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const Users = () => {
     const { state, dispatch } = useContext(DataContext)
-    const { users, auth } = state
+    const { users, auth, modal } = state
     return (
         <div>
             <Head>
@@ -44,23 +44,26 @@ const Users = () => {
                                 <th>
                                     {
                                         user.role === 'admin'
-                                        ? user.root ? <i> yes</i> 
-                                                    : <i></i>
+                                        ? user.root ? <i> Root</i> 
+                                                    : <i>yes</i>
                                         :<i>no</i>
                                     }
                                 </th>
                                 <th>
                                     <Link href={
-                                        auth.user.root && auth.user.email || user.email 
+                                        auth.user.root && auth.user.email !== user.email 
                                         ? `/settings/edit_user/${user._id}` : `#!`
                                     }>
                                         <a><i>link</i></a>
                                     </Link>
 
                                     {
-                                        auth.user.root && auth.user.email || user.email
-                                        ? <i>X</i>
-                                        : <i>X</i>
+                                        auth.user.root && auth.user.email !== user.email
+                                        ? <i onClick={() => dispatch({
+                                            type: 'ADD_MODAL',
+                                            payload: {data: users, id: user._id, title: user.name, type: 'ADD_USERS'}
+                                        })}> Remove</i>
+                                        : <i> Remove</i>
                                     }
                                 </th>
 

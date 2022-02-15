@@ -13,9 +13,6 @@ export default async (req, res) => {
         case "PUT":
             await joinEvent(req, res)
             break;
-        case "DELETE":
-            await deleteEvent(req, res)
-            break;
     }
 }
 
@@ -37,10 +34,10 @@ const getEvents = async (req, res) => {
 const joinEvent = async (req, res) => {
     try {
         
-        const { id } = req.query;
-        const { username } = req.body;
-
-        const participator = await Users.findOne({ username })
+        const { id } = req.query
+        const { username } = req.body
+        //res.json({ msg: `${username}, ${id}, ${event.title}` })
+        const participator = await Users.findOne({ name: username })
         if (!participator) return res.status(400).json({ err: 'User does not exist.' })
 
         /* const alreadyPart = await Events.findById(id, { $elemMatch: { $in: [ participator._id, participants ]  } })
@@ -49,7 +46,7 @@ const joinEvent = async (req, res) => {
         const event = await Events.findByIdAndUpdate(id, { $push: { participants: participator._id } })
         if (!event) return res.status(400).json({ err: 'Could not push participator ID into database' })
 
-        res.json({ msg: `Success! You are now participating in ${event.title}` })
+        res.json({ msg: `Congrats! You are now participating in ${event.title}` }) //
         
     }
     catch (err) {
