@@ -4,11 +4,13 @@ function NavLogin(props) {
   return (
     <div className={styles.wrplhlogin}>
       <Link href="/">
-        <div className={styles.logologin}></div>
+        <a className={styles.a1}>
+        <div className={styles.logologin}> </div>
+        </a>
       </Link>
 
       <Link href="/">
-        <a className={styles.link}>EventX</a>
+        <a className={styles.link}>EventX <span className={styles.underline}></span></a>
       </Link>
     </div>
   );
