@@ -2,13 +2,13 @@ import connectDB from '../../../util/connectDB'
 import Organizers from '../../../models/organizerModels'
 import valid from '../../../util/valid'
 import bcrypt from 'bcrypt'
+import nc from 'next-connect'
 import Email from '../../../util/email'
 import { createAuthenticationToken } from '../../../util/generateToken'
-import nc from 'next-connect'
 
 connectDB()
 
-const handler = nc();
+const handler = nc()
 
 export default async (req, res) => {
     switch (req.method) {

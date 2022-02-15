@@ -29,7 +29,7 @@ const orgSchema = new mongoose.Schema({
     },
     avatar: {
         type: String,
-        default: 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png'
+        default: 'https://res.cloudinary.com/eventx-cloud/image/upload/v1643798820/eventx_media/NoThumbnail_cfkxha.png'
     },
     // Not required data for org-register
     location: {
