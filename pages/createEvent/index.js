@@ -123,10 +123,8 @@ const OrgsEvent = () => {
                 }, eventData
             )
 
-            if (res.err)
-                return dispatch({ type: "NOTIFY", payload: { error: res.err } });
-            
-                return dispatch({ type: "NOTIFY", payload: { success: "Event created!" } });
+            if (res.err) return dispatch({ type: "NOTIFY", payload: { error: "An error in the event-creation has occured!" } });
+            return dispatch({ type: "NOTIFY", payload: { success: "Event created!" } });
         }
         else {
             return dispatch({ type: "NOTIFY", payload: { error: "Please fill out all the event fields!" } })

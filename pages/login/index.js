@@ -55,7 +55,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if(Object.keys(auth).length !== 0) {
-      if(auth.user.role === 'participator') router.push("/participator")
+      if(auth.user.role === 'participator' || auth.user.role === 'admin') router.push("/participator")
       else{
         router.push("/organizer")
       }
