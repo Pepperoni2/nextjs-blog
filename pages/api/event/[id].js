@@ -13,6 +13,9 @@ export default async (req, res) => {
         case "PUT":
             await joinEvent(req, res)
             break;
+        case "DELETE":
+            await deleteEvent(req, res)
+            break;
     }
 }
 
@@ -46,7 +49,7 @@ const joinEvent = async (req, res) => {
         const event = await Events.findByIdAndUpdate(id, { $push: { participants: participator._id } })
         if (!event) return res.status(400).json({ err: 'Could not push participator ID into database' })
 
-        res.json({ msg: `Success! You are now participating in ${event.name}` })
+        res.json({ msg: `Success! You are now participating in ${event.title}` })
         
     }
     catch (err) {

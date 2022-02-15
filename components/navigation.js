@@ -13,7 +13,7 @@ function Nav(props) {
 
   const { state } = useContext(DataContext);
   const { auth } = state;
-
+  const [clicked, setClick] = useState(false);
   const nixRouter = () => {
     return (
       <>
@@ -21,20 +21,32 @@ function Nav(props) {
       </>
     );
   };
+  const [stateNav, setStateNav] = useState(false);
   useEffect(() => {
-    window.addEventListener("scroll", handleScrollY);
+    window.addEventListener("scroll", handleScrollY1);
+    const nav = document.getElementById("nav");
 
-    return () => window.removeEventListener("scroll", handleScrollY);
+    if (stateNav) {
+      nav.style.backgroundColor = "#251e21";
+    } else {
+      nav.style.background = "#251e2113";
+    }
   });
 
-  const handleScrollY = () => {
-    setClientWindowHeight(window.scrollY);
+  const handleScrollY1 = () => {
+    if (window.pageYOffset > 20) {
+      setStateNav(true);
+    } else {
+      setStateNav(false);
+    }
   };
 
   useEffect(() => {
     let backgroundTransparacyVar = clientWindowHeight / 200;
     // console.log(clientWindowHeight);
-    if (backgroundTransparacyVar < 1) {
+    if (clicked) {
+      nav.style.background = "#251e21";
+    } else if (backgroundTransparacyVar < 1) {
       let heightVar = 200 - backgroundTransparacyVar * 35;
       let boxShadowVar = backgroundTransparacyVar * 1;
       setBackgroundTransparacy(backgroundTransparacyVar);
@@ -44,17 +56,23 @@ function Nav(props) {
   }, [clientWindowHeight]);
 
   const [stateApp, setStateApp] = useState(false);
-  const [clicked, setClicked] = useState(false);
 
   const toggleState = () => {
     if (clicked) {
-      setClicked(false);
+      setClick(false);
     } else {
-      setClicked(true);
+      setClick(true);
     }
-    if (window.innerWidth > 750) setClicked(false);
+    if (window.innerWidth > 750) setClick(false);
   };
-
+  function A() {
+    nav.style.background = "#251e21";
+    console.log("lol");
+  }
+  function B() {
+    nav.style.background = "transparent";
+    console.log("lol");
+  }
   useEffect(() => {
     const burger = document.querySelector(".wrpbt-div");
     const navLinks = document.querySelectorAll("#flexPop button");
@@ -72,7 +90,7 @@ function Nav(props) {
     });
     window.addEventListener("resize", function Abc() {
       if (window.innerWidth > 750) {
-        setClicked(false);
+        setClick(false);
         console.log(this.window, innerWidth);
         burger.classList.remove("wrpbt-active");
         burger.classList.remove("wrpbt-close");
@@ -88,31 +106,24 @@ function Nav(props) {
       Lines.classList.add("rotate");
       burger.classList.remove("wrpbt-close");
       console.log(Lines);
-      body.style.overflow = "hidden";
-      nav.style.background="black";
+      // body.style.overflow = "hidden";
+      setTimeout(A, 50);
     } else {
       burger.classList.remove("wrpbt-active");
       burger.classList.add("wrpbt-close");
       Lines.classList.remove("rotate");
-      body.style.overflow = "visible";
-      nav.style.background="transparent";
+      // body.style.overflow = "visible";
       navLinks.forEach((links, index) => {
         if (links.style.animation) {
           links.style.animation = "";
         }
       });
+      setTimeout(B, 220);
     }
   }, [clicked]);
 
   return (
-    <nav
-      id="nav"
-      style={{
-        background: `rgba(37, 30, 33, ${backgroundTransparacy})`,
-        height: `${height}px`,
-        boxShadow: `rgb(0 0 0 / ${boxShadow}) 0px 0px 20px 6px`,
-      }}
-    >
+    <nav id="nav">
       <div id="wrpnav">
         <div id="wrph1">
           <div id="wrplh">
@@ -155,7 +166,7 @@ function Nav(props) {
                     <a>Login</a>
                   </button>
                 </Link>
-              ) : auth.user.role === "participator" ? (
+               ) : auth.user.role === "participator" || auth.user.role === "admin" ? (
                 <Link href="/participator">
                   <button className="bt">
                     <a>Home</a>
@@ -180,9 +191,9 @@ function Nav(props) {
         >
           <div className={burgerstyles.flex}>
             <div className="backg" onClick={toggleState}>
-              <span className="line1"></span>
-              <span className="line2"></span>
-              <span className="line3"></span>
+              <span className="line1" style={{ height: "2px" }}></span>
+              <span className="line2" style={{ height: "2px" }}></span>
+              <span className="line3" style={{ height: "2px" }}></span>
             </div>
           </div>
         </div>
