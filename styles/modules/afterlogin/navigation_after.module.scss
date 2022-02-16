@@ -96,8 +96,8 @@ $logo: url(/Pics/logo_large.png);
   .divl {
     width: 100%;
     height: 15vh;
-    min-height: 5vh;
-    min-width: 10vh;
+    min-height: 100px;
+    min-width: 100px;
 
     // max-height: 15vh;
     display: flex;
@@ -112,14 +112,12 @@ $logo: url(/Pics/logo_large.png);
     .divlogo {
       width: 80%;
       height: 80%;
-      min-height: 50px;
       max-height: 80%;
       background-image: url("/_next/static/media/logo_large.3f4aa90a.png");
-
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
-
+      min-width: 100px;
       z-index: 2;
     }
   }
@@ -131,7 +129,10 @@ $logo: url(/Pics/logo_large.png);
     height: 100%;
     background-color: #b84609;
     font-family: "Raleway", sans-serif;
+
     button {
+      
+
       width: 100%;
       height: 10vh;
       // margin: 1% 0;
@@ -410,17 +411,16 @@ $logo: url(/Pics/logo_large.png);
     .help1 {
       width: 100%;
       height: 15vh;
-      .dropbtn{
+      .dropbtn {
         z-index: -1;
         position: fixed;
-        border: none;
+
         transition: all 0.2s ease;
         height: 5vh;
         width: 11.7vw;
         cursor: pointer;
       }
-      .dropdowncontent{
-
+      .dropdowncontent {
       }
       .logouser {
         height: 15vh;
@@ -443,6 +443,8 @@ $logo: url(/Pics/logo_large.png);
             0px 1px 0 2px white, 0px -1px 0 2px white;
         }
         .logo {
+          min-width: 60px;
+          
           width: 60px;
           height: 60px;
           // padding: 1% 1%;
@@ -530,6 +532,7 @@ $logo: url(/Pics/logo_large.png);
 
     width: 100%;
     height: 15vh;
+    min-height: 180px;
     left: 0;
   }
   .flexdiv {
@@ -546,12 +549,14 @@ $logo: url(/Pics/logo_large.png);
     transform: translateX(0%);
 
     button {
-      min-height: 15vh;
+      // min-height: 15vh;
       // margin: 0 1%;
       // padding: 0 1vw;
       min-width: 100px;
+      min-height: 100%;
       a {
         flex-direction: column;
+
       }
     }
   }
@@ -561,76 +566,94 @@ $logo: url(/Pics/logo_large.png);
     background-color: red;
     width: 100%;
   }
- 
+
   .singoutuser {
     width: 100%;
+    button{
+      min-height: 100%;
+
+    }
     a {
       flex-direction: column;
     }
   }
-  .divbottom{
+  .divbottom {
     min-width: 100px;
     width: 15vw;
-
   }
   .help1 {
-   position: relative;
+    position: fixed;
     display: flex;
-    justify-content: end;
-    top: 15vh;
-    right: 0;
-    max-width: fit-content;
-    background-color: #251e21;
-
+    justify-content: center;
+    align-items: flex-start;
+    top: 110px;
+    right: 25%;
+    max-width: 50%;
+    // background-color: #b84609;
+    max-height: 50px;
     &:hover .dropdowncontent {
-    
-      transform: scale(1);
+      transform: translateY(-1vh);
       opacity: 1;
-      
     }
-    &:hover .dropbtn{
+    
+    &:hover .dropbtn {
       opacity: 0;
-     transition-delay: 0.5s;
-
-    } 
-    .dropbtn{
-     transition: all 0.3s ease ;
-      background-color: #251e21;
-      color: white;
+      transition-delay: 0.5s;
+    }
+    .dropbtn {
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      background-color: rgba(232, 219, 201, 1);
+      color: black;
       width: 15vw;
       min-width: 100px;
+      min-height: 35px;
+
       border: none;
       z-index: 100;
+      position: absolute;
+    border-radius: 4px;
+
+    border: 1px solid black;
+      
     }
-    .dropdowncontent{
-      transform: scaleY(0);
-      transform: translateY(20px);
+    .dropdowncontent {
+      // transform: scaleY(0);
+      transform: translateY(-2vh);
       opacity: 0;
       position: absolute;
-      background-color: #f1f1f1;
+      // background-color: #f1f1f1;
       // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       z-index: 1;
       display: flex;
-      transition: all 0.3s ease-in-out;
-      transform-origin: top;
-      
+      transition: transform 0.3s ease-in-out, opacity 0.25s ease;
     }
-
   }
   .logouser {
     width: 15vw;
     min-width: 100px;
+    border-radius: 0px 0px 0px 4px;
+    min-height: 100px;
+    box-shadow: 0 0 1px 0 black;
+
   }
   .divuser {
     min-width: 100px;
+    min-height: 100px;
 
+    .userhelp{
+    border-radius: 0px 0px 4px 0;
+      min-height: 15vh;
+      box-shadow: 0 0 1px 0 black;
+    }
 
-    
   }
 }
 @media only screen and (max-width: 900px) {
+  .main {
+    overflow-y: hidden;
+    // overflow-x: scroll ;
+    min-height: 100px;
 
-  .main{
-    overflow-y: scroll ;
   }
 }

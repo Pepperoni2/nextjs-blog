@@ -29,7 +29,7 @@ $color-fourth: #e8dbc9;
     // 35px 35px 0 #e97231, -35px -35px 0 #e97231, -20px 20px 0 #e97231, 50px -50px 0 #251e21, 
     // 30px 30px 0 #251e21, -30px -30px 0 #251e21, -50px 50px 0 #251e21,;
     width: 90%;
-    height: 55vh;
+    height: 60vh;
     min-height: 400px;
     border-radius: 10px;
     position: relative;
@@ -151,7 +151,10 @@ $color-fourth: #e8dbc9;
         height: 2vh;
         max-width: 300px;
         margin: 1% 0;
+        padding-top: 2%;
+
         color: #e8dbc9;
+        // border-top: 1px solid #e8dbc9;
         li {
           list-style: none;
           // background-color: #251e21;
@@ -198,16 +201,18 @@ $color-fourth: #e8dbc9;
         cursor: pointer;
         position: relative;
         border-radius: 4px;
-        transition: ease-in-out transform 0.1s;
+        transition: ease-in-out transform 0.1s, box-shadow ease-in-out 0.2s;
       }
       .submit:hover {
         
+        box-shadow: 0 0 10px black;
 
         transform: translateY(2px);
         opacity: 0.8;
       }
       .submit:active{
-        box-shadow: 0 0 5px black;
+        transform: scale(0.95);
+        transform-origin: bottom;
       }
       // .remember1 {
       //   background-color: rgba(47, 47, 47, 0.3);
