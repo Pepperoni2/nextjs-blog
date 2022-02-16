@@ -549,7 +549,7 @@ $logo: url(/Pics/logo_large.png);
       min-height: 15vh;
       // margin: 0 1%;
       // padding: 0 1vw;
-      max-width: 100%;
+      min-width: 100px;
       a {
         flex-direction: column;
       }
@@ -626,5 +626,11 @@ $logo: url(/Pics/logo_large.png);
 
 
     
+  }
+}
+@media only screen and (max-width: 900px) {
+
+  .main{
+    overflow-y: scroll ;
   }
 }
