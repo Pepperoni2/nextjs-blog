@@ -106,6 +106,7 @@ $color-fourth: #e8dbc9;
           box-sizing: border-box;
           letter-spacing: 1px;
           
+          
           &::placeholder {
             color: #e8dbc9;
             letter-spacing: 0.3px;
@@ -113,8 +114,8 @@ $color-fourth: #e8dbc9;
             transition: all 0.3s ease;
           }
           
-          &:hover {
-            // border-color: #e97231;
+          &:hover::placeholder {
+            opacity: 1;
           }
 
           &:focus {
