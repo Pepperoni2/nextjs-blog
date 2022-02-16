@@ -4,6 +4,7 @@ import { DataContext } from "../store/GlobalState";
 import { motion } from "framer-motion";
 import Burger from "./burgermenu";
 import burgerstyles from "../styles/modules/burger.module.scss";
+import { el } from "date-fns/locale";
 function Nav(props) {
   const [clientWindowHeight, setClientWindowHeight] = useState("");
 
@@ -13,7 +14,7 @@ function Nav(props) {
 
   const { state } = useContext(DataContext);
   const { auth } = state;
-
+  const [clicked, setClick] = useState(false);
   const nixRouter = () => {
     return (
       <>
@@ -21,29 +22,39 @@ function Nav(props) {
       </>
     );
   };
-  useEffect(() => {
-    window.addEventListener("scroll", handleScrollY);
-  });
-  const [clicked, setClicked] = useState(false);
-
-  const handleScrollY = () => {
-    const nav = document.getElementById("nav");
+  const [stateNav, setStateNav] = useState(false);
+  const handleScrollY1 = () => {
     if (window.pageYOffset > 20) {
-      nav.style.backgroundColor = "#251e21";
-    } else {
-      if(clicked){
-        nav.style.backgroundColor = "#251e21";
-
-      }
-      else{
-        nav.style.background = "#251e2113";
-
-      }
+      setStateNav(true);
+    }
+    if (window.pageYOffset < 20) {
+      setStateNav(false);
     }
   };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollY1);
+    const nav = document.getElementById("nav");
+    console.log(stateNav);
+    console.log(clicked);
+    if (stateNav) {
+      const nav = document.getElementById("nav");
+
+      nav.style.background = "#251e21";
+    } else {
+      if (!clicked) {
+        // setTimeout(NoColor, 220);
+
+        const nav = document.getElementById("nav");
+
+        nav.style.background = "transparent";
+      }
+    }
+  });
 
   useEffect(() => {
     let backgroundTransparacyVar = clientWindowHeight / 200;
+
+    const nav = document.getElementById("nav");
     // console.log(clientWindowHeight);
     if (clicked) {
       nav.style.background = "#251e21";
@@ -60,17 +71,21 @@ function Nav(props) {
 
   const toggleState = () => {
     if (clicked) {
-      setClicked(false);
+      setClick(false);
     } else {
-      setClicked(true);
+      setClick(true);
     }
-    if (window.innerWidth > 750) setClicked(false);
+    if (window.innerWidth > 750) setClick(false);
   };
-  function A() {
+  function Color() {
+    const nav = document.getElementById("nav");
+
     nav.style.background = "#251e21";
     console.log("lol");
   }
-  function B() {
+  function NoColor() {
+    const nav = document.getElementById("nav");
+
     nav.style.background = "transparent";
     console.log("lol");
   }
@@ -91,7 +106,7 @@ function Nav(props) {
     });
     window.addEventListener("resize", function Abc() {
       if (window.innerWidth > 750) {
-        setClicked(false);
+        setClick(false);
         console.log(this.window, innerWidth);
         burger.classList.remove("wrpbt-active");
         burger.classList.remove("wrpbt-close");
@@ -108,7 +123,7 @@ function Nav(props) {
       burger.classList.remove("wrpbt-close");
       console.log(Lines);
       // body.style.overflow = "hidden";
-      setTimeout(A, 50);
+      setTimeout(Color, 50);
     } else {
       burger.classList.remove("wrpbt-active");
       burger.classList.add("wrpbt-close");
@@ -119,7 +134,7 @@ function Nav(props) {
           links.style.animation = "";
         }
       });
-      setTimeout(B, 220);
+      setTimeout(NoColor, 220);
     }
   }, [clicked]);
 
@@ -167,7 +182,8 @@ function Nav(props) {
                     <a>Login</a>
                   </button>
                 </Link>
-              ) : auth.user.role === "participator" ? (
+              ) : auth.user.role === "participator" ||
+                auth.user.role === "admin" ? (
                 <Link href="/participator">
                   <button className="bt">
                     <a>Home</a>

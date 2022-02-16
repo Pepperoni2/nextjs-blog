@@ -42,8 +42,12 @@ export default function Home() {
   }; */
 
   const organzierDesc =
-    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ";
-  const handleScrollY = () => {
+    "As an Organizer you have the ability to create and to organize your own events or parties.";
+  
+    const participatorDesc =
+    "As an Participator you have the ability to join an event. With that it is possible to see any specific data related to the event.";
+
+    const handleScrollY = () => {
     // if (window.pageYOffset > window.innerHeight)
     // {
     //   document.body.style.overflow = "hidden";
@@ -72,7 +76,7 @@ export default function Home() {
 
   const headLineOrg = {
     visible: (i) => {
-      const delay = 0.3 + i * 0.2;
+      const delay = 0.3 + i * 0.1;
       return {
         opacity: 1,
         x: 0,
@@ -86,8 +90,8 @@ export default function Home() {
   };
   const headLinePart = {
     visible: (i) => {
-      const delay = 0.3 + i * 0.2;
-      
+      const delay = 0.3 + i * 0.1;
+
       return {
         opacity: 1,
         y: 0,
@@ -150,8 +154,11 @@ export default function Home() {
 
         <motion.div
           className={styles.helper}
-          animate={{ x: 10 }}
-          style={{ x, y }}
+          initial={{ scaleX: 0.95 }}
+          animate={{ scaleX: 1 }}
+          transition={{
+            scaleX: { delay: 0.5 },
+          }}
         >
           <div className={styles.headOrg}>
             <motion.h1
@@ -296,8 +303,11 @@ export default function Home() {
 
         <motion.div
           className={styles.helper1}
-          animate={{ x: 0 }}
-          style={{ x, y }}
+          initial={{ scaleY: 0.95 }}
+          animate={{ scaleY: 1 }}
+          transition={{
+            scaleY: { delay: 0.5 },
+          }}
         >
           <motion.div
             className={styles.headPart}
@@ -305,7 +315,6 @@ export default function Home() {
             initial={{ width: "97%" }}
             transition={{
               x: { delay: 0.7 },
-              
             }}
             viewport={{ once: true }}
           >
@@ -417,10 +426,8 @@ export default function Home() {
             >
               r
             </motion.h1>
-            
           </motion.div>
           <div className={styles.headOrg1}>
-            
             <motion.div
               viewport={{ once: true }}
               className={styles.flex3}
@@ -452,7 +459,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 style={{ backChange }}
               >
-                {organzierDesc}{" "}
+                {participatorDesc}{" "}
               </motion.p>
             </motion.div>
           </div>

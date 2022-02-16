@@ -5,9 +5,9 @@ import { getData } from '../util/fetchData'
 export const DataContext = createContext()
 
 export const DataProvider = ({children}) => {
-    const initialState = { notify: {}, auth: {}, users:[], enteredEvent: [], exit: [] }
+    const initialState = { notify: {}, auth: {}, users:[], enteredEvent: [], exit: [], modal:[] }
     const [state, dispatch] = useReducer(reducers, initialState)
-    const { enteredEvent } = state
+    const { auth, enteredEvent } = state
 
     useEffect(() => {
         const firstLogin = localStorage.getItem("firstLogin");
@@ -25,6 +25,23 @@ export const DataProvider = ({children}) => {
             })
         }
     },[])
+
+    useEffect(() => {
+        if(auth.token){
+
+            if(auth.user.role === 'admin'){
+                getData('user', auth.token)
+                .then(res => {
+                    if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err}})
+
+                    dispatch({type: 'ADD_USERS', payload: res.users})
+                })
+            }
+        }
+        else{
+            dispatch({type: 'ADD_USERS', payload: []})
+        }
+    }, [auth.token])
 
     useEffect(() =>{
         const __next__event01__participator =JSON.parse(localStorage.getItem('__next__event01__participator'))

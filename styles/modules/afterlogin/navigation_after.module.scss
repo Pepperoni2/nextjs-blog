@@ -14,14 +14,14 @@ $logo: url(/Pics/logo_large.png);
     width: 100%;
     // background-color: darkcyan;
     display: flex;
-    
+
     justify-content: center;
     align-items: center;
     cursor: pointer;
 
     .button1 {
       width: 100%;
-    z-index: 2;
+      z-index: 2;
       height: 100%;
       background-color: $color-fourth;
       position: relative;
@@ -32,37 +32,35 @@ $logo: url(/Pics/logo_large.png);
       cursor: pointer;
       outline: none;
 
-      .link6{
+      .link6 {
         text-align: center;
         transition: 0.3s all ease-in-out;
         background-color: darken($color: $color-third, $amount: 40);
-      align-items: center;
-      justify-content: center;
-      color: $color-fourth;
-      display: flex;
-      height: 100%;
-      position: relative;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-     
-      width: 100%;
-      
-        .icon6{
+        align-items: center;
+        justify-content: center;
+        color: $color-fourth;
+        display: flex;
+        height: 100%;
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        width: 100%;
+
+        .icon6 {
           margin-right: 5px;
           transition: all ease-in-out 0.3s;
         }
       }
-
     }
-    
-    .button1:hover .link6{
+
+    .button1:hover .link6 {
       color: $color-third;
       background-color: #e8dbc9;
     }
-    .button1:hover .icon6{
+    .button1:hover .icon6 {
       color: $color-third;
-      
     }
 
     .button1::after {
@@ -86,79 +84,90 @@ $logo: url(/Pics/logo_large.png);
 
 .main {
   background-color: $color-second;
-  
+
   position: fixed;
   width: 180px;
   height: 100vh;
   left: 0;
-  overflow: hidden;
-  
- 
+
+  .flexdiv {
+  }
 
   .divl {
     width: 100%;
-    height: 18%;
-    min-height: 55px;
+    height: 15vh;
+    min-height: 100px;
+    min-width: 100px;
+
+    // max-height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: all ease 0.15s;
 
+    &:hover {
+      background-color: #251e21;
+    }
     .divlogo {
       width: 80%;
       height: 80%;
-      min-height: 50px;
-      background-image: url('/_next/static/media/logo_large.3f4aa90a.png');
-
+      max-height: 80%;
+      background-image: url("/_next/static/media/logo_large.3f4aa90a.png");
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
-
+      min-width: 100px;
       z-index: 2;
     }
   }
 
   .divbutton {
-    width: 100%;
-    height:55.5%;
     background-color: lighten($color: $color-second, $amount: 10);
-    display: flex;
     position: relative;
-    justify-content: space-around;
-    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #b84609;
     font-family: "Raleway", sans-serif;
-    
-    .bt1 {
+
+    button {
       
+
       width: 100%;
+      height: 10vh;
+      // margin: 1% 0;
       font: inherit;
-      height: 19.8%;
       border: none;
       color: #e97231;
       cursor: pointer;
+      background-color: $color-third;
 
       display: flex;
       justify-content: center;
       align-items: center;
-
-      .link1 {
+      a {
+        width: 100%;
+        height: 100%;
         background-color: $color-third;
         align-items: center;
         justify-content: center;
         display: flex;
-        height: 100%;
         position: relative;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        
-        width: 100%;
-        transition: all 0.15s ease-in-out;
 
-        .icon1 {
-          margin-top: 5px;
-          margin-right: 5px;
+        transition: all 0.15s ease-in-out;
+        h2 {
           transition: all 0.2s ease-in-out;
+          padding-right: 5px;
+          padding-top: 5px;
+        }
+      }
+    }
+    .bt1 {
+      .link1 {
+        .icon1 {
         }
       }
     }
@@ -180,48 +189,17 @@ $logo: url(/Pics/logo_large.png);
 
     .bt1:hover .link1 {
       opacity: 1;
-      width: 100%;
-      background-color: darken($color-third,4);
+      background-color: darken($color-third, 4);
       /* background-image: url("/Vids/ezgif.com-gif-maker1.gif"); */
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt1:hover .icon1 {
-      
-
-     
     }
 
     .bt2 {
-      width: 100%;
-      color: #e97231;
-      height: 19.8%;
-      border: none;
-      font: inherit;
-      cursor: pointer;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
       .link2 {
-        background-color: $color-third;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        height: 100%;
-        position: relative;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        width: 100%;
-        transition: all 0.15s ease-in-out;
-
         .icon2 {
-          margin-top: 5px;
-          margin-right: 5px;
-          transition: all 0.2s ease-in-out;
         }
       }
     }
@@ -243,48 +221,18 @@ $logo: url(/Pics/logo_large.png);
 
     .bt2:hover .link2 {
       opacity: 1;
-      width: 100%;
 
       background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
-      background-color: darken($color-third,4);
+      background-color: darken($color-third, 4);
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt2:hover .icon2 {
-      
-
       text-shadow: 1px 1px 1px #ccc;
     }
 
     .bt3 {
-      width: 100%;
-      color: #e97231;
-      height: 19.8%;
-      border: none;
-      font: inherit;
-      cursor: pointer;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
       .link3 {
-        background-color: $color-third;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        height: 100%;
-        position: relative;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        width: 100%;
-        transition: all 0.15s ease-in-out;
-
         .icon3 {
-          margin-top: 5px;
-          margin-right: 5px;
-          transition: all 0.2s ease-in-out;
         }
       }
     }
@@ -306,47 +254,17 @@ $logo: url(/Pics/logo_large.png);
 
     .bt3:hover .link3 {
       opacity: 1;
-      width: 100%;
 
       background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
-      background-color: darken($color-third,4);
+      background-color: darken($color-third, 4);
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt3:hover .icon3 {
-      
-
       text-shadow: 1px 1px 1px #ccc;
     }
     .bt4 {
-      width: 100%;
-      color: #e97231;
-      height: 19.8%;
-      border: none;
-      font: inherit;
-      cursor: pointer;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
       .link4 {
-        background-color: $color-third;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        height: 100%;
-        position: relative;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        width: 100%;
-        transition: all 0.15s ease-in-out;
-
         .icon4 {
-          margin-top: 5px;
-          margin-right: 5px;
-          transition: all 0.2s ease-in-out;
         }
       }
     }
@@ -368,48 +286,17 @@ $logo: url(/Pics/logo_large.png);
 
     .bt4:hover .link4 {
       opacity: 1;
-      width: 100%;
-      
+
       background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
-      background-color: darken($color-third,4);
+      background-color: darken($color-third, 4);
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt4:hover .icon4 {
-      
-
       text-shadow: 1px 1px 1px #ccc;
     }
     .bt5 {
-      width: 100%;
-      font: inherit;
-      color: #e97231;
-      height: 19.8%;
-      border: none;
-
-      cursor: pointer;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
       .link5 {
-        background-color: $color-third;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        height: 100%;
-        position: relative;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        width: 100%;
-        transition: all 0.15s ease-in-out;
-
         .icon5 {
-          margin-top: 5px;
-          margin-right: 5px;
-          transition: all 0.2s ease-in-out;
         }
       }
     }
@@ -431,42 +318,39 @@ $logo: url(/Pics/logo_large.png);
 
     .bt5:hover .link5 {
       opacity: 1;
-      width: 100%;
-      background-color: darken($color-third,4);
+      background-color: darken($color-third, 4);
       background-image: url("/_next/static/videos/ezgif.com-gif-maker1.gif");
 
       //box-shadow: #E8DBC9 0px 0px 10px 5px;
     }
     .bt5:hover .icon5 {
-      
-
-      
     }
     .bt5:hover .icon5 {
       // transform: translateX(-20px) rotate(360deg);
     }
   }
 
-  .divuser {
-    width: 100%;
-    height: 25%;
-    background-color: #e97231;
+  .divbottom {
     position: relative;
-
+    .flexdiv2 {
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: space-evenly ;
+      height: 100%;
+    }
     .singoutuser {
-      height: 40%;
-      width: 100%;
+      height: 100%;
       background-color: darkcyan;
       display: flex;
-      
-      justify-content: center;
-      align-items: center;
+      // margin-top: 1%;
+
       cursor: pointer;
 
       .button1 {
+        height: 15vh;
+        z-index: 2;
         width: 100%;
-      z-index: 2;
-        height: 100%;
+
         background-color: $color-fourth;
         position: relative;
         transition: all ease-in-out 0.3s;
@@ -476,37 +360,35 @@ $logo: url(/Pics/logo_large.png);
         cursor: pointer;
         outline: none;
 
-        .link6{
+        .link6 {
           text-align: center;
           transition: 0.3s all ease-in-out;
           background-color: darken($color: $color-third, $amount: 40);
-        align-items: center;
-        justify-content: center;
-        color: $color-fourth;
-        display: flex;
-        height: 100%;
-        position: relative;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-       
-        width: 100%;
-        
-          .icon6{
+          align-items: center;
+          justify-content: center;
+          color: $color-fourth;
+          display: flex;
+          height: 100%;
+          position: relative;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+
+          width: 100%;
+
+          .icon6 {
             margin-right: 5px;
             transition: all ease-in-out 0.3s;
           }
         }
-
       }
-      
-      .button1:hover .link6{
+
+      .button1:hover .link6 {
         color: $color-third;
         background-color: #e8dbc9;
       }
-      .button1:hover .icon6{
+      .button1:hover .icon6 {
         color: $color-third;
-        
       }
 
       .button1::after {
@@ -526,76 +408,252 @@ $logo: url(/Pics/logo_large.png);
         bottom: 0;
       }
     }
-    .help1{
+    .help1 {
       width: 100%;
-      height: 67%;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      
-    .logouser {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      &:hover{
-        background-color: #c56f40;
-        box-shadow: 0 0 2px 2px red;
-      }
-      .logo {
-        width: 60px;
-        height: 60px;
-        border-radius: 70px;
+      height: 15vh;
+      .dropbtn {
+        z-index: -1;
+        position: fixed;
+
+        transition: all 0.2s ease;
+        height: 5vh;
+        width: 11.7vw;
         cursor: pointer;
-        box-shadow: 0 0 5px 2px black;
-
-        
       }
-
-    }
-
-    .divuser {
-      height: 100%;
-      width: 100%;
-      background-color: seagreen;
-      
-     
-      .userhelp {
-        background-color: rgb(194, 87, 37);
-        width: 100%;
-        height: 100%;
+      .dropdowncontent {
+      }
+      .logouser {
+        height: 15vh;
         display: flex;
         justify-content: center;
         align-items: center;
-      
+        transition: all 0.2s ease;
+        cursor: pointer;
+        background-color: #b84609;
 
-        .username {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: $color-third;
-          font-size: 1.6em;
-          
+        &:hover {
+          // height: 100%;
+          // width: 100%;
+          // border-radius: 0;
+          background-color: #cf500b;
         }
-
-        // .userarrow {
-        //   display: flex;
-        //   justify-content: center;
-        //   align-items: center;
-        //   background-color: white;
-        //   width: 20%;
-        //   position: relative;
+        &:hover .logo {
+          // opacity: 0.8;
+          box-shadow: 1px 0px 0 2px white, -1px 0px 0 2px white,
+            0px 1px 0 2px white, 0px -1px 0 2px white;
+        }
+        .logo {
+          min-width: 60px;
           
-        //   height: 100%;
-        //   cursor: pointer;
-        // }
+          width: 60px;
+          height: 60px;
+          // padding: 1% 1%;
+          margin: 1% 0;
+          cursor: pointer;
+          border-radius: 30px;
+          transition: opacity 0.3s ease, box-shadow 0.2s ease;
+          box-shadow: 0 0 5px black;
+        }
+      }
+
+      .divuser {
+        height: 15vh;
+        // background-color: seagreen;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .userhelp {
+          background-color: #b84609;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: all 0.2s ease;
+
+          &:hover {
+            // height: 100%;
+            // width: 100%;
+            // border-radius: 0;
+            background-color: #cf500b;
+          }
+
+          .username {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $color-third;
+            font-size: 1.6em;
+            color: #e8dbc9;
+            text-shadow: 0 0 5px black, 0px -3px #292627, 0px -2px #292627,
+              2px -2px #292627;
+            letter-spacing: 1px;
+            position: relative;
+
+            .underline {
+              width: 0%;
+              height: 2px;
+              background-color: #251e21;
+              position: absolute;
+              transition: all 0.3s ease-in-out;
+              bottom: 0;
+              left: 0;
+            }
+            &:hover .underline {
+              width: 100%;
+              padding-right: 3%;
+              right: 0;
+              left: inherit;
+            }
+          }
+
+          // .userarrow {
+          //   display: flex;
+          //   justify-content: center;
+          //   align-items: center;
+          //   background-color: white;
+          //   width: 20%;
+          //   position: relative;
+
+          //   height: 100%;
+          //   cursor: pointer;
+          // }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 900px) {
+  .main {
+    z-index: 5;
+    background-color: $color-second;
+    display: flex;
+
+    width: 100%;
+    height: 15vh;
+    min-height: 180px;
+    left: 0;
+  }
+  .flexdiv {
+    display: flex;
+    width: 100%;
+  }
+
+  .divl {
+    max-width: 10vw;
+  }
+
+  .divbutton {
+    display: flex;
+    transform: translateX(0%);
+
+    button {
+      // min-height: 15vh;
+      // margin: 0 1%;
+      // padding: 0 1vw;
+      min-width: 100px;
+      min-height: 100%;
+      a {
+        flex-direction: column;
+
       }
     }
   }
 
+  .flexdiv2 {
+    display: flex;
+    background-color: red;
+    width: 100%;
   }
 
+  .singoutuser {
+    width: 100%;
+    button{
+      min-height: 100%;
+
+    }
+    a {
+      flex-direction: column;
+    }
+  }
+  .divbottom {
+    min-width: 100px;
+    width: 15vw;
+  }
+  .help1 {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    top: 110px;
+    right: 25%;
+    max-width: 50%;
+    // background-color: #b84609;
+    max-height: 50px;
+    &:hover .dropdowncontent {
+      transform: translateY(-1vh);
+      opacity: 1;
+    }
+    
+    &:hover .dropbtn {
+      opacity: 0;
+      transition-delay: 0.5s;
+    }
+    .dropbtn {
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      background-color: rgba(232, 219, 201, 1);
+      color: black;
+      width: 15vw;
+      min-width: 100px;
+      min-height: 35px;
+
+      border: none;
+      z-index: 100;
+      position: absolute;
+    border-radius: 4px;
+
+    border: 1px solid black;
+      
+    }
+    .dropdowncontent {
+      // transform: scaleY(0);
+      transform: translateY(-2vh);
+      opacity: 0;
+      position: absolute;
+      // background-color: #f1f1f1;
+      // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      display: flex;
+      transition: transform 0.3s ease-in-out, opacity 0.25s ease;
+    }
+  }
+  .logouser {
+    width: 15vw;
+    min-width: 100px;
+    border-radius: 0px 0px 0px 4px;
+    min-height: 100px;
+    box-shadow: 0 0 1px 0 black;
+
+  }
+  .divuser {
+    min-width: 100px;
+    min-height: 100px;
+
+    .userhelp{
+    border-radius: 0px 0px 4px 0;
+      min-height: 15vh;
+      box-shadow: 0 0 1px 0 black;
+    }
+
+  }
+}
+@media only screen and (max-width: 900px) {
+  .main {
+    overflow-y: hidden;
+    // overflow-x: scroll ;
+    min-height: 100px;
+
+  }
 }

@@ -71,8 +71,10 @@ const DetailEvent = (props) => {
 
   const enterEvent = async () => {
     const username = auth.user.name
+    console.log(username)
     dispatch(addToEnteredEvents(event, enteredEvent))
-    await putData(`event/${event._id}`, username)
+    putData(`event/${event._id}`, {username}, auth.token)
+    .then(res => console.log(res))
     
   }
 
@@ -104,7 +106,7 @@ const DetailEvent = (props) => {
                     Free remaining places: {event.openslots}
                   </h6>
                 ) : (
-                  <h6 className={styles.infofull}>Full</h6>
+                  <h6 className={styles.infofull}>Fullg</h6>
                 )}
                 <h6 className={styles.infocount}>
                   Number of participants: {event.closedSlots}

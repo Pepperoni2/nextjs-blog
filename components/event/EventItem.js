@@ -79,7 +79,7 @@ const EventItem = ({ event }) => {
   const variantsButtons = {
     open: {
       opacity: 1,
-      y: -10,
+      y: -10.5,
       transition: {
         bounce: 0,
         damping: 1,
@@ -88,7 +88,7 @@ const EventItem = ({ event }) => {
     },
     closed: {
       opacity: 0,
-      y: 10,
+      y: 10.5,
 
       transition: {
         y: { delay: 0.1, bounce: 0, damping: 1 },
@@ -121,6 +121,34 @@ const EventItem = ({ event }) => {
       </div>
     );
   };
+
+  const adminLink = () => {
+    return(
+      <div className={styles.flexdiv}>
+        <motion.div
+          className={styles.div}
+          animate={isOpen ? "open" : "closed"}
+          variants={variantsButtons}
+           initial={{ opacity: 0, y: 0, }}
+        >
+          <Link href={`event/${event._id}`}>
+            <motion.a className={styles.link}>Find out more</motion.a>
+          </Link>
+        <motion.button className={styles.btLink}
+          onClick={() => dispatch({
+          type: 'ADD_MODAL',
+          payload: [{
+              data: '', id: event._id,
+              title: event.title, type: 'DELETE_EVENT'
+          }]
+        })}>
+          Delete
+        </motion.button>
+
+       </motion.div>
+      </div>
+    )
+  }
 
   return (
     // ----- Event Cards --------
@@ -164,7 +192,7 @@ const EventItem = ({ event }) => {
               {event.description}
             </motion.p>
           </div>
-          {userLink()}
+          {!auth.user || auth.user.role !== "admin" ? userLink() : adminLink()}
         </div>
       </motion.div>
     </motion.div>

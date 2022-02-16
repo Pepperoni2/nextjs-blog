@@ -9,44 +9,48 @@ import valid from "../../util/valid";
 import { DataContext } from "../../store/GlobalState";
 import Cookie from "js-cookie";
 import { useRouter } from "next/router";
-
-import styles from "../../styles/modules/p-register.module.scss";
+import styles from "../../styles/modules/login.module.scss";
 import Footer from "../../components/footer.js";
-import {useRef } from "react";
+import { useRef } from "react";
 import FOG from "vanta/dist/vanta.fog.min";
 import * as THREE from "three";
+import { motion } from "framer-motion";
 
 const SignIn = () => {
   const initialState = { email: "", password: "" };
   const [userData, setUserData] = useState(initialState);
-  const {state, dispatch} = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
   const { email, password } = userData;
   const { auth } = state;
-  const router = useRouter()
+  const router = useRouter();
 
-  const handleChangeInput = e => {
+  const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
-  
-  const handleSubmit = async e => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     //---- Loading-Screen appears----
-    dispatch({ type: 'NOTIFY', payload: {loading: true} }) 
+    dispatch({ type: "NOTIFY", payload: { loading: true } });
 
     const res = await postData("auth/login", userData);
     // --- Display error messagebox ----
-    if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err} })
+    if (res.err)
+      return dispatch({ type: "NOTIFY", payload: { error: res.err } });
     // --- Success messageBox
-    dispatch({ type: 'NOTIFY', payload: {success: res.msg} })
-    dispatch({ type: 'AUTH', payload: {
-      token: res.access_token,
-      user: res.user
-    }})
+    dispatch({ type: "NOTIFY", payload: { success: res.msg } });
+    dispatch({
+      type: "AUTH",
+      payload: {
+        token: res.access_token,
+        user: res.user,
+      },
+    });
 
     // Cookie settings
-    Cookie.set('refreshtoken', res.refresh_token, {
+    Cookie.set("refreshtoken", res.refresh_token, {
       path: "api/auth/accessToken",
       expires: 7, // expires after one week
     });
@@ -54,17 +58,18 @@ const SignIn = () => {
   };
 
   useEffect(() => {
-    if(Object.keys(auth).length !== 0) {
-      if(auth.user.role === 'participator') router.push("/participator")
-      else{
-        router.push("/organizer")
+    if (Object.keys(auth).length !== 0) {
+      if (auth.user.role === "participator" || auth.user.role === "admin")
+        router.push("/participator");
+      else {
+        router.push("/organizer");
       }
     }
-  }, [auth])
+  }, [auth]);
 
-//------------------------------
+  //------------------------------
 
-const [vantaEffect, setVantaEffect] = useState(0);
+  const [vantaEffect, setVantaEffect] = useState(0);
   const vantaRef = useRef(null);
   useEffect(() => {
     if (!vantaEffect) {
@@ -91,18 +96,83 @@ const [vantaEffect, setVantaEffect] = useState(0);
       if (vantaEffect) vantaEffect.destory();
     };
   }, [vantaEffect]);
+  useEffect(() => {
+    const inputEmail = document.getElementById("uname");
+    const inputPassw = document.getElementById("psw");
+    inputEmail.addEventListener("change", () => {
+      const span1 = document.getElementById("span1");
+      
+      // const span2 = document.getElementsById("span2");
+      if (inputEmail && inputEmail.value) {
+        span1.style.width = "100%";
+      } else {
+        span1.style.width = null;
+      }
 
+    });
+    inputPassw.addEventListener("change", () => {
+      const span2 = document.getElementById("span2");
+      console.log("hallo");
+      // const span2 = document.getElementsById("span2");
+      if (inputPassw && inputPassw.value) {
+        span2.style.width = "100%";
+        console.log("hallo");
+      } else {
+        span2.style.width = null;
+      }
+
+    });
+  });
+
+  const variants = {
+    visible: (i) => {
+      const delay = 0.5 + i * 0.1;
+      return {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: delay,
+        bounce: 0,
+        damping: 1,
+        duration: 0.3,
+      },
+    }
+    },
+    hidden: {
+      opacity: 0,
+      y: -10,
+
+      transition: {
+        y: { delay: 0.6, bounce: 0, damping: 1 },
+        opacity: { delay: 0.6 },
+      },
+    },
+  };
 
   return (
-    <div id="wrapper-login">
-      <div className="modal" ref={vantaRef}>
-        <form className="content-box" onSubmit={handleSubmit}>
-          <div className="container">
+    <motion.div
+      className={styles.wrapperlogin}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        height: {
+          duration: 0.2,
+        },
+        opacity: {
+          duration: 0.4,
+        },
+      }}
+    >
+      <div className={styles.modal} ref={vantaRef}>
+        <form className={styles.contentbox} onSubmit={handleSubmit}>
+          <div className={styles.container}>
             <NavLogin />
-            <div id="img"></div>
-            <h1>Login</h1>
-            <div className="text-div">
+
+            <div className={styles.img}></div>
+            <motion.h1 custom={1} className={styles.title} variants={variants} animate={"visible"} initial={"hidden"}>Login</motion.h1>
+            <motion.div custom={2} className={styles.textdiv}  variants={variants} animate={"visible"} initial={"hidden"}>
               <input
+                className={styles.input}
                 type="email"
                 id="uname"
                 placeholder="Enter Email"
@@ -110,9 +180,9 @@ const [vantaEffect, setVantaEffect] = useState(0);
                 onChange={handleChangeInput}
                 name="email"
               />
-              <span className="text-span"></span>
-            </div>
-            <div className="text-div">
+              <span className={styles.textspan} id="span1"></span>
+            </motion.div>
+            <motion.div custom={3} className={styles.textdiv}  variants={variants} animate={"visible"} initial={"hidden"}>
               <input
                 type="password"
                 id="psw"
@@ -120,38 +190,51 @@ const [vantaEffect, setVantaEffect] = useState(0);
                 defaultValue={password}
                 onChange={handleChangeInput}
                 name="password"
+                className={styles.input}
               />
-              <span className="text-span"></span>
-            </div>
-            <span className="psw" /*style="color:#ce8e35"*/>
-              Forgot <Link href="#">password?</Link>
-              <Link href="/login/distributor">Register</Link>
-            </span>
-            <span className="psw"></span>
-            <div id="OtherLogins">
+              <span className={styles.textspan} id="span2"></span>
+            </motion.div>
+            <motion.span custom={4} className={styles.divpswAreg} variants={variants} animate={"visible"} initial={"hidden"} /*style="color:#ce8e35"*/>
+              <li>
+                Forgot
+                <Link href="/about">
+                  <a className={styles.psw}>password?</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/login/distributor">
+                  <a className={styles.register}>Register</a>
+                </Link>
+              </li>
+            </motion.span>
+            {/* <span className={styles.textspan}></span> */}
+            {/* <div id="OtherLogins">
               <div>Google</div>
               <div>GitHub</div>
               <div>Sonstiges</div>
-            </div>
-            <button id="submit" type="submit">
+            </div> */}
+            <motion.button custom={5} className={styles.submit} type="submit" variants={variants} animate={{opacity:1}} initial={{opacity:0}} transition={{delay: 0.8}}>
               Login
-            </button>
-
-            <label id="remember1" for="remember">
-              {" "}
+            </motion.button>
+            {/* <div >
+            <label className={styles.remember1} for="remember">
+              
               Remember me
-              <input type="checkbox" id="remember" name="remember" />
+              <input
+                className={styles.checkbox}
+                type="checkbox"
+                id="remember"
+                name="remember"
+              />
             </label>
+            </div> */}
           </div>
-          
         </form>
-        
       </div>
-      <div className="footer2">
-    <Footer />
-  </div>
-    </div>
-    
+      <div className={styles.footer1}>
+        <Footer />
+      </div>
+    </motion.div>
   );
 };
 

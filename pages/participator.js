@@ -23,7 +23,7 @@ export default function Participator(props) {
 
   useEffect(() => {
     if (Object.keys(auth).length !== 0) {
-      if (auth.user.role === "participator") {
+      if (auth.user.role === "participator" || auth.user.role === "admin") {
         router.push("/participator");
       } else if (auth.user.role === "organizer") router.push("/organizer");
     } else {

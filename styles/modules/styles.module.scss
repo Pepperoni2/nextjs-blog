@@ -82,12 +82,13 @@ $color-fourth: #e8dbc9;
 
     .p1 {
       color: #e8dbc9;
-      width: 50%;
+      width: 40%;
       border: solid 1px white;
+      // max-height: 40px;
       // max-width: 250px;
       text-align: center;
       background-color: red;
-      height: 100%;
+      height: 75px;
       border-radius: 4px;
       background-color: transparent;
       display: flex;
@@ -180,7 +181,9 @@ $color-fourth: #e8dbc9;
     .headOrg {
       display: flex;
       // background-color: #e8dbc9;
-      margin: 2vh 10%;
+      margin-left: 5vw;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
       // padding: 5% 0;
       h1 {
         margin: 0 1px;
@@ -222,12 +225,12 @@ $color-fourth: #e8dbc9;
         background-color: #e8dbc9;
         height: auto;
         height: 50vh;
-          border-radius: 10px 0 0 10px;
+          border-radius: 10px 10px 10px 10px;
       padding: 2%;
       right: 0;
       top: 0;
         div {
-          border-radius: 10px 0px 0px 10px;
+          border-radius: 10px 10px 10px 10px;
           background-image: url("/concert-3387324_1920.jpg");
           width: 100%;
           height: 100%;
@@ -307,12 +310,12 @@ $color-fourth: #e8dbc9;
         height: auto;
         height: 50vh;
         z-index: 5;
-          border-radius: 0px 10px 10px 0;
+          border-radius: 10px 10px 10px 10px;
       padding: 2%;
       right: 0;
       top: 0;
         div {
-          border-radius: 0px 10px 10px 0px;
+          border-radius: 10px 10px 10px 10px;
 
           background-image: url("/pexels-pixabay-274192.jpg");
           width: 100%;

@@ -41,7 +41,7 @@ export const putData = async (url, post, token) => {
 }
 
 export const patchData = async (url, post, token) => {
-    const res = await fetch(`http://eventx-online.com/api/${url}`, {
+    const res = await fetch(`${baseUrl}/api/${url}`, {
         method:'PATCH',
         headers:{
             'Content-Type': 'application/json',

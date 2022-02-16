@@ -2,12 +2,29 @@ import { useContext } from "react";
 import ReactDOM from "react-dom";
 import { DataContext } from "../store/GlobalState";
 import { ExitEvent } from "../store/Actions";
+import { deleteData } from "../util/fetchData";
 import styles from "../styles/modules/afterlogin/modal.module.scss";
+
+
 const Modal = ({ open, onClose }) => {
   const { state, dispatch } = useContext(DataContext);
-  const { exit } = state;
+  const { modal, auth, exit } = state;
 
   const handleSubmit = () => {
+
+    if(modal.type === 'DELETE_EVENT'){
+      dispatch({type: 'NOTIFY', payload: {loading: true}})
+      deleteData(`event/${modal.id}`, auth.token)
+      .then(res => {
+        if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err}})
+        return dispatch({type: 'NOTIFY', payload: {success: res.err}})
+      })
+    }
+    if(modal.type === 'ADD_USERS'){
+        deleteData(`user${modal.id}`, auth.token)
+        .then(res => console.log(res))
+    }
+
     dispatch(ExitEvent(exit.data, exit.id, "ADD_EVENT"));
     dispatch({ type: "EXIT_EVENT", payload: {} });
   };
