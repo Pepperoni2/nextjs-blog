@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3000" //process.env.NEXT_PUBLIC_BASE_URL
+const baseUrl = "http://eventx-online.com" //process.env.NEXT_PUBLIC_BASE_URL
 
 export const getData = async (url, token) => {
     const res = await fetch(`http://eventx-online.com/api/${url}`, {
@@ -27,7 +27,7 @@ export const postData = async (url, post, token) => {
 }
 
 export const putData = async (url, post, token) => {
-    const res = await fetch(`http://localhost:3000/api/${url}`, {
+    const res = await fetch(`${baseUrl}/api/${url}`, {
         method:'PUT',
         headers:{
             'Content-Type': 'application/json',
