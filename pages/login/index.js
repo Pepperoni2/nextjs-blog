@@ -116,7 +116,7 @@ const SignIn = () => {
       // const span2 = document.getElementsById("span2");
       if (inputPassw && inputPassw.value) {
         span2.style.width = "100%";
-        console.log("hallo");
+        //console.log("hallo");
       } else {
         span2.style.width = null;
       }
