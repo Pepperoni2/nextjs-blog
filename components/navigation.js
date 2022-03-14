@@ -24,10 +24,10 @@ function Nav(props) {
   };
   const [stateNav, setStateNav] = useState(false);
   const handleScrollY1 = () => {
-    if (window.pageYOffset > 20) {
+    if (window.pageYOffset > 550) {
       setStateNav(true);
     }
-    if (window.pageYOffset < 20) {
+    if (window.pageYOffset < 550) {
       setStateNav(false);
     }
   };
