@@ -86,7 +86,7 @@ $color-fourth: #e8dbc9;
       border: solid 1px white;
       // max-height: 40px;
       // max-width: 250px;
-      text-align: center;
+      // text-align: center;
       background-color: red;
       height: 75px;
       border-radius: 4px;
@@ -94,13 +94,15 @@ $color-fourth: #e8dbc9;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      text-align: center;
+      // flex-direction: column;
       padding: 2% 2%;
       strong {
+        margin-left: 3px;
+        margin-right: 3px;
         box-shadow: 0 1px 0 0px #e8dbc9;
-        font-size: 1.1em;
-        padding: 1px;
+        // font-size: 1.1em;
+        // padding: 1px;
+
         height: fit-content;
         // background-color: rebeccapurple;
       }
