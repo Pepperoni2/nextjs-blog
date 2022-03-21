@@ -119,7 +119,7 @@ export default function Home() {
         <div className={styles.pdiv}>
           <div className={styles.phelp}>
             <p className={styles.p1}>
-              Create your events <strong> now!</strong>
+              Start <strong> now</strong>!
             </p>
           </div>
           <div className={styles.flexbt}>
