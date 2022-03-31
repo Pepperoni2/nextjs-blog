@@ -2,19 +2,23 @@ import Head from 'next/head'
 import { useContext } from 'react'
 import { DataContext } from '../../store/GlobalState'
 import Link from 'next/link'
-
+import styles from "../../styles/modules/users_admin.module.scss"
+import NavEvents from '../../components/NavEvents'
 const Users = () => {
     const { state, dispatch } = useContext(DataContext)
     const { users, auth, modal } = state
     return (
-        <div>
+        <div className={styles.wrapper}>
             <Head>
                 <title>Users-Manager</title>
             </Head>
+            <NavEvents></NavEvents>
+            <div className={styles.flexit}>
 
-            <table>
-                <thead>
-                    <tr>
+           
+            <table className={styles.main}>
+                <thead className={styles.headtabelle}>
+                    <tr >
                         <th></th>
                         <th>ID</th>
                         <th>Avatar</th>
@@ -25,7 +29,7 @@ const Users = () => {
 
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className={styles.bodytabelle}>
                     {
                         users.map((user, index) => (
                             <tr key={user._id} style={{cursor: 'pointer'}}>
@@ -33,8 +37,7 @@ const Users = () => {
                                 <th>{user._id}</th>
                                 <th>
                                     <img src={user.avatar} alt={user.avatar}
-                                    style={{width: '30px', 
-                                    height: '30px', 
+                                    style={{
                                     overflow: 'hidden',
                                     objectFit: 'cover'
                                     }}/>
@@ -72,6 +75,7 @@ const Users = () => {
                     }
                 </tbody>
             </table>
+            </div>
         </div>
 
     )

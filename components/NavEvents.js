@@ -12,7 +12,7 @@ export default function NavEvents(){
       opacity: 1,
     },
     hidden: {
-      width: ["0%", "10%", "0%"],
+      width: ["0%", "2%", "0%"],
       //   opacity: [1, 1, 1, 0,1],
       transition: {
         width: {
