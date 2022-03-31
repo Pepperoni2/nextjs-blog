@@ -4,6 +4,8 @@ import styles from "../styles/modules/afterlogin/navigation_after.module.scss";
 import { IoHomeSharp } from "@react-icons/all-files/io5/IoHomeSharp";
 import { GiAbstract027 } from "@react-icons/all-files/gi/GiAbstract027";
 import { MdFavorite } from "@react-icons/all-files/md/MdFavorite";
+import { CgEventbrite } from "react-icons/cg";
+import {FiSettings} from "react-icons/fi";
 import { IoNotificationsSharp } from "@react-icons/all-files/io5/IoNotificationsSharp";
 import { FaSignOutAlt } from "@react-icons/all-files/fa/FaSignOutAlt";
 import React, { useContext, useEffect, useState } from "react";
@@ -92,7 +94,7 @@ export default function NavigationLeftP() {
                 <button className={styles.bt4}>
                   <a className={styles.link4 + isActive("/")}>
                     <h2>
-                      <GiAbstract027 className={styles.icon4} />
+                      <CgEventbrite className={styles.icon4} />
                     </h2>
                     Your events
                   </a>
@@ -102,7 +104,7 @@ export default function NavigationLeftP() {
                 <button className={styles.bt5}>
                   <a className={styles.link5 + isActive("/settings")}>
                     <h2>
-                      <GiAbstract027 className={styles.icon5} />
+                      <FiSettings className={styles.icon5} />
                     </h2>{" "}
                     Settings
                   </a>
