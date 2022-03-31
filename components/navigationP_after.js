@@ -4,7 +4,6 @@ import styles from "../styles/modules/afterlogin/navigation_after.module.scss";
 import { IoHomeSharp } from "@react-icons/all-files/io5/IoHomeSharp";
 // import { GiAbstract027 } from "@react-icons/all-files/gi/GiAbstract027";
 import { GiFireworkRocket } from "react-icons/gi";
-import { FiSettings } from "react-icons/fi";
 
 import { MdFavorite } from "@react-icons/all-files/md/MdFavorite";
 import { CgEventbrite } from "react-icons/cg";
