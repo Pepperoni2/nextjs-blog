@@ -7,6 +7,8 @@ import { GiFireworkRocket } from "react-icons/gi";
 import { FiSettings } from "react-icons/fi";
 
 import { MdFavorite } from "@react-icons/all-files/md/MdFavorite";
+import { CgEventbrite } from "react-icons/cg";
+import {FiSettings} from "react-icons/fi";
 import { IoNotificationsSharp } from "@react-icons/all-files/io5/IoNotificationsSharp";
 import { FaSignOutAlt } from "@react-icons/all-files/fa/FaSignOutAlt";
 import React, { useContext, useEffect, useState } from "react";
@@ -95,7 +97,7 @@ export default function NavigationLeftP() {
                 <button className={styles.bt4}>
                   <a className={styles.link4 + isActive("/")}>
                     <h2>
-                      <GiFireworkRocket className={styles.icon4} />
+                      <CgEventbrite className={styles.icon4} />
                     </h2>
                     Your events
                   </a>
