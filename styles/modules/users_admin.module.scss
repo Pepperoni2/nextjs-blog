@@ -10,12 +10,11 @@ $color-fourth: #e8dbc9;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
     overflow-x: auto;
     // background-color: #e97231;
     .main {
       background-color: #e8dbc9;
-        margin-top: 2%;
+      margin-top: 2%;
       padding: 0;
       border-spacing: 5px;
       width: 100%;
@@ -35,26 +34,27 @@ $color-fourth: #e8dbc9;
         color: #292627;
         font-size: 1.2em;
         text-align: left;
-
         tr {
           height: 5vh;
         }
         th {
           border-bottom: 1px solid #292627;
-          transition: background-color ease-in-out 0.15s, padding ease-in-out 0.2s, border-radius ease 0.2s, border-color ease 0.2s;
+          transition: background-color ease-in-out 0.15s,
+            padding ease-in-out 0.2s, border-radius ease 0.2s,
+            border-color ease 0.2s;
 
-        //   padding-left: 1%;
-        //   padding-top: 1%;
-        //   padding-bottom: 1%;
+          //   padding-left: 1%;
+          //   padding-top: 1%;
+          //   padding-bottom: 1%;
           text-align: left;
           z-index: 0;
-        //   padding: 1% 0;
+          //   padding: 1% 0;
           &:nth-child(1) {
-              font-size: 1.3em;
+            font-size: 1.3em;
             color: #e97231;
             min-width: 40px;
             background-color: #292627;
-            width: 40px;
+            width: 50px;
             border-radius: 10px;
             text-align: center;
             padding: 0;
@@ -69,23 +69,23 @@ $color-fourth: #e8dbc9;
           &:nth-child(6) {
           }
           &:nth-child(7) {
-              text-align: center;
-              a{
-                  text-decoration: none;
-                  border-right: 1px solid #292627;
-                  padding: 10px;
-              }
+            text-align: center;
+            a {
+              text-decoration: none;
+              border-right: 1px solid #292627;
+              padding: 10px;
+            }
             //   display: flex;
             //   justify-content: space-evenly;
-              
-              .icon{
-                //   background-color: red;
-                  margin-left: 10px;
-                  font-size: 1.3em;
-                  transform: translateY(5px);
-                  cursor: pointer;
-                  color: red;
-              }
+
+            .icon {
+              //   background-color: red;
+              margin-left: 10px;
+              font-size: 1.3em;
+              transform: translateY(5px);
+              cursor: pointer;
+              color: red;
+            }
           }
           &:nth-child(3) {
             display: flex;
@@ -95,14 +95,13 @@ $color-fourth: #e8dbc9;
             height: 80px;
 
             img {
-                height: 80%;
-                border-radius: 5px;
+              height: 80%;
+              border-radius: 5px;
             }
             &:hover {
               background-color: #626262;
               padding-left: 0%;
             }
-            
           }
           &:hover {
             background-color: lighten($color: #e97231, $amount: 0);
