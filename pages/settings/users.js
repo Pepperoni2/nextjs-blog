@@ -32,7 +32,7 @@ const Users = () => {
                 <tbody className={styles.bodytabelle}>
                     {
                         users.map((user, index) => (
-                            <tr key={user._id} style={{cursor: 'pointer'}}>
+                            <tr key={user._id} >
                                 <th>{index + 1}</th>
                                 <th>{user._id}</th>
                                 <th>
@@ -41,6 +41,7 @@ const Users = () => {
                                     overflow: 'hidden',
                                     objectFit: 'cover'
                                     }}/>
+                                    <i > Remove</i>
                                 </th>
                                 <th>{user.name}</th>
                                 <th>{user.email}</th>
@@ -57,7 +58,7 @@ const Users = () => {
                                         auth.user.root && auth.user.email !== user.email 
                                         ? `/settings/edit_user/${user._id}` : `#!`
                                     }>
-                                        <a><i>link</i></a>
+                                        <a>link</a>
                                     </Link>
 
                                     {
