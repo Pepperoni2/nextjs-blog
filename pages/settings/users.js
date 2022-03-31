@@ -68,7 +68,7 @@ const Users = () => {
                   </Link>
 
                   {auth.user.root && auth.user.email !== user.email ? (
-                    <i
+                    <HiOutlineTrash
                       onClick={() =>
                         dispatch({
                           type: "ADD_MODAL",
@@ -80,10 +80,8 @@ const Users = () => {
                           },
                         })
                       }
-                    >
-                      {" "}
-                      Remove
-                    </i>
+                      className={styles.icon}
+                    ></HiOutlineTrash>
                   ) : (
                     <HiOutlineTrash className={styles.icon}></HiOutlineTrash>
                   )}
