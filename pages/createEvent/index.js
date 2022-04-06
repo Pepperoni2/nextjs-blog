@@ -77,7 +77,7 @@ const OrgsEvent = () => {
                 type: "NOTIFY",
                 payload: { error: "This file does not exist!" },
             });
-
+        
         if (file.size > 1024 * 1024 * 10)
             // 10MB
             return dispatch({
