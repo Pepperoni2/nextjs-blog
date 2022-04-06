@@ -8,6 +8,7 @@ import { ImageUpload } from "../../util/imageUpload"
 import NavigationLeftP from "../../components/navigationP_after"
 import styles from "../../styles/modules/afterlogin/settings.module.scss"
 import Link from "next/link"
+
 // Profile page stylen, navigation sollte am besten gleich bleiben
 // Style es wie du es willst 
 

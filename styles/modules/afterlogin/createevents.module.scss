@@ -1,0 +1,199 @@
+.wrapper {
+  height: 100%;
+  background-color: #e8dbc9;
+
+  .section1 {
+    width: auto;
+    margin-left: 180px;
+    color: #e97231;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 120vh;
+    .headline {
+      color: #251e21;
+      width: 100%;
+      // background-color: #e97231;
+      border-bottom: 1px #251e21 solid;
+      margin-bottom: 30px;
+      padding-bottom: 2%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      .username {
+        font-size: 1.5em;
+        padding: 1%;
+        padding-top: 3%;
+        color: #e97231;
+      }
+      .desc {
+        padding: 1%;
+      }
+    }
+    section {
+      height: 100vh;
+      width: 85%;
+      margin-left: 7.5%;
+      // border-radius: 10px;
+      // background-color: darken($color: #e8dbc9, $amount: 5);
+      display: flex;
+        justify-content: center;
+      .inputflex {
+        padding: 0 2%;
+        //   background-color: #e97231;
+        width: 50%;
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .inputsec {
+          width: 100%;
+          min-width: 300px;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          color: #251e21;
+
+          .inputs {
+            outline: none;
+            width: 300px;
+            padding: 12px 0px;
+            padding-left: 3%;
+            margin: 8px 0;
+            display: inline-block;
+            background-color: transparent;
+            // border-bottom: 1px solid #e8dbc9;
+            color: #251e21;
+            font-size: 1em;
+            // border: 1px solid #ccc;
+            box-sizing: border-box;
+            letter-spacing: 1px;
+            border: none;
+            border-top: 1px solid #e97231;
+
+            &::placeholder {
+              color: #251e21;
+              letter-spacing: 0.3px;
+              font-size: 1.02em;
+              transition: all 0.3s ease;
+            }
+            &:hover::placeholder {
+              opacity: 1;
+            }
+            &:focus {
+              box-shadow: none;
+              // border: none;
+            }
+            &:focus::placeholder {
+              opacity: 0.3;
+            }
+            &:focus ~ .textspan {
+              width: 100%;
+              right: auto;
+              left: 0;
+            }
+          }
+          .textspan {
+            width: 0%;
+            right: 0%;
+            bottom: 10%;
+            height: 2px;
+            position: absolute;
+            background-color: #251e21;
+            border-radius: 4px;
+            transition: 0.35s ease-in-out;
+          }
+
+          .titlelabel {
+            color: #251e21;
+          }
+          .descriptionlabel {
+            color: #251e21;
+          }
+          .contentlabel {
+            color: #251e21;
+          }
+          .categorylabel {
+            color: #251e21;
+          }
+          .openslotslabel {
+            color: #251e21;
+          }
+        }
+      }
+      .flexthis {
+        //   background-color: #e97231;
+        width: 50%;
+        color: #251e21;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        // background-color: #e97231;
+        .thumbnail {
+          height: 10vh;
+          width: 100%;
+            display: flex;
+            flex-direction: column;
+            // justify-content: center;
+            align-items: center;
+            // background-color: red;
+          .thumbnaillabel {
+            color: #251e21;
+          }
+        }
+        .eventimages {
+          height: 10vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+          .eventimageslabel {
+            color: #251e21;
+          }
+        }
+      }
+
+      .itembt {
+        background-color: #e97231;
+        color: white;
+        font-size: larger;
+        text-align: center;
+        padding: 14px 20px;
+        margin: 16px 0;
+        width: 70%;
+        max-width: 250px;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        border-radius: 4px;
+        transition: ease-in-out transform 0.1s, box-shadow ease-in-out 0.2s;
+
+        &:hover {
+          box-shadow: 0 0 10px black;
+
+          transform: translateY(2px);
+          opacity: 0.8;
+        }
+        &:active {
+          transform: scale(0.95);
+          transform-origin: bottom;
+        }
+
+        .button {
+          color: #251e21;
+       
+        }
+      }
+    }
+  }
+  .footer1 {
+    bottom: 0;
+    width: 100%;
+    height: 20vh;
+    z-index: 1;
+
+    margin-top: auto;
+  }
+}
