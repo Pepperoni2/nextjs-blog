@@ -3,11 +3,11 @@ $color-second: #292627;
 $color-third: #251e21;
 $color-fourth: #e8dbc9;
 .none {
-  display: none;
+  // display: none;
 }
 .container1 {
   
-  height: fit-content;
+  transform: scale(0.8);
   
   overflow: hidden;
   display: flex;
@@ -17,8 +17,8 @@ $color-fourth: #e8dbc9;
   z-index: 100;
   // background-color: rgba(255, 255, 255, 0.5);
   bottom: 1%;
-  left: 1%;
-  border-radius: 50%;
+  right: 1%;
+  // border-radius: 50%;
   .Polygon1 {
   transition: ease-in-out 0.2s all;
     animation: animation1 4s linear 0s infinite alternate;
