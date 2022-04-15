@@ -23,7 +23,7 @@ export default function Home() {
     "As an Organizer you have the ability to create and to organize your own events or parties.";
   
     const participatorDesc =
-    "As an Participator you have the ability to join an event. With that it is possible to see any specific data related to the event.";
+    "As a Participator you have the ability to join an event. With that it is possible to see any specific data related to the event.";
 
     const handleScrollY = () => {
     // if (window.pageYOffset > window.innerHeight)
