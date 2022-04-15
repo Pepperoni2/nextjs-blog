@@ -1,3 +1,4 @@
+// Event ImageUpload (same as 'imageUpload')
 export const EventImageUpload = async (images) => {
     let imgArr = []
     for(const item of images){
@@ -15,5 +16,5 @@ export const EventImageUpload = async (images) => {
         imgArr.push({public_id: data.public_id, url: data.secure_url})
 
     }
-    return imgArr;s
+    return imgArr;
 }
