@@ -40,6 +40,22 @@ const Settings = () => {
                 </a>
               </button>
             </Link>
+            
+              {auth.user.role =="admin" ? (
+                <Link href="settings/users">
+                <button className={styles.btpro} >
+                  <a className={styles.linkpro + isActive("/")}>
+                    Admin Settings
+                  </a>
+                </button>
+              </Link>
+              ) : (
+                <></>
+              )}
+
+               
+            
+            
             </section>
 
         </div>

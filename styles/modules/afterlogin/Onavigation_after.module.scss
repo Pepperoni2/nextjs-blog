@@ -1,87 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
-// @import "/styles/modules/afterlogin/Onavigation_after.module.scss";
-// @include addEvent;
-
 $color-first: #e97231;
 $color-second: #292627;
 $color-third: #251e21;
 $color-fourth: #e8dbc9;
 
-$logo: url(/Pics/logo_large.png);
 
-@mixin signOut {
-  .singoutuser {
-    height: 40%;
-    width: 100%;
-    // background-color: darkcyan;
-    display: flex;
 
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
 
-    .button1 {
-      width: 100%;
-      z-index: 2;
-      height: 100%;
-      background-color: $color-fourth;
-      position: relative;
-      transition: all ease-in-out 0.3s;
-      border: none;
-      padding: 0;
-      font: inherit;
-      cursor: pointer;
-      outline: none;
 
-      .link6 {
-        text-align: center;
-        transition: 0.3s all ease-in-out;
-        background-color: darken($color: $color-third, $amount: 40);
-        align-items: center;
-        justify-content: center;
-        color: $color-fourth;
-        display: flex;
-        height: 100%;
-        position: relative;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        width: 100%;
-
-        .icon6 {
-          margin-right: 5px;
-          transition: all ease-in-out 0.3s;
-        }
-      }
-    }
-
-    .button1:hover .link6 {
-      color: $color-third;
-      background-color: #e8dbc9;
-    }
-    .button1:hover .icon6 {
-      color: $color-third;
-    }
-
-    .button1::after {
-      position: absolute;
-      transition: 0.3s ease-in-out;
-      content: "";
-      width: 100%;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 0;
-      background: #251e21;
-      opacity: 0.2;
-    }
-    .button1:hover::after {
-      height: 100%;
-      bottom: 0;
-    }
-  }
-}
 
 .main {
   background-color: $color-second;
@@ -91,8 +16,6 @@ $logo: url(/Pics/logo_large.png);
   height: 100vh;
   left: 0;
 
-  .flexdiv {
-  }
 
   .divl {
     width: 100%;
@@ -658,3 +581,4 @@ $logo: url(/Pics/logo_large.png);
 
   }
 }
+
