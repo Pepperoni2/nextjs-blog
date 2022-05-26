@@ -1,5 +1,5 @@
 import NavigationLeftO from "../components/navigationO_after";
-import styles from "../styles/modules/afterlogin/main_after.module.scss";
+import styles from "../styles/modules/afterlogin/Omain_after.module.scss";
 import { getData } from "../util/fetchData";
 import { DataContext } from "../store/GlobalState";
 import { useContext, useState, useEffect } from "react";
@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import Slider from "react-slick";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import React, { Component } from "react";
+import Footer from "../components/footer";
 //import CenterMode from "./Slider";
 
 export default function Organizer(props) {
@@ -33,7 +34,17 @@ export default function Organizer(props) {
   return (
     <div className={styles.wrapper}>
       <NavigationLeftO />
-     
+      <div className={styles.container}>
+        <div className={styles.headline}>
+
+        <h1>Current running Events</h1>
+
+        </div>
+
+        <div className={styles.footer}>
+              <Footer></Footer>
+            </div>
+      </div>
     </div>
   );
 }

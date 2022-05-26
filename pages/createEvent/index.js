@@ -325,7 +325,7 @@ const OrgsEvent = () => {
                 type="number"
                 name="openslots"
                 value={openslots}
-                placeholder="Offene Plätze"
+                placeholder="Open slots"
                 onChange={handleChange}
                 id="inp5"
               />
