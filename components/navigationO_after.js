@@ -5,7 +5,7 @@ import { IoHomeSharp } from "@react-icons/all-files/io5/IoHomeSharp";
 import { GiAbstract027 } from "@react-icons/all-files/gi/GiAbstract027";
 import { MdFavorite } from "@react-icons/all-files/md/MdFavorite";
 import { CgEventbrite } from "react-icons/cg";
-import {FiSettings} from "react-icons/fi";
+import { FiSettings } from "react-icons/fi";
 import { IoNotificationsSharp } from "@react-icons/all-files/io5/IoNotificationsSharp";
 import { FaSignOutAlt } from "@react-icons/all-files/fa/FaSignOutAlt";
 import React, { useContext, useEffect, useState } from "react";
@@ -59,19 +59,16 @@ export default function NavigationLeftP() {
                 <div className={styles.divlogo}></div>
               </div>
             </Link>
+           
             <div className={styles.divbutton}>
-              
-                <button className={styles.bt1}>
-                  <a className={styles.link1 + isActive("/")}>
-                    <h2 className={styles.icon1}>
-                     &#43;
-                    </h2>
-                    Create Events
-                  </a>
-                </button>
-             
-              
-              
+            <Link href="/createEvent">
+              <button className={styles.bt1}>
+                <a className={styles.link1 + isActive("/")}>
+                  <h2 className={styles.icon1}>&#43;</h2>
+                  Create Events
+                </a>
+              </button>
+              </Link>
               <Link href="/settings">
                 <button className={styles.bt5}>
                   <a className={styles.link5 + isActive("/settings")}>
@@ -84,7 +81,6 @@ export default function NavigationLeftP() {
               </Link>
             </div>
             <div className={styles.divbottom}>
-              <div className={styles.flexdiv2}>
                 <div className={styles.singoutuser}>
                   <Link href="/">
                     <button className={styles.button1} onClick={logout}>
@@ -96,29 +92,23 @@ export default function NavigationLeftP() {
                   </Link>
                 </div>
                 <div className={styles.help1}>
-                  <button className={styles.dropbtn}>Profile</button>
-                  <div className={styles.dropdowncontent}>
-                    <div className={styles.logouser} onClick={switchModal}>
-                      <img
-                        className={styles.logo}
-                        src={auth.user.avatar}
-                        alt={auth.user.avatar}
-                        onClick={switchModal}
-                      />
-                    </div>
-                    <div className={styles.divuser}>
-                      <div className={styles.userhelp} id="userhelp">
-                        <span className={styles.username}>
-                          {auth.user.name}{" "}
-                          <span className={styles.underline}></span>
-                        </span>
-
-                     
-                      </div>
+                  <div className={styles.logouser} onClick={switchModal}>
+                    <img
+                      className={styles.logo}
+                      src={auth.user.avatar}
+                      alt={auth.user.avatar}
+                      onClick={switchModal}
+                    />
+                  </div>
+                  <div className={styles.divuser}>
+                    <div className={styles.userhelp}>
+                      <span className={styles.username}>
+                        {auth.user.name}{" "}
+                        <span className={styles.underline}></span>
+                      </span>
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
