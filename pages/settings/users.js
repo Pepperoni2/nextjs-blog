@@ -34,14 +34,13 @@ const Users = () => {
                 <th>{index + 1}</th>
                 <th>{user._id}</th>
                 <th>
-                  <img
-                    src={user.avatar}
-                    alt={user.avatar}
-                    style={{
-                      overflow: "hidden",
-                      objectFit: "cover",
-                    }}
-                  />
+                  <div>
+                    <img
+                      src={user.avatar}
+                      alt={user.avatar}
+                      
+                    />
+                  </div>
                 </th>
                 <th>{user.name}</th>
                 <th>{user.email}</th>

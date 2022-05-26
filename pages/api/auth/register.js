@@ -15,7 +15,6 @@ export default async (req, res) => {
         case "POST":
             await register(req, res)
             break;
-        
     }
 }
 

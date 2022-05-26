@@ -179,6 +179,8 @@ const SignIn = () => {
                 value={email}
                 onChange={handleChangeInput}
                 name="email"
+                minLength="6"
+                maxLength="30"
               />
               <span className={styles.textspan} id="span1"></span>
             </motion.div>

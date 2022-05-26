@@ -1,19 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
-//Front-end has added this:
-//import ReactPlayer from 'react-player'
 import Nav from "/components/navigation";
 import Footer from "/components/footer";
 import Header1 from "/components/head";
-/* import { Player } from "video-react"; */
 import video from "/Vids/Concert_1630.mp4";
-/* import { FixedSizeList as List } from "react-window"; */
 import Header from "/components/head";
 import ScrollToTop from "../components/scrollTop";
 import styles from "../styles/modules/styles.module.scss";
-//import {window} from 'window'
-import axios from "axios";
+
 import {
   motion,
   useMotionValue,
@@ -24,23 +19,6 @@ import {
 } from "framer-motion";
 
 export default function Home() {
-  /* const [jokeState, setJokeState] = useState({
-    joke: "",
-  });
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    // const mamares = await axios.get("https://yomomma-api.herokuapp.com/jokes");
-    // console.log(mamares);
-    setJokeState({
-      ...jokeState,
-      // joke: joke,
-    });
-  }; */
-
   const organzierDesc =
     "As an Organizer you have the ability to create and to organize your own events or parties.";
   
@@ -53,7 +31,6 @@ export default function Home() {
     //   document.body.style.overflow = "hidden";
     // }
   };
-
   useEffect(() => {
     window.addEventListener("scroll", handleScrollY);
 
