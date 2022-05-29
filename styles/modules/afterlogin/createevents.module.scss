@@ -2,6 +2,27 @@
   height: 100%;
   background-color: #e8dbc9;
 
+  .back {
+    position: fixed;
+    z-index: 10;
+    left: 45px;
+    top: 1vh;
+    text-decoration: none;
+    width: fit-content;
+    border-radius: 10px;
+    font-size: 1.4em;
+    color: #251e21;
+    background-color: #c0b5a7;
+    transition: all 0.2s ease-in-out;
+    width: 50px;
+    padding: 10px 20px;
+    &:hover {
+      background-color: #e8dbc9;
+      // background-color: #292627;
+      transform: translateX(2px);
+    }
+  }
+
   .section1 {
     width: auto;
     margin-left: 180px;
@@ -53,6 +74,21 @@
           flex-direction: column;
           position: relative;
           color: #251e21;
+
+          .list{
+            background-color: #e8dbc9;
+            border: 1px solid #251e21;
+            // border: none;
+            font-size: 1.05em;
+            height: 30px;
+            width: 100%;
+            option{
+              // background-color: red;
+              &:hover{
+                background-color: #e97231;
+              }
+            }
+          }
 
           .inputs {
             outline: none;

@@ -35,7 +35,6 @@ export default function PopUp({ open, onClose }) {
         className={styles.cont}
         whileDrag={{ scale: 1.1 }}
         drag
-        
         dragElastic={0.2}
         dragMomentum={false}
         dragTransition={{ bounceStiffness: 200, bounceDamping: 10 }}
@@ -56,9 +55,18 @@ export default function PopUp({ open, onClose }) {
               {auth.user.role}
             </li>
             <li style={{ width: "100%", height: 30 }}>
-              <Link href={"/settings/profile"}>
+              {auth.user.role.toLowerCase() == "organizer" 
+              // || auth.user.role.toLowerCase() == "admin" 
+              ? (
+                <Link href={"/settingsO/profile"}>
                 <p className={styles.settings}>User Settings</p>
               </Link>
+              ) : (
+                
+                <Link href={"/settings/profile"}>
+                <p className={styles.settings}>User Settings</p>
+              </Link>
+              )}
             </li>
           </ul>
           <div className={styles.singoutuser1}>

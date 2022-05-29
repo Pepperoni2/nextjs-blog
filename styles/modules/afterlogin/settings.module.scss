@@ -2,18 +2,214 @@ $color-first: #e97231;
 $color-second: #292627;
 $color-third: #251e21;
 $color-fourth: #e8dbc9;
+$margin: calc(100px + 1%);
 
-.wrapper{
-    background-color: $color-first;
-    width: 100%;
-    height: 100vh;
-    
-    position: relative;
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(360deg, #251e21 20%, #e97231);
+  overflow: hidden;
 
+  position: relative;
+  width: 100%;
 
-    section{
-        margin-left: 180px;
-        width: auto;
-         height: 100%;
+  .back {
+    position: fixed;
+    z-index: 10;
+    left: 45px;
+    top: 1vh;
+    text-decoration: none;
+    width: fit-content;
+    border-radius: 10px;
+    font-size: 1.4em;
+    color: #251e21;
+    background-color: #c0b5a7;
+    transition: all 0.2s ease-in-out;
+    width: 50px;
+    padding: 10px 20px;
+    &:hover {
+      background-color: #e8dbc9;
+      // background-color: #292627;
+      transform: translateX(2px);
     }
+  }
+  section {
+    margin-left: 180px;
+    width: auto;
+    height: 100vh;
+    overflow: hidden;
+
+    // background-color: #292627;
+    display: flex;
+    flex-direction: column;
+    // overflow: hidden;
+    h1 {
+      color: #251e21;
+      padding: 1%;
+      font-size: 3em;
+      margin-left: 100px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      // &:hover {
+      // }
+    }
+    .art {
+      width: 600px;
+      height: 400px;
+      position: absolute;
+      background-color: #251e21;
+      right: 0;
+      box-shadow: 0 5px 0 #e8dbc9;
+      top: 0;
+      z-index: 0;
+      transform: rotate(45deg) translateX(40px) translateY(-300px);
+      // img {
+      //   // background-image: url(../../../public/pexels-dapo-abideen-5677459.jpg);
+      //   width: 100%;
+      //   height: 95%;
+      //   background-position: center;
+      //   background-repeat: no-repeat;
+      //   background-size: cover;
+      //   transform: rotate(180deg);
+      //   lighting-color: none;
+      // }
+    }
+    .art2 {
+      z-index: 0;
+      width: 500px;
+      height: 200px;
+      position: absolute;
+      background-color: #251e21;
+      right: 0;
+      box-shadow: 0 5px 0 #e8dbc9;
+      bottom: 50%;
+      transform: rotate(115deg) translateX(100px) translateY(-400px);
+      // img {
+      //   // background-image: url(../../../public/pexels-dapo-abideen-5677459.jpg);
+      //   width: 100%;
+      //   height: 95%;
+      //   background-position: center;
+      //   background-repeat: no-repeat;
+      //   background-size: contain;
+      //   transform: rotate(180deg);
+      //   border-radius: 50%;
+      // }
+    }
+    .flexdiv {
+      display: flex;
+      flex-direction: column;
+      height: 80vh;
+      // margin-left: $margin;
+
+      .btpro {
+        background-color: #251e21;
+        border: none;
+        max-width: 300px;
+        margin-top: 5%;
+        font-size: 2em;
+        height: 60px;
+        border-radius: 10px;
+        margin-left: $margin;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.1s ease-in-out;
+        &::before {
+          content: "";
+          width: 0%;
+          height: 10%;
+          background-color: #e8dbc9;
+          position: absolute;
+          left: 5%;
+          top: 100%;
+          transition: all 0.2s ease-in-out;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+        &::after {
+          content: "";
+          width: 0%;
+          height: 10%;
+          background-color: #e8dbc9;
+          position: absolute;
+          right: 5%;
+          top: 100%;
+          transition: all 0.2s ease-in-out;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+        &:hover {
+          box-shadow: 10px 6px 0px #e8dbc9;
+          transform: translateX(2px);
+        }
+        &:hover::before {
+          width: 45%;
+        }
+        &:hover::after {
+          width: 45%;
+        }
+
+        .linkpro {
+          color: #e8dbc9;
+        }
+      }
+      .btusers {
+        background-color: #251e21;
+        border: none;
+        max-width: 300px;
+        margin-top: 5%;
+        font-size: 2em;
+        height: 60px;
+        border-radius: 10px;
+        margin-left: $margin;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.1s ease-in-out;
+        &::before {
+          content: "";
+          width: 0%;
+          height: 10%;
+          background-color: #e8dbc9;
+          position: absolute;
+          left: 5%;
+          top: 100%;
+          transition: all 0.2s ease-in-out;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+        &::after {
+          content: "";
+          width: 0%;
+          height: 10%;
+          background-color: #e8dbc9;
+          position: absolute;
+          right: 5%;
+          top: 100%;
+          transition: all 0.1s ease-in-out;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+        &:hover {
+          box-shadow: 10px 6px 0px #e8dbc9;
+          transform: translateX(2px);
+        }
+        &:hover::before {
+          width: 45%;
+        }
+        &:hover::after {
+          width: 45%;
+        }
+        .linkusers {
+          color: #e8dbc9;
+        }
+      }
+    }
+    .footer1 {
+      bottom: 0;
+      width: 100%;
+      height: 20vh;
+      z-index: 1;
+      position: static;
+      margin-top: auto;
+    }
+  }
 }
