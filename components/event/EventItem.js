@@ -10,7 +10,6 @@ import  ModalDeleteEvent  from "../ModalDelete";
 //import { tr } from "date-fns/locale";
 //import { deleteData, putData } from "../../util/fetchData";
 const entered = false;
-<<<<<<< HEAD
 const EventItem = ({ event, dispatch }) => {
   const { state } = useContext(DataContext);
   const { auth } = state;
@@ -19,36 +18,6 @@ const EventItem = ({ event, dispatch }) => {
    */ // ----- The Buttons under the desc ----
   
 
-=======
-const EventItem = ({ event }) => {
-  const { state, dispatch } = useContext(DataContext);
-  const { auth, enteredEvent } = state;
-
-  /*     dispatch({type: 'NOTIFY', payload: {success: 'You have successfully entered "'+ event.title + '"'}})
-   */ // ----- The Buttons under the desc ----
-  const enter = async () => {
-    const username = auth.user.name;
-    const ent = dispatch(addToEnteredEvents(event, enteredEvent));
-
-    if (!ent) {
-      await putData(`event/${event._id}`, username);
-
-      dispatch({
-        type: "NOTIFY",
-        payload: {
-          success: 'You have successfully entered "' + event.title + '"',
-        },
-      });
-    } else {
-      dispatch({
-        type: "NOTIFY",
-        payload: {
-          success: 'You have already entered "' + event.title + '"',
-        },
-      });
-    }
-  };
->>>>>>> 596ba97c886d0a40c6f1ef785b4222bd11fedd2e
 
   // const variantsTitle = {
   //   visible: {
@@ -134,12 +103,8 @@ const EventItem = ({ event }) => {
   };
 
   const adminLink = () => {
-<<<<<<< HEAD
     
     return(
-=======
-    return (
->>>>>>> 596ba97c886d0a40c6f1ef785b4222bd11fedd2e
       <div className={styles.flexdiv}>
         
         <motion.div
@@ -152,15 +117,11 @@ const EventItem = ({ event }) => {
           <Link href={`event/${event._id}`}>
             <motion.a className={styles.link}>Find out more</motion.a>
           </Link>
-<<<<<<< HEAD
         <button onClick={switchModal} className={styles.btLink}>
           Delete
         </button>
 
        </motion.div>
-=======
-        </motion.div>
->>>>>>> 596ba97c886d0a40c6f1ef785b4222bd11fedd2e
       </div>
     );
   };
@@ -205,9 +166,7 @@ const EventItem = ({ event }) => {
       transition={{ delay: 0.2, duration: 0.2 }}
       viewport={{ once: true }}
     >
-<<<<<<< HEAD
       <ModalDeleteEvent open={isOpen2} onClose={closeModal}></ModalDeleteEvent>
-=======
       {auth.user.role.toLowerCase() == "admin" 
               // || auth.user.role.toLowerCase() == "admin" 
               ? (
@@ -235,7 +194,6 @@ const EventItem = ({ event }) => {
               )}
      
 
->>>>>>> 596ba97c886d0a40c6f1ef785b4222bd11fedd2e
       <motion.img
         className={styles.cardimgtop}
         src={event.images[0].url}
