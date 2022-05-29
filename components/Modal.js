@@ -7,20 +7,34 @@ import { useRouter } from "next/router";
 import styles from "../styles/modules/afterlogin/modal.module.scss";
 
 
-
 const Modal = ({ open, onClose }) => {
   const { state, dispatch } = useContext(DataContext);
   const { modal, auth } = state;
+  const  router = useRouter()
   
 
   const handleSubmit = () => {
 
-    //if(modal.type === 'DELETE_EVENT'){
-      
-    if(modal.type === 'ADD_USERS'){
-        deleteData(`user/${modal.id}`, auth.token)
-        .then(res => console.log(res))
+    if(modal.type === 'DELETE_EVENT'){
+      dispatch({type: 'NOTIFY', payload: {loading: true}})
+      deleteData(`event/${modal.id}`, auth.token)
+      .then(res => {
+        if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err}})
+        dispatch({type: 'NOTIFY', payload: {success: res.msg}})
+     })
+     return router.reload("/")
     }
+
+    if(modal.type === 'ADD_USERS'){
+      
+      deleteData(`user/${modal.id}`, auth.token)
+       .then(res => {
+        if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err}})
+        dispatch({type: 'NOTIFY', payload: {success: res.msg}})
+       })
+       return router.reload("/")
+    }
+    
 
     if(modal.type === 'EXIT_EVENT'){
       dispatch(ExitEvent(modal.data, modal.id, "ADD_EVENT"));
@@ -38,7 +52,7 @@ const Modal = ({ open, onClose }) => {
       <div className={styles.wrapper}>
         <div className={styles.backg}>
           <div className={styles.topdiv}>
-            <h5 className={styles.title}>Do you really want to dismiss this event?</h5>
+            <h5 className={styles.title}>Do you really want to {modal.option} this {modal.mode}?</h5>
             
           </div>
           <div className={styles.bottomdiv}>

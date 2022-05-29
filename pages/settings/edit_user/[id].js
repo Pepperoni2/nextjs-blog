@@ -48,7 +48,7 @@ const EditUser = () => {
                 <h2>Edit User {id}</h2>
 
                 <div>
-                    <button onClick={() => router.back()}>
+                    <button onClick={() => router.push("../users")}>
                         Go Back
                     </button>
                 </div>

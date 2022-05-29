@@ -5,7 +5,7 @@ import { getData } from '../util/fetchData'
 export const DataContext = createContext()
 
 export const DataProvider = ({children}) => {
-    const initialState = { notify: {}, auth: {}, users:[], enteredEvent: [], exit: [], modal:[] }
+    const initialState = { notify: {}, auth: {}, users:[], organizers:[], enteredEvent: [], exit: [], modal:[] }
     const [state, dispatch] = useReducer(reducers, initialState)
     const { auth, enteredEvent } = state
 

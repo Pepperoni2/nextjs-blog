@@ -2,7 +2,6 @@ import connectDB from '../../../util/connectDB'
 import Users from '../../../models/userModels'
 import Organizers from '../../../models/organizerModels'
 import auth from '../../../middleware/auth'
-import bcrypt from 'bcrypt'
 
 
 connectDB()
@@ -42,7 +41,6 @@ const deleteUser = async (req, res) => {
             return res.status(400).json({ err: "Authentication is not valid!" })
 
         const { id } = req.query
-        const { role } = req.body
 
         await Users.findByIdAndDelete(id)
         res.json({ msg: 'Deletion Successful!' })

@@ -27,6 +27,8 @@ const EnteredEvent = ({ event, dispatch, enteredEvent }) => {
           id: event._id,
           title: event.title,
           type: "EXIT_EVENT",
+          mode: "event",
+          option: "leave",
         },
       });
       setIsOpen(true);

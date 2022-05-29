@@ -13,6 +13,7 @@ export const ACTIONS = {
     DELETE_EVENT: 'DELETE_EVENT',
     ADD_MODAL: 'ADD_MODAL',
     ADD_USERS: 'ADD_USERS', 
+    ADD_ORGANIZERS: 'ADD_ORGANIZERS'
 }
 
 export const addToEnteredEvents = (event, enteredEvent) => {

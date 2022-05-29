@@ -5,7 +5,7 @@ import { useContext, useState } from "react";
 import { DataContext } from "../../store/GlobalState";
 import { addToEnteredEvents } from "../../store/Actions";
 import { motion } from "framer-motion";
-import  ModalDeleteEvent  from "../ModalDelete";
+import  Modal  from "../Modal";
 //import { set } from "date-fns";
 //import { tr } from "date-fns/locale";
 //import { deleteData, putData } from "../../util/fetchData";
@@ -117,9 +117,6 @@ const EventItem = ({ event, dispatch }) => {
           <Link href={`event/${event._id}`}>
             <motion.a className={styles.link}>Find out more</motion.a>
           </Link>
-        <button onClick={switchModal} className={styles.btLink}>
-          Delete
-        </button>
 
        </motion.div>
       </div>
@@ -145,6 +142,8 @@ const EventItem = ({ event, dispatch }) => {
           id: event._id,
           title: event.title,
           type: "DELETE_EVENT",
+          option: "delete",
+          mode: "event",
         },
       });
     }
@@ -166,25 +165,13 @@ const EventItem = ({ event, dispatch }) => {
       transition={{ delay: 0.2, duration: 0.2 }}
       viewport={{ once: true }}
     >
-      <ModalDeleteEvent open={isOpen2} onClose={closeModal}></ModalDeleteEvent>
+      <Modal open={isOpen2} onClose={closeModal}></Modal>
       {auth.user.role.toLowerCase() == "admin" 
               // || auth.user.role.toLowerCase() == "admin" 
               ? (
                 <motion.button
                 className={styles.btDelete}
-                onClick={() =>
-                  dispatch({
-                    type: "ADD_MODAL",
-                    payload: [
-                      {
-                        data: "",
-                        id: event._id,
-                        title: event.title,
-                        type: "DELETE_EVENT",
-                      },
-                    ],
-                  })
-                }
+                onClick={switchModal}
               >
                 Delete
               </motion.button>
