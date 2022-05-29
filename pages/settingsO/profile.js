@@ -7,7 +7,7 @@ import valid from "../../util/valid";
 import { ImageUpload } from "../../util/imageUpload";
 import NavigationLeftO from "../../components/navigationO_after";
 import styles from "../../styles/modules/afterlogin/profile.module.scss";
-
+import Link from "next/link"
 // Profile page stylen, navigation sollte am besten gleich bleiben
 // Style es wie du es willst
 
@@ -120,6 +120,9 @@ const Profile = () => {
 
   return (
     <div className={styles.wrapper}>
+      <Link href="/settingsO">
+            <a className={styles.back}>Back</a>
+          </Link>
       <NavigationLeftO />
 
       <Head>

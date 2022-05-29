@@ -10,6 +10,7 @@ import  ModalDeleteEvent  from "../ModalDelete";
 //import { tr } from "date-fns/locale";
 //import { deleteData, putData } from "../../util/fetchData";
 const entered = false;
+<<<<<<< HEAD
 const EventItem = ({ event, dispatch }) => {
   const { state } = useContext(DataContext);
   const { auth } = state;
@@ -18,6 +19,36 @@ const EventItem = ({ event, dispatch }) => {
    */ // ----- The Buttons under the desc ----
   
 
+=======
+const EventItem = ({ event }) => {
+  const { state, dispatch } = useContext(DataContext);
+  const { auth, enteredEvent } = state;
+
+  /*     dispatch({type: 'NOTIFY', payload: {success: 'You have successfully entered "'+ event.title + '"'}})
+   */ // ----- The Buttons under the desc ----
+  const enter = async () => {
+    const username = auth.user.name;
+    const ent = dispatch(addToEnteredEvents(event, enteredEvent));
+
+    if (!ent) {
+      await putData(`event/${event._id}`, username);
+
+      dispatch({
+        type: "NOTIFY",
+        payload: {
+          success: 'You have successfully entered "' + event.title + '"',
+        },
+      });
+    } else {
+      dispatch({
+        type: "NOTIFY",
+        payload: {
+          success: 'You have already entered "' + event.title + '"',
+        },
+      });
+    }
+  };
+>>>>>>> 596ba97c886d0a40c6f1ef785b4222bd11fedd2e
 
   // const variantsTitle = {
   //   visible: {
@@ -85,7 +116,7 @@ const EventItem = ({ event, dispatch }) => {
           className={styles.div}
           animate={isOpen ? "open" : "closed"}
           variants={variantsButtons}
-           initial={{ opacity: 0, y: 0, }}
+          initial={{ opacity: 0, y: 0 }}
         >
           <Link href={`event/${event._id}`}>
             <motion.a className={styles.link}>Find out more</motion.a>
@@ -103,28 +134,36 @@ const EventItem = ({ event, dispatch }) => {
   };
 
   const adminLink = () => {
+<<<<<<< HEAD
     
     return(
+=======
+    return (
+>>>>>>> 596ba97c886d0a40c6f1ef785b4222bd11fedd2e
       <div className={styles.flexdiv}>
         
         <motion.div
           className={styles.div}
           animate={isOpen ? "open" : "closed"}
           variants={variantsButtons}
-           initial={{ opacity: 0, y: 0, }}
+          initial={{ opacity: 0, y: 0 }}
         >
           
           <Link href={`event/${event._id}`}>
             <motion.a className={styles.link}>Find out more</motion.a>
           </Link>
+<<<<<<< HEAD
         <button onClick={switchModal} className={styles.btLink}>
           Delete
         </button>
 
        </motion.div>
+=======
+        </motion.div>
+>>>>>>> 596ba97c886d0a40c6f1ef785b4222bd11fedd2e
       </div>
-    )
-  }
+    );
+  };
 
   const openModal = () => {
     setIsOpen2(true);
@@ -161,12 +200,42 @@ const EventItem = ({ event, dispatch }) => {
       className={styles.card}
       onHoverStart={() => setIsOpen(true)}
       onHoverEnd={() => setIsOpen(false)}
-      initial={{ opacity: 0,  }}
-      whileInView={{ opacity: 1, }}
-      transition={{delay:0.2, duration: 0.2}}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.2, duration: 0.2 }}
       viewport={{ once: true }}
     >
+<<<<<<< HEAD
       <ModalDeleteEvent open={isOpen2} onClose={closeModal}></ModalDeleteEvent>
+=======
+      {auth.user.role.toLowerCase() == "admin" 
+              // || auth.user.role.toLowerCase() == "admin" 
+              ? (
+                <motion.button
+                className={styles.btDelete}
+                onClick={() =>
+                  dispatch({
+                    type: "ADD_MODAL",
+                    payload: [
+                      {
+                        data: "",
+                        id: event._id,
+                        title: event.title,
+                        type: "DELETE_EVENT",
+                      },
+                    ],
+                  })
+                }
+              >
+                Delete
+              </motion.button>
+              ) : (
+                
+                <></>
+              )}
+     
+
+>>>>>>> 596ba97c886d0a40c6f1ef785b4222bd11fedd2e
       <motion.img
         className={styles.cardimgtop}
         src={event.images[0].url}

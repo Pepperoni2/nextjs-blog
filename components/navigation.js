@@ -2,7 +2,6 @@ import Link from "next/dist/client/link";
 import { useEffect, useState, useContext } from "react";
 import { DataContext } from "../store/GlobalState";
 import { motion } from "framer-motion";
-import Burger from "./burgermenu";
 import burgerstyles from "../styles/modules/burger.module.scss";
 import { el } from "date-fns/locale";
 function Nav(props) {

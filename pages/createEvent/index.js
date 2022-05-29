@@ -7,6 +7,7 @@ import { postData } from "../../util/fetchData";
 import { ImageUpload } from "../../util/imageUpload";
 import { useRouter } from "next/router";
 import Footer from "/components/footer";
+import Link from "next/dist/client/link";
 
 const OrgsEvent = () => {
   const initialState = {
@@ -179,65 +180,62 @@ const OrgsEvent = () => {
 
     input1.addEventListener("change", () => {
       const span1 = document.getElementById("span1");
-      
+
       if (input1 && input1.value) {
         span1.style.width = "100%";
       } else {
         span1.style.width = null;
       }
-
     });
     input2.addEventListener("change", () => {
       const span2 = document.getElementById("span2");
-      
+
       if (input2 && input2.value) {
         span2.style.width = "100%";
       } else {
         span2.style.width = null;
       }
-
     });
     input3.addEventListener("change", () => {
       const span3 = document.getElementById("span3");
-      
+
       if (input3 && input3.value) {
         span3.style.width = "100%";
       } else {
         span3.style.width = null;
       }
-
     });
-    input4.addEventListener("change", () => {
-      const span4 = document.getElementById("span4");
-      
-      if (input4 && input4.value) {
-        span4.style.width = "100%";
-      } else {
-        span4.style.width = null;
-      }
+    // input4.addEventListener("change", () => {
+    //   const span4 = document.getElementById("span4");
 
-    });
+    //   if (input4 && input4.value) {
+    //     span4.style.width = "100%";
+    //   } else {
+    //     span4.style.width = null;
+    //   }
+    // });
     input5.addEventListener("change", () => {
       const span5 = document.getElementById("span5");
-      
+
       if (input5 && input5.value) {
         span5.style.width = "100%";
       } else {
         span5.style.width = null;
       }
-
     });
-   
   });
 
   return (
     <div className={styles.wrapper}>
+      <Link href="/organizer">
+        <a className={styles.back}>Back</a>
+      </Link>
       <NavigationLeft />
       <Head>
         <title>Create Portal</title>
       </Head>
       <div className={styles.section1}>
-      <div className={styles.headline}>
+        <div className={styles.headline}>
           {Object.keys(auth).length === 0 ? (
             <div></div>
           ) : (
@@ -268,7 +266,7 @@ const OrgsEvent = () => {
 
             <div className={styles.inputsec}>
               <label htmlFor="description" className={styles.descriptionlabel}>
-              Describtion of the event
+                Describtion of the event
               </label>
               <input
                 className={styles.inputs}
@@ -283,7 +281,7 @@ const OrgsEvent = () => {
             </div>
             <div className={styles.inputsec}>
               <label htmlFor="content" className={styles.contentlabel}>
-               Information about the event
+                Information about the event
               </label>
               <input
                 className={styles.inputs}
@@ -304,7 +302,13 @@ const OrgsEvent = () => {
               <label htmlFor="category" className={styles.categorylabel}>
                 Category
               </label>
-              <input
+              <select className={styles.list}>
+                <option value="House-Party">House-Party</option>
+                <option value="Concert">Concert</option>
+                <option value="Festival">Festival</option>
+              
+              </select>
+              {/* <input
                 className={styles.inputs}
                 type="text"
                 name="category"
@@ -313,7 +317,7 @@ const OrgsEvent = () => {
                 onChange={handleChange}
                 id="inp4"
               />
-              <span className={styles.textspan} id="span4"></span>
+              <span className={styles.textspan} id="span4"></span> */}
             </div>
 
             <div className={styles.inputsec}>
@@ -325,7 +329,7 @@ const OrgsEvent = () => {
                 type="number"
                 name="openslots"
                 value={openslots}
-                placeholder="Offene Plätze"
+                placeholder="Open slots"
                 onChange={handleChange}
                 id="inp5"
               />
