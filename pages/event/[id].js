@@ -28,6 +28,32 @@ const DetailEvent = (props) => {
     
   }, [auth]);
 
+  const enter = async () => {
+    const username = auth.user.name
+    const ent = dispatch(addToEnteredEvents(event, enteredEvent));
+    
+
+    if (!ent){
+      await putData(`event/${event._id}`, username)
+      
+      dispatch({
+        type: "NOTIFY",
+        payload: {
+          success: 'You have successfully entered "' + event.title + '"',
+        },
+      });
+    }
+    else{
+      dispatch({
+        type: "NOTIFY",
+        payload: {
+          success: 'You have already entered "' + event.title + '"',
+        },
+      });
+    }
+    
+  };
+
   const settings = {
     dots: true,
     dotsClass: "slick-dots slick-thumb",

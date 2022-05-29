@@ -1,44 +1,23 @@
 import styles from "../../styles/modules/afterlogin/eventitems_after.module.scss";
 import Link from "next/link";
-import Image from "next/image";
-import { useContext, useState, useEffect } from "react";
+//import Image from "next/image";
+import { useContext, useState } from "react";
 import { DataContext } from "../../store/GlobalState";
 import { addToEnteredEvents } from "../../store/Actions";
 import { motion } from "framer-motion";
-import { set } from "date-fns";
-import { tr } from "date-fns/locale";
-import { putData } from "../../util/fetchData";
+import  ModalDeleteEvent  from "../ModalDelete";
+//import { set } from "date-fns";
+//import { tr } from "date-fns/locale";
+//import { deleteData, putData } from "../../util/fetchData";
 const entered = false;
-const EventItem = ({ event }) => {
-  const { state, dispatch } = useContext(DataContext);
-  const { auth, enteredEvent } = state;
- 
+const EventItem = ({ event, dispatch }) => {
+  const { state } = useContext(DataContext);
+  const { auth } = state;
+
   /*     dispatch({type: 'NOTIFY', payload: {success: 'You have successfully entered "'+ event.title + '"'}})
    */ // ----- The Buttons under the desc ----
-  const enter = async () => {
-    const username = auth.user.name
-    const ent = dispatch(addToEnteredEvents(event, enteredEvent));
+  
 
-    if (!ent){
-      await putData(`event/${event._id}`, username)
-      
-      dispatch({
-        type: "NOTIFY",
-        payload: {
-          success: 'You have successfully entered "' + event.title + '"',
-        },
-      });
-    }
-    else{
-      dispatch({
-        type: "NOTIFY",
-        payload: {
-          success: 'You have already entered "' + event.title + '"',
-        },
-      });
-    }
-    
-  };
 
   // const variantsTitle = {
   //   visible: {
@@ -97,6 +76,7 @@ const EventItem = ({ event }) => {
     },
   };
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
 
   const userLink = () => {
     return (
@@ -123,34 +103,57 @@ const EventItem = ({ event }) => {
   };
 
   const adminLink = () => {
+    
     return(
       <div className={styles.flexdiv}>
+        
         <motion.div
           className={styles.div}
           animate={isOpen ? "open" : "closed"}
           variants={variantsButtons}
            initial={{ opacity: 0, y: 0, }}
         >
+          
           <Link href={`event/${event._id}`}>
             <motion.a className={styles.link}>Find out more</motion.a>
           </Link>
-        <motion.button className={styles.btLink}
-          onClick={() => dispatch({
-          type: 'ADD_MODAL',
-          payload: [{
-              data: '', id: event._id,
-              title: event.title, type: 'DELETE_EVENT'
-          }]
-        })}>
+        <button onClick={switchModal} className={styles.btLink}>
           Delete
-        </motion.button>
+        </button>
 
        </motion.div>
       </div>
     )
   }
 
+  const openModal = () => {
+    setIsOpen2(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen2(false);
+  };
+
+  const switchModal = () => {
+    if (isOpen2) {
+      setIsOpen2(false);
+    } else {
+      dispatch({
+        type: "ADD_MODAL",
+        payload: {
+          data: '',
+          id: event._id,
+          title: event.title,
+          type: "DELETE_EVENT",
+        },
+      });
+    }
+    setIsOpen2(true);
+    
+  }
+
   return (
+
     // ----- Event Cards --------
     // ------ feel free to style ------
 
@@ -163,6 +166,7 @@ const EventItem = ({ event }) => {
       transition={{delay:0.2, duration: 0.2}}
       viewport={{ once: true }}
     >
+      <ModalDeleteEvent open={isOpen2} onClose={closeModal}></ModalDeleteEvent>
       <motion.img
         className={styles.cardimgtop}
         src={event.images[0].url}
@@ -193,8 +197,10 @@ const EventItem = ({ event }) => {
             </motion.p>
           </div>
           {!auth.user || auth.user.role !== "admin" ? userLink() : adminLink()}
+          
         </div>
       </motion.div>
+      
     </motion.div>
 
     // -----

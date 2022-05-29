@@ -22,11 +22,6 @@ const reducers = (state, action) => {
                 ...state,
                 modal: action.payload
             };
-        case ACTIONS.EXIT_EVENT:
-            return {
-                ...state,
-                exit: action.payload
-            };
         case ACTIONS.ADD_USERS:
             return {
                 ...state,

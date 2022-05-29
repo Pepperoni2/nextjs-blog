@@ -18,7 +18,7 @@ import { hoursToSeconds, set } from "date-fns";
 
 export default function Participator(props) {
   const [events, setEvents] = useState(props.events);
-  const { state } = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
   const { auth } = state;
   const router = useRouter();
 
@@ -63,7 +63,7 @@ export default function Participator(props) {
                 <div></div>
               ) : (
                 events.map((event) => (
-                  <EventItem key={event._id} event={event} />
+                  <EventItem key={event._id} event={event} dispatch={dispatch} />
                 ))
               )}
             </motion.section>

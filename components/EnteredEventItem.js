@@ -21,12 +21,12 @@ const EnteredEvent = ({ event, dispatch, enteredEvent }) => {
       setIsOpen(false);
     } else {
       dispatch({
-        type: "EXIT_EVENT",
+        type: "ADD_MODAL",
         payload: {
           data: enteredEvent,
           id: event._id,
           title: event.title,
-          type: "ADD_EVENT",
+          type: "EXIT_EVENT",
         },
       });
       setIsOpen(true);

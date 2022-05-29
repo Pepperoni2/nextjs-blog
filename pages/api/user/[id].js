@@ -12,7 +12,7 @@ export default async (req, res) => {
         case "PATCH":
             await updateRole(req, res)
             break;
-        case "PATCH":
+        case "DELETE":
             await deleteUser(req, res)
             break;
     }

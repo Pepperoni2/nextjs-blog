@@ -70,9 +70,9 @@ export const patchData = async (url, post, token) => {
 // ---- DELETE-Request-Handler -------- 
 // redirects to the api functions that are used for deleting data in the database
 export const deleteData = async (url, token) => {
-    const res = await fetch(`${baseUrl}/api/${url}`, {
-        method:'DELETE',
-        headers:{
+    const res = await fetch(`http://localhost:3000/api/${url}`, {
+        method: 'DELETE',
+        headers: {
             'Content-Type': 'application/json',
             'Authorization': token
         }
