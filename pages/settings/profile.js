@@ -7,6 +7,7 @@ import valid from "../../util/valid";
 import { ImageUpload } from "../../util/imageUpload";
 import NavigationLeftP from "../../components/navigationP_after";
 import styles from "../../styles/modules/afterlogin/profile.module.scss";
+import Footer from "/components/footer";
 
 // Profile page stylen, navigation sollte am besten gleich bleiben
 // Style es wie du es willst
@@ -125,117 +126,135 @@ const Profile = () => {
       <Head>
         <title>Profile</title>
       </Head>
-
+      <div className={styles.art}></div>
+      <div className={styles.art2}></div>
       <section>
         <div className={styles.griddi}>
-          <div className={styles.itemtit}>
-          <h3 className={styles.title}>
-            {auth.user.role === "participator"
-              ? "Participator Profile"
-              : auth.user.role === "organizer"
-              ? "Organizer Profile"
-              : "Admin Profile"}
-          </h3>
-          </div>
-    <div className={styles.itempic}>
-          <div className={styles.propic} style={{}}>
-            <img
-              src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar}
-              alt="avatar"
-              style={{
-                width: "100%",
-                height: "100%",
-                display: "block",
-                objectFit: "cover",
-              }}
-            />
-            <span className={styles.changepic}>
-              <i></i>
-              <p>Change</p>
-              <input
-                className={styles.btchangepic}
-                type="file"
-                name="file"
-                id="file_up"
-                accept="image/*"
-                onChange={changeAvatar}
-              />
-            </span>
-          </div>
-          </div>
-          <div className={styles.item1}>
-            <div className={styles.divinput}>
-              <label className={styles.label} htmlFor="name">
-                Name
-              </label>
-              <input
-                className={styles.inputs}
-                type="text"
-                name="name"
-                value={name}
-                placeholder="Your name"
-                onChange={handleChange}
-              />
-              <span className={styles.textspan}></span>
+          <div className={styles.flexdiv}>
+            <div className={styles.itemtit}>
+              <h1 className={styles.title}>
+                {auth.user.role === "participator" ? (
+                  <>
+                    <i>Participator </i>
+                    <>Profile</>
+                  </>
+                ) : auth.user.role === "organizer" ? (
+                  <>
+                    <i>Organizer </i>
+                    <>Profile</>
+                  </>
+                ) : (
+                  <>
+                    <i>Admin </i>
+                    <>Profile</>
+                  </>
+                )}
+              </h1>
+            </div>
+            <div className={styles.itempic}>
+              <div className={styles.imgart}></div>
+              <div className={styles.propic} style={{}}>
+                <img
+                  src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar}
+                  alt="avatar"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    display: "block",
+                    objectFit: "cover",
+                  }}
+                />
+
+                <span className={styles.changepic}>
+                  <p>Change</p>
+                  <input
+                    className={styles.btchangepic}
+                    type="file"
+                    name="file"
+                    id="file_up"
+                    accept="image/*"
+                    onChange={changeAvatar}
+                  />
+                </span>
+              </div>
+            </div>
+            <div className={styles.item}>
+              <div className={styles.divinput}>
+                <label className={styles.label} htmlFor="name">
+                  Name
+                </label>
+                <input
+                  className={styles.inputs}
+                  type="text"
+                  name="name"
+                  value={name}
+                  placeholder="Your name"
+                  onChange={handleChange}
+                />
+                <span className={styles.textspan}></span>
+              </div>
+            </div>
+            <div className={styles.item}>
+              <div className={styles.divinput}>
+                <label className={styles.label} htmlFor="email">
+                  Email
+                </label>
+                <input
+                  className={styles.inputs}
+                  type="email"
+                  name="email"
+                  defaultValue={auth.user.email}
+                  disabled={true}
+                  placeholder="Your email"
+                />
+                <span className={styles.textspan}></span>
+              </div>
+            </div>
+            <div className={styles.item}>
+              <div className={styles.divinput}>
+                <label className={styles.label} htmlFor="password">
+                  New Password
+                </label>
+                <input
+                  className={styles.inputs}
+                  type="password"
+                  name="password"
+                  value={password}
+                  placeholder="Your new password"
+                  onChange={handleChange}
+                />
+                <span className={styles.textspan}></span>
+              </div>
+            </div>
+            <div className={styles.item}>
+              <div className={styles.divinput}>
+                <label id={styles.specialLabel} className={styles.label}>
+                  Confirm New Password
+                </label>
+                <input
+                  className={styles.inputs}
+                  type="password"
+                  name="cf_password"
+                  value={cf_password}
+                  placeholder="Your new password"
+                  onChange={handleChange}
+                />
+                <span className={styles.textspan}></span>
+              </div>
+            </div>
+            <div className={styles.itembt}>
+              <button
+                disabled={notify.loading}
+                onClick={handleUpdateProfile}
+                className={styles.bt}
+              >
+                Update
+              </button>
             </div>
           </div>
-          <div className={styles.item2}>
-          <div className={styles.divinput}>
-            <label className={styles.label} htmlFor="email">
-              Email
-            </label>
-            <input
-              className={styles.inputs}
-              type="email"
-              name="email"
-              defaultValue={auth.user.email}
-              disabled={true}
-              placeholder="Your email"
-            />
-            <span className={styles.textspan}></span>
-          </div>
-          </div>
-          <div className={styles.item3}>
-          <div className={styles.divinput}>
-            <label className={styles.label} htmlFor="password">
-              New Password
-            </label>
-            <input
-              className={styles.inputs}
-              type="password"
-              name="password"
-              value={password}
-              placeholder="Your new password"
-              onChange={handleChange}
-            />
-            <span className={styles.textspan}></span>
-          </div>
-          </div>
-          <div className={styles.item4}>
-          <div className={styles.divinput}>
-            <label className={styles.label}>
-              Confirm New Password
-            </label>
-            <input
-              className={styles.inputs}
-              type="password"
-              name="cf_password"
-              value={cf_password}
-              placeholder="Your new password"
-              onChange={handleChange}
-            />
-            <span className={styles.textspan}></span>
-          </div>
-          </div>
-          <div className={styles.itembt}>
-          <button
-            disabled={notify.loading}
-            onClick={handleUpdateProfile}
-            className={styles.bt}
-          >
-            Update
-          </button>
-          </div>
+        </div>
+        <div className={styles.footer1}>
+          <Footer />
         </div>
       </section>
     </div>

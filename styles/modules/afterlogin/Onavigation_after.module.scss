@@ -13,6 +13,7 @@ $color-fourth: #e8dbc9;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 99;
 
   .flexdiv {
     // background-color: red;

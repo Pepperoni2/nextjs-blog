@@ -85,7 +85,7 @@ $logo: url(/Pics/logo_large.png);
 
 .main {
   background-color: $color-second;
-
+  z-index: 99;
   position: fixed;
   width: 180px;
   height: 100vh;
@@ -392,6 +392,8 @@ $logo: url(/Pics/logo_large.png);
 
   .divbottom {
     position: relative;
+    transition: box-shadow 0.2s ease-out;
+
     .flexdiv2 {
       // display: flex;
       // flex-direction: column;
@@ -589,8 +591,12 @@ $logo: url(/Pics/logo_large.png);
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    box-shadow: -1px 0 5px #e8dbc9, -1px 0 5px #251e21,;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    &:hover{
+      box-shadow: -2px 0 5px #e8dbc9, -2px 0 5px #251e21,;
+    }
     button {
       max-width: 90%;
       min-height: 50px;
