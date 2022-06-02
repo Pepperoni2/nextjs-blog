@@ -25,12 +25,13 @@ const reducers = (state, action) => {
         case ACTIONS.ADD_USERS:
             return {
                 ...state,
-                users: action.payload
+                users: action.payload,
+                
             };
         case ACTIONS.ADD_ORGANIZERS:
-            return {
+            return{
                 ...state,
-                organizers: action.payload
+                organizers: action.payload,
             }
         default:
             return state;

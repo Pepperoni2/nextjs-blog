@@ -28,13 +28,17 @@ export const DataProvider = ({children}) => {
 
     useEffect(() => {
         if(auth.token){
-
             if(auth.user.role === 'admin'){
-                getData('user', auth.token)
-                .then(res => {
+                // getData('user', auth.token)
+                getData('user', auth.token) 
+                .then(res=>{
                     if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err}})
-
+                    
                     dispatch({type: 'ADD_USERS', payload: res.users})
+                    getData('user/org',auth.token).then(res=>{
+                        if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err}})
+                        dispatch({type: 'ADD_ORGANIZERS', payload: res.organizers})
+                    })
                 })
             }
         }
@@ -42,6 +46,7 @@ export const DataProvider = ({children}) => {
             dispatch({type: 'ADD_USERS', payload: []})
         }
     }, [auth.token])
+    
 
     useEffect(() =>{
         const __next__event01__participator =JSON.parse(localStorage.getItem('__next__event01__participator'))

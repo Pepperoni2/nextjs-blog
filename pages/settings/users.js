@@ -9,7 +9,7 @@ import { HiOutlineTrash } from "react-icons/hi";
 
 const Users = () => {
   const { state, dispatch } = useContext(DataContext);
-  const { users, auth, modal } = state;
+  const { users, auth, organizers } = state;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -102,6 +102,73 @@ const Users = () => {
                               id: user._id,
                               title: user.name,
                               type: "ADD_USERS",
+                              mode: "user",
+                              option: "delete",
+                            },
+                          })
+                        }
+                        setIsOpen(true);
+
+                      }}
+                      className={styles.icon}
+                    ></HiOutlineTrash>
+                  ) : (
+                    <HiOutlineTrash className={styles.icon}></HiOutlineTrash>
+                  )}
+                </th>
+              </tr>
+            ))}
+            {/* ----------------------------------- */}
+             {organizers.map((user, index) => (
+              <tr key={user._id}>
+                <th>{index + 1}</th>
+                <th>{user._id}</th>
+                <th>
+                  <div>
+                    <img
+                      src={user.avatar}
+                      alt={user.avatar}
+                      
+                    />
+                  </div>
+                </th>
+                <th>{user.name}</th>
+                <th>{user.email}</th>
+                <th>
+                  {user.role === "admin" ? (
+                    user.root ? (
+                      <i> Root</i>
+                    ) : (
+                      <i>yes</i>
+                    )
+                  ) : (
+                    <i>no</i>
+                  )}
+                </th>
+                <th>
+                  <Link
+                    href={
+                      auth.user.root && auth.user.email !== user.email
+                        ? `/settings/edit_user/${user._id}`
+                        : `#!`
+                    }
+                  >
+                    <a>link</a>
+                  </Link>
+
+                  {auth.user.root && auth.user.email !== user.email ? (
+                    <HiOutlineTrash
+                      onClick={()=>{
+                        if (isOpen) {
+                          setIsOpen(false);
+                        } else {
+                          dispatch({
+                            type: "ADD_MODAL",
+                            payload: {
+                              data: organizers,
+                              id: user._id,
+                              title: user.name,
+                              type: "ADD_ORGANIZERS",
                               mode: "user",
                               option: "delete",
                             },
