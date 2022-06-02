@@ -42,7 +42,9 @@ const deleteUser = async (req, res) => {
 
         const { id } = req.query
 
-        await Users.findByIdAndDelete(id)
+        const user = await Users.findByIdAndDelete(id)
+        if(!user) await Organizers.findByIdAndDelete(id)
+        else res.json({msg: 'Failed to delete user!'})
         res.json({ msg: 'Deletion Successful!' })
     } catch (err) {
         return res.status(500).json({ err: err.message })

@@ -34,6 +34,14 @@ const Modal = ({ open, onClose }) => {
        })
        return router.reload("/")
     }
+    if(modal.type === 'ADD_ORGANIZERS'){
+      deleteData(`user/${modal.id}`, auth.token)
+       .then(res => {
+        if(res.err) return dispatch({type: 'NOTIFY', payload: {error: res.err}})
+        dispatch({type: 'NOTIFY', payload: {success: res.msg}})
+       })
+       return router.reload("/")
+    }
     
 
     if(modal.type === 'EXIT_EVENT'){
