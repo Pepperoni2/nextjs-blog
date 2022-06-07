@@ -76,9 +76,11 @@ const OrgsEvent = () => {
   };
 
   // Image Handling
+   const [imgsSrc, setImgsSrc] = useState([]);
 
   const handleImages = (e) => {
-    const file = e.target.files[1]; // six files
+    const file = e.target.files[0]; // six files
+    console.log(file);
     if (!file)
       return dispatch({
         type: "NOTIFY",
@@ -101,7 +103,23 @@ const OrgsEvent = () => {
           error: "Invalid file format. Only .jpeg and .png files are allowed!",
         },
       });
+    
+
+    if (file.type == "image/jpeg" && file.type == "image/png" && file.size < 1024 * 1024 * 10) 
+    {
+      for (const file of e.target.files) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          setImgsSrc((imgs) => [...imgs, reader.result]);
+        };
+        reader.onerror = () => {
+          console.log(reader.error);
+        };
+      }
+    }
     setData({ ...eventData, images: file });
+   
   };
 
   const createNewEvent = async (e) => {
@@ -224,6 +242,24 @@ const OrgsEvent = () => {
       }
     });
   });
+  const [clicked, setClick] = useState(false);
+
+  const toggleState = () => {
+    if (clicked) {
+      setClick(false);
+    } else {
+      setClick(true);
+    }
+   
+  };
+
+  useEffect(() => {  
+    var select = document.getElementById("options");
+    var value = select.options[select.selectedIndex].value;
+    console.log(value); // en
+  }, [clicked]);
+  
+
 
   return (
     <div className={styles.wrapper}>
@@ -302,10 +338,10 @@ const OrgsEvent = () => {
               <label htmlFor="category" className={styles.categorylabel}>
                 Category
               </label>
-              <select className={styles.list}>
-                <option value="House-Party">House-Party</option>
-                <option value="Concert">Concert</option>
-                <option value="Festival">Festival</option>
+              <select className={styles.list} id="options">
+                <option value="House-Party" onClick={toggleState}>House-Party</option>
+                <option value="Concert" onClick={toggleState}>Concert</option>
+                <option value="Festival" onClick={toggleState}>Festival</option>
               
               </select>
               {/* <input

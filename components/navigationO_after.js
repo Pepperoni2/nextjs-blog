@@ -13,14 +13,16 @@ import { DataContext } from "../store/GlobalState";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 import PopUp from "./popup_after";
+import burgerstyles from "../styles/modules/afterlogin/burger_after.module.scss";
 
-export default function NavigationLeftP() {
+export default function NavigationLeftO() {
   const router = useRouter();
   const { state, dispatch } = useContext(DataContext);
   const { auth, entered } = state;
 
   //--------------------
   const [isOpen, setIsOpen] = useState(false);
+  const [clicked, setClick] = useState(false);
 
   const switchModal = () => {
     if (isOpen) {
@@ -44,6 +46,46 @@ export default function NavigationLeftP() {
     dispatch({ type: "NOTIFY", payload: { success: "Logged out!" } });
   };
 
+  const toggleState = () => {
+    console.log("Hello");
+    if (clicked) {
+      setClick(false);
+    } else {
+      setClick(true);
+    }
+    if (window.innerWidth > 900) setClick(false);
+  };
+
+  useEffect(() => {
+    const Buttons = document.querySelector("#AfterButtons");
+    const Lines = document.querySelector(".backgroundBurger");
+    // console.log(burger);
+    // console.log(Lines);
+    window.addEventListener("resize", function Abc() {
+      if (window.innerWidth > 750) {
+        setClick(false);
+        console.log(this.window, innerWidth);
+        Buttons.classList.remove("active");
+        Buttons.classList.add("opacity0");
+        this.removeEventListener("resize", Abc);
+      } else {
+      }
+    });
+    if (clicked) {
+      Buttons.classList.remove("opacity0");
+      Buttons.classList.remove("close");
+      Buttons.classList.add("active");
+      Lines.classList.add("rotation");
+
+      console.log(Lines);
+    } else {
+      Buttons.classList.remove("active");
+      Buttons.classList.add("close");
+      Lines.classList.remove("rotation");
+
+    }
+  }, [clicked]);
+
   const loggedRouter = () => {
     return (
       <Fragment>
@@ -60,7 +102,7 @@ export default function NavigationLeftP() {
               </div>
             </Link>
            
-            <div className={styles.divbutton}>
+            <div className={styles.divbutton} id="AfterButtons">
             <Link href="/createEvent">
               <button className={styles.bt1}>
                 <a className={styles.link1 + isActive("/")}>
@@ -79,18 +121,17 @@ export default function NavigationLeftP() {
                   </a>
                 </button>
               </Link>
+              <Link href="/">
+                <button className={styles.button1} onClick={logout}>
+                  <a className={styles.link6 + isActive("/")}>
+                    <FaSignOutAlt className={styles.icon6} />
+                    Sign out
+                  </a>
+                </button>
+              </Link>
             </div>
             <div className={styles.divbottom}>
-                <div className={styles.singoutuser}>
-                  <Link href="/">
-                    <button className={styles.button1} onClick={logout}>
-                      <a className={styles.link6 + isActive("/")}>
-                        <FaSignOutAlt className={styles.icon6} />
-                        Sign out
-                      </a>
-                    </button>
-                  </Link>
-                </div>
+              <div className={styles.flexdiv2}>
                 <div className={styles.help1}>
                   <div className={styles.logouser} onClick={switchModal}>
                     <img
@@ -101,7 +142,7 @@ export default function NavigationLeftP() {
                     />
                   </div>
                   <div className={styles.divuser}>
-                    <div className={styles.userhelp}>
+                    <div className={styles.userhelp} id="userhelp">
                       <span className={styles.username}>
                         {auth.user.name}{" "}
                         <span className={styles.underline}></span>
@@ -109,6 +150,19 @@ export default function NavigationLeftP() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className={burgerstyles.wrapperburger}
+            //  onClick={()=>setClicked(false)}
+          >
+            <div className={burgerstyles.flex}>
+              <div className="backgroundBurger" onClick={toggleState}>
+                <span className="l1" style={{ height: "2px" }}></span>
+                <span className="l2" style={{ height: "2px" }}></span>
+                <span className="l3" style={{ height: "2px" }}></span>
+              </div>
             </div>
           </div>
         </div>

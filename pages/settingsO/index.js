@@ -9,14 +9,13 @@ import NavigationLeftO from "../../components/navigationO_after"
 import styles from "../../styles/modules/afterlogin/settings.module.scss"
 import Link from "next/link"
 import Footer from "/components/footer";
-
 // Profile page stylen, navigation sollte am besten gleich bleiben
 // Style es wie du es willst 
 
 const SettingsO = () => {
     const router = useRouter();
     const { state, dispatch } = useContext(DataContext);
-    const { auth } = state;
+    const { auth, } = state;
 
     const isActive = (r) => {
         if (r === router.pathname) {
@@ -51,7 +50,7 @@ const SettingsO = () => {
             </button>
           </Link>
 
-          {auth.user.role != "admin" ? (
+          {auth.role != "admin" ? (
             <></>
           ) : (
             <Link href="settingsO/users">
