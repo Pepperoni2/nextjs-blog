@@ -164,7 +164,7 @@ const OrgsEvent = () => {
 
       let media;
       console.log(images)
-      // if (images) media = await ImageUpload([images]);
+      if (images) media = await ImageUpload([images]);
       // setData({ ...eventData, organizer: auth.user.id });
       console.log(organizer)
       console.log(openslots)
