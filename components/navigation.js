@@ -76,12 +76,14 @@ function Nav(props) {
     }
     if (window.innerWidth > 750) setClick(false);
   };
+  
   function Color() {
     const nav = document.getElementById("nav");
 
     nav.style.background = "#251e21";
     console.log("lol");
   }
+  
   function NoColor() {
     const nav = document.getElementById("nav");
 

@@ -26,6 +26,8 @@ const Settings = () => {
     }
   };
 
+  
+
   return (
     <div className={styles.wrapper}>
       <NavigationLeftP />
@@ -48,7 +50,7 @@ const Settings = () => {
             </button>
           </Link>
 
-          {auth.user.role != "admin" ? (
+          {Object.keys(auth).length !== 0 && auth.user.role !== "admin" ? (
             <></>
           ) : (
             <Link href="settings/users">

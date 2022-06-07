@@ -79,9 +79,12 @@ export default function NavigationLeftO() {
 
       console.log(Lines);
     } else {
-      Buttons.classList.remove("active");
-      Buttons.classList.add("close");
-      Lines.classList.remove("rotation");
+      if (Object.keys(auth).length !== 0) {
+        Buttons.classList.remove("active");
+        Buttons.classList.add("close");
+        Lines.classList.remove("rotation");
+      }
+     
 
     }
   }, [clicked]);

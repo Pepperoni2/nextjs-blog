@@ -50,7 +50,7 @@ const SettingsO = () => {
             </button>
           </Link>
 
-          {auth.role != "admin" ? (
+          {Object.keys(auth).length !== 0 && auth.user.role !== "admin" ? (
             <></>
           ) : (
             <Link href="settingsO/users">

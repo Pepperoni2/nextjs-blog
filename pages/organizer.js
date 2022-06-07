@@ -23,27 +23,28 @@ export default function Organizer(props) {
         router.push("/organizer");
       } else if (auth.user.role === "participator")
         router.push("/participator");
+    } else {
+      router.push("/");
     }
   }, [auth]);
-
-  
-  
-
-  
 
   return (
     <div className={styles.wrapper}>
       <NavigationLeftO />
       <div className={styles.container}>
         <div className={styles.headline}>
-
-        <h1>Current running Events</h1>
-
+          <h1>Current running Events</h1>
         </div>
-
+        <div className={styles.slider}>
+          {events.length === 0 || Object.keys(auth).length === 0 ? (
+            <div></div>
+          ) : (
+            <div></div>
+          )}
+        </div>
         <div className={styles.footer}>
-              <Footer></Footer>
-            </div>
+          <Footer></Footer>
+        </div>
       </div>
     </div>
   );

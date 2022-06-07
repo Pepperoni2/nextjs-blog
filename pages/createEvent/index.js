@@ -13,15 +13,18 @@ import Loading from "/components/Loading";
 const OrgsEvent = () => {
   const { state, dispatch } = useContext(DataContext);
   const { auth, notify } = state;
-  const initialState = {
-    title: "",
-    description: "",
-    content: "",
-    category: "",
-    openslots: 0,
-    organizer: auth.user.id,
-    images: [{ public_id: "", url: "" }],
-  };
+  if (Object.keys(auth).length !== 0) {
+    const initialState = {
+      title: "",
+      description: "",
+      content: "",
+      category: "",
+      openslots: 0,
+      organizer: auth.user.id,
+      images: [{ public_id: "", url: "" }],
+    };
+  }
+ 
   const [eventData, setData] = useState(initialState);
   const {
     title,
@@ -42,7 +45,7 @@ const OrgsEvent = () => {
     if (Object.keys(auth).length !== 0) {
       setData({ ...eventData, name: auth.user.name });
     } else {
-      router.push("/organizer");
+      // router.push("/");
     }
   }, [auth]);
 
@@ -80,7 +83,6 @@ const OrgsEvent = () => {
   };
 
   // Image Handling
-  const [imgsSrc, setImgsSrc] = useState([]);
 
   // const handleImages = (e) => {
   //   const file = e.target.files[0]; // six files
