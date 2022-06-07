@@ -271,7 +271,7 @@ const OrgsEvent = () => {
   useEffect(() => {
     var select = document.getElementById("options");
     var value = select.options[select.selectedIndex].value;
-    console.log(value); // en
+    // console.log(value); // en
   }, [clicked]);
 
   useEffect(() => {
