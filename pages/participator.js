@@ -63,7 +63,11 @@ export default function Participator(props) {
                 <div></div>
               ) : (
                 events.map((event) => (
-                  <EventItem key={event._id} event={event} dispatch={dispatch} />
+                  <EventItem
+                    key={event._id}
+                    event={event}
+                    dispatch={dispatch}
+                  />
                 ))
               )}
             </motion.section>

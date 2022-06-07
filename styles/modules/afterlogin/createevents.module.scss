@@ -1,6 +1,6 @@
 .wrapper {
   height: 100%;
-  background-color: #e8dbc9;
+  background-color: #251e21;
 
   .back {
     position: fixed;
@@ -32,10 +32,10 @@
     flex-direction: column;
     min-height: 120vh;
     .headline {
-      color: #251e21;
+      color: #e8dbc9;
       width: 100%;
       // background-color: #e97231;
-      border-bottom: 1px #251e21 solid;
+      border-bottom: 1px #e8dbc9 solid;
       margin-bottom: 30px;
       padding-bottom: 2%;
       display: flex;
@@ -73,7 +73,7 @@
           display: flex;
           flex-direction: column;
           position: relative;
-          color: #251e21;
+          color: #e8dbc9;
 
           .list{
             background-color: #e8dbc9;
@@ -99,7 +99,7 @@
             display: inline-block;
             background-color: transparent;
             // border-bottom: 1px solid #e8dbc9;
-            color: #251e21;
+            color: #e8dbc9;
             font-size: 1em;
             // border: 1px solid #ccc;
             box-sizing: border-box;
@@ -108,7 +108,7 @@
             border-top: 1px solid #e97231;
 
             &::placeholder {
-              color: #251e21;
+              color: #e8dbc9;
               letter-spacing: 0.3px;
               font-size: 1.02em;
               transition: all 0.3s ease;
@@ -135,25 +135,25 @@
             bottom: 10%;
             height: 2px;
             position: absolute;
-            background-color: #251e21;
+            background-color: #e8dbc9;
             border-radius: 4px;
             transition: 0.35s ease-in-out;
           }
 
           .titlelabel {
-            color: #251e21;
+            color: #e8dbc9;
           }
           .descriptionlabel {
-            color: #251e21;
+            color: #e8dbc9;
           }
           .contentlabel {
-            color: #251e21;
+            color: #e8dbc9;
           }
           .categorylabel {
-            color: #251e21;
+            color: #e8dbc9;
           }
           .openslotslabel {
-            color: #251e21;
+            color: #e8dbc9;
           }
         }
       }
@@ -174,8 +174,10 @@
             // justify-content: center;
             align-items: center;
             // background-color: red;
+            color: #e8dbc9;
+
           .thumbnaillabel {
-            color: #251e21;
+            color: #e8dbc9;
           }
         }
         .eventimages {
@@ -186,7 +188,7 @@
             align-items: center;
 
           .eventimageslabel {
-            color: #251e21;
+            color: #e8dbc9;
           }
         }
       }
