@@ -39,6 +39,7 @@ const login = async (req, res) => {
             refresh_token, 
             access_token, 
             organizer: {
+                _id: org.id,
                 name: org.name,
                 email: org.email, 
                 role: org.role,

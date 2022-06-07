@@ -10,13 +10,15 @@ import Footer from "/components/footer";
 import Link from "next/dist/client/link";
 
 const OrgsEvent = () => {
+  const { state, dispatch } = useContext(DataContext);
+  const { auth, notify } = state;
   const initialState = {
     title: "",
     description: "",
     content: "",
     category: "",
     openslots: 0,
-    organizer: "",
+    organizer,
     images: [{ public_id: "", url: "" }],
   };
   const [eventData, setData] = useState(initialState);
@@ -32,8 +34,7 @@ const OrgsEvent = () => {
 
   const router = useRouter();
 
-  const { state, dispatch } = useContext(DataContext);
-  const { auth, notify } = state;
+  
 
   useEffect(() => {
     if (Object.keys(auth).length !== 0) {
@@ -45,7 +46,7 @@ const OrgsEvent = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(value);
+    
     setData({ ...eventData, [name]: value });
   };
 
@@ -157,8 +158,12 @@ const OrgsEvent = () => {
         });
 
       let media;
-
-      if (images) media = await ImageUpload([images]);
+      console.log(images)
+      // if (images) media = await ImageUpload([images]);
+      setData({ ...eventData, organizer: auth.user.id });
+      console.log(organizer)
+      console.log(openslots)
+      console.log(eventData)
       const res = await postData(
         "create/newEvent",
         {
@@ -167,7 +172,7 @@ const OrgsEvent = () => {
           content,
           category,
           openslots,
-          organizer: auth.user.name,
+          organizer: auth.user.id,
           images: media,
         },
         eventData
@@ -340,12 +345,12 @@ const OrgsEvent = () => {
               <label htmlFor="category" className={styles.categorylabel}>
                 Category
               </label>
-              <select className={styles.list} id="options">
+                <select className={styles.list} id="options">
                 <option value="House-Party" name="category" onClick={handleChange}>House-Party</option>
                 <option value="Concert" name="category" onClick={handleChange}>Concert</option>
                 <option value="Festival" name="category" onClick={handleChange}>Festival</option>
-              
               </select>
+              
               {/* <input
                 className={styles.inputs}
                 type="text"
