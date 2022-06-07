@@ -184,12 +184,13 @@ const OrgsEvent = () => {
         eventData
       );
 
-      if (res.err)
-      setLoading(false);
+      if (res.err){
+        setLoading(false);
         return dispatch({
           type: "NOTIFY",
           payload: { error: "An error in the event-creation has occured!" },
         });
+      }
       return dispatch({
         type: "NOTIFY",
         payload: { success: "Event created!" },
@@ -369,9 +370,8 @@ const OrgsEvent = () => {
               <select className={styles.list} id="options">
                 <option
                   value="House-Party"
-                  name="category"
                   onClick={()=>{
-                    console.log("Banna")
+                    console.log("Banna");
                     setData({ ...eventData, category: "House-Party" });
 
                   }}
