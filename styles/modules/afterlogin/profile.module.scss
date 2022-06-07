@@ -12,34 +12,32 @@ $val: 100%;
 @debug $val;
 
 .wrapper {
-  background: linear-gradient(360deg, #251e21 20%, #e97231);
-  overflow: hidden;
-  position: relative;
-height: 100%;
-  .art {
-    width: 1100px;
-    height: 400px;
-    position: absolute;
-    background-color: #251e21;
-    left: 0;
-    box-shadow: 0 5px 0 #e8dbc9;
-    top: 0;
-    z-index: 0;
+  background: linear-gradient(360deg, #251e21 27%, #e97231);
+  height: 100%;
+  // .art {
+  //   width: 1100px;
+  //   height: 400px;
+  //   position: absolute;
+  //   background-color: #251e21;
+  //   left: 0;
+  //   box-shadow: 0 5px 0 #e8dbc9;
+  //   top: 0;
+  //   z-index: 0;
 
-    transform: rotate(305deg) translateX(-400px) translateY(-400px);
-  }
-  .art2 {
-    z-index: 0;
-    width: 500px;
-    height: 200px;
-    position: absolute;
-    background-color: #251e21;
-    left: 0;
-    box-shadow: 0 5px 0 #e8dbc9;
-    bottom: 50%;
+  //   transform: rotate(305deg) translateX(-400px) translateY(-400px);
+  // }
+  // .art2 {
+  //   z-index: 0;
+  //   width: 500px;
+  //   height: 200px;
+  //   position: absolute;
+  //   background-color: #251e21;
+  //   left: 0;
+  //   box-shadow: 0 5px 0 #e8dbc9;
+  //   bottom: 50%;
 
-    transform: rotate(210deg) translateX(-80px) translateY(-400px);
-  }
+  //   transform: rotate(210deg) translateX(-80px) translateY(-400px);
+  // }
 
   .back {
     position: fixed;
@@ -63,11 +61,15 @@ height: 100%;
   }
 
   section {
-    margin-left: 180px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    width: auto;
+  margin-left: 180px;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  // overflow: scroll;
+
+  position: relative;
+
     .footer1 {
       bottom: 0;
       width: 100%;
@@ -75,23 +77,26 @@ height: 100%;
       z-index: 1;
       position: static;
       margin-top: auto;
+     
     }
 
     .griddi {
       width: 100%;
-      height: 80vh;
+      height: 100vh;
       // background-color: #ebeae7;
       display: flex;
       flex-direction: column;
       // position: relative;
       justify-content: center;
       align-items: center;
+      
+     
       .flexdiv {
         width: 80%;
-        height: 100%;
+        // padding: 1%;
         background: linear-gradient(360deg, #251e216e, #e971316c, #251e216e);
-        margin-top: 2vh;
-        margin-bottom: 2vh;
+        // margin-top: 3vh;
+        // margin-bottom: 3vh;
         border-radius: 30px;
         display: flex;
         position: relative;
@@ -101,7 +106,6 @@ height: 100%;
 
         .itemtit {
           display: flex;
-
           width: 100%;
           .title {
             color: #e8dbc9;
@@ -114,14 +118,14 @@ height: 100%;
             border-bottom-left-radius: 10px;
             border-radius: 10px 10px 0 0;
             box-shadow: 0 5px #e8dbc9;
-            i{
+            i {
               color: #e97231;
             }
           }
         }
 
         .itempic {
-          top:5vh;
+          top: 10vh;
           right: 0;
           width: 30%;
           position: absolute;
@@ -160,7 +164,7 @@ height: 100%;
               box-shadow: 0px 0px 10px #251e21, 2px 2px 1px #251e21,
                 -2px -2px 1px #251e21;
             }
-            &:hover ~.imgart{
+            &:hover ~ .imgart {
               transform: rotate(45deg);
             }
             img {
@@ -307,6 +311,7 @@ height: 100%;
         justify-content: center;
         align-items: center;
         height: fit-content;
+        margin-bottom: 2%;
       }
 
       .bt {
@@ -354,7 +359,6 @@ height: 100%;
         }
         &:hover {
           color: #e97231;
-
         }
         &:hover::before {
           width: 45%;
@@ -378,26 +382,21 @@ height: 100%;
   }
 }
 @media only screen and (max-width: 1560px) {
-
-  .itempic{
+  .itempic {
     margin-right: 6vw;
   }
-  .item{
-    
-    .divinput
-    {
+  .item {
+    .divinput {
       flex-wrap: wrap;
-    flex-grow: 1;
-      .label{
-
+      flex-grow: 1;
+      .label {
       }
-      .inputs{
+      .inputs {
         max-width: 300px;
       }
     }
-    
   }
-  .itembt{
+  .itembt {
     margin-top: 10px;
   }
 }

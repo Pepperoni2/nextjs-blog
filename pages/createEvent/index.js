@@ -8,6 +8,7 @@ import { ImageUpload } from "../../util/imageUpload";
 import { useRouter } from "next/router";
 import Footer from "/components/footer";
 import Link from "next/dist/client/link";
+import Loading from "/components/Loading";
 
 const OrgsEvent = () => {
   const initialState = {
@@ -34,6 +35,7 @@ const OrgsEvent = () => {
 
   const { state, dispatch } = useContext(DataContext);
   const { auth, notify } = state;
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (Object.keys(auth).length !== 0) {
@@ -77,7 +79,7 @@ const OrgsEvent = () => {
   };
 
   // Image Handling
-   const [imgsSrc, setImgsSrc] = useState([]);
+  const [imgsSrc, setImgsSrc] = useState([]);
 
   const handleImages = (e) => {
     const file = e.target.files[0]; // six files
@@ -104,10 +106,12 @@ const OrgsEvent = () => {
           error: "Invalid file format. Only .jpeg and .png files are allowed!",
         },
       });
-    
 
-    if (file.type == "image/jpeg" && file.type == "image/png" && file.size < 1024 * 1024 * 10) 
-    {
+    if (
+      file.type == "image/jpeg" &&
+      file.type == "image/png" &&
+      file.size < 1024 * 1024 * 10
+    ) {
       for (const file of e.target.files) {
         const reader = new FileReader();
         reader.readAsDataURL(file);
@@ -120,12 +124,13 @@ const OrgsEvent = () => {
       }
     }
     setData({ ...eventData, images: file });
-   
   };
 
   const createNewEvent = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (title && description && content && openslots) {
+      setLoading(true);
       if (title.length > 50)
         return dispatch({
           type: "NOTIFY",
@@ -174,6 +179,7 @@ const OrgsEvent = () => {
       );
 
       if (res.err)
+      setLoading(false);
         return dispatch({
           type: "NOTIFY",
           payload: { error: "An error in the event-creation has occured!" },
@@ -183,6 +189,7 @@ const OrgsEvent = () => {
         payload: { success: "Event created!" },
       });
     } else {
+      setLoading(false);
       return dispatch({
         type: "NOTIFY",
         payload: { error: "Please fill out all the event fields!" },
@@ -252,19 +259,30 @@ const OrgsEvent = () => {
       handleChange();
       setClick(true);
     }
-   
   };
 
-  useEffect(() => {  
+  useEffect(() => {
     var select = document.getElementById("options");
     var value = select.options[select.selectedIndex].value;
     // console.log(value); // en
   }, [clicked]);
-  
 
+  useEffect(() => {
+    const body = document.querySelector("body");
+    console.log("fck u");
+   if(loading){
+    body.style.overflow = "visible";
+   }
+   else{
+    body.style.overflow = "hidden";
+
+   }
+    
+  }, [loading]);
 
   return (
     <div className={styles.wrapper}>
+      <Loading loading={loading} />
       <Link href="/organizer">
         <a className={styles.back}>Back</a>
       </Link>
@@ -341,10 +359,19 @@ const OrgsEvent = () => {
                 Category
               </label>
               <select className={styles.list} id="options">
-                <option value="House-Party" name="category" onClick={handleChange}>House-Party</option>
-                <option value="Concert" name="category" onClick={handleChange}>Concert</option>
-                <option value="Festival" name="category" onClick={handleChange}>Festival</option>
-              
+                <option
+                  value="House-Party"
+                  name="category"
+                  onClick={handleChange}
+                >
+                  House-Party
+                </option>
+                <option value="Concert" name="category" onClick={handleChange}>
+                  Concert
+                </option>
+                <option value="Festival" name="category" onClick={handleChange}>
+                  Festival
+                </option>
               </select>
               {/* <input
                 className={styles.inputs}
