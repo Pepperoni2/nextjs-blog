@@ -258,7 +258,7 @@ const OrgsEvent = () => {
   useEffect(() => {  
     var select = document.getElementById("options");
     var value = select.options[select.selectedIndex].value;
-    console.log(value); // en
+    // console.log(value); // en
   }, [clicked]);
   
 
@@ -341,9 +341,9 @@ const OrgsEvent = () => {
                 Category
               </label>
               <select className={styles.list} id="options">
-                <option value="House-Party" name="category" onClick={toggleState}>House-Party</option>
-                <option value="Concert" name="category" onClick={toggleState}>Concert</option>
-                <option value="Festival" name="category" onClick={toggleState}>Festival</option>
+                <option value="House-Party" name="category" onClick={handleChange}>House-Party</option>
+                <option value="Concert" name="category" onClick={handleChange}>Concert</option>
+                <option value="Festival" name="category" onClick={handleChange}>Festival</option>
               
               </select>
               {/* <input
