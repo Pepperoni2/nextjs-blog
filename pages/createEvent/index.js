@@ -48,7 +48,7 @@ const OrgsEvent = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+    console.log(value);
     setData({ ...eventData, [name]: value });
   };
 
@@ -269,7 +269,7 @@ const OrgsEvent = () => {
   useEffect(() => {
     var select = document.getElementById("options");
     var value = select.options[select.selectedIndex].value;
-    // console.log(value); // en
+    console.log(value); // en
   }, [clicked]);
 
   useEffect(() => {
@@ -367,7 +367,11 @@ const OrgsEvent = () => {
                 <option
                   value="House-Party"
                   name="category"
-                  onClick={handleChange}
+                  onClick={()=>{
+                    console.log("Banna")
+                    setData({ ...eventData, category: "House-Party" });
+
+                  }}
                 >
                   House-Party
                 </option>
