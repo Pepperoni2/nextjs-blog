@@ -45,6 +45,7 @@ const OrgsEvent = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(value);
     setData({ ...eventData, [name]: value });
   };
 
@@ -248,6 +249,7 @@ const OrgsEvent = () => {
     if (clicked) {
       setClick(false);
     } else {
+      handleChange();
       setClick(true);
     }
    
@@ -339,9 +341,9 @@ const OrgsEvent = () => {
                 Category
               </label>
               <select className={styles.list} id="options">
-                <option value="House-Party" onClick={toggleState}>House-Party</option>
-                <option value="Concert" onClick={toggleState}>Concert</option>
-                <option value="Festival" onClick={toggleState}>Festival</option>
+                <option value="House-Party" name="category" onClick={toggleState}>House-Party</option>
+                <option value="Concert" name="category" onClick={toggleState}>Concert</option>
+                <option value="Festival" name="category" onClick={toggleState}>Festival</option>
               
               </select>
               {/* <input
