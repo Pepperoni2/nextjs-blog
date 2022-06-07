@@ -82,50 +82,50 @@ const OrgsEvent = () => {
   // Image Handling
   const [imgsSrc, setImgsSrc] = useState([]);
 
-  const handleImages = (e) => {
-    const file = e.target.files[0]; // six files
-    console.log(file);
-    if (!file)
-      return dispatch({
-        type: "NOTIFY",
-        payload: { error: "This file does not exist!" },
-      });
+  // const handleImages = (e) => {
+  //   const file = e.target.files[0]; // six files
+  //   console.log(file);
+  //   if (!file)
+  //     return dispatch({
+  //       type: "NOTIFY",
+  //       payload: { error: "This file does not exist!" },
+  //     });
 
-    if (file.size > 1024 * 1024 * 10)
-      // 10MB
-      return dispatch({
-        type: "NOTIFY",
-        payload: {
-          error: "The maximum size of all images should not is 10MB.",
-        },
-      });
+  //   if (file.size > 1024 * 1024 * 10)
+  //     // 10MB
+  //     return dispatch({
+  //       type: "NOTIFY",
+  //       payload: {
+  //         error: "The maximum size of all images should not is 10MB.",
+  //       },
+  //     });
 
-    if (file.type !== "image/jpeg" && file.type !== "image/png")
-      return dispatch({
-        type: "NOTIFY",
-        payload: {
-          error: "Invalid file format. Only .jpeg and .png files are allowed!",
-        },
-      });
+  //   if (file.type !== "image/jpeg" && file.type !== "image/png")
+  //     return dispatch({
+  //       type: "NOTIFY",
+  //       payload: {
+  //         error: "Invalid file format. Only .jpeg and .png files are allowed!",
+  //       },
+  //     });
 
-    if (
-      file.type == "image/jpeg" &&
-      file.type == "image/png" &&
-      file.size < 1024 * 1024 * 10
-    ) {
-      for (const file of e.target.files) {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => {
-          setImgsSrc((imgs) => [...imgs, reader.result]);
-        };
-        reader.onerror = () => {
-          console.log(reader.error);
-        };
-      }
-    }
-    setData({ ...eventData, images: file });
-  };
+  //   if (
+  //     file.type == "image/jpeg" &&
+  //     file.type == "image/png" &&
+  //     file.size < 1024 * 1024 * 10
+  //   ) {
+  //     for (const file of e.target.files) {
+  //       const reader = new FileReader();
+  //       reader.readAsDataURL(file);
+  //       reader.onload = () => {
+  //         setImgsSrc((imgs) => [...imgs, reader.result]);
+  //       };
+  //       reader.onerror = () => {
+  //         console.log(reader.error);
+  //       };
+  //     }
+  //   }
+  //   setData({ ...eventData, images: file });
+  // };
 
   const createNewEvent = async (e) => {
     e.preventDefault();
@@ -425,7 +425,7 @@ const OrgsEvent = () => {
               />
             </div>
             {/* Event-Images */}
-            <div className={styles.eventimages}>
+            {/* <div className={styles.eventimages}>
               <label htmlFor="images" className={styles.eventimageslabel}>
                 Images of your Event
               </label>
@@ -436,7 +436,7 @@ const OrgsEvent = () => {
                 multiple
                 onChange={handleImages}
               />
-            </div>
+            </div> */}
             <div className={styles.itembt}>
               <a
                 disabled={notify.loading}
