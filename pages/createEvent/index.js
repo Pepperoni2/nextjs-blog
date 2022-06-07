@@ -19,7 +19,7 @@ const OrgsEvent = () => {
     content: "",
     category: "",
     openslots: 0,
-    organizer,
+    organizer: auth.user.id,
     images: [{ public_id: "", url: "" }],
   };
   const [eventData, setData] = useState(initialState);
@@ -165,10 +165,11 @@ const OrgsEvent = () => {
       let media;
       console.log(images)
       // if (images) media = await ImageUpload([images]);
-      setData({ ...eventData, organizer: auth.user.id });
+      // setData({ ...eventData, organizer: auth.user.id });
       console.log(organizer)
       console.log(openslots)
       console.log(eventData)
+      console.log(auth.user.id)
       const res = await postData(
         "create/newEvent",
         {
@@ -274,11 +275,13 @@ const OrgsEvent = () => {
 
   useEffect(() => {
     const body = document.querySelector("body");
-    console.log("fck u");
+    
    if(loading){
+    console.log("on");
     body.style.overflow = "visible";
    }
    else{
+    console.log("off");
     body.style.overflow = "hidden";
 
    }
