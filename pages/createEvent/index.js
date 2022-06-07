@@ -11,13 +11,15 @@ import Link from "next/dist/client/link";
 import Loading from "/components/Loading";
 
 const OrgsEvent = () => {
+  const { state, dispatch } = useContext(DataContext);
+  const { auth, notify } = state;
   const initialState = {
     title: "",
     description: "",
     content: "",
     category: "",
     openslots: 0,
-    organizer: "",
+    organizer,
     images: [{ public_id: "", url: "" }],
   };
   const [eventData, setData] = useState(initialState);
@@ -33,8 +35,7 @@ const OrgsEvent = () => {
 
   const router = useRouter();
 
-  const { state, dispatch } = useContext(DataContext);
-  const { auth, notify } = state;
+ 
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -47,7 +48,7 @@ const OrgsEvent = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(value);
+    
     setData({ ...eventData, [name]: value });
   };
 
@@ -162,8 +163,12 @@ const OrgsEvent = () => {
         });
 
       let media;
-
-      if (images) media = await ImageUpload([images]);
+      console.log(images)
+      // if (images) media = await ImageUpload([images]);
+      setData({ ...eventData, organizer: auth.user.id });
+      console.log(organizer)
+      console.log(openslots)
+      console.log(eventData)
       const res = await postData(
         "create/newEvent",
         {
@@ -172,7 +177,7 @@ const OrgsEvent = () => {
           content,
           category,
           openslots,
-          organizer: auth.user.name,
+          organizer: auth.user.id,
           images: media,
         },
         eventData
@@ -373,6 +378,7 @@ const OrgsEvent = () => {
                   Festival
                 </option>
               </select>
+              
               {/* <input
                 className={styles.inputs}
                 type="text"
