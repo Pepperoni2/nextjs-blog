@@ -93,6 +93,8 @@ $color-fourth: #e8dbc9;
         display: flex;
         justify-content: center;
         .input {
+          outline: none;
+          border: none;
           width: 300px;
           padding: 12px 0px;
           padding-left: 10%;
