@@ -2,7 +2,7 @@ $color-first: #e97231;
 $color-second: #292627;
 $color-third: #251e21;
 $color-fourth: #e8dbc9;
-
+$fontsizeText: 1.5rem;
 .wrapper {
   width: 100%;
   min-height: 120vh;
@@ -220,6 +220,7 @@ $color-fourth: #e8dbc9;
         p {
           padding: 2.5%;
           line-height: 145%;
+          font-size: $fontsizeText;
         }
       }
       .flex2 {
@@ -304,6 +305,7 @@ $color-fourth: #e8dbc9;
         p {
           padding: 2.5%;
           line-height: 145%;
+          font-size: $fontsizeText;
         }
       }
       .flex3 {

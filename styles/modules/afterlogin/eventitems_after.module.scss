@@ -44,7 +44,6 @@ $color-fourth: #e8dbc9;
     &:active {
       text-decoration: underline;
     }
-    
   }
 
   .cardimgtop {
@@ -109,7 +108,7 @@ $color-fourth: #e8dbc9;
       height: 20%;
       display: flex;
       align-items: center;
-      width: 94%;
+      width: 100%;
       border-bottom: 0px solid black;
       margin-bottom: 3%;
       // text-shadow: 0 0px 5px black,0 0px 1px #e8dbc9;
@@ -134,15 +133,15 @@ $color-fourth: #e8dbc9;
       // background-color: rosybrown;
       height: fit-content;
       // align-items: center;
-
+      
       position: relative;
       .carddescription {
-        background-color: rgba(232, 219, 201, 1);
+        background-color: #251e2180;
         flex-wrap: wrap;
         width: calc(70% + 10px);
         // min-width: 100px;
         max-width: 600px;
-
+        color: #e8dbc9;
         // max-width: 600px;
         border-radius: 4px 4px 0 0;
         display: flex;
@@ -154,7 +153,8 @@ $color-fourth: #e8dbc9;
         // border-bottom: 1px solid black;
         // border-right: 1px solid black;
         // min-width: fit-content;
-
+        border: 1px #e8dbc9 solid;
+        border-bottom: none;
         line-height: 25px;
         // letter-spacing: 1px;
 
@@ -185,7 +185,7 @@ $color-fourth: #e8dbc9;
       justify-content: center;
 
       // background-color: #e97231;
-      
+
       .div {
         width: calc(70% + 10px);
         padding: 0 10px;
@@ -194,15 +194,16 @@ $color-fourth: #e8dbc9;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: #251e2180;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         max-width: 600px;
-
+        border: 1px #e8dbc9 solid;
+        border-top: none;
         .link {
           border: none;
           // text-decoration: underline;
-          color: #e8dbc9;
+          color: #251e21;
           display: flex;
           align-items: center;
           height: 7vh;
@@ -212,14 +213,14 @@ $color-fourth: #e8dbc9;
           max-height: 60px;
           font-size: 1.3em;
           transition: all 0.2s ease-in-out;
-          background-color: rgba(24, 15, 15, 1);
+          background-color: #e8dbc9;
           border-radius: 4px;
           cursor: pointer;
           &:hover {
-            background-color: rgb(31, 20, 20);
+            // background-color: rgb(31, 20, 20);
             transform: translateY(-2px);
             // box-shadow: 0px 0px 3px 1px black;
-            color: #e97231;
+            box-shadow: 0 0 1px #e97231;
           }
           &:active {
             transform: scale(0.95);

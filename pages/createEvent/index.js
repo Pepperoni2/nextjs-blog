@@ -135,34 +135,56 @@ const OrgsEvent = () => {
     if (title && description && content && openslots) {
       setLoading(true);
       if (title.length > 50)
+      {
+        setLoading(false);
         return dispatch({
           type: "NOTIFY",
           payload: {
             error: "The title is too long. (Not longer than 50 characters!)",
           },
         });
+      }
+      
       if (description.length < 10)
+      {
+        setLoading(false);
         return dispatch({
           type: "NOTIFY",
           payload: { error: "The description is too short" },
         });
+      }
+      
       if (description.length > 50)
+      {
+        setLoading(false);
+
         return dispatch({
           type: "NOTIFY",
           payload: { error: "The description is too long" },
         });
-      if (content.length < 10)
+      }
+       
+      if (content.length < 10){
+        setLoading(false);
+
         return dispatch({
           type: "NOTIFY",
           payload: { error: "The content is too short" },
         });
-      if (openslots <= 0)
+      }
+        
+      if (openslots <= 0){
+        setLoading(false);
+
         return dispatch({
           type: "NOTIFY",
           payload: {
             error: "The amount of openslots can't be zero or negative",
           },
         });
+      }
+    
+        
 
       let media;
       console.log(images)
@@ -193,6 +215,7 @@ const OrgsEvent = () => {
           payload: { error: "An error in the event-creation has occured!" },
         });
       }
+      setLoading(false);
       return dispatch({
         type: "NOTIFY",
         payload: { success: "Event created!" },
@@ -281,11 +304,11 @@ const OrgsEvent = () => {
     
    if(loading){
     console.log("on");
-    body.style.overflow = "visible";
+    // body.style.overflow = "visible";
    }
    else{
     console.log("off");
-    body.style.overflow = "hidden";
+    // body.style.overflow = "hidden";
 
    }
     

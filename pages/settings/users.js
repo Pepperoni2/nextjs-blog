@@ -2,11 +2,11 @@ import Head from "next/head";
 import { useContext, useState } from "react";
 import { DataContext } from "../../store/GlobalState";
 import Link from "next/link";
-import Modal from "../../components/Modal"
+import Modal from "../../components/Modal";
 import styles from "../../styles/modules/users_admin.module.scss";
 import NavEvents from "../../components/NavEvents";
 import { HiOutlineTrash } from "react-icons/hi";
-
+import { BsPencil } from "react-icons/bs";
 const Users = () => {
   const { state, dispatch } = useContext(DataContext);
   const { users, auth, organizers } = state;
@@ -22,13 +22,13 @@ const Users = () => {
   };
 
   // const switchModal = () => {
-    // if (isOpen) {
-    //   setIsOpen(false);
-    // } else {
-      
-    // }
-    // setIsOpen(true);
-    
+  // if (isOpen) {
+  //   setIsOpen(false);
+  // } else {
+
+  // }
+  // setIsOpen(true);
+
   // }
 
   return (
@@ -47,7 +47,7 @@ const Users = () => {
               <th>Avatar</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Admin</th>
+              <th>Level</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -58,11 +58,7 @@ const Users = () => {
                 <th>{user._id}</th>
                 <th>
                   <div>
-                    <img
-                      src={user.avatar}
-                      alt={user.avatar}
-                      
-                    />
+                    <img src={user.avatar} alt={user.avatar} />
                   </div>
                 </th>
                 <th>{user.name}</th>
@@ -79,19 +75,17 @@ const Users = () => {
                   )}
                 </th>
                 <th>
-                  <Link
-                    href={
+                 
+                 <a href={
                       auth.user.root && auth.user.email !== user.email
                         ? `/settings/edit_user/${user._id}`
                         : `#!`
-                    }
-                  >
-                    <a>link</a>
-                  </Link>
+                    }> <BsPencil className={styles.pencil}></BsPencil>
+                  </a> 
 
                   {auth.user.root && auth.user.email !== user.email ? (
                     <HiOutlineTrash
-                      onClick={()=>{
+                      onClick={() => {
                         if (isOpen) {
                           setIsOpen(false);
                         } else {
@@ -105,10 +99,9 @@ const Users = () => {
                               mode: "user",
                               option: "delete",
                             },
-                          })
+                          });
                         }
                         setIsOpen(true);
-
                       }}
                       className={styles.icon}
                     ></HiOutlineTrash>
@@ -118,18 +111,15 @@ const Users = () => {
                 </th>
               </tr>
             ))}
+
             {/* ----------------------------------- */}
-             {organizers.map((user, index) => (
+            {organizers.map((user, index) => (
               <tr key={user._id}>
                 <th>{index + 1}</th>
                 <th>{user._id}</th>
                 <th>
                   <div>
-                    <img
-                      src={user.avatar}
-                      alt={user.avatar}
-                      
-                    />
+                    <img src={user.avatar} alt={user.avatar} />
                   </div>
                 </th>
                 <th>{user.name}</th>
@@ -146,19 +136,17 @@ const Users = () => {
                   )}
                 </th>
                 <th>
-                  <Link
-                    href={
+                 
+                  <a href={
                       auth.user.root && auth.user.email !== user.email
                         ? `/settings/edit_user/${user._id}`
                         : `#!`
-                    }
-                  >
-                    <a>link</a>
-                  </Link>
-
+                    }> <BsPencil className={styles.pencil}></BsPencil>
+                  </a> 
+                 
                   {auth.user.root && auth.user.email !== user.email ? (
                     <HiOutlineTrash
-                      onClick={()=>{
+                      onClick={() => {
                         if (isOpen) {
                           setIsOpen(false);
                         } else {
@@ -172,10 +160,9 @@ const Users = () => {
                               mode: "user",
                               option: "delete",
                             },
-                          })
+                          });
                         }
                         setIsOpen(true);
-
                       }}
                       className={styles.icon}
                     ></HiOutlineTrash>
