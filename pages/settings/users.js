@@ -6,7 +6,7 @@ import Modal from "../../components/Modal"
 import styles from "../../styles/modules/users_admin.module.scss";
 import NavEvents from "../../components/NavEvents";
 import { HiOutlineTrash } from "react-icons/hi";
-
+import {BsPencil} from "react-icons/bs";
 const Users = () => {
   const { state, dispatch } = useContext(DataContext);
   const { users, auth, organizers } = state;
@@ -47,7 +47,7 @@ const Users = () => {
               <th>Avatar</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Admin</th>
+              <th>Level</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -88,6 +88,7 @@ const Users = () => {
                   >
                     <a>link</a>
                   </Link>
+                  <BsPencil className={styles.pencil}></BsPencil>
 
                   {auth.user.root && auth.user.email !== user.email ? (
                     <HiOutlineTrash
@@ -118,6 +119,7 @@ const Users = () => {
                 </th>
               </tr>
             ))}
+
             {/* ----------------------------------- */}
              {organizers.map((user, index) => (
               <tr key={user._id}>
@@ -155,7 +157,7 @@ const Users = () => {
                   >
                     <a>link</a>
                   </Link>
-
+                  <BsPencil className={styles.pencil}></BsPencil>
                   {auth.user.root && auth.user.email !== user.email ? (
                     <HiOutlineTrash
                       onClick={()=>{

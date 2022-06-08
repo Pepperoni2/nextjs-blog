@@ -211,15 +211,31 @@ const Profile = () => {
               </div>
             </div>
             <div className={styles.item}>
-              <div className={styles.divinput}>
-                <label className={styles.label} htmlFor="password">
-                  New Password
+              <div className={styles.divinput} id={styles.specialdivinput}>
+                <label className={styles.label} id={styles.specialLabel2} htmlFor="password">
+                  Confirm old password to change password
                 </label>
                 <input
                   className={styles.inputs}
                   type="password"
                   name="password"
-                  value={password}
+                  defaultValue={auth.user.email}
+                  disabled={false}
+                  placeholder="Confirm old password"
+                />
+                <span className={styles.textspan}></span>
+              </div>
+            </div>
+            <div className={styles.item}>
+              <div className={styles.divinput}>
+                <label className={styles.label} htmlFor="password">
+                  New password
+                </label>
+                <input
+                  className={styles.inputs}
+                  type="password"
+                  name="password"
+                  value={""}
                   placeholder="Your new password"
                   onChange={handleChange}
                 />
@@ -229,7 +245,7 @@ const Profile = () => {
             <div className={styles.item}>
               <div className={styles.divinput}>
                 <label id={styles.specialLabel} className={styles.label}>
-                  Confirm New Password
+                  Confirm new password
                 </label>
                 <input
                   className={styles.inputs}

@@ -96,7 +96,7 @@ export default function Home() {
         <div className={styles.pdiv}>
           <div className={styles.phelp}>
             <p className={styles.p1}>
-              Start <strong> now</strong>!
+              Start now!
             </p>
           </div>
           <div className={styles.flexbt}>
