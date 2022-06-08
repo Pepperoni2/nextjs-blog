@@ -80,6 +80,32 @@
     }
     
   }
+  .is_there{
+    transform: scale(1);
+    /* display: flex; */
+    position: relative;
+    opacity: 1;
+
+    }
+    .is_notthere{
+    transform: scale(0);
+    /* display: none; */
+    position: absolute;
+    opacity: 0;
+    }
+    .confirm_ishere{
+      transform: scale(1);
+      /* display: flex; */
+      position: relative;
+      opacity: 1;
+    }
+    .confirm_isnothere{
+      transform: scale(0);
+    /* display: none; */
+    position: absolute;
+    opacity: 0;
+    }
+    
   @media only screen and (max-width: 900px) {
    
     .backgroundBurger {

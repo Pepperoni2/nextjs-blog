@@ -55,7 +55,8 @@ export default function NavigationLeftP() {
     if (window.innerWidth > 900) setClick(false);
   };
   useEffect(() => {
-    const Buttons = document.querySelector("#AfterButtons");
+    try {
+      const Buttons = document.querySelector("#AfterButtons");
     const Lines = document.querySelector(".backgroundBurger");
     // console.log(burger);
     // console.log(Lines);
@@ -82,6 +83,10 @@ export default function NavigationLeftP() {
       Lines.classList.remove("rotation");
 
     }
+    } catch (error) {
+      console.log(error);
+    }
+    
   }, [clicked]);
 
   const loggedRouter = () => {

@@ -8,6 +8,10 @@ import { ImageUpload } from "../../util/imageUpload";
 import NavigationLeftO from "../../components/navigationO_after";
 import styles from "../../styles/modules/afterlogin/profile.module.scss";
 import Footer from "/components/footer";
+import { BsCheckCircle } from "react-icons/bs";
+import burgerstyles from "/styles/modules/afterlogin/burger_after.module.scss";
+import { Router } from "react-router-dom";
+
 
 // Profile page stylen, navigation sollte am besten gleich bleiben
 // Style es wie du es willst
@@ -21,7 +25,7 @@ const Profile = () => {
   };
   const [data, setData] = useState(initialState);
   const { avatar, name, password, cf_password } = data;
-
+  const router = useRouter();
   const { state, dispatch } = useContext(DataContext);
   const { auth, notify } = state;
 
@@ -47,6 +51,7 @@ const Profile = () => {
     }
 
     if (name !== auth.user.name || avatar) updateInfo();
+    router.push("/organizer");
   };
   // ------------------------------------------
 
@@ -118,6 +123,45 @@ const Profile = () => {
   };
 
   if (!auth.user) return null;
+  const [clicked1, setClick] = useState(false);
+
+  const toggleState = () => {
+    if (clicked1) {
+      setClick(false);
+    } else {
+      setClick(true);
+    }
+  };
+
+  useEffect(() => {
+    try {
+      const inputpsw1 = document.querySelector("#password1");
+      const inputpsw2 = document.querySelector("#password2");
+      const confirm = document.querySelector("#divconfirm");
+      // const checkbtn = document.querySelector("#check");
+      // console.log(inputpsw1);
+      console.log(confirm);
+
+      if (clicked1) {
+        inputpsw1.classList.remove("is_notthere");
+        inputpsw2.classList.remove("is_notthere");
+        inputpsw1.classList.add("is_there");
+        inputpsw2.classList.add("is_there");
+        confirm.classList.add("confirm_isnothere");
+        confirm.classList.remove("confirm_ishere");
+       
+      } else {
+        inputpsw1.classList.add("is_notthere");
+        inputpsw2.classList.add("is_notthere");
+        inputpsw1.classList.remove("is_there");
+        inputpsw2.classList.remove("is_there");
+        confirm.classList.remove("confirm_isnothere");
+        confirm.classList.add("confirm_ishere");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [clicked1]);
 
   return (
     <div className={styles.wrapper}>
@@ -210,23 +254,36 @@ const Profile = () => {
                 <span className={styles.textspan}></span>
               </div>
             </div>
-            <div className={styles.item}>
+            <div className={styles.item} id="divconfirm">
               <div className={styles.divinput} id={styles.specialdivinput}>
-                <label className={styles.label} id={styles.specialLabel2} htmlFor="password">
+                <label
+                  className={styles.label}
+                  id={styles.specialLabel2}
+                  htmlFor="password"
+                >
                   Confirm old password to change password
                 </label>
-                <input
-                  className={styles.inputs}
-                  type="password"
-                  name="password"
-                  defaultValue={auth.user.email}
-                  disabled={false}
-                  placeholder="Confirm old password"
-                />
-                <span className={styles.textspan}></span>
+                <div className={styles.group}>
+                  <input
+                    id="confirm_inp"
+                    className={styles.inputs}
+                    type="password"
+                    name="password"
+                    defaultValue={""}
+                    disabled={false}
+                    placeholder="Confirm old password"
+                  />
+                  <span className={styles.confirm}>
+                    <BsCheckCircle
+                    id="check"
+                      className={styles.check}
+                      onClick={toggleState}
+                    ></BsCheckCircle>
+                  </span>
+                </div>
               </div>
             </div>
-            <div className={styles.item}>
+            <div className={styles.item} id="password1">
               <div className={styles.divinput}>
                 <label className={styles.label} htmlFor="password">
                   New password
@@ -242,7 +299,7 @@ const Profile = () => {
                 <span className={styles.textspan}></span>
               </div>
             </div>
-            <div className={styles.item}>
+            <div className={styles.item} id="password2">
               <div className={styles.divinput}>
                 <label id={styles.specialLabel} className={styles.label}>
                   Confirm new password
