@@ -76,9 +76,21 @@ $color-fourth: #e8dbc9;
             
             a {
               text-decoration: none;
-              border-right: 1px solid #292627;
+              // border-right: 1px solid #292627;
               // padding: 10px;
-               display: none;
+              cursor: pointer;
+              margin: 3px;
+              color: #251e21;
+              .pencil{
+                
+                border-radius: 10%;
+                
+  
+                &:hover{
+                  color: #e8dbc9;
+  
+                }
+              }
             }
             //   display: flex;
             //   justify-content: space-evenly;
@@ -95,16 +107,7 @@ $color-fourth: #e8dbc9;
                 color: #e8dbc9;
               }
             }
-            .pencil{
-              cursor: pointer;
-              border-radius: 10%;
-              margin: 3px;
-
-              &:hover{
-                color: #e8dbc9;
-
-              }
-            }
+            
           }
           &:nth-child(3) {
             display: flex;
