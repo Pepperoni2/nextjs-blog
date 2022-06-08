@@ -13,7 +13,7 @@ import Loading from "/components/Loading";
 const OrgsEvent = () => {
   const { state, dispatch } = useContext(DataContext);
   const { auth, notify } = state;
-  if (Object.keys(auth).length !== 0) {
+  
     const initialState = {
       title: "",
       description: "",
@@ -23,9 +23,9 @@ const OrgsEvent = () => {
       organizer: auth.user.id,
       images: [{ public_id: "", url: "" }],
     };
-  }
+    const [eventData, setData] = useState(initialState);
  
-  const [eventData, setData] = useState(initialState);
+  
   const {
     title,
     description,
@@ -189,7 +189,7 @@ const OrgsEvent = () => {
       let media;
       console.log(images)
       if (images) media = await ImageUpload([images]);
-      // setData({ ...eventData, organizer: auth.user.id });
+      setData({ ...eventData, organizer: auth.user.id });
       console.log(organizer)
       console.log(openslots)
       console.log(eventData)
@@ -388,7 +388,7 @@ const OrgsEvent = () => {
                     wo man die Kategorie auswählen könnte,
                     wie z.B. Erholung, Party, Schulung usw. */}
 
-            <div className={styles.inputsec}>
+            <div className={styles.inputsec} data-tap-disable="true">
               <label htmlFor="category" className={styles.categorylabel}>
                 Category
               </label>
