@@ -134,7 +134,7 @@ export default function Distributor(params, props) {
                 see any specific data related to the event.
 
               </motion.div>
-              <motion.div
+              {/* <motion.div
                 className={styles.textdiv}
                 custom={3}
                 animate={controls}
@@ -146,7 +146,7 @@ export default function Distributor(params, props) {
                 do. Commodo esse consequat nostrud aute sunt qui ut pariatur ad
                 anim ad dolore nostrud. Laborum magna incididunt aute magna duis
                 deserunt ut duis ipsum nisi consectetur laboris sunt.
-              </motion.div>
+              </motion.div> */}
               
                 <ScrollToTop></ScrollToTop>
              

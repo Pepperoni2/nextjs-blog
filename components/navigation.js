@@ -4,6 +4,8 @@ import { DataContext } from "../store/GlobalState";
 import { motion } from "framer-motion";
 import burgerstyles from "../styles/modules/burger.module.scss";
 import { el } from "date-fns/locale";
+import Icon from "../components/Icon.js";
+
 function Nav(props) {
   const [clientWindowHeight, setClientWindowHeight] = useState("");
 
@@ -145,7 +147,8 @@ function Nav(props) {
         <div id="wrph1">
           <div id="wrplh">
             <Link href="/">
-              <div id="logo"></div>
+            <a><Icon></Icon></a>
+              
             </Link>
 
             <Link href="/">

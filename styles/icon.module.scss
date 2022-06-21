@@ -1,0 +1,16 @@
+$color-first: #e97231;
+$color-second: #292627;
+$color-third: #251e21;
+$color-fourth: #e8dbc9;
+.div{
+width: 30%;
+// background-color: aliceblue;
+
+z-index: 99;
+    svg{
+        background-color: #e8dbc975;
+        border-radius: 100%;
+        box-shadow: 0 0 10px #e8dbc9;
+       cursor: pointer;
+    }
+}
